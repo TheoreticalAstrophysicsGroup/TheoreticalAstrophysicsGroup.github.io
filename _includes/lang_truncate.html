@@ -1,0 +1,15 @@
+{% assign text = include.text %}
+{% if include.nja %} {% assign nja = include.nja %} {% else %} {% assign nja = 250 %} {% endif %}
+{% if include.nen %} {% assign nen = include.nen %} {% else %} {% assign nen = 50 %} {% endif %}
+{% assign numc = text | strip_html | size %}
+{% assign numw = text | strip_html | number_of_words %}
+{% if numw > 0 %}
+  {% assign ratio = numc | divided_by: numw %}
+{% else %}
+  {% assign ratio = 1000 %}
+{% endif %}
+{% if page.lang == 'ja' or ratio > 15 %}
+  <p>{{ text | truncate: nja }}</p>
+{% else %}
+  <p>{{ text | truncatewords: nen }}</p>
+{% endif %}

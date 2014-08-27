@@ -1,0 +1,62 @@
+# Site settings
+title: Theoretical Astrophysics Group
+email: ayw@ccs.tsukuba.ac.jp
+webmaster: Alex Wagner
+description: "Theoretical Astrophysics Group, Center for Computational Sciences, University of Tsukuba. We research in Numerical Astrophysics, High-performance Computing, Radiation Hydrodynamics, Galaxy Evolution, Cosmology, First Stars, and much much more."
+baseurl: '/ccs-astro'
+#url: ''
+
+timezone: Asia/Tokyo
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+#permalink: /:categories/:year-:month-:day-:title.html
+
+# Exclude
+exclude: [.git, .gitignore, vendor]
+
+
+# Defaults for categories
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      lang: ja
+  -
+    scope:
+      path: seminars
+    values:
+      layout: single_seminar
+  -
+    scope:
+      path: news
+    values:
+      layout: single_news
+  -
+    scope:
+      path: achievements
+    values:
+      layout: single_achievement
+  -
+    scope:
+      path: uchu_forum
+    values:
+      layout: single_uchu_forum
+  -
+    scope:
+      path: conferences
+    values:
+      layout: single_conference
+  -
+    scope:
+      path: featured
+    values:
+      layout: single_featured
+  -
+    scope:
+      path: members
+    values:
+      layout: single_member
+

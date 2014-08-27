@@ -1,0 +1,102 @@
+---
+layout: default
+---
+
+{% assign tcll = site.data.translations.categories.long.[page.lang] %}
+{% assign la = site.data.links.assets %}
+
+{% include page_header.html title=tcll.featured %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <section>
+
+
+      <!-- Language dependent surrounds -->
+      <!-- This creates open_surround and close_surround variables into the namespace -->
+      {% include lang_surround.html shape='round' %}
+
+      <h2 class="post-title">{{ page.title }}</h2>
+        <!-- AYW 2014-06-23 13:30 JST Some tips for content
+             - Use <strong></strong> for emphasis,
+             - <p></p>, <p class="lead"></p> for leading text, 
+             - and <h3> for sub-titles
+             - Put all images in img and use: <img src="img/7.jpg" class="img-responsive imageborder" alt="Image"> 
+        -->
+        {% for auth in page.authors %}
+        <h4>{{ auth.name }}{{ open_surround }}{{ auth.affil }}{{ close_surround }}</h4>
+        {% endfor %}
+
+        <br/>
+
+        {% assign content_array = page.content | split: '<p>' %}
+        {% assign nc = content_array | size %}
+        {% assign ni = page.img | size %}
+
+        {% if ni > 0 %} {% assign ncpni = nc | divided_by: ni %}
+        {% else %} {% assign ncpni = nc %}
+        {% endif %}
+
+        <img src="{{ site.baseurl }}{{ la.img }}/{{ page.img[0] }}" class="img-responsive" alt="Image" />
+
+        {% assign iimg = 1 %}
+
+        {% for c in content_array %}
+
+          <p>{{ c }}
+          
+          {% if ncpni < 1  %}
+
+            {% assign ncpni = ncpni | times: 2 %}
+
+            {% assign iimg1 = forloop.index | times: 2 | minus: 1 %}
+            {% assign iimg2 = forloop.index | times: 2 %}
+            {% assign img1 = page.img[iimg1] %}
+            {% assign img2 = page.img[iimg2] %}
+
+            {% if img1 %} <img src="{{ site.baseurl }}{{ la.img }}/{{ img1 }}" class="im-responsive alignleft" alt="Image" style="max-width: 25em" /> {% endif %}
+            {% if img2 %} <img src="{{ site.baseurl }}{{ la.img }}/{{ img2 }}" class="im-responsive alignright" alt="Image" style="max-width: 25em" /> {% endif %}
+
+          {% else %}
+
+            {% assign mfi = iimg | modulo: 2 %}
+            {% if mfi == 1 %}
+              {% assign imgclass = 'img-responsive alignright' %}
+              {% assign imgstyle = 'max-width: 30em; ' %}
+            {% else %} 
+              {% assign imgclass = 'img-responsive alignleft' %}
+              {% assign imgstyle = 'max-width: 30em; ' %}
+            {% endif %}
+
+            {% assign fimodiimg = forloop.index | modulo: ncpni %}
+            {% if fimodiimg == 0 and page.img[iimg] %}
+            <img src="{{ site.baseurl }}{{ la.img }}/{{ page.img[iimg] }}" class="{{ imgclass }}" alt="Image" style="{{ imgstyle }}"/>
+            {% assign iimg = iimg | plus: 1 %}
+            {% endif %}
+
+          {% endif %}
+
+        {% endfor %}
+
+
+      </section>
+
+    </div>
+
+    <div class="col-md-4">
+      <aside class="sidebar">
+
+        <!-- AYW 2014-06-22 13:26 JST Not yet programmed -->
+        <!-- {% raw %} {% include aside_search.html %} {% endraw %} -->
+
+        {% include aside_nav_single.html %}
+
+        <!-- AYW 2014-06-22 13:44 JST Do we really need one? -->
+        <!-- {% raw %} {% include aside_featured.html %} {% endraw %} -->
+
+      </aside>
+    </div> <!-- col -->
+
+  </div> <!-- row -->
+</div> <!-- container  -->

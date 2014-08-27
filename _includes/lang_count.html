@@ -1,0 +1,16 @@
+<!-- English number count suffix creation 
+     This creates an lang_count variable -->
+
+{% assign number = include.number %}
+{% if page.lang == 'en' %}
+  {% assign trunc = number | size | minus: 1 %}
+  {% assign d1 = number | modulo: 10 %}
+  {% assign d2 = number | divided_by: 10 | modulo: 10 %}
+  {% if d2 == 1 %} {% assign lang_count = 'th' %}
+  {% elsif d1 == 1 %} {% assign lang_count = 'st' %}
+  {% elsif d1 == 2 %} {% assign lang_count = 'nd' %}
+  {% elsif d1 == 3 %} {% assign lang_count = 'rd' %}
+  {% else %}{% assign lang_count = 'th' %}
+  {% endif %}
+{% else %} {% assign lang_count = "" %}
+{% endif %}

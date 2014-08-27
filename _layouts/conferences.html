@@ -1,0 +1,409 @@
+---
+layout: default
+---
+
+{% assign tcl = site.data.translations.conferences.[page.lang] %}
+{% assign tpl = site.data.translations.post_gen.[page.lang] %}
+{% assign tcll = site.data.translations.categories.long.[page.lang] %}
+{% assign la = site.data.links.assets %}
+{% assign lel = site.data.links.external.[page.lang] %}
+{% assign li = site.data.links.internal %}
+
+{% include page_header.html title=tcll.conferences %}
+
+<!-- AYW 2014-07-04 13:32 JST
+     We wish to sort by date and group by tags-->
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-4 hidden-md hidden-lg">
+
+      {% include aside_pills_conf.html %}
+
+      <br/>
+
+      {% include aside_nav.html %}
+
+    </div> <!-- col -->
+
+ 
+    <!-- academic year range -->
+    {% assign page_url = page.url | split: '/' %}
+    {% assign pageyear = page_url[2] %}
+    {% if pageyear == page.lang %}
+      {% assign pageyear = site.time | date: "%Y" %}
+    {% endif %}
+    {% assign yearbegin = pageyear | append: '-04-01' %}
+    {% assign yearend = pageyear | plus: 1 | append: '-03-31' %}
+    {% assign yearbegin = yearbegin | date: "%s" | times: 1 %} 
+    {% assign yearend = yearend | date: "%s" | times: 1 %} 
+
+    <!-- Limit number of posts on non-archive pages -->
+    {% assign page_year = page_url[2] %}
+    {% if page_year == page.lang %}
+      {% assign posts_per_page = 8 %}
+    {% else %}
+      {% assign posts_per_page = 1024 %}
+    {% endif %}
+
+
+    <div class="col-md-8">
+
+      {% if page_year == page.lang %}
+      <h3 id="current" class="section-title">{{ tcl.current }}</h3>
+      {% assign at_least_one = false %}
+
+      <!-- Items shown if they are within from and to -->
+      {% assign age_1day = 86400 %} <!-- a day in unix time -->
+
+      {% assign confs = site.categories['ccs']  | where: 'lang', page.lang %}
+      {% for post in confs %}
+
+      <!-- Compare using unix time -->
+      <!-- Add a day to the to date because unix time starts at 9:00 -->
+      {% assign cfrom = post.from | date: "%s"| times: 1 %}
+      {% assign cto = post.to | date: "%s" | plus: age_1day %}
+      {% assign cdate = site.time | date: "%s" | times: 1 %}
+
+      {% if cfrom < cdate and cto > cdate %}
+
+      {% assign delay_add = forloop.index | mod: posts_per_page | times: 3 %}
+      {% assign delay = 8 | plus: delay_add %}
+
+      <article class="post animated fadeInLeft animation-delay-{{ delay }}">
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+          {% if post.web %} {% assign posturl = post.web | prepend: site.baseurl %}
+          {% else %} {% assign posturl = post.url | prepend: site.baseurl %} {% endif %}
+          <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a></h3>
+          <div class="row">
+            <div class="col-lg-6">
+              {% if post.img %}
+              <img src="{{ site.baseurl }}{{ la.img }}/{{ post.img[0] }}" class="img-post img-responsive" alt="Image">{% endif %}
+            </div>
+            <div class="col-lg-6">
+              {% assign postscience = post.science | strip_html %}
+              {% include lang_truncate.html text=postscience %}
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-lg-10 col-md-9 col-sm-8">
+              <i class="fa fa-calendar fa-fw"></i> <a href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br /><i class="fa fa-map-marker fa-fw"></i> <a href="{{ lel.access }}" target="_blank">{{ post.place }}</a>
+              </div>
+              <div class="col-lg-2 col-md-3 col-sm-4">
+                <a href="{{ posturl }}" class="pull-right">{{ tpl.read_more }} &raquo;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </article> <!-- post -->
+      {% assign at_least_one = true %}
+      {% endif %} <!-- Date conditions -->
+      {% endfor %}
+      {% unless at_least_one %}
+      <p>{{ tcl.no_current }}</p>
+      {% endunless %}
+
+      <br />
+      <br />
+
+
+      <h3 id="future" class="section-title">{{ tcl.future }}</h3>
+      {% assign at_least_one = false %}
+
+      <!-- Items shown if they are in the future -->
+      {% assign age_1day = 86400 %} <!-- a day in unix time -->
+
+      {% assign confs = site.categories['ccs']  | where: 'lang', page.lang %}
+      {% for post in confs %}
+
+      <!-- Compare using unix time -->
+      {% assign cfrom = post.from | date: "%s"| times: 1 %}
+      {% assign cto = post.to | date: "%s" | plus: age_1day %}
+      {% assign cdate = site.time | date: "%s" | times: 1 %}
+
+      {% if cfrom > cdate %}
+
+      {% assign delay_add = forloop.index | mod: posts_per_page | times: 3 %}
+      {% assign delay = 8 | plus: delay_add %}
+
+      <article class="post animated fadeInLeft animation-delay-{{ delay }}">
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+          {% if post.web %} {% assign posturl = post.web | prepend: site.baseurl %}
+          {% else %} {% assign posturl = post.url | prepend: site.baseurl %} {% endif %}
+          <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a></h3>
+          <div class="row">
+            <div class="col-lg-6">
+              {% if post.img %}
+              <img src="{{ site.baseurl }}{{ la.img }}/{{ post.img[0] }}" class="img-post img-responsive" alt="Image">{% endif %}
+            </div>
+            <div class="col-lg-6">
+              {% assign postscience = post.science | strip_html %}
+              {% include lang_truncate.html text=postscience %}
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-lg-10 col-md-9 col-sm-8">
+              <i class="fa fa-calendar fa-fw"></i> <a href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br /><i class="fa fa-map-marker fa-fw"></i> <a href="{{ lel.access }}" target="_blank">{{ post.place }}</a>
+              </div>
+              <div class="col-lg-2 col-md-3 col-sm-4">
+                <a href="{{ posturl }}" class="pull-right">{{ tpl.read_more }} &raquo;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </article> <!-- post -->
+      {% assign at_least_one = true %}
+      {% endif %} <!-- Date conditions -->
+      {% endfor %}
+      {% unless at_least_one %}
+      <p>{{ tcl.no_future }}</p>
+      {% endunless %}
+
+      <br />
+      <br />
+
+      {% endif %}
+
+      <h3 id="past" class="section-title">{{ tcl.past }}</h3>
+      {% assign at_least_one = false %}
+
+      <!-- Posts will be shown if they are in the past -->
+      {% assign age_1day = 86400 %} <!-- a day in unix time -->
+
+      {% assign confs = site.categories['ccs']  | where: 'lang', page.lang %}
+      {% for post in confs %}
+
+      <!-- Compare using unix time -->
+      {% assign cfrom = post.from | date: "%s"| times: 1 %}
+      {% assign cto = post.to | date: "%s" | plus: age_1day %}
+      {% assign cdate = site.time | date: "%s" | times: 1 %}
+
+      {% if cfrom >= yearbegin and cfrom <= yearend and cto < cdate %}
+        {% assign time_interval = true %}
+      {% else %}
+        {% assign time_interval = false %}
+      {% endif %}
+
+      {% if page_url[2] == page.lang and cto < cdate %}
+        {% assign landing_page = true %}
+      {% else %}
+        {% assign landing_page = false %}
+      {% endif %}
+
+      {% if time_interval or landing_page %}
+
+      {% assign delay_add = forloop.index | mod: posts_per_page | times: 3 %}
+      {% assign delay = 8 | plus: delay_add %}
+
+      <article class="post animated fadeInLeft animation-delay-{{ delay }}">
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+          {% if post.web %} {% assign posturl = post.web | prepend: site.baseurl %}
+          {% else %} {% assign posturl = post.url | prepend: site.baseurl %} {% endif %}
+          <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a></h3>
+          <div class="row">
+            <div class="col-lg-6">
+              {% if post.img %}
+              <img src="{{ site.baseurl }}{{ la.img }}/{{ post.img[0] }}" class="img-post img-responsive" alt="Image">{% endif %}
+            </div>
+            <div class="col-lg-6">
+              {% assign postscience = post.science | strip_html %}
+              {% include lang_truncate.html text=postscience %}
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-lg-10 col-md-9 col-sm-8">
+              <i class="fa fa-calendar fa-fw"></i> <a href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br /><i class="fa fa-map-marker fa-fw"></i> <a href="{{ lel.access }}" target="_blank">{{ post.place }}</a>
+              </div>
+              <div class="col-lg-2 col-md-3 col-sm-4">
+                <a href="{{ posturl }}" class="pull-right">{{ tpl.read_more }} &raquo;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </article> <!-- post -->
+      {% assign at_least_one = true %}
+      {% endif %} <!-- Date conditions -->
+      {% endfor %}
+      <p>{{ tcl.archive_msg }}</p>
+
+      <br />
+      <br />
+
+
+      <h3 id="abroad" class="section-title">{{ tcl.abroad }}</h3>
+      {% assign at_least_one = false %}
+
+      <!-- Items shown if they are less than one year and three months old -->
+      {% assign age_15mo = 39312000 %} <!-- 15 months in unix time-->
+      {% assign age_1day = 86400 %} <!-- a day in unix time -->
+
+      {% assign confs = site.categories['abroad']  | where: 'lang', page.lang %}
+      {% for post in confs %}
+
+      <!-- Compare using unix time -->
+      {% assign cfrom = post.from | date: "%s"| times: 1 %}
+      {% assign cto = post.to | date: "%s" | plus: age_1day %}
+      {% assign cdate = site.time | date: "%s" | minus: age_15mo %}
+
+      {% if cfrom >= yearbegin and cfrom <= yearend %}
+        {% assign time_interval = true %}
+      {% else %}
+        {% assign time_interval = false %}
+      {% endif %}
+      {% if time_interval or page_url[2] == page.lang %}
+
+      {% if cfrom > cdate %}
+
+      {% assign delay_add = forloop.index | mod: posts_per_page | times: 3 %}
+      {% assign delay = 8 | plus: delay_add %}
+
+      <article class="post animated fadeInLeft animation-delay-{{ delay }}">
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+          {% if post.web %} {% assign posturl = post.web | prepend: site.baseurl %}
+          {% else %} {% assign posturl = post.url | prepend: site.baseurl %} {% endif %}
+          <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a>
+            {% if page.web %}<font size="1"><i class="fa fa-external-link"></i></font>{% endif %}</h3>
+          <div class="row">
+            <div class="col-lg-6">
+              {% if post.img %}
+              <img src="{{ site.baseurl }}{{ la.img }}/{{ post.img[0] }}" class="img-post img-responsive" alt="Image">{% endif %}
+            </div>
+            <div class="col-lg-6">
+              {% assign postscience = post.science | strip_html %}
+              {% include lang_truncate.html text=postscience %}
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-lg-10 col-md-9 col-sm-8">
+              <i class="fa fa-calendar fa-fw"></i> <a href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br /><i class="fa fa-map-marker fa-fw"></i> <a href="{{ lel.access }}" target="_blank">{{ post.place }}</a>
+              </div>
+              <div class="col-lg-2 col-md-3 col-sm-4">
+                {% if page.web %}<font size="1"><i class="fa fa-external-link"></i></font>{% endif %}
+                <a href="{{ posturl }}" class="pull-right">{{ tpl.read_more }} &raquo;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </article> <!-- post -->
+      {% assign at_least_one = true %}
+      {% endif %}
+      {% endif %} <!-- Date conditions -->
+      {% endfor %}
+      {% if at_least_one %}
+        <p>{{ tcl.archive_msg }}</p>
+      {% else %}
+        <p>{{ tcl.no_abroad }}</p>
+      {% endif %}
+
+      <br />
+      <br />
+
+
+      <h3 id="domestic" class="section-title">{{ tcl.domestic }}</h3>
+      {% assign at_least_one = false %}
+
+      <!-- Items shown if they are less than one year and three months old -->
+      {% assign age_15mo = 39312000 %} <!-- 15 months in unix time-->
+      {% assign age_1day = 86400 %} <!-- a day in unix time -->
+
+      {% assign confs = site.categories['domestic']  | where: 'lang', page.lang %}
+      {% for post in confs %}
+
+      <!-- Compare using unix time -->
+      {% assign cfrom = post.from | date: "%s"| times: 1 %}
+      {% assign cto = post.to | date: "%s" | plus: age_1day %}
+      {% assign cdate = site.time | date: "%s" | minus: age_15mo %}
+
+      {% if cfrom >= yearbegin and cfrom <= yearend %}
+        {% assign time_interval = true %}
+      {% else %}
+        {% assign time_interval = false %}
+      {% endif %}
+      {% if time_interval or page_url[2] == page.lang %}
+
+      {% if cfrom > cdate %}
+
+      {% assign delay_add = forloop.index | mod: posts_per_page | times: 3 %}
+      {% assign delay = 8 | plus: delay_add %}
+
+      <article class="post animated fadeInLeft animation-delay-{{ delay }}">
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+          {% if post.web %} {% assign posturl = post.web | prepend: site.baseurl %}
+          {% else %} {% assign posturl = post.url | prepend: site.baseurl %} {% endif %}
+          <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a>
+            {% if page.web %}<font size="1"><i class="fa fa-external-link"></i></font>{% endif %}</h3>
+          <div class="row">
+            <div class="col-lg-6">
+              {% if post.img %}
+              <img src="{{ site.baseurl }}{{ la.img }}/{{ post.img[0] }}" class="img-post img-responsive" alt="Image">{% endif %}
+            </div>
+            <div class="col-lg-6">
+              {% assign postscience = post.science | strip_html %}
+              {% include lang_truncate.html text=postscience %}
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-lg-10 col-md-9 col-sm-8">
+              <i class="fa fa-calendar fa-fw"></i> <a href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br /><i class="fa fa-map-marker fa-fw"></i> <a href="{{ lel.access }}" target="_blank">{{ post.place }}</a>
+              </div>
+              <div class="col-lg-2 col-md-3 col-sm-4">
+                {% if page.web %}<font size="1"><i class="fa fa-external-link"></i></font>{% endif %}
+                <a href="{{ posturl }}" class="pull-right">{{ tpl.read_more }} &raquo;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </article> <!-- post -->
+      {% assign at_least_one = true %}
+      {% endif %}
+      {% endif %} <!-- Date conditions -->
+      {% endfor %}
+      {% if at_least_one %}
+        <p>{{ tcl.archive_msg }}</p>
+      {% else %}
+        <p>{{ tcl.no_domestic }}</p>
+      {% endif %}
+
+      <br />
+      <br />
+
+    </div> <!-- col-md-8 -->
+
+    <div class="col-md-4 hidden-xs hidden-sm">
+      <aside class="sidebar">
+
+      {% include aside_pills_conf.html %}
+
+      <br/>
+
+      {% include aside_nav.html dup=true %}
+
+      </aside> <!-- Sidebar -->
+    </div> 
+
+  </div> <!-- row -->
+</div> <!-- container  -->
+
+

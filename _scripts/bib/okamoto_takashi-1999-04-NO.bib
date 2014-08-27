@@ -1,0 +1,1236 @@
+
+@ARTICLE{2014MNRAS.440..731S,
+   author = {{Shimizu}, I. and {Inoue}, A.~K. and {Okamoto}, T. and {Yoshida}, N.
+  },
+    title = "{Physical properties of UDF12 galaxies in cosmological simulations}",
+  journal = {\mnras},
+archivePrefix = "arXiv",
+   eprint = {1310.0114},
+ primaryClass = "astro-ph.CO",
+ keywords = {galaxies: evolution, galaxies: formation, galaxies: high-redshift, galaxies: luminosity function, mass function, cosmology: observations},
+     year = 2014,
+    month = may,
+   volume = 440,
+    pages = {731-745},
+ abstract = "{We have performed a large cosmological hydrodynamics simulation tailored
+to the deep survey with the Hubble Space Telescope made in 2012, the
+so-called UDF12 campaign. After making a light-cone output, we have
+applied the same colour-selection criteria as the UDF12 campaign to
+select galaxies from our simulation, and then, have examined the
+physical properties of them as a proxy of the real observed UDF12
+galaxies at z {\gt} 7. As a result, we find that the halo mass is almost
+linearly proportional to the observed ultraviolet (UV) luminosity (4
+{\times} 10$^{11}$M$_{⊙}$ at M$_{UV}$ = -21). The
+dust attenuation and UV slope {$\beta$} well correlates with the observed
+UV luminosity, which is consistent with observations quantitatively. The
+star formation rate (SFR) is also linearly proportional to the stellar
+mass and the specific SFR shows only a weak dependence on the mass. We
+also find an increasing star formation history with a time-scale of
+{\tilde}100 Myr in the high-z galaxies. An average metallicity weighted
+by the Lyman continuum luminosity reaches up to {\gt}0.1 Solar even at z
+{\tilde} 10, suggesting a rapid metal enrichment. We also expect {\ge}0.1
+mJy at 350 GHz of the dust thermal emission from the galaxies with
+H$_{160}$ {\le} 27, which can be detectable with the Atacama Large
+Millimetre-sub-millimetre Array. The galaxies selected by the UDF12
+survey contribute to only 52-12 per cent of the cosmic SFR density from
+z {\tilde} 7 to z {\tilde} 10, respectively. The James Webb Space
+Telescope will push the detection fraction up to 77-72 per cent.
+}",
+      doi = {10.1093/mnras/stu265},
+   adsurl = {http://adsabs.harvard.edu/abs/2014MNRAS.440..731S},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2013NewA...19...74T,
+   author = {{Tanikawa}, A. and {Yoshikawa}, K. and {Nitadori}, K. and {Okamoto}, T.
+  },
+    title = "{Phantom-GRAPE: Numerical software library to accelerate collisionless N-body simulation with SIMD instruction set on x86 architecture}",
+  journal = {\na},
+archivePrefix = "arXiv",
+   eprint = {1203.4037},
+ primaryClass = "astro-ph.IM",
+     year = 2013,
+    month = feb,
+   volume = 19,
+    pages = {74-88},
+ abstract = "{We have developed a numerical software library for collisionless N-body
+simulations named ''Phantom-GRAPE'' which highly accelerates force
+calculations among particles by use of a new SIMD instruction set
+extension to the x86 architecture, Advanced Vector eXtensions (AVX), an
+enhanced version of the Streaming SIMD Extensions (SSE). In our library,
+not only the Newton's forces, but also central forces with an arbitrary
+shape f(r), which has a finite cutoff radius r$_{cut}$ (i.e.
+f(r)=0 at r{\gt}r$_{cut}$), can be quickly computed. In computing
+such central forces with an arbitrary force shape f(r), we refer to a
+pre-calculated look-up table. We also present a new scheme to create the
+look-up table whose binning is optimal to keep good accuracy in
+computing forces and whose size is small enough to avoid cache misses.
+Using an Intel Core i7-2600 processor, we measure the performance of our
+library for both of the Newton's forces and the arbitrarily shaped
+central forces. In the case of Newton's forces, we achieve
+2{\times}10$^{9}$ interactions per second with one processor core
+(or 75 GFLOPS if we count 38 operations per interaction), which is 20
+times higher than the performance of an implementation without any
+explicit use of SIMD instructions, and 2 times than that with the SSE
+instructions. With four processor cores, we obtain the performance of
+8{\times}10$^{9}$ interactions per second (or 300 GFLOPS). In the
+case of the arbitrarily shaped central forces, we can calculate
+1{\times}10$^{9}$ and 4{\times}10$^{9}$ interactions per
+second with one and four processor cores, respectively. The performance
+with one processor core is 6 times and 2 times higher than those of the
+implementations without any use of SIMD instructions and with the SSE
+instructions. These performances depend only weakly on the number of
+particles, irrespective of the force shape. It is good contrast with the
+fact that the performance of force calculations accelerated by graphics
+processing units (GPUs) depends strongly on the number of particles.
+Substantially weak dependence of the performance on the number of
+particles is suitable to collisionless N-body simulations, since these
+simulations are usually performed with sophisticated N-body solvers such
+as Tree- and TreePM-methods combined with an individual timestep scheme.
+We conclude that collisionless N-body simulations accelerated with our
+library have significant advantage over those accelerated by GPUs,
+especially on massively parallel environments.
+}",
+      doi = {10.1016/j.newast.2012.08.009},
+   adsurl = {http://adsabs.harvard.edu/abs/2013NewA...19...74T},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2013MNRAS.428..718O,
+   author = {{Okamoto}, T.},
+    title = "{The origin of pseudo-bulges in cosmological simulations of galaxy formation}",
+  journal = {\mnras},
+archivePrefix = "arXiv",
+   eprint = {1203.5372},
+ primaryClass = "astro-ph.CO",
+ keywords = {methods: numerical, galaxies: bulges, galaxies: formation},
+     year = 2013,
+    month = jan,
+   volume = 428,
+    pages = {718-728},
+ abstract = "{More than half of nearby disc galaxies have pseudo-bulges, instead of
+classical bulges that are thought to be end-products of galaxy mergers.
+Pseudo-bulges are presumed to develop over time as a result of the
+secular evolution of galaxy discs. We report on simulations of galaxy
+formation, in which two disc galaxies with discy pseudo-bulges have
+formed. Based on the profile decomposition, the bulge-to-total mass
+ratio of the simulated galaxies is 0.6 for one galaxy and 0.3 for the
+other. We find that the main formation mechanism of the pseudo-bulges in
+our simulations is not the secular evolution of discs but high-redshift
+starbursts. The progenitors of the pseudo-bulges form as high-redshift
+discs with small scalelengths by the rapid supply of low angular
+momentum gas. By redshift 2, before the main disc formation,
+pseudo-bulge formation has largely completed in terms of mass. The
+secular evolution, such as bar instability, accounts for about 30 per
+cent of the bulge mass for one galaxy and only {\tilde}13 per cent for
+the other. However, it does affect the final shape and kinematic
+properties of the pseudo-bulges.
+}",
+      doi = {10.1093/mnras/sts067},
+   adsurl = {http://adsabs.harvard.edu/abs/2013MNRAS.428..718O},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2012MNRAS.427.2866S,
+   author = {{Shimizu}, I. and {Yoshida}, N. and {Okamoto}, T.},
+    title = "{Submillimetre galaxies in cosmological hydrodynamic simulations: source number counts and the spatial clustering}",
+  journal = {\mnras},
+archivePrefix = "arXiv",
+   eprint = {1207.3856},
+ primaryClass = "astro-ph.CO",
+ keywords = {galaxies: evolution, galaxies: formation, submillimetre: galaxies},
+     year = 2012,
+    month = dec,
+   volume = 427,
+    pages = {2866-2875},
+ abstract = "{We use large cosmological smoothed particle hydrodynamics simulations to
+study the formation and evolution of submillimetre galaxies (SMGs). In
+our previous work, we studied the statistical properties of
+ultraviolet-selected star-forming galaxies at high redshifts. We
+populate the same cosmological simulations with SMGs by calculating the
+reprocessing of stellar light by dust grains into far-infrared to
+millimetre wavebands in a self-consistent manner. We generate light-cone
+outputs to compare directly the statistical properties of the simulated
+SMGs with available observations. Our model reproduces the submillimetre
+source number counts and the clustering amplitude. We show that bright
+SMGs with flux S {\gt} 1 mJy reside in haloes with masses of
+{\tilde}10$^{13}$ M$_{⊙}$ and have stellar masses greater
+than 10$^{11}$ M$_{⊙}$. The angular cross-correlation
+between the SMGs and Lyman {$\alpha$} emitters is significantly weaker than
+that between the SMGs and Lyman-break galaxies. The cross-correlation is
+also weaker than the autocorrelation of the SMGs. The redshift
+distribution of the SMGs shows a broad peak at z {\tilde} 2, where bright
+SMGs contribute significantly to the global cosmic star formation rate
+density. Our model predicts that there are hundreds of SMGs with S {\gt}
+0.1 mJy at z {\gt} 5 per 1 deg$^{2}$ field. Such SMGs can be
+detected by ALMA.
+}",
+      doi = {10.1111/j.1365-2966.2012.22107.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2012MNRAS.427.2866S},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2012NewA...17...82T,
+   author = {{Tanikawa}, A. and {Yoshikawa}, K. and {Okamoto}, T. and {Nitadori}, K.
+  },
+    title = "{N-body simulation for self-gravitating collisional systems with a new SIMD instruction set extension to the x86 architecture, Advanced Vector eXtensions}",
+  journal = {\na},
+archivePrefix = "arXiv",
+   eprint = {1104.2700},
+ primaryClass = "astro-ph.IM",
+     year = 2012,
+    month = feb,
+   volume = 17,
+    pages = {82-92},
+ abstract = "{We present a high-performance N-body code for self-gravitating
+collisional systems accelerated with the aid of a new SIMD instruction
+set extension of the x86 architecture: Advanced Vector eXtensions (AVX),
+an enhanced version of the Streaming SIMD Extensions (SSE). With one
+processor core of Intel Core i7-2600 processor (8 MB cache and 3.40 GHz)
+based on Sandy Bridge micro-architecture, we implemented a fourth-order
+Hermite scheme with individual timestep scheme ( Makino and Aarseth,
+1992), and achieved the performance of {\tilde}20 giga floating point
+number operations per second (GFLOPS) for double-precision accuracy,
+which is two times and five times higher than that of the previously
+developed code implemented with the SSE instructions ( Nitadori et al.,
+2006b), and that of a code implemented without any explicit use of SIMD
+instructions with the same processor core, respectively. We have
+parallelized the code by using so-called NINJA scheme ( Nitadori et al.,
+2006a), and achieved {\tilde}90 GFLOPS for a system containing more than
+N = 8192 particles with 8 MPI processes on four cores. We expect to
+achieve about 10 tera FLOPS (TFLOPS) for a self-gravitating collisional
+system with N {\tilde} 10 $^{5}$ on massively parallel systems with
+at most 800 cores with Sandy Bridge micro-architecture. This performance
+will be comparable to that of Graphic Processing Unit (GPU) cluster
+systems, such as the one with about 200 Tesla C1070 GPUs ( Spurzem et
+al., 2010). This paper offers an alternative to collisional N-body
+simulations with GRAPEs and GPUs.
+}",
+      doi = {10.1016/j.newast.2011.07.001},
+   adsurl = {http://adsabs.harvard.edu/abs/2012NewA...17...82T},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2012MNRAS.419.2855O,
+   author = {{Okamoto}, T. and {Yoshikawa}, K. and {Umemura}, M.},
+    title = "{ARGOT: accelerated radiative transfer on grids using oct-tree}",
+  journal = {\mnras},
+archivePrefix = "arXiv",
+   eprint = {1105.3269},
+ primaryClass = "astro-ph.CO",
+ keywords = {radiative transfer, methods: numerical},
+     year = 2012,
+    month = feb,
+   volume = 419,
+    pages = {2855-2866},
+ abstract = "{We present two types of numerical prescriptions that accelerate the
+radiative transfer calculation around point sources within a
+three-dimensional Cartesian grid by using the oct-tree structure for the
+distribution of radiation sources. In one prescription, distant
+radiation sources are grouped as a bright extended source when the
+group's angular size, {\thetas}$_{s}$, is smaller than a critical
+value, {\thetas}$_{crit}$, and radiative transfer is solved on
+supermeshes whose angular size is similar to that of the group of
+sources. The supermesh structure is constructed by coarse-graining the
+mesh structure. With this method, the computational time scales with
+N$_{m}$log (N$_{m}$)log (N$_{s}$), where N$_{m}$
+and N$_{s}$ are the number of meshes and that of radiation
+sources, respectively. While this method is very efficient, it
+inevitably overestimates the optical depth when a group of sources acts
+as an extended powerful radiation source and affects distant meshes. In
+the other prescription, a distant group of sources is treated as a
+bright point source ignoring the spatial extent of the group, and the
+radiative transfer is solved on the meshes rather than the supermeshes.
+This prescription is simply a grid-based version of START by Hasegawa
+{\amp} Umemura and yields better results in general with slightly more
+computational cost [?] than the supermesh prescription. Our methods can
+easily be implemented to any grid-based hydrodynamic codes and are well
+suited to adaptive mesh refinement methods.
+}",
+      doi = {10.1111/j.1365-2966.2011.19927.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2012MNRAS.419.2855O},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2012ApJ...746...26M,
+   author = {{Matsui}, H. and {Saitoh}, T.~R. and {Makino}, J. and {Wada}, K. and 
+  {Tomisaka}, K. and {Kokubo}, E. and {Daisaka}, H. and {Okamoto}, T. and 
+  {Yoshida}, N.},
+    title = "{Origin of Multiple Nuclei in Ultraluminous Infrared Galaxies}",
+  journal = {\apj},
+archivePrefix = "arXiv",
+   eprint = {1111.3406},
+ primaryClass = "astro-ph.GA",
+ keywords = {galaxies: evolution, galaxies: interactions, galaxies: starburst, methods: numerical},
+     year = 2012,
+    month = feb,
+   volume = 746,
+      eid = {26},
+    pages = {26},
+ abstract = "{Ultraluminous infrared galaxies (ULIRGs) with multiple ({\gt}=3) nuclei
+are frequently observed. It has been suggested that these nuclei are
+produced by multiple major mergers of galaxies. The expected rate of
+such mergers is, however, too low to reproduce the observed number of
+ULIRGs with multiple nuclei. We have performed high-resolution
+simulations of the merging of two gas-rich disk galaxies. We found that
+extremely massive and compact star clusters form from the strongly
+disturbed gas disks after the first or second encounter between the
+galaxies. The mass of such clusters reaches \~{}10$^{8}$ M
+$_{⊙}$ and their half-mass radii are 20-30 pc. Since these
+clusters consist of young stars, they appear as several bright cores in
+the galactic central region (\~{}kpc). The peak luminosity of these
+clusters reaches \~{}10\% of the total luminosity of the merging galaxy.
+These massive and compact clusters are consistent with the
+characteristics of the observed multiple nuclei in ULIRGs. Multiple
+mergers are not necessary to explain multiple nuclei in ULIRGs.
+}",
+      doi = {10.1088/0004-637X/746/1/26},
+   adsurl = {http://adsabs.harvard.edu/abs/2012ApJ...746...26M},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2011MNRAS.418.2273S,
+   author = {{Shimizu}, I. and {Yoshida}, N. and {Okamoto}, T.},
+    title = "{Lyman {$\alpha$} emitters in cosmological simulations - I. Lyman {$\alpha$} escape fraction and statistical properties at z= 3.1}",
+  journal = {\mnras},
+archivePrefix = "arXiv",
+   eprint = {1102.1509},
+ primaryClass = "astro-ph.CO",
+ keywords = {galaxies: evolution, galaxies: formation, galaxies: high redshift, galaxies: Ly{$\alpha$} emitters, large-scale structure of Universe},
+     year = 2011,
+    month = dec,
+   volume = 418,
+    pages = {2273-2282},
+ abstract = "{We use very large cosmological smoothed particle hydrodynamics
+simulations to study the properties of high-redshift Lyman {$\alpha$}
+emitters (LAEs). We identify star-forming galaxies at z= 3.1 in a
+cosmological volume of 100 h$^{-1}$ Mpc on a side. We develop a
+phenomenological model of absorption, scattering and escape of Lyman
+{$\alpha$} photons on the assumption that the clumpiness of the
+interstellar medium in a galaxy is correlated with the larger scale
+substructure richness. The radiative transfer effect proposed by Neufeld
+allows a large fraction of Lyman {$\alpha$} photons to escape from a clumpy
+galaxy even if it contains a substantial amount of dust. Our model
+reproduces, for the first time, all of the following observed properties
+of LAEs at z= 3.1: the angular correlation function, ultraviolet (UV)
+and Lyman {$\alpha$} luminosity functions and the equivalent width
+distribution. A simple model that takes only dust absorption into
+account fails in reproducing LAEs that are also bright in UV, suggesting
+that the kind of effect we consider is needed. Our model predicts a
+bimodal age distribution for LAEs. Most of the galaxies with large Lyman
+{$\alpha$} equivalent widths are young, whereas there are also old, massive
+and dusty LAEs, similar to recently found high-redshift LAEs. The large
+LAEs have escape fractions of Lyman {$\alpha$} photons of
+f$_{esc}${\tilde} 0.05-0.1.
+}",
+      doi = {10.1111/j.1365-2966.2011.19549.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2011MNRAS.418.2273S},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@INPROCEEDINGS{2011IAUS..270..483S,
+   author = {{Saitoh}, T.~R. and {Daisaka}, H. and {Kokubo}, E. and {Makino}, J. and 
+  {Okamoto}, T. and {Tomisaka}, K. and {Wada}, K. and {Yoshida}, N.
+  },
+    title = "{Shock-induced star cluster formation in colliding galaxies}",
+ keywords = {galaxies: star clusters - galaxies: starburst - galaxies: evolution - ISM: evolution - methods: numerical},
+booktitle = {Computational Star Formation},
+     year = 2011,
+   series = {IAU Symposium},
+   volume = 270,
+archivePrefix = "arXiv",
+   eprint = {1101.3708},
+ primaryClass = "astro-ph.CO",
+   editor = {{Alves}, J. and {Elmegreen}, B.~G. and {Girart}, J.~M. and {Trimble}, V.
+  },
+    month = apr,
+    pages = {483-486},
+ abstract = "{We studied the formation process of star clusters using high-resolution
+N-body/smoothed particle hydrodynamics simulations of colliding
+galaxies. The total number of particles is 1.2{\times}10$^{8}$ for
+our high resolution run. The gravitational softening is 5 pc and we
+allow gas to cool down to \~{}10 K. During the first encounter of the
+collision, a giant filament consists of cold and dense gas found between
+the progenitors by shock compression. A vigorous starburst took place in
+the filament, resulting in the formation of star clusters. The mass of
+these star clusters ranges from 10$^{5-8}$ M$_{solar}$.
+These star clusters formed hierarchically: at first small star clusters
+formed, and then they merged via gravity, resulting in larger star
+clusters.
+}",
+      doi = {10.1017/S1743921311000846},
+   adsurl = {http://adsabs.harvard.edu/abs/2011IAUS..270..483S},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2010MNRAS.406..208O,
+   author = {{Okamoto}, T. and {Frenk}, C.~S. and {Jenkins}, A. and {Theuns}, T.
+  },
+    title = "{The properties of satellite galaxies in simulations of galaxy formation}",
+  journal = {\mnras},
+archivePrefix = "arXiv",
+   eprint = {0909.0265},
+ primaryClass = "astro-ph.CO",
+ keywords = {methods: numerical, galaxies: evolution, galaxies: formation, cosmology: theory},
+     year = 2010,
+    month = jul,
+   volume = 406,
+    pages = {208-222},
+ abstract = "{We investigate the properties of satellite galaxies in cosmological
+N-body/smooth particle hydrodynamics simulations of galaxy formation in
+Milky Way-sized haloes. Because of their shallow potential wells,
+satellite galaxies are very sensitive to heating processes which affect
+their gas content. Their properties can therefore be used to constrain
+the nature of feedback processes that regulate galaxy formation. In our
+simulations, we assume that all the energy produced by supernovae is
+used as kinetic energy to drive galactic winds. Several of our
+simulations produce bright, disc-dominated galaxies. We find that wind
+models in which the wind speed, v$_{w}$, is proportional to the
+local velocity dispersion of the dark matter, (and thus the wind
+mass-loading, ), make star formation in satellites sporadic, reproduce
+the observed satellite luminosity function reasonably well (down to
+M$_{v}$=-7) and match the luminosity-metallicity relation observed
+in the Local Group satellites. By contrast, models that assume a
+constant wind speed overproduce faint satellites and predict an
+incorrect luminosity-metallicity relation. Our simulations therefore
+suggest that the feedback processes that operate on the scale of
+satellite galaxies should generate galactic outflows whose mass-loading
+varies inversely with the depth of the potential.
+}",
+      doi = {10.1111/j.1365-2966.2010.16690.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2010MNRAS.406..208O},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2010MNRAS.404.1137B,
+   author = {{Bett}, P. and {Eke}, V. and {Frenk}, C.~S. and {Jenkins}, A. and 
+  {Okamoto}, T.},
+    title = "{The angular momentum of cold dark matter haloes with and without baryons}",
+  journal = {\mnras},
+archivePrefix = "arXiv",
+   eprint = {0906.2785},
+ primaryClass = "astro-ph.CO",
+ keywords = {methods: N-body simulations, galaxies: haloes, dark matter},
+     year = 2010,
+    month = may,
+   volume = 404,
+    pages = {1137-1156},
+ abstract = "{We investigate the magnitude and internal alignment of the angular
+momentum of cold dark matter haloes in simulations with and without
+baryons. We analyse the cumulative angular momentum profiles of hundreds
+of thousands of well-resolved haloes in the Millennium Simulation of
+Springel et al. and in a smaller, but higher resolution, simulation, in
+total spanning 5 orders of magnitude in mass. For haloes of a given
+mass, the median specific angular momentum increases with radius as
+j({\lt}=r) \~{} r. The direction of the vector varies considerably with
+radius: the median angle between the inner ({\lt}\~{}0.25R$_{vir}$)
+and total ({\lt}=R$_{vir}$) angular momentum vectors is about
+25{\deg}. To investigate how baryons affect halo spin, we use another
+high-resolution simulation, which includes gas cooling, star formation
+and feedback. This simulation produces a sample of galaxies with a
+realistic distribution of disc-to-total ratios, D/T: two-thirds of the
+galaxies have D/T {\gt} 0.5 in the B band. The formation of the galaxy
+spins up the dark matter within 0.1R$_{vir}$ such that the
+specific halo angular momentum increases by \~{}50 per cent in the median.
+The dark matter angular momentum becomes better aligned, but there
+remains a broad distribution of (mis-)alignments between the halo and
+the central galaxy, with a median angle between their angular momenta of
+\~{}30{\deg}. Galaxies have a range of orientations relative to the shape of
+the halo: half of them have their minor axes misaligned by more than
+45{\deg}, although only about 10 per cent of the galaxies lie within
+30{\deg} of the plane perpendicular to the major axis of their halo.
+Finally, we align a sample of haloes according to the orientation of
+their galaxies and stack the projected mass distributions. Although the
+individual haloes are significantly aspherical, galaxy-halo
+misalignments produce a stacked mass distribution that cannot be
+distinguished from circular. If the lack of alignment found in our
+simulations is realistic, it will be extremely difficult for weak
+lensing studies to measure the ellipticity of cold dark matter haloes
+using this technique.
+}",
+      doi = {10.1111/j.1365-2966.2010.16368.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2010MNRAS.404.1137B},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2009MNRAS.399L.174O,
+   author = {{Okamoto}, T. and {Frenk}, C.~S.},
+    title = "{The origin of failed subhaloes and the common mass scale of the Milky Way satellite galaxies}",
+  journal = {\mnras},
+archivePrefix = "arXiv",
+   eprint = {0909.0262},
+ primaryClass = "astro-ph.CO",
+ keywords = {methods: numerical , galaxies: dwarf , galaxies: evolution , galaxies: formation , cosmology: theory},
+     year = 2009,
+    month = oct,
+   volume = 399,
+    pages = {L174-L178},
+ abstract = "{We study the formation histories and present-day structure of satellite
+galaxies formed in a high-resolution hydrodynamic simulation of a Milky
+Way like galaxy. The simulated satellites span nearly four orders of
+magnitude in luminosity but have a very similar mass within their inner
+600 pc, \~{}3 {\times} 10$^{7}$M$_{solar}$, with very little
+scatter. This result is in agreement with the recent measurements for
+dwarf spheroidal galaxies (dSphs) in the Milky Way by Strigari et al. In
+our simulations, a preferred mass scale arises naturally from the
+effects of the early re-ionization of gas. These impose a sharp
+threshold of \~{}12kms$^{-1}$ on the circular velocity of haloes
+which can cool gas and make stars. At the present day, subhaloes that
+host satellites as luminous as the classical Milky Way dwarfs
+(L$_{V}$ {\gt}= 2.6 {\times} 10$^{5}$L$_{solar}$) have
+typically grown to have circular velocities of {\gt}\~{}20 km
+s$^{-1}$. There are, however, subhaloes with similar circular
+velocities today which were, nevertheless, below threshold at
+re-ionization and thus remain dark. Star formation in above-threshold
+haloes is truncated when the halo is accreted into the main galaxy
+progenitor. Thus, many properties of today's dwarf satellites such as
+their luminosity and star formation rate are set by their accretion
+time.
+}",
+      doi = {10.1111/j.1745-3933.2009.00748.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2009MNRAS.399L.174O},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2009PASJ...61..481S,
+   author = {{Saitoh}, T.~R. and {Daisaka}, H. and {Kokubo}, E. and {Makino}, J. and 
+  {Okamoto}, T. and {Tomisaka}, K. and {Wada}, K. and {Yoshida}, N.
+  },
+    title = "{Toward First-Principle Simulations of Galaxy Formation: II. Shock-Induced Starburst at a Collision Interface during the First Encounter of Interacting Galaxies}",
+  journal = {\pasj},
+archivePrefix = "arXiv",
+   eprint = {0805.0167},
+ keywords = {galaxies: ISM, galaxies: starburst, ISM: structure, method: numerical},
+     year = 2009,
+    month = jun,
+   volume = 61,
+    pages = {481-},
+ abstract = "{We investigated the evolution of interacting disk galaxies using
+high-resolution N-body/SPH simulations, while taking into account the
+multiphase nature of the interstellar medium. In our high-resolution
+simulations, a large-scale starburst occurred naturally at the collision
+interface between two gas disks at the first encounter, resulting in the
+formation of star clusters. This is consistent with observations of
+interacting galaxies. The probability distribution function (PDF) of the
+gas density showed a clear change during the galaxy-galaxy encounter.
+The compression of gas at the collision interface between the gas disks
+first appears as an excess at n$_{H}$ {\tilde} 10cm$^{-3}$ in
+the PDF, and then it moves to higher densities (n$_{H}$ gtrsim 100
+cm$^{-3}$) in a few times 10$^{7}$years, where starburst
+takes place. After the starburst, the PDF goes back to a quasi-steady
+state. These results give a simple picture of starburst phenomena in
+galaxy-galaxy encounters.
+}",
+      doi = {10.1093/pasj/61.3.481},
+   adsurl = {http://adsabs.harvard.edu/abs/2009PASJ...61..481S},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2008MNRAS.390..920O,
+   author = {{Okamoto}, T. and {Gao}, L. and {Theuns}, T.},
+    title = "{Mass loss of galaxies due to an ultraviolet background}",
+  journal = {\mnras},
+archivePrefix = "arXiv",
+   eprint = {0806.0378},
+ keywords = {methods: numerical , galaxies: evolution , galaxies: formation , cosmology: theory},
+     year = 2008,
+    month = nov,
+   volume = 390,
+    pages = {920-928},
+ abstract = "{We perform cosmological hydrodynamic simulations to determine to what
+extent galaxies lose their gas due to photoheating from an ionizing
+background. We find that the characteristic mass at which haloes on
+average have lost half of their baryons is M$_{c}$ \~{} 6.5 {\times}
+10$^{9}$h$^{-1}$M$_{solar}$ at z = 0, which
+corresponds to a circular velocity of 25kms$^{-1}$. This is
+significantly lower than the filtering mass obtained by the linear
+theory, which is often used in semi-analytical models of galaxy
+formation. We demonstrate it is the gas temperature at the virial radius
+which determines whether a halo can accrete gas. A simple model that
+follows the merger history of the dark matter progenitors, and where gas
+accretion is not allowed when this temperature is higher than the virial
+temperature of the halo, reproduces the results from the simulation
+remarkably well. This model can be applied to any reionization history,
+and is easy to incorporate in semi-analytical models.
+}",
+      doi = {10.1111/j.1365-2966.2008.13830.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2008MNRAS.390..920O},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2008PASJ...60..667S,
+   author = {{Saitoh}, T.~R. and {Daisaka}, H. and {Kokubo}, E. and {Makino}, J. and 
+  {Okamoto}, T. and {Tomisaka}, K. and {Wada}, K. and {Yoshida}, N.
+  },
+    title = "{Toward First-Principle Simulations of Galaxy Formation: I. How Should We Choose Star-Formation Criteria in High-Resolution Simulations of Disk Galaxies?}",
+  journal = {\pasj},
+archivePrefix = "arXiv",
+   eprint = {0802.0961},
+     year = 2008,
+    month = aug,
+   volume = 60,
+    pages = {667-},
+ abstract = "{We performed three-dimensional N-body/SPH simulations to study how mass
+resolution and other model parameters, such as the star-formation
+efficiency parameter, C$_{*}$ and the threshold density for star
+formation, n$_{th}$ affect structures of the galactic
+gaseous/stellar disk. We employed 10$^{6}$ - 10$^{7}$
+particles to resolve a cold ( T {\lt} 100K) and dense ( n$_{H}$
+{\gt} 100cm$^{-3}$) phase as well as diffuse, hot phases. We found
+that structures of the interstellar medium (ISM) and the distribution of
+young stars were sensitive to the assumed values of n$_{th}$.
+High-n$_{th}$ models with n$_{th}$ = 100cm$^{-3}$
+yielded clumpy multi-phase features in the ISM. Young stars were
+distributed in a thin disk, of which the half-mass scale height was
+10-30pc. In low-n$_{th}$ models with n$_{th}$ =
+0.1cm$^{-3}$, which is usually employed in cosmological
+galaxy-formation simulations, the gas disk appears to be smoother and
+the stellar disk is found to be several-times thicker than the
+high-n$_{th}$ models. A high-resolution simulation with
+high-n$_{th}$ is necessary to reproduce the complex structure of
+the gas disk. The global star-formation properties of galaxies, such as
+the star-formation history, in low-n$_{th}$ models are similar to
+those in high-n$_{th}$ models when we tune the value of
+C$_{*}$ so that they reproduce the observed relation between the
+surface gas density and the surface star-formation rate density. We
+however emphasize that  high-n$_{th}$ models automatically
+reproduce the relation, regardless of the values of C$_{*}$. The
+ISM structure, phase distribution and distributions of young
+star-forming regions are quite similar in runs with different values of
+C$_{*}$. We found that the timescale of the flow from the
+reservoir (n$_{th}$ {\tilde} 1 cm$^{-3}$) to the star-forming
+regions (n$_{th}$ gsim 100 cm$^{-3}$) is about five-times as
+long as the local dynamical time, and this evolution timescale is
+independent of the value of C$_{*}$. The use of a
+high-n$_{th}$ criterion for star formation in high-resolution
+simulations makes numerical models fairy insensitive to the modeling of
+star formation.
+}",
+      doi = {10.1093/pasj/60.4.667},
+   adsurl = {http://adsabs.harvard.edu/abs/2008PASJ...60..667S},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2008MNRAS.387..364Z,
+   author = {{Zavala}, J. and {Okamoto}, T. and {Frenk}, C.~S.},
+    title = "{Bulges versus discs: the evolution of angular momentum in cosmological simulations of galaxy formation}",
+  journal = {\mnras},
+archivePrefix = "arXiv",
+   eprint = {0710.2901},
+ keywords = {methods: numerical , galaxies: evolution , galaxies: formation},
+     year = 2008,
+    month = jun,
+   volume = 387,
+    pages = {364-370},
+ abstract = "{We investigate the evolution of angular momentum in simulations of
+galaxy formation in a cold dark matter universe. We analyse two model
+galaxies generated in the N-body/hydrodynamic simulations of Okamoto et
+al. Starting from identical initial conditions, but using different
+assumptions for the baryonic physics, one of the simulations produced a
+bulge-dominated galaxy and the other one a disc-dominated galaxy. The
+main difference is the treatment of star formation and feedback, both of
+which were designed to be more efficient in the disc-dominated object.
+We find that the specific angular momentum of the disc-dominated galaxy
+tracks the evolution of the angular momentum of the dark matter halo
+very closely: the angular momentum grows as predicted by linear theory
+until the epoch of maximum expansion and remains constant thereafter. By
+contrast, the evolution of the angular momentum of the bulge-dominated
+galaxy resembles that of the central, most bound halo material: it also
+grows at first according to linear theory, but 90 per cent of it is
+rapidly lost as pre-galactic fragments, into which gas had cooled
+efficiently, merge, transferring their orbital angular momentum to the
+outer halo by tidal effects. The disc-dominated galaxy avoids this fate
+because the strong feedback reheats the gas, which accumulates in an
+extended hot reservoir and only begins to cool once the merging activity
+has subsided. Our analysis lends strong support to the classical theory
+of disc formation whereby tidally torqued gas is accreted into the
+centre of the halo conserving its angular momentum.
+}",
+      doi = {10.1111/j.1365-2966.2008.13243.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2008MNRAS.387..364Z},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2008MNRAS.385..161O,
+   author = {{Okamoto}, T. and {Nemmen}, R.~S. and {Bower}, R.~G.},
+    title = "{The impact of radio feedback from active galactic nuclei in cosmological simulations: formation of disc galaxies}",
+  journal = {\mnras},
+archivePrefix = "arXiv",
+   eprint = {0704.1218},
+ keywords = {black hole physics , galaxies: active , galaxies: evolution , galaxies: formation , galaxies: Seyfert , galaxies: starburst},
+     year = 2008,
+    month = mar,
+   volume = 385,
+    pages = {161-180},
+ abstract = "{In this paper, we present a new implementation of feedback due to active
+galactic nuclei (AGN) in cosmological simulations of galaxy formation.
+We assume that a fraction of jet energy, which is generated by an AGN,
+is transferred to the surrounding gas as thermal energy. Combining a
+theoretical model of mass accretion on to black holes with a multiphase
+description of star-forming gas, we self-consistently follow evolution
+of both galaxies and their central black holes. The novelty in our model
+is that we consider two distinct accretion modes: standard radiatively
+efficient thin accretion discs and radiatively inefficient accretion
+flows which we will generically refer to as RIAFs; motivated by
+theoretical models for jet production in accretion discs, we assume that
+only the RIAF is responsible for the AGN feedback. The focus of this
+paper is to investigate the interplay between galaxies and their central
+black holes during the formation of a disc galaxy. We find that, after
+an initial episode of bursting star formation, the accretion rate on to
+the central black hole drops so that the accretion disc switches to a
+RIAF structure. At this point, the feedback from the AGN becomes
+efficient and slightly suppresses star formation in the galactic disc
+and almost completely halts star formation in the bulge. This
+suppression of the star formation regulates mass accretion on to the
+black hole and associated AGN feedback. As a result, the nucleus becomes
+a stochastically fuelled low-luminosity AGN (Seyfert galaxy) with
+recurrent short-lived episodes of activity after the star bursts. During
+the `on' events, the AGN produces reasonably powerful jets (radio-loud
+state) and is less luminous than the host galaxy, while in the `off'
+phase, the nucleus is inactive and `radio quiet'. Our model predicts
+several properties of the low-luminosity AGN including the bolometric
+luminosity, jet powers, the effect on kpc scale of the radio jet and the
+AGN lifetime, which are in broad agreement with observations of Seyfert
+galaxies and their radio activity. We also find that the ratios between
+the central black hole mass and the mass of the host spheroid at z = 0
+are \~{}10$^{-3}$ regardless of the strength of either supernova
+feedback or AGN feedback because the radiation drag model directly
+relates the star formation activity in the Galactic Centre and the mass
+accretion rate on to the central black hole.
+}",
+      doi = {10.1111/j.1365-2966.2008.12883.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2008MNRAS.385..161O},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2007MNRAS.376.1588B,
+   author = {{Booth}, C.~M. and {Theuns}, T. and {Okamoto}, T.},
+    title = "{Molecular cloud regulated star formation in galaxies}",
+  journal = {\mnras},
+   eprint = {astro-ph/0701877},
+ keywords = {methods: N-body simulations, galaxies: formation, galaxies: ISM},
+     year = 2007,
+    month = apr,
+   volume = 376,
+    pages = {1588-1610},
+ abstract = "{We describe a numerical implementation of star formation in disc
+galaxies, in which the conversion of cooling gas to stars in the
+multiphase interstellar medium is governed by the rate at which
+molecular clouds are formed and destroyed. In the model, clouds form
+from thermally unstable ambient gas and get destroyed by feedback from
+massive stars and thermal conduction. Feedback in the ambient phase
+cycles gas into a hot galactic fountain or wind. We model the ambient
+gas hydrodynamically using smoothed particle hydrodynamics. However, we
+cannot resolve the Jeans mass in the cold and dense molecular gas and,
+therefore, represent the cloud phase with ballistic particles that
+coagulate when colliding. We show that this naturally produces a
+multiphase medium with cold clouds, a warm disc, hot supernova bubbles
+and a hot, tenuous halo. Our implementation of this model is based on
+the GADGET N-body code. We illustrate the model by evolving an isolated
+Milky Way-like galaxy and study the properties of a disc formed in a
+rotating spherical collapse. Many observed properties of disc galaxies
+are reproduced well, including the molecular cloud mass spectrum, the
+molecular fraction as a function of radius, the Schmidt law, the stellar
+density profile and the appearance of a galactic fountain.
+}",
+      doi = {10.1111/j.1365-2966.2007.11570.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2007MNRAS.376.1588B},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2007MNRAS.374...16L,
+   author = {{Libeskind}, N.~I. and {Cole}, S. and {Frenk}, C.~S. and {Okamoto}, T. and 
+  {Jenkins}, A.},
+    title = "{Satellite systems around galaxies in hydrodynamic simulations}",
+  journal = {\mnras},
+   eprint = {astro-ph/0607237},
+ keywords = {galaxies: formation, galaxies: haloes, galaxies: luminosity function, mass function, galaxies: spiral, cosmology: theory},
+     year = 2007,
+    month = jan,
+   volume = 374,
+    pages = {16-28},
+ abstract = "{We investigate the properties of satellite galaxies formed in N-body/SPH
+simulations of galaxy formation in the {$\Lambda$}CDM cosmology. The
+simulations include the main physical effects thought to be important in
+galaxy formation and, in several cases, produce realistic spiral discs.
+In total, a sample of nine galaxies of luminosity comparable to the
+Milky Way was obtained. At magnitudes brighter than the resolution
+limit, M$_{V}$ = -12, the luminosity function of the satellite
+galaxies in the simulations is in excellent agreement with data for the
+Local Group. The radial number density profile of the model satellites,
+as well as their gas fractions also match observations very well. In
+agreement with previous N-body studies, we find that the satellites tend
+to be distributed in highly flattened configurations whose major axis is
+aligned with the major axis of the (generally triaxial) dark halo. In
+two out of three systems with sufficiently large satellite populations,
+the satellite system is nearly perpendicular to the plane of the
+galactic disc, a configuration analogous to that observed in the Milk
+Way. The discs themselves are perpendicular to the minor axis of their
+host haloes in the inner parts, and the correlation between the
+orientation of the galaxy and the shape of the halo persists even out to
+the virial radius. However, in one case the disc's minor axis ends up,
+at the virial radius, perpendicular to the minor axis of the halo. The
+angular momenta of the galaxies and their host halo tend to be well
+aligned.
+}",
+      doi = {10.1111/j.1365-2966.2006.11205.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2007MNRAS.374...16L},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2006ApJ...643..863N,
+   author = {{Nagashima}, M. and {Okamoto}, T.},
+    title = "{Type Ia Supernovae in a Hierarchical Galaxy Formation Model: The Milky Way}",
+  journal = {\apj},
+   eprint = {astro-ph/0404486},
+ keywords = {Galaxy: Abundances, Galaxy: Evolution, Galaxy: Formation, Cosmology: Large-Scale Structure of Universe, Stars: Abundances},
+     year = 2006,
+    month = jun,
+   volume = 643,
+    pages = {863-880},
+ abstract = "{We investigate chemical evolution in Milky Way-like galaxies based on
+the cold dark matter model in which cosmic structures form via
+hierarchical merging. We introduce chemical enrichment due to Type Ia
+supernovae (SNe Ia) into the Mitaka semianalytic galaxy formation model
+developed by Nagashima {\amp} Yoshii. For the first time we derive
+distributions of stellar metallicities and their ratios in Milky
+Way-like galaxies treating chemical enrichment due to SNe Ia in a
+hierarchical galaxy formation model self-consistently. As a first
+attempt, we assume all SNe Ia to have the same lifetime and assume
+instantaneous recycling for Type II supernovae (SNe II). We find that
+our model reproduces well the metal abundance ratio [O/Fe] against
+[Fe/H] and the iron metallicity distribution function in the solar
+neighborhood. This means that the so-called G dwarf problem is resolved
+by the hierarchical formation of galaxies, and a gas infall term
+introduced in traditional monolithic collapse models to solve this
+problem is well explained by the mixture of some physical processes such
+as hierarchical merging of dark halos, gas cooling, energy feedback, and
+injection of gas and metals into hot gas due to supernovae. We also
+discuss how physical processes affect the metal abundance ratio by
+varying the lifetime of SNe Ia, the star formation timescale, and the
+strength of supernova feedback. We find that the supernova feedback
+plays a key role among them, and therefore there is no one-to-one
+correspondence between star formation histories and stellar metallicity
+ratio distributions.
+}",
+      doi = {10.1086/503180},
+   adsurl = {http://adsabs.harvard.edu/abs/2006ApJ...643..863N},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2006ApJ...640...22S,
+   author = {{Saitoh}, T.~R. and {Koda}, J. and {Okamoto}, T. and {Wada}, K. and 
+  {Habe}, A.},
+    title = "{Tidal Disruption of Dark Matter Halos around Proto-Globular Clusters}",
+  journal = {\apj},
+   eprint = {astro-ph/0511692},
+ keywords = {Cosmology: Dark Matter, Galaxies: Formation, Galaxies: Halos, Methods: Numerical},
+     year = 2006,
+    month = mar,
+   volume = 640,
+    pages = {22-30},
+ abstract = "{Tidal disruption of dark matter halos around proto-globular clusters in
+the halo of a small galaxy is studied in the context of the hierarchical
+clustering scenario by using semicosmological N-body/SPH simulations
+assuming the standard cold dark matter model ({$\Omega$}$_{0}$=1).
+Our analysis on the formation and evolution of the galaxy and its
+substructures continues until z=2.0. In such a high-redshift universe,
+the Einstein-de Sitter universe is still a good approximation for the
+recently favored {$\Lambda$}-dominated universe, and thus our results do
+not depend on the choice of cosmology. In order to resolve small
+gravitationally bound clumps around galaxies and consider radiative
+cooling below T=10$^{4}$ K, we adopt a fine mass resolution
+(m$_{SPH}$=1.12{\times}10$^{3}$ M$_{solar}$). Because
+of the cooling, each clump immediately forms a ``core-halo'' structure
+that consists of a baryonic core and a dark matter halo. The tidal force
+from the host galaxy mainly strips the dark matter halo from clumps, and
+as a result, these clumps get dominated by baryons. Once a clump is
+captured by the host halo, its mass drastically decreases with each
+pericenter passage. At z=2, more than half of the clumps become
+baryon-dominated systems (baryon mass/total mass{\gt}0.5). Our results
+support the tidal evolution scenario of the formation of globular
+clusters and baryon-dominated dwarf galaxies in the context of the cold
+dark matter universe.
+}",
+      doi = {10.1086/500104},
+   adsurl = {http://adsabs.harvard.edu/abs/2006ApJ...640...22S},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2005MNRAS.363.1299O,
+   author = {{Okamoto}, T. and {Eke}, V.~R. and {Frenk}, C.~S. and {Jenkins}, A.
+  },
+    title = "{Effects of feedback on the morphology of galaxy discs}",
+  journal = {\mnras},
+   eprint = {astro-ph/0503676},
+ keywords = {methods: numerical, galaxies: evolution, galaxies: formation},
+     year = 2005,
+    month = nov,
+   volume = 363,
+    pages = {1299-1314},
+ abstract = "{We have performed hydrodynamic simulations of galaxy formation in a cold
+dark matter ({$\Lambda$}CDM) universe. We have followed galaxy formation in
+a dark matter halo, chosen to have a relatively quiet recent merger
+history, using different models for star formation and feedback. In all
+cases, we have adopted a multiphase description of the interstellar
+medium and modelled star formation in quiescent and burst modes. We have
+explored two triggers for starbursts - strong shocks and high gas
+density - allowing for the possibility that stars in the burst may form
+with a top-heavy initial mass function. We find that the final
+morphology of the galaxy is extremely sensitive to the modelling of star
+formation and feedback. Starting from identical initial conditions,
+galaxies spanning the entire range of Hubble types, with B-band
+disc-to-total luminosity ratios ranging from 0.2 to 0.9, can form in the
+same dark matter halo. Models in which starbursts are induced by high
+gas density (qualitatively similar to models in which feedback is
+produced by active galactic nuclei) generate energetic winds and result
+in galaxies with an early-type morphology. Models in which the
+starbursts are induced by strong shocks lead to extended discs. In this
+case, the feedback associated with the bursts suppresses the collapse of
+baryons in small haloes, helping to create a reservoir of hot gas that
+is available for cooling after z\~{}= 1, following the bulk of the
+dynamical activity that builds up the halo. This gas then cools to form
+an extended, young stellar disc.
+}",
+      doi = {10.1111/j.1365-2966.2005.09525.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2005MNRAS.363.1299O},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2005MNRAS.363L..31N,
+   author = {{Nagashima}, M. and {Lacey}, C.~G. and {Okamoto}, T. and {Baugh}, C.~M. and 
+  {Frenk}, C.~S. and {Cole}, S.},
+    title = "{The metal enrichment of elliptical galaxies in hierarchical galaxy formation models}",
+  journal = {\mnras},
+   eprint = {astro-ph/0504618},
+ keywords = {stars: luminosity function, mass function, galaxies: clusters: general, galaxies: formation, large-scale structure of Universe},
+     year = 2005,
+    month = oct,
+   volume = 363,
+    pages = {L31-L35},
+ abstract = "{We investigate the metal enrichment of elliptical galaxies in the
+framework of hierarchical models of galaxy formation. The
+semi-analytical model we use, which has been used to study the metal
+enrichment of the intracluster medium (ICM) by Nagashima et al.,
+includes the effects of flows of gas and metals both into and out of
+galaxies and the processes of metal enrichment due to both type Ia and
+type II supernovae. We adopt a solar neighbourhood initial mass function
+(IMF) for star formation in discs, but consider models in which
+starbursts have either a solar neighbourhood IMF or a top-heavy IMF. We
+find that the {$\alpha$}-element abundance in ellipticals is consistent
+with observed values only if the top-heavy IMF is used. This result is
+consistent with our previous study on the metal enrichment of the ICM.
+We also discuss the abundance ratio of {$\alpha$} elements to iron as a
+function of velocity dispersion and metallicity. We find that models
+with a top-heavy IMF match the {$\alpha$}/Fe ratios observed in typical
+L$_{*}$ ellipticals, but none of the models reproduces the
+observed increase of {$\alpha$}/Fe with velocity dispersion.
+}",
+      doi = {10.1111/j.1745-3933.2005.00078.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2005MNRAS.363L..31N},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2005ApJ...627L..17B,
+   author = {{Bailin}, J. and {Kawata}, D. and {Gibson}, B.~K. and {Steinmetz}, M. and 
+  {Navarro}, J.~F. and {Brook}, C.~B. and {Gill}, S.~P.~D. and 
+  {Ibata}, R.~A. and {Knebe}, A. and {Lewis}, G.~F. and {Okamoto}, T.
+  },
+    title = "{Internal Alignment of the Halos of Disk Galaxies in Cosmological Hydrodynamic Simulations}",
+  journal = {\apjl},
+   eprint = {astro-ph/0505523},
+ keywords = {Cosmology: Dark Matter, Galaxies: Evolution, Galaxies: Formation, Galaxies: Halos, Galaxies: Spiral},
+     year = 2005,
+    month = jul,
+   volume = 627,
+    pages = {L17-L20},
+ abstract = "{Seven cosmological hydrodynamic simulations of disk galaxy formation are
+analyzed to determine the alignment of the disk within the dark matter
+halo and the internal structure of the halo. We find that the
+orientation of the outer halo, beyond \~{}0.1r$_{vir}$, is unaffected
+by the presence of the disk. In contrast, the inner halo is aligned such
+that the halo minor axis aligns with the disk axis. The relative
+orientations of these two regions of the halo are uncorrelated. The
+alignment of the disk and inner halo appears to take place
+simultaneously through their joint evolution. The lack of connection
+between these two regions of the halo should be taken into account when
+modeling tidal streams in the halos of disk galaxies and when
+calculating intrinsic alignments of disk galaxies based on the
+properties of dark matter halos.
+}",
+      doi = {10.1086/432157},
+   adsurl = {http://adsabs.harvard.edu/abs/2005ApJ...627L..17B},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2005PASJ...57..309K,
+   author = {{Kodama}, T. and {Tanaka}, M. and {Tamura}, T. and {Yahagi}, H. and 
+  {Nagashima}, M. and {Tanaka}, I. and {Arimoto}, N. and {Futamase}, T. and 
+  {Iye}, M. and {Karasawa}, Y. and {Kashikawa}, N. and {Kawasaki}, W. and 
+  {Kitayama}, T. and {Matsuhara}, H. and {Nakata}, F. and {Ohashi}, T. and 
+  {Ohta}, K. and {Okamoto}, T. and {Okamura}, S. and {Shimasaku}, K. and 
+  {Suto}, Y. and {Tamura}, N. and {Umetsu}, K. and {Yamada}, T.
+  },
+    title = "{Panoramic Views of Cluster-Scale Assemblies Explored by Subaru Wide-Field Imaging}",
+  journal = {\pasj},
+   eprint = {astro-ph/0502444},
+ keywords = {galaxies: clusters, galaxies: clusters: individual (CL 0939+4713, CL 0016+1609, RX J0152.7-1357), galaxies: evolution},
+     year = 2005,
+    month = apr,
+   volume = 57,
+    pages = {309-323},
+ abstract = "{We have started PISCES project; a panoramic imaging and spectroscopic
+survey of distant clusters on Subaru. It exploits the unique wide-field
+imaging capability of Suprime-Cam, which provides a 34' {\times} 27'
+field of view corresponding to a physical area of 16 {\times} 13
+Mpc$^{2}$ at z {\tilde} 1. We plan to target 15 clusters at 0.4
+{\lsim} z {\lsim} 1.3. We report on our first results concerning the inner
+structures and large-scale structures of two distant clusters at z =
+0.55 and 0.83 together with the earlier results on a z = 0.41 cluster.
+The photometric redshift technique has been applied to multi-color data
+in order to remove most of the foreground/background galaxies so as to
+isolate the cluster member candidates. We have found large-scale
+filamentary structures around the clusters, extending out to {\gt} 5 Mpc
+from the cores, as well as complex inner structures. The galaxy
+distributions in the inner regions of the clusters look similar to the
+X-ray intensity maps, suggesting that most of the optical structures
+trace physically bound systems. We also compared the structures of the
+three clusters with those of model clusters in a numerical simulation
+(N-body + semi-analytic model) by parameterising the shapes of the
+iso-density contours of galaxies, and found a broad agreement. Our
+results that cluster-scale assembly takes place along filaments during
+hierarchical clustering need to be confirmed spectroscopically in the
+near future.
+}",
+      doi = {10.1093/pasj/57.2.309},
+   adsurl = {http://adsabs.harvard.edu/abs/2005PASJ...57..309K},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2003MNRAS.345..429O,
+   author = {{Okamoto}, T. and {Jenkins}, A. and {Eke}, V.~R. and {Quilis}, V. and 
+  {Frenk}, C.~S.},
+    title = "{Momentum transfer across shear flows in smoothed particle hydrodynamic simulations of galaxy formation}",
+  journal = {\mnras},
+   eprint = {astro-ph/0306568},
+ keywords = {hydrodynamics, methods: numerical, galaxies: evolution, galaxies: formation},
+     year = 2003,
+    month = oct,
+   volume = 345,
+    pages = {429-446},
+ abstract = "{We investigate the evolution of angular momentum in smoothed particle
+hydrodynamic (SPH) simulations of galaxy formation, paying particular
+attention to artificial numerical effects. We find that a cold gas disc
+forming in an ambient hot gas halo receives a strong hydrodynamic torque
+from the hot gas. By splitting the hydrodynamic force into artificial
+viscosity and pressure gradients, we find that the angular momentum
+transport is caused not by the artificial viscosity but by the pressure
+gradients. Using simple test simulations of shear flows, we conclude
+that the pressure gradient-based viscosity can be divided into two
+components: one due to the noisiness of SPH and the other due to ram
+pressure. The former is problematic even with very high resolution,
+because increasing the resolution does not reduce the noisiness. On the
+other hand, the ram pressure effect appears only when a cold gas disc or
+sheet does not contain enough particles. In such a case, holes form in
+the disc or sheet, and then ram pressure from intra-hole hot gas causes
+significant deceleration. In simulations of galactic disc formation,
+star formation usually decreases the number of cold gas particles, and
+hole formation leads to the fragmentation of the disc. This
+fragmentation not only induces further angular momentum transport, but
+also affects star formation in the disc. To circumvent these problems,
+we modify the SPH algorithm, decoupling the cold gas phases from the hot
+ones, i.e. inhibiting the hydrodynamic interaction between cold and hot
+particles. This, a crude modelling of a multiphase fluid in SPH
+cosmological simulations, leads to the formation of smooth extended cold
+gas discs and to better numerical convergence. The decoupling is
+applicable in so far as the self-gravitating gas disc with negligible
+external pressure is a good approximation for a cold gas disc.
+}",
+      doi = {10.1046/j.1365-8711.2003.06948.x},
+   adsurl = {http://adsabs.harvard.edu/abs/2003MNRAS.345..429O},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2003ApJ...588....7S,
+   author = {{Suwa}, T. and {Habe}, A. and {Yoshikawa}, K. and {Okamoto}, T.
+  },
+    title = "{Cluster Morphology as a Test of Different Cosmological Models}",
+  journal = {\apj},
+   eprint = {astro-ph/0108308},
+ keywords = {Cosmology: Cosmological Parameters, Cosmology: Theory, Galaxies: Clusters: General, Methods: Numerical},
+     year = 2003,
+    month = may,
+   volume = 588,
+    pages = {7-17},
+ abstract = "{We investigate how cluster morphology is affected by the cosmological
+constant in low-density universes. Using high-resolution cosmological
+N-body/smoothed particle hydrodynamics simulations of flat cold dark
+matter ({$\Lambda$}CDM {$\Omega$}$_{0}$=0.3,{$\lambda$}$_{0}$=0.7)
+and open cold dark matter (OCDM;
+{$\Omega$}$_{0}$=0.3,{$\lambda$}$_{0}$=0) universes, we calculate
+statistical indicators to quantify the irregularity of the cluster
+morphologies. We study axial ratios, center shifts, cluster clumpiness,
+and multipole-moment power ratios as indicators for the simulated
+clusters at z=0 and 0.5. Some of these indicators are calculated for
+both the X-ray surface brightness and projected mass distributions. In
+{$\Lambda$}CDM all these indicators tend to be larger than those in OCDM at
+z=0. This result is consistent with the analytical prediction of
+Richstone, Loeb, {\amp} Turner, that is, clusters in {$\Lambda$}CDM are
+formed later than in OCDM and have more substructure at z=0. We perform
+a Kolmogorov-Smirnov test on each indicator for these two models. We
+then find that the results for the multipole-moment power ratios and the
+center shifts for the X-ray surface brightness are under the
+significance level (5\%). Our results also show that these two
+cosmological models can be distinguished more clearly at z=0 than at
+z=0.5 by these indicators.
+}",
+      doi = {10.1086/368375},
+   adsurl = {http://adsabs.harvard.edu/abs/2003ApJ...588....7S},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2003ApJ...587..500O,
+   author = {{Okamoto}, T. and {Nagashima}, M.},
+    title = "{Environmental Effects on Evolution of Cluster Galaxies in a {$\Lambda$}-dominated Cold Dark Matter Universe}",
+  journal = {\apj},
+   eprint = {astro-ph/0108434},
+ keywords = {Galaxies: Clusters: General, Galaxies: Evolution, Galaxies: Formation, Galaxies: Halos, Galaxies: Interactions},
+     year = 2003,
+    month = apr,
+   volume = 587,
+    pages = {500-513},
+ abstract = "{We investigate environmental effects on evolution of bright cluster
+galaxies (L{\gt}L$_{*}$) in a {$\Lambda$}-dominated cold dark matter
+universe using a combination of dissipationless N-body simulations and a
+semianalytic galaxy formation model. The N-body simulations enable us to
+calculate orbits of galaxies in simulated clusters. Therefore, we can
+incorporate stripping of cold gas from galactic disks by ram pressure
+(RP) from the intracluster medium into our model. In this paper we study
+how ram pressure stripping (RPS) and small starburst induced by a minor
+merger affect colors, star formation rates (SFRs), and morphologies of
+cluster galaxies. These processes are new ingredients in our model and
+have not been studied sufficiently. We find that the RPS is not
+important for colors and SFRs of galaxies in the cluster core if the
+star formation timescale is properly chosen, because the star formation
+is sufficiently suppressed by consumption of the cold gas in the disks.
+Then observed color and SFR gradients can be reproduced without the RPS.
+The small starburst triggered by a minor merger hardly affects the SFRs
+and colors of the galaxies as well. We also examine whether these two
+processes can resolve the known problem that the hierarchical clustering
+models based on the major merger-driven bulge formation scenario predict
+too few galaxies of intermediate bulge-to-total luminosity ratio (B/T)
+in clusters. When the minor burst is taken into account, the
+intermediate B/T population is increased, and the observed morphology
+gradients in clusters are successfully reproduced. Without the minor
+burst, the RPS cannot increase the intermediate B/T population. On the
+other hand, when the minor burst is considered, the RPS also plays an
+important role in formation of the intermediate B/T galaxies. We present
+redshift evolution of morphological fractions predicted by our models.
+The predicted number ratios of the intermediate B/T galaxies to the
+bulge-dominated galaxies show nearly flat or slightly increasing trends
+with increasing redshift. We conclude that these trends are inevitable
+when bulges are formed through mergers. We discuss whether our results
+conflict with observationally suggested N$_{S0}$/N$_{E}$
+evolution in clusters, which is a decreasing function of redshift.
+}",
+      doi = {10.1086/368251},
+   adsurl = {http://adsabs.harvard.edu/abs/2003ApJ...587..500O},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2001ApJ...547..109O,
+   author = {{Okamoto}, T. and {Nagashima}, M.},
+    title = "{Morphology-Density Relation for Simulated Clusters of Galaxies in Cold Dark Matter-dominated Universes}",
+  journal = {\apj},
+   eprint = {astro-ph/0004320},
+ keywords = {Galaxies: Clusters: General, Galaxies: Halos, Galaxies: Interactions},
+     year = 2001,
+    month = jan,
+   volume = 547,
+    pages = {109-116},
+ abstract = "{We present a model to investigate the formation and evolution of cluster
+galaxies using cosmological high-resolution N-body simulations. The
+N-body simulations are used to construct merging history trees of dark
+halos. Gas cooling, star formation, supernova feedback, and mergers of
+galaxies within dark halos are included by using simple prescriptions
+taken from semianalytic models of galaxy formation. In this paper, we
+examine the merger-driven bulge formation model and represent the
+morphology-density relation of cluster galaxies at z=0. We find that
+this morphological evolution model can explain the distribution of
+elliptical galaxies in the clusters well and cannot reproduce the
+distribution of S0 galaxies. This result suggests that the elliptical
+galaxies are mainly formed by the major mergers, while, in the S0
+formation, processes other than major mergers play an important role.
+}",
+      doi = {10.1086/318375},
+   adsurl = {http://adsabs.harvard.edu/abs/2001ApJ...547..109O},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{2000PASJ...52..457O,
+   author = {{Okamoto}, T. and {Habe}, A.},
+    title = "{Evolution of Cluster Galaxies in Hierarchical Clustering Universes}",
+  journal = {\pasj},
+   eprint = {astro-ph/0001088},
+ keywords = {GALAXIES: CLUSTERS: GENERAL, GALAXIES: GENERAL, GALAXIES: HALOS, GALAXIES: INTERACTIONS},
+     year = 2000,
+    month = jun,
+   volume = 52,
+    pages = {457-463},
+ abstract = "{Using cosmological N-body simulations of critical (SCDM) and open (Omega
+= 0.3, OCDM) cold dark matter models, we investigated the evolution of
+cluster galaxies. Based on our numerical simulation, we constructed
+merging history trees of the galaxies. By following their merging
+history, we could show that the major merger fractions of the galaxies
+in cluster-forming regions is roughly proportional to
+(1+z)$^{4.5}$ at low redshifts (z {\lt} 2), and has a steep peak at
+z =\~{} 2.5 and z =\~{} 3 in SCDM and OCDM, respectively. We also show that
+the cluster galaxies are affected by the tidal interaction after the
+clusters are formed. Because the formation redshift of the cluster in
+SCDM, z\_form = 0.15, is much more recent than that of the cluster in
+OCDM, z\_form = 1.6, the cluster galaxies in SCDM show more rapid
+evolution by tidal interactions from z = 0.5 than those in OCDM.
+}",
+      doi = {10.1093/pasj/52.3.457},
+   adsurl = {http://adsabs.harvard.edu/abs/2000PASJ...52..457O},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{1999ApJ...516..591O,
+   author = {{Okamoto}, T. and {Habe}, A.},
+    title = "{Formation and Evolution of Galactic Halos in Clusters of Galaxies}",
+  journal = {\apj},
+   eprint = {astro-ph/9811362},
+ keywords = {GALAXIES: CLUSTERS: GENERAL, GALAXIES: HALOS, GALAXIES: INTERACTIONS, Galaxies: Clusters: General, Galaxies: Halos, Galaxies: Interactions},
+     year = 1999,
+    month = may,
+   volume = 516,
+    pages = {591-603},
+ abstract = "{We investigate effects of time evolution of a rich cluster of galaxies
+on its member galactic halos in the standard cold dark matter (SCDM)
+universe using high resolution N-body simulations. We identify several
+hundred galactic halos within the virial radius of our simulated
+cluster. We also find that a large number of halos have been tidally
+disrupted at z=0. Therefore we improve a method of deriving merging
+history trees of galaxies taking account of tidally stripped galaxies.
+The main results are as follows: (1) At high redshift (z\~{}=2), the mass
+function of the galactic halos that are in the cluster at z=0 is very
+similar to that obtained in the field region and agrees well with the
+Press-Schechter mass function. (2) The mass function of cluster galaxies
+that consist of both galactic halos and tidally stripped galaxies has
+hardly evolved since z\~{}=2. This mass function at z=0 is well represented
+by the Press-Schechter mass function at z=2. (3) At high redshift
+(z{\gt}3), in the region that becomes the cluster, the fraction of
+galaxies that have undergone recent merger is larger than that in the
+field. After z\~{}3, however, it rapidly decreases and becomes smaller than
+that in the field. (4) The fraction of strongly stripped galaxies among
+the cluster galaxies begins to increase from z\~{}=0.5. At z=0, a clear
+correlation appears between this fraction and the distance from the
+center of the cluster. (5) Tidally truncated halos have steeper outer
+profiles than those of the model of Navarro, Frenk, {\amp} White.
+}",
+      doi = {10.1086/307126},
+   adsurl = {http://adsabs.harvard.edu/abs/1999ApJ...516..591O},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+

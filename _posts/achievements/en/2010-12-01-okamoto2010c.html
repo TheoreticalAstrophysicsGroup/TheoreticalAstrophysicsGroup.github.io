@@ -1,0 +1,43 @@
+---
+lang: en
+abstract: 'We adopted the GPU (graphics processing unit) to accelerate  the large-scale
+  finite-difference simulation of seismic wave  propagation. The simulation can benefit
+  from the high-memory  bandwidth of GPU because it is a "memory intensive" problem.
+  In  a single-GPU case we achieved a performance of about  56 GFlops, which was about
+  45-fold faster  than that achieved by a single core of the host central processing
+  unit (CPU). We confirmed  that the optimized use of fast shared memory and registers
+  were  essential for performance. In the multi-GPU case with three-dimensional  domain
+  decomposition, the non-contiguous memory alignment in the  ghost zones was found
+  to impose quite long time in data transfer  between GPU and the host node. This
+  problem was solved by using  contiguous memory buffers for ghost zones. We achieved
+  a performance  of about 2.2 TFlops by using 120 GPUs and 330 GB of  total memory:
+  nearly (or more than) 2200 cores of host  CPUs would be required to achieve the
+  same performance. The weak  scaling was nearly proportional to the number of GPUs.
+  We  therefore conclude that GPU computing for large-scale simulation of seismic  wave
+  propagation is a promising approach as a faster simulation is  possible with reduced
+  computational resources compared to CPUs.'
+adsnote: Provided by the SAO/NASA Astrophysics Data System
+adsurl: http://adsabs.harvard.edu/abs/2010EP%26S...62..939O
+author: ['{Okamoto}, T.', '{Takenaka}, H.', '{Nakamura}, T.', '{Aoki}, T.']
+bdsk-url-1: http://dx.doi.org/10.5047/eps.2010.11.009
+bdsk-url-2: http://adsabs.harvard.edu/abs/2010EP%26S...62..939O
+date-added: 2014-07-29 12:31:41 +0000
+date-modified: 2014-07-29 12:31:41 +0000
+doi: 10.5047/eps.2010.11.009
+id: okamoto2010c
+img: [okamoto2010c-01.png, okamoto2010c-00.png, okamoto2010c-02.png]
+img_thumb: okamoto2010c-01-thumb.png
+journal: {id: EarthPlanetsandSpace, name: 'Earth, Planets, and Space'}
+link:
+- {anchor: doi, url: 'http://dx.doi.org/10.5047/eps.2010.11.009'}
+month: dec
+pages: 939-942
+title: Accelerating large-scale simulation of seismic wave propagation by multi-GPUs
+  and three-dimensional domain decomposition
+type: article
+volume: '62'
+year: '2010'
+categories:
+  - achievements
+  - en
+---

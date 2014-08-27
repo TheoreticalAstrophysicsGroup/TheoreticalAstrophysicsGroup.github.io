@@ -1,0 +1,148 @@
+---
+layout: default
+---
+
+{% assign tsl = site.data.translations.seminars.[page.lang] %}
+{% assign tpl = site.data.translations.post_gen.[page.lang] %}
+{% assign tcll = site.data.translations.categories.long.[page.lang] %}
+{% assign la = site.data.links.assets %}
+{% assign lel = site.data.links.external.[page.lang] %}
+{% assign li = site.data.links.internal %}
+
+{% include page_header.html title=tcll.seminars %}
+
+<!-- AYW 2014-07-04 13:32 JST
+     We wish to sort by date and group by tags-->
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-4 hidden-md hidden-lg">
+      <aside class="sidebar">
+
+      {% include aside_about.html a=content t=tsl.about_header %}
+      {% include aside_nav.html %}
+
+      </aside> <!-- Sidebar -->
+    </div> 
+
+    <div class="col-md-8">
+
+    <!-- Get post number by comparing dates -->
+    {% assign all_posts = site.categories['seminars'] | where: 'lang', page.lang %}
+    {% assign all_posts_grouped = all_posts | group_by: 'date' %}
+    {% assign nsem = all_posts_grouped | size %}
+    {% assign d_prev = 0 %}
+    {% assign npost = nsem | plus: 1 %}
+
+    <!-- Language dependent surrounds -->
+    <!-- This creates open_surround and close_surround variables into the namespace -->
+    {% include lang_surround.html shape='round' %}
+
+    <!-- academic year range -->
+    {% assign page_url = page.url | split: '/' %}
+    {% assign pageyear = page_url[2] %}
+    {% if pageyear == page.lang %}
+      {% assign pageyear = site.time | date: "%Y" %}
+    {% endif %}
+    {% assign yearbegin = pageyear | append: '-04-01' %}
+    {% assign yearend = pageyear | plus: 1 | append: '-03-31' %}
+    {% assign yearbegin = yearbegin | date: "%s" | times: 1 %} 
+    {% assign yearend = yearend | date: "%s" | times: 1 %} 
+
+    <!-- Limit number of posts on non-archive pages -->
+    {% assign page_year = page_url[2] %}
+    {% if page_year == page.lang %}
+      {% assign posts_per_page = 8 %}
+    {% else %}
+      {% assign posts_per_page = 1024 %}
+    {% endif %}
+
+    <!-- Loop over posts begins here -->
+    {% assign at_least_one = false %}
+    {% for post in all_posts limit: posts_per_page %}
+
+      {% assign d = post.date | date: "%Y-%m-%d" %}
+      {% unless d == d_prev %} 
+        {% assign d_prev = d %}
+        {% assign npost = npost | minus: 1 %}
+      {% endunless %}
+
+      <!-- Test condition that this post is in the page's academic year -->
+      {% assign unixdate = post.date | date: "%s"| times: 1 %}
+      {% if unixdate >= yearbegin and unixdate <= yearend %}
+        {% assign in_time_interval = true %}
+      {% else %}
+        {% assign in_time_interval = false %}
+      {% endif %}
+      {% if in_time_interval or page_url[2] == page.lang %}
+
+
+      {% assign d = post.date | date: "%Y-%m-%d" %}
+      {% assign delay_add = forloop.index | mod: posts_per_page | times: 3 %}
+      {% assign delay = 8 | plus: delay_add %}
+
+      <!-- This creates an lang_count variable into the namespace -->
+      {% include lang_count.html number=npost %}
+
+      <article class="post animated fadeInLeft animation-delay-{{ delay }}">
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+          {% assign posturl = post.url | prepend: site.baseurl %}
+          <span class="badge pull-right">{{ tsl.count_pre }}{{ npost }}<sup>{{ lang_count }}</sup>{{ tsl.count_aft }}{% if post.part %}{{ open_surround }}{{ tsl.part }}{{ post.part }}{{ close_surround }}{% endif %}</span>
+          <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a></h3>
+          <div class="row">
+            <div class="col-lg-6">
+              <img src="{{ site.baseurl }}{{ la.img }}/{% if post.img %}{{ post.img[0] }}{% else %}no_img.jpg{% endif %}" class="img-post img-responsive" alt="Image">
+            </div>
+            <div class="col-lg-6">
+              <h4>{% if post.webpage %}<a href="{{ post.webpage }}" target="_blank">{% endif %}{{ post.speaker }}{% if post.webpage %}</a>{% endif %}</h4>
+              <h5>{{ post.affil }}</h5> 
+              {% assign postcontent = post.content | strip_html %}
+              {% include lang_truncate.html text=postcontent %}
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-lg-10 col-md-9 col-sm-8">
+              <i class="fa fa-calendar"></i> <a href="{{ site.baseurl }}{{ li.calendar}}/{{ page.lang }}">{% include date.html d=post.date l='s' %}</a> <i class="fa fa-clock-o"></i> {{ post.time | replace: ':',' : ' }} <i class="fa fa-map-marker"></i> <a href="{{ lel.access }}" target="_blank">{{ post.place }}</a>
+              </div>
+              <div class="col-lg-2 col-md-3 col-sm-4">
+                <a href="{{ posturl }}" class="pull-right">{{ tpl.read_more }} &raquo;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </article> <!-- post -->
+      {% assign at_least_one = true %}
+      {% endif %}
+      {% endfor %}
+
+      {% unless at_least_one %}
+        {% capture acad_date %}{{ page_url[2]}}-10-10{% endcapture %}
+        {% if page.lang == 'en' %}
+          <p>There are no items for the academic year {% include date.html d=acad_date l='a' %}.</p>
+        {% elsif page.lang == 'ja' %}
+          <p>{% include date.html d=acad_date l='a' %}の投稿はありません。</p>
+        {% endif %}
+      {% endunless %}
+
+
+    </div> <!-- col-md-8 -->
+
+    <div class="col-md-4 hidden-xs hidden-sm">
+      <aside class="sidebar">
+
+      {% include aside_about.html a=content t=tsl.about_header %}
+      {% include aside_nav.html dup=true %}
+
+      </aside> <!-- Sidebar -->
+    </div> 
+
+  </div> <!-- row -->
+</div> <!-- container  -->
+
+

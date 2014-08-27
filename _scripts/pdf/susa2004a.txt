@@ -1,0 +1,357 @@
+The Astrophysical Journal, 610:L5–L8, 2004 July 20
+᭧ 2004. The American Astronomical Society. All rights reserved. Printed in U.S.A.
+
+THE EFFECTS OF EARLY COSMIC REIONIZATION ON THE SUBSTRUCTURE PROBLEM IN GALACTIC HALOS
+Hajime Susa
+Department of Physics, Rikkyo University, 3-34-1 Nishi-Ikebukuro, Toshimaku, 171 Tokyo, Japan; susa@rikkyo.ac.jp
+
+and
+Masayuki Umemura
+Center for Computational Sciences, University of Tsukuba, Ten-nodai, 1-1-1 Tsukuba, Ibaraki 305-8577, Japan; umemura@rccp.tsukuba.ac.jp
+Received 2004 April 3; accepted 2004 June 9; published 2004 June 22
+
+ABSTRACT
+Recent observations of the cosmic microwave background by the Wilkinson Microwave Anisotropy Probe
+strongly suggest that the reionization of the universe took place quite early (z ∼ 17 ). On the other hand, it has
+been pointed out that the cold dark matter cosmology suffers from a substructure problem in which more
+subgalactic halos are produced in the Local Group than dwarf galaxies. In this Letter, as a potential mechanism
+for solving this problem, we consider the feedback effects of early reionization on the formation of small-scale
+structures. For this purpose, we perform three-dimensional radiation hydrodynamic simulations, incorporating
+the radiative transfer for ionizing photons. As a result, it is found that the early reionization is devastating for
+low-mass systems with Mvir Շ 10 8 M, or vcirc Շ 20 km sϪ1 , and almost all gas is photoevaporated in more than
+95% of low-mass systems. Such a strong negative feedback on the formation of low-mass galaxies may solve
+the substructure problem and support the picture that Local Group dwarf galaxies are descendants of the more
+massive halos that experienced and survived tidal stripping.
+Subject headings: galaxies: dwarf — galaxies: formation — hydrodynamics — molecular processes —
+radiative transfer
+effective for low-mass systems, since density fluctuations are
+photoheated before they collapse to form stars.
+Very recently, Kravtsov et al. (2004) analyzed the dynamical
+history of small substructure halos with a present mass of
+Շ108–109 M, using a cosmological simulation. They found
+that 10% of small halos originate in considerably larger systems
+with տ109 M, that survived the tidal stripping. They suggest
+that the Galactic satellites are descendants of relatively massive
+systems that formed at higher redshifts and did not significantly
+suffer from the UVB. This argument is plausible if systems
+with տ109 M, are impervious, even to early reionization, and
+if star formation in low-mass systems is completely suppressed.
+Kitayama et al. (2001) have investigated the UVB feedback
+using a one-dimensional radiation hydrodynamic simulation for
+halos that collapse at z Շ 10 and found that the central parts
+cannot cool down to form stars if the virial temperature is less
+than 104 K and if I21 տ 10Ϫ2, where I21 is the intensity at the
+Lyman limit in units of 10Ϫ21 ergs sϪ1 cmϪ1 HzϪ1 srϪ1. Dijkstra
+et al. (2004) extended this work to higher redshifts by using
+one-dimensional hydrodynamic calculations and found that gas
+is not photoevaporated in halos with circular velocities of 10–
+20 km sϪ1 at z 1 10. But, in the hierarchical structure formation
+of a CDM universe, three-dimensional time-dependent selfshielding is significant for the UVB feedback, as shown by
+Susa & Umemura (2004). In particular, such radiative transfer
+effects are likely to be essential, when the reionization proceeds
+at higher redshifts (in higher density intergalactic matter).
+In this Letter, we perform three-dimensional radiation hydrodynamic simulations by solving the radiative transfer for
+ionizing photons, and we attempt to elucidate the feedback
+effects of early reionization on the formation of subgalactic
+systems. In § 2, the method of numerical simulation is briefly
+described, and the assumption for the ionizing radiation intensity is provided. In § 3, we present the numerical results for
+UVB feedback and also make a convergence check of the
+
+1. INTRODUCTION
+
+It has been claimed that, compared to the dwarf galaxies
+observed in the Local Group, too many subgalactic halos are
+formed in a cold dark matter (CDM) universe (Klypin et al.
+1999; Moore et al. 1999). One of the simplest ways to resolve
+this discrepancy is to exclude baryonic matter from small halos
+by the use of some feedback mechanisms. The mechanisms
+could be either the gas ejection due to the energy input by
+multiple supernova (SN) explosions (Dekel & Silk 1986; Yepes
+et al. 1997; Efstathiou 2000; Kay et al. 2002; Marri & White
+2003; Wada & Venkatesan 2003; Ricotti & Ostriker 2004) or
+the photoevaporation by ultraviolet background (UVB) radiation (Umemura & Ikeuchi 1984; Bond et al. 1988; Efstathiou
+1992; Babul & Rees 1992; Thoul & Weinberg 1996; Barkana
+& Loeb 1999; Kitayama & Ikeuchi 2000; Kitayama et al. 2000;
+Kitayama et al. 2001; Bullock et al. 2000; Somerville 2002;
+Benson et al. 2002; Ricotti et al. 2002; Susa & Umemura 2004).
+As for the former process, Wada & Venkatesan (2003) recently
+performed high-resolution hydrodynamic simulations and concluded that 1000 SNe are required in order to disrupt a galaxy
+with M ∼ 10 8 M, at z ∼ 10, while only 100 SNe in the halo
+would trigger the recollapse of the whole system. These results
+show that SN explosions are not always destructive to the
+formation of low-mass galaxies, although it depends on the
+initial mass function of stars (e.g., Ricotti & Ostriker 2004).
+On the other hand, the previous studies on the UVB feedback
+have shown that the photoevaporation by UVB is dependent
+on the virial mass. As long as systems are more massive than
+≈108 M,, the photoevaporation by the UVB is not effective
+because deep potential wells can retain the ionized gas. However, at smaller mass scales, the feedback by the UVB is expected to play a very important role. Recently, using Wilkinson
+Microwave Anisotropy Probe (WMAP) Kogut et al. (2003) suggested that the universe was reionized in a rather early epoch
+(z ∼ 17). If this is the case, the UVB feedback could be quite
+L5
+
+L6
+
+SUSA & UMEMURA
+
+results. Section 4 is devoted to discussion of the substructure
+problem.
+2. NUMERICAL METHOD
+
+The details of the numerical method are given in Susa &
+Umemura (2004). Here, we briefly describe the model and
+method for the simulations. The hydrodynamics are calculated
+by using the smoothed particle hydrodynamics (SPH) method.
+We use the version of SPH by Umemura (1993), with the
+modification by Steinmetz & Mu¨ller (1993), and we also adopt
+the particle resizing formalism of Thacker et al. (2000). The
+gravitational force is calculated by a special-purpose processor
+for gravity, GRAPE-6 (Makino 2002). In order to access the
+GRAPE boards, we utilize the Heterogeneous Multi-Computer
+System (HMCS; Boku et al. 2002), which allows us to use
+GRAPE in parallel processors (such as PC clusters).
+The softening length for gravity is set to be 20 pc for SPH
+and CDM particles. This value is based on the convergence
+test shown in § 3. The nonequilibrium chemistry and radiative
+cooling for primordial gas are included with the code developed
+by Susa & Kitayama (2000), in which H2 cooling and reaction
+rates are taken from Galli & Palla (1998). To solve the radiative
+transfer in an SPH scheme, we employ the method proposed
+by Kessel-Deynet & Burkert (2000), which utilizes the neighbor lists of SPH particles to evaluate the optical depth from a
+certain source to an SPH particle.
+To generate UVB radiation, we use a single ionizing source
+that is located very far from the simulated region, and we
+control the UV intensity by specifying the incident flux to the
+simulation box. We assume that the history of the UV intensity
+allowed for the early reionization inferred by WMAP. Since
+the recombination timescale is shorter than the Hubble expansion time at z տ 10 (Peebles 1968), ionizing photons should
+be continuously supplied in order to retain the ionization. The
+requisite UV intensity is given by equating the recombination
+rate to the ionization rate:
+In L p
+
+n 0 (1 ϩ z) 3k rec h P (a ϩ 3) (1 Ϫ yH i ) 2
+,
+4pjn L
+yH i
+
+(1)
+
+where In L denotes the intensity at the Lyman limit; k rec , jn L, and
+h P represent the recombination coefficient, the ionization cross
+section at the Lyman limit, and the Planck constant, respectively; n 0 is the present-day baryon density; a is the spectral
+index of UV radiation; and yH i is the fraction of neutral hydrogen. If yH i p 0.1 at z Ӎ 15, I21 Ӎ 10Ϫ3 is required. This
+should be regarded as the minimal prerequisite for two reasons.
+First, this estimate is provided for optically thin media. In actual
+ionization history, the radiative transfer effect is definitely important (Nakamoto et al. 2001). Second, in an inhomogeneous
+universe, local density enhancements increase the recombination rate significantly. Taking these two reasons into account,
+we assume I21 p 0.01 for 5 ! z ! 17 with a sharp decrease at
+z 1 17 as I21 ∝ exp [3 (17 Ϫ z)]. Also, some models with
+I21 p 1 are simulated to investigate the dependence on I21.
+The “star formation” condition adopted in this Letter is basically the same as that in Susa & Umemura (2004), except
+that c ∗ p 1 is assumed here; c ∗ p 1 means the star formation
+at the maximal feasible rate, because no stars can form in a
+timescale shorter than the local free-fall time. Here, we do not
+include the internal feedback effects by stellar UV radiation or
+by SN explosions.
+
+Vol. 610
+
+We assume QM p 0.3, QL p 0.7, Q baryon h 2 p 0.02, and
+h p 0.7, as the background cosmology. Following the density
+fluctuations in this cosmology, the initial distributions of particles are set up. The mass of the virialized dark halo is in the
+range of 10 6 M, Շ Mvir Շ 10 8 M,, and the collapse epoch is
+5 Շ z c Շ 20. We use 215 SPH particles and 215 dark matter
+particles for a run.
+3. RESULTS
+
+The numerical results are summarized in Figure 1. The left
+panel shows the fraction of the final mass in the stellar component to the initial baryon mass as a function of the collapse
+epoch z c and Mvir, while the right panel is the final fraction of
+gas. In both panels, the fraction is depicted by different symbols. The dotted lines represent the collapse epoch of halos
+formed from 1 j, 2 j, and 3 j CDM density fluctuations.
+Roughly 95% of fluctuations collapse after the epoch predicted
+by the 2 j line. The dashed lines denote the constant circular
+velocities, which are defined by vcirc { (GMvir /rvir )1/2 with the
+virial radius rvir determined by z c and Mvir.
+In Figure 1, we see that if Mvir տ 10 8 M, and vcirc տ 20
+km sϪ1, almost all baryons are transformed into stars, leaving little
+gas. It is noted that a considerable fraction of baryonic matter
+forms stars even after the reionization (z c ! z reion p 17). On the
+other hand, if vcirc Շ 20 km sϪ1, fstar steeply decreases with decreasing circular velocities. Also, fgas becomes quite small, as seen
+in the right panel. This reflects the effect of photoevaporation by
+the UVB. The dependence of photoevaporation on Mvir and z c is
+understood by the self-shielding and by the gravitational potential.
+The self-shielding against the UVB becomes prominent if the local
+density exceeds the threshold density as
+nshield p 1.4 # 10Ϫ2 cmϪ3
+
+Ϫ1/5
+
+3/5
+
+(10M M ) (Ia )
+baryon
+8
+,
+
+21
+
+(2)
+
+(Tajiri & Umemura 1998). This means that the self-shielding
+is more effective if the system is larger or if it collapses at
+higher redshifts. The gas envelope that is not shielded from
+the UVB is photoheated to Շ104 K and is blown out by the
+enhanced thermal pressure, unless the gravitational potential is
+deep enough to retain the ionized gas (i.e., vcirc տ 20 km sϪ1).
+Hence, the photoevaporation is quite devastating for fluctuations with lower masses and later collapse epochs. Intriguingly,
+a steep transition of fstar for vcirc Շ 20 km sϪ1 coincidentally
+lies on a line of nearly constant j; i.e., dr/r ≈ 2 j. This means
+that in more than 95% of the halos with vcirc Շ 20 km sϪ1, the
+star formation is strongly suppressed by early reionization.
+In the present simulation, star formation is assumed to proceed
+in local free-fall time. This leads to the physically maximal star
+formation rate. Hence, the stellar fraction obtained in a halo should
+be regarded as a maximal one. If the star formation proceeds for
+a longer timescale, baryon gas in a halo with vcirc Շ 20 km sϪ1
+could be almost completely photoevaporated after the reionization.
+On the other hand, fluctuations with vcirc տ 20 km sϪ1 are likely
+to be impervious to the photoevaporation since the gravitational
+potential is deep enough to retain the ionized gas.
+To examine the dependence of the results on the assumed
+UVB intensity (I21), we also perform several runs with I21 p
+1. In this case, a steep transition of fstar is slightly shifted to
+higher j as dr/r ≈ 2.5 j. Thus, it turns out that the results are
+not strongly dependent on the UVB intensity. Such insensi-
+
+No. 1, 2004
+
+EFFECTS OF EARLY COSMIC REIONIZATION
+
+L7
+
+Fig. 1.—Summary of numerical runs shown as a function of the collapse epoch zc and the virialized halo mass Mvir. The left panel shows the fraction of the
+final mass in the stellar component to the initial baryon mass, while the right panel is the final fraction of gas. In both panels, the fraction f is depicted by different
+symbols: f 1 0.9 (filled circles), 0.5 ! f ! 0.9 (filled squares), 0.1 ! f ! 0.5 (filled triangles), 0.01 ! f ! 0.1 (open triangles), 10Ϫ3 ! f ! 0.01 (open squares), and
+f ! 10Ϫ3 (open circles). The dotted lines represent the collapse epoch of halos formed from 1 j, 2 j, and 3 j CDM density fluctuations. The dashed lines denote
+the constant circular velocities of 5, 10, and 20 km sϪ1.
+
+tiveness may be understood as the weak dependence of the
+self-shielding on the UV intensity, as seen in equation (2).
+Finally, to check the numerical effects, we analyze the convergence of the runs by changing the mass resolution and softening
+length. In Figure 2, the left panel shows the final stellar fraction
+(fstar) in runs with Mvir p 6 # 10 7 M, and z c Ӎ 10, while the
+
+right panel shows fstar in runs with Mvir p 6 # 10 6 M, and
+z c Ӎ 15. These runs are at the transition region of fstar in Figure 1. The horizontal axis in Figure 2 represents the softening
+length e for gravity. The four different curves correspond to the
+different numbers of particles used in the simulations. We can see
+that fstar almost converges, if NSPH տ 2 15 and if e Շ 10–20 pc.
+
+Fig. 2.—Convergence check of the numerical simulations. The left panel shows the convergence of runs with Mvir p 6 # 107 M, and zc Ӎ 10, and the right
+panel shows the convergence of runs with Mvir p 6 # 106 M, and zc Ӎ 15. In both panels, the vertical axis represents the final stellar mass fraction, and the
+horizontal axis represents the softening length of the gravitational force. The four different curves correspond to the different numbers of particles: NSPH p 217
+(circles), NSPH p 215 (crosses), NSPH p 214 (triangles), and NSPH p 213 (squares).
+
+L8
+
+SUSA & UMEMURA
+
+Thus, the present simulation with e p 20 pc and NSPH p 2 15
+(pNDM) is unlikely to suffer from numerical effects.
+4. DISCUSSION
+
+The present numerical simulations predict strong negative
+feedback on the formation of dwarf galaxies with vcirc Շ 20
+km sϪ1. Based on fstar, we can make a rough estimation of the
+mass-to-light ratios (M/L ) for fully formed galaxies. If we assume Mstar /L p 3 for stars in solar units, fstar p 0.01 corresponds to Mvir /L p 2.6 # 10 3, and fstar p 0.1 to Mvir /L p
+2.6 # 10 2. But these values cannot be compared directly with
+the observed M/L of satellite galaxies because quite a large
+fraction (typically more than 90%) of the dark matter halos of
+satellites can be tidally stripped, as shown by Kravtsov et al.
+(2004). Thus, the eventual M/L of satellites is likely to decrease
+by a factor of 10; e.g., M/L p 2.6 # 10 2 for fstar p 0.01. Local
+Group dwarf galaxies (dwarf spheroidal and dwarf irregular
+galaxies) exhibit a wide range of M/L, from a few up to ≈100
+(van den Bergh 1999; Mateo 1998; Hirashita et al. 1998).
+Hence, the formed galaxies with fstar տ 0.01 may account for
+the Local Group dwarf galaxies. The present simulation predicts that only a few percent of fluctuations result in
+fstar տ 0.01, if vcirc Շ 20 km sϪ1. If the star formation rate is
+lower, the probability is reduced further. Hence, such intrin-
+
+Vol. 610
+
+sically low-mass halos may be too few to account for all the
+Galactic satellites.
+One possibility for reconciling this discrepancy could be
+found in the model suggested by Kravtsov et al. (2004). They
+found that 10% of small halos originate in considerably larger
+systems with տ109 M, that survived the tidal stripping, and
+they suggest that the Galactic satellites are descendants of relatively massive systems that formed at higher redshifts. In our
+simulation, systems larger than 108 M, are not subject to the
+UVB feedback. Thus, their model seems likely to account for
+the number of Local Group dwarf galaxies.
+We are grateful to the referee for providing helpful comments
+on this Letter. We thank A. Ferrara, T. Kitayama, K. Omukai,
+K. Wada, and N. Yoshida for stimulating discussions. The
+HMCS was developed in a project that was propelled by the
+Center for Computational Physics, University of Tsukuba, in
+the course of the JSPS Research-for-the-Future program of
+Computational Science and Engineering. The analysis was
+made using the computational facilities located at the Center
+for Computational Sciences at the University of Tsukuba and
+Rikkyo University. We acknowledge research grants from the
+Japan Society for the Promotion of Science (15740122: H. S.,
+15340060: M. U.).
+
+REFERENCES
+Babul, A., & Rees, M. J. 1992, MNRAS, 255, 346
+Barkana, R., & Loeb, A. 1999, ApJ, 523, 54
+Benson, A., Frenk, C., Lacey, C., Baugh, C., & Cole, S. 2002, MNRAS, 333,
+177
+Boku, T., Makino, J., Susa, H., Umemura, M., Fukushige, T., & Ukawa, A.
+2002, IPSJ Trans. High Performance Comput. Systems, 41, 5
+Bond, J., Szalay, A., & Silk, J. 1988, ApJ, 324, 627
+Bullock, J., Kravtsov, A., & Weinberg, D. 2000, ApJ, 539, 517
+Dekel, A., & Silk, J. 1986, ApJ, 303, 39
+Dijkstra, M., Haiman, Z., Rees, M., & Weinberg, D. 2004, ApJ, 601, 666
+Efstathiou, G. 1992, MNRAS, 256, 43P
+———. 2000, MNRAS, 317, 697
+Galli, D., & Palla, F. 1998, A&A, 335, 403
+Hirashita, H., Takeuchi, T. T., & Tamura, N. 1998, ApJ, 504, L83
+Kay, S., Pearce, F., Frenk, C., & Jenkins, A. 2002, MNRAS, 330, 113
+Kessel-Deynet, O., & Burkert, A. 2000, MNRAS, 315, 713
+Kitayama, T., & Ikeuchi, S. 2000, ApJ, 529, 615
+Kitayama, T., Susa, H., Umemura, M., & Ikeuchi, S. 2001, MNRAS, 326, 1353
+Kitayama, T., Tajiri, Y., Umemura, M., Susa, H., & Ikeuchi, S. 2000, MNRAS,
+315, L1
+Klypin, A., Kravtsov, A., Valenzuela, O., & Prada, F. 1999, ApJ, 522, 82
+Kogut, A., et al. 2003, ApJS, 148, 161
+Kravtsov, A. V., Gnedin, O. Y., & Klypin, A. A. 2004, ApJ, 609, 482
+
+Makino, J. 2002, in ASP Conf. Ser. 263, Stellar Collisions, Mergers and Their
+Consequences, ed. M. M. Shara (San Francisco: ASP), 389
+Marri, S., & White, S. D. M. 2003, MNRAS, 345, 561
+Mateo, M. 1998, ARA&A, 36, 435
+Moore, B., Ghigna, S., Governato, F., Lake, G., Quinn, T., Stadel, J., & Tozzi,
+P. 1999, ApJ, 524, L19
+Nakamoto, T., Umemura, M., & Susa, H. 2001, MNRAS, 321, 593
+Peebles, P. J. E. 1968, ApJ, 153, 1
+Ricotti, M., Gnedin, N. Y., & Shull, J. M. 2002, ApJ, 575, 49
+Ricotti, M., & Ostriker, J. P. 2004, MNRAS, 350, 539
+Somerville, R. 2002, ApJ, 572, L23
+Steinmetz, M., & Mu¨ller, E. 1993, A&A, 268, 391
+Susa, H., & Kitayama, T. 2000, MNRAS, 317, 175
+Susa, H., & Umemura, M. 2004, ApJ, 600, 1
+Tajiri, Y., & Umemura, M. 1998, ApJ, 502, 59
+Thacker, J., Tittley, R., Pearce, R., Couchman, P., & Thomas, A. 2000,
+MNRAS, 319, 619
+Thoul, A. A., & Weinberg, D. H. 1996, ApJ, 465, 608
+Umemura, M. 1993, ApJ, 406, 361
+Umemura, M., & Ikeuchi, S. 1984, Prog. Theor. Phys., 72, 47
+van den Bergh, S. 1999, A&A Rev., 9, 273
+Wada, K., & Venkatesan, A. 2003, ApJ, 591, 38
+Yepes, G., Kates, R., Khokhlov, A., & Klypin, A. 1997, MNRAS, 284, 235
+
+

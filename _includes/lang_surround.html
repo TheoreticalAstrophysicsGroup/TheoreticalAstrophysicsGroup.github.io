@@ -1,0 +1,28 @@
+<!-- Language dependent surrounds -->
+{% assign shape = include.shape %}
+{% case shape %}
+  {% when 'round' %}
+    {% if page.lang == 'ja' %} {% assign open_surround = '（' %}{% assign close_surround = '）' %}
+    {% else %}                 {% assign open_surround = ' (' %}{% assign close_surround = ') ' %}
+    {% endif %}
+  {% when 'square' %}
+    {% if page.lang == 'ja' %} {% assign open_surround = '［' %}{% assign close_surround = '］' %}
+    {% else %}                 {% assign open_surround = ' [' %}{% assign close_surround = '] ' %}
+    {% endif %}
+  {% when 'curly' %}
+    {% if page.lang == 'ja' %} {% assign open_surround = '｛' %}{% assign close_surround = '｝' %}
+    {% else %}                 {% assign open_surround = ' {' %}{% assign close_surround = '} ' %}
+    {% endif %}
+  {% when 'quotes' %}
+    {% if page.lang == 'ja' %} {% assign open_surround = '「' %}{% assign close_surround = '」' %}
+    {% else %}                 {% assign open_surround = ' "' %}{% assign close_surround = '" ' %}
+    {% endif %}
+  {% when 'colon' %}
+    {% if page.lang == 'ja' %} {% assign open_surround = '：' %}{% assign close_surround = '' %}
+    {% else %}                 {% assign open_surround = ':' %}{% assign close_surround = '' %}
+    {% endif %}
+  {% else %}
+    {% if page.lang == 'ja' %} {% assign open_surround = '（' %}{% assign close_surround = '）' %}
+    {% else %}                 {% assign open_surround = ' (' %}{% assign close_surround = ') ' %}
+    {% endif %}
+{% endcase %}

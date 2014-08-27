@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+
+{% assign trl = site.data.translations.research.[page.lang] %}
+{% assign la = site.data.links.assets %}
+
+{% include page_header.html title=page.title %}
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-3">
+      <nav id="sidebar-menu">
+      <ul class="nav nav-pills nav-stacked affix menu animated fadeIn" id="menu" data-spy="affix" data-offset-top="400" data-offset-bottom="450">
+        <li><a href="#abstract" class="smooth">{{ trl.abstract }}</a></li>
+        {% for top in page.topics %}
+        <li><a href="#research{{ forloop.index }}" class="smooth">{{ top.title }}</a></li>
+        {% endfor %}
+      </ul>
+      </nav>
+    </div> <!-- col -->
+
+
+    <div class="col-md-9">
+
+      <h3 id="abstract" class="post-title">{{ trl.abstract }}</h3>
+
+      {{ content }}
+      <br />
+      <br />
+
+      <h3 class="post-title"> {{ trl.topics }} </h3>
+
+      {% for top in page.topics %}
+
+      <h4 id="research{{ forloop.index }}"> {{ top.title }} </h4>
+
+      {{ top.intro }}
+
+      <div class="col-md-10">
+      </div>
+      <div class="col-md-2">
+        <a href="{{ last_post_url }}" class="btn btn-primary btn-block">{{ trl.read_more }}</a>
+      </div>
+      <br />
+      <br />
+
+
+      {% endfor %}
+
+    </div>
+  </div>
+  <!-- AYW 2014-07-02 22:56 JST Just kept for reference -->
+  <!-- <img src="js/holder.js/200x170" alt="" class="imageborder alignleft"> -->
+  <!-- <img src="js/holder.js/200x180/social" alt="" class="imageborder alignright"> -->
+
+</div> <!-- container  -->
+

@@ -1,0 +1,28 @@
+
+{% assign dup = include.dup %}
+{% if dup %} {% assign idsfx = '_dup' %}
+{% else %} {% assign idsfx = '' %}
+{% endif %}
+
+    <!-- Archive -->
+    <div class="tab-pane" id="archive{{ idsfx }}">
+      <h3 class="post-title">{{ tpl.archive }}</h3>
+      <ul class="simple">
+        {% assign sday = site.time | date: "%d" %}
+        {% assign smon = site.time | date: "%m" %}
+        {% assign scyr = site.time | date: "%Y" %}
+        {% for i in (0..11) %}
+          {% assign sdate = scyr | append: '-' | append: smon | append: '-' | append: sday %}
+          <li><a href="#">{% include date.html d=sdate l='t' %}</a></li>
+          {% if smon == 1 %} 
+            {% assign scyr = scyr | minus: 1 %}
+            {% assign smon = 12 %}
+          {% else %}
+            {% assign smon = smon | minus: 1 %}
+          {% endif %}
+        {% endfor %}
+        <li><a href="#">{{ tpl.earlier_posts }}</a></li>
+      </ul>
+    </div>
+
+

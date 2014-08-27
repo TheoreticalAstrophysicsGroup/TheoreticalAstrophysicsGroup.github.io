@@ -1,0 +1,552 @@
+
+
+@dark-color: #333;
+@light-color: #53d5ff;
+@primary-color: #008CBA;
+
+
+/*-------------------------------------------------------------------*/
+/* Base */
+/*-------------------------------------------------------------------*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: @primary-color;
+}
+
+
+.form-control:focus {
+  border-color: @primary-color;
+}
+
+
+/*-------------------------------------------------------------------*/
+/* Bootstrap */
+/*-------------------------------------------------------------------*/
+
+blockquote {
+    border-color: @primary-color;
+    border-bottom: solid 1px @primary-color;
+}
+
+blockquote.pull-right {
+  border-right: 5px solid @primary-color;
+  border-bottom: solid 1px @primary-color;
+}
+
+
+.lead strong {
+    color: @primary-color;
+}
+
+.well {
+    border-color: @primary-color;
+}
+
+.jumbotron {
+    border-bottom: solid 5px @primary-color;
+    border-top: solid 5px @primary-color;
+    border-left: solid 1px @primary-color;
+    border-right: solid 1px @primary-color;
+}
+
+.panel-primary .panel-heading,
+.panel-primary .panel-footer {
+    background-color: @primary-color;
+}
+
+.panel-primary .panel-heading a,
+.panel-primary .panel-footer a {
+    color: @light-color;
+}
+
+
+.panel-primary {
+    border-color: @primary-color;
+}
+
+.panel-primary .panel-heading,
+.panel-primary .panel-footer {
+    background-color: @primary-color;
+}
+
+
+.panel-group > .panel .panel-body {
+    border: solid 1px @primary-color !important;
+}
+
+.panel-group > .panel .panel-heading a {
+    background-color: @primary-color;
+}
+
+/* navs-tabs */
+.nav-pills > li > a {
+  color: @primary-color;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  background-color: @primary-color;
+}
+
+.nav-tabs li a:hover,
+.nav-tabs li.active a,
+.nav-tabs li.active a:hover,
+.nav-tabs li.active a:focus {
+    color: @primary-color;
+    border-top: solid 3px @primary-color;
+}
+
+a.list-group-item.active,
+a.list-group-item.active:hover,
+a.list-group-item.active:focus {
+  background-color: @primary-color;
+  border-color: @primary-color;
+}
+
+
+
+/* btn */
+
+.btn-primary {
+    background-color: @primary-color;
+    border-color: darken(@primary-color, 10%);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background-color: darken(@primary-color, 10%);
+  border-color: darken(@primary-color, 20%);
+}
+
+
+
+/* thumbnail */
+
+a.thumbnail:hover,
+a.thumbnail:focus,
+a.thumbnail.active {
+  border-color: @primary-color;
+}
+
+/* badge */
+
+.badge {
+  background-color: @primary-color;
+}
+
+
+/* label */
+
+.label-primary {
+  background-color: @primary-color;
+}
+
+.table > thead > tr > th {
+  border-bottom: 2px solid @primary-color;
+}
+
+
+/* breadcrumb */
+
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+  background-color: @primary-color;
+  border-color: @primary-color;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: @primary-color;
+  border-color: @primary-color;
+}
+
+
+
+/*-------------------------------------------------------------------*/
+/* Basic UI */
+/*-------------------------------------------------------------------*/
+
+dt {
+  color: @primary-color;
+}
+
+
+
+/*-------------------------------------------------------------------*/
+/* Header */
+/*-------------------------------------------------------------------*/
+
+#header {
+    background-color: @dark-color;
+}
+
+#header-title h1 span {
+    color: @light-color;
+}
+
+#search-header input {
+    background-color: lighten(@dark-color, 20%);
+    border-color: lighten(@dark-color, 20%);
+}
+
+a.social-icon:hover {
+    background-color: @primary-color;
+}
+
+/*-------------------------------------------------------------------*/
+/* Navbar */
+/*-------------------------------------------------------------------*/
+.navbar-mind .navbar-brand span {
+    color: @light-color;
+}
+
+.navbar-mind {
+    background-color: @primary-color;
+}
+
+.navbar-mind .nav a:hover,
+.navbar-mind .nav li.active a,
+.navbar-mind .nav a:focus {
+    background-color: @dark-color;
+}
+
+.navbar-mind .nav .open > a,
+.navbar-mind .nav .open > a:hover,
+.navbar-mind .nav .open > a:focus {
+  background-color: @dark-color;
+}
+
+.navbar-mind .nav a .caret {
+  border-top-color: lighten(@primary-color, 10%);
+  border-bottom-color: lighten(@primary-color, 10%);
+}
+
+.navbar-mind .nav .open > a .caret,
+.navbar-mind .nav .open > a:hover .caret,
+.navbar-mind .nav .open > a:focus .caret,
+.navbar-mind .nav .active .caret,
+.navbar-mind .nav a:hover .caret,
+.navbar-mind .nav a:focus .caret, {
+  border-top-color: @primary-color;
+  border-bottom-color: @primary-color;
+}
+
+.navbar-mind .dropdown-menu {
+    background-color: @dark-color;
+    border-bottom: solid 0px @dark-color;
+    border-left: solid 1px @dark-color;
+    border-right: solid 1px @dark-color;
+    border-top: solid 0px @dark-color;
+}
+
+.navbar-mind .dropdown-menu a:hover,
+.navbar-mind .dropdown-menu li.active a:hover,
+.navbar-mind .dropdown-menu a:focus,
+.navbar-mind .dropdown-menu li.active a:focus,
+.navbar-mind .dropdown-menu li.active a {
+    background-color: @primary-color !important;
+}
+
+.navbar-mind .nav .nav-divider {
+  background-color: @dark-color;
+}
+
+.navbar-mind .dropdown-header {
+    border-bottom: solid 1px @dark-color;
+    border-top: solid 1px @dark-color;
+}
+
+.dropdown-login {
+    border-top: solid 4px @dark-color !important;
+    border-bottom: solid 4px @dark-color !important;
+}
+
+.dropdown-profile {
+    border-top: solid 4px @dark-color !important;
+    border-bottom: solid 4px @dark-color !important;
+}
+
+
+
+/*-------------------------------------------------------------------*/
+/* Mind Features */
+/*-------------------------------------------------------------------*/
+
+.mind-features-item i {
+    color: @primary-color;
+}
+
+
+.mind-features-item .item-content {
+    background-color: @primary-color;
+}
+
+
+/*-------------------------------------------------------------------*/
+/* Home Post */
+/*-------------------------------------------------------------------*/
+
+.home-post-title a {
+    color: @primary-color;
+}
+
+
+
+
+/*-------------------------------------------------------------------*/
+/* Pricing */
+/*-------------------------------------------------------------------*/
+
+.pricign-box-pro {
+    border-color: @primary-color;
+}
+
+.pricign-box-pro > .pricing-box-header {
+    background-color: @primary-color;
+}
+
+
+
+/*-------------------------------------------------------------------*/
+/* Footer */
+/*-------------------------------------------------------------------*/
+
+#footer-widgets {
+    background-color: @dark-color;
+    border-top: solid 5px @primary-color;
+}
+
+
+#footer-widgets a {
+    color: @light-color;
+}
+
+
+#footer a {
+    color: @light-color;
+}
+
+
+/*-------------------------------------------------------------------*/
+/* Coming Soon */
+/*-------------------------------------------------------------------*/
+
+.coming {
+    background-color: @dark-color;
+    color: #aaa;
+}
+
+.coming h1 span {
+    color: @light-color;
+}
+
+
+.coming-color {
+    background-color: @light-color;
+}
+
+.coming-social > a:hover {
+    background-color: @primary-color;
+}
+
+
+@media (min-width: 992px) {
+
+.coming-logo {
+    border-left: solid 1px @light-color;
+}
+
+}
+
+
+/* Blog */
+/* --------------------------------------------------------- */
+
+.post-info span {
+    color: @primary-color
+}
+
+
+/* Sidebar */
+/* --------------------------------------------------------- */
+
+.block ul.simple li a {
+    border-left: solid 2px @primary-color;
+}
+
+.tags-cloud a {
+    color: @primary-color;
+}
+
+.tags-cloud a:hover {
+    background-color: @primary-color;
+}
+
+
+/* PORTFOLIO */
+/* ----------------------------------- */
+
+.portfolio-control > li.active,
+.portfolio-control > li:hover {
+    background-color: @primary-color;
+}
+
+/*-------------------------------------------------------------------*/
+/* Coming Soon 2 */
+/*-------------------------------------------------------------------*/
+
+.wrap-coming2 h1 span,
+.wrap-coming2 h2 span {
+    color: @light-color;
+}
+
+/*-------------------------------------------------------------------*/
+/* Timeline */
+/*-------------------------------------------------------------------*/
+
+@media (min-width: 768px) {
+
+.timeline-event-left:after {
+    border-color: transparent transparent transparent @primary-color;
+}
+
+.timeline-event-right:after {
+    border-color: transparent @primary-color transparent transparent;
+}
+
+.timeline-event-right:before {
+    background-color: @primary-color;
+}
+
+.timeline-event-left:before {
+    background-color: @primary-color;
+}
+
+}
+
+.timeline-title span {
+    background-color: @primary-color;
+    padding: 8px;
+    color: #fff;
+    border-radius: 3px;
+}
+
+
+/*-------------------------------------------------------------------*/
+/* Mind Box */
+/*-------------------------------------------------------------------*/
+
+.mind-box {
+    background-color: @primary-color;
+}
+
+.mind-box:hover {
+    background-color: darken(@primary-color, 5%)
+}
+
+.mind-box-success {
+    background-color: #097900;
+}
+
+.mind-box-success:hover {
+    background-color: darken(#097900, 5%);
+}
+
+.mind-box-info {
+    background-color: #8300ae;
+}
+
+.mind-box-info:hover {
+    background-color: darken(#8300ae, 5%);
+}
+
+.mind-box-warning {
+    background-color: #f89e01;
+}
+
+.mind-box-warning:hover {
+    background-color: darken(#f89e01, 5%);
+}
+
+.mind-box-danger {
+    background-color: #bf0000;
+}
+
+.mind-box-danger:hover {
+    background-color: darken(#bf0000, 5%);
+}
+
+
+/*-------------------------------------------------------------------*/
+/* Inverse Wrap */
+/*-------------------------------------------------------------------*/
+
+.inverse-wrap {
+    background-color: @dark-color;
+}
+
+
+.inverse-wrap .lead strong {
+    color: @light-color;
+}
+
+/*-------------------------------------------------------------------*/
+/* Service List */
+/*-------------------------------------------------------------------*/
+
+.service-list li:before {
+    border: solid 1px @primary-color;
+    color: @primary-color;
+}
+
+/*-------------------------------------------------------------------*/
+/* Icon Item */
+/*-------------------------------------------------------------------*/
+
+
+.icon-item:hover i {
+    color: @light-color;
+}
+
+.back .icon-item h3 {
+    color: @light-color;
+}
+
+
+/*-------------------------------------------------------------------*/
+/* Icon Box */
+/*-------------------------------------------------------------------*/
+
+
+.icon-box i {
+    background-color: lighten(@primary-color, 65%);
+    border-left: solid 4px @primary-color;
+    color: @primary-color;
+}
+
+.icon-box .icon-box-content {
+    background-color: lighten(@primary-color, 69%);
+}
+
+.icon-box.icon-box-inverse .icon-box-content {
+    background-color: @primary-color;
+}
+
+.icon-box.icon-box-inverse i {
+    background-color: darken(@primary-color, 10%);
+}

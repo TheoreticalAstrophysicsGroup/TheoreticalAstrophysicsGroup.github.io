@@ -1,0 +1,70 @@
+---
+layout: default
+---
+
+{% assign tml = site.data.translations.members.[page.lang] %}
+{% assign la = site.data.links.assets %}
+{% assign li = site.data.links.internal %}
+
+{% include page_header.html title=page.title %}
+          
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <h3 class="post-title">{{ tml.current }}</h3>
+
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>{{ tml.name }}</th>
+            <th>{{ tml.level }}</th>
+            <th>{{ tml.tel }}</th>
+            <th>{{ tml.email }}</th>
+            <th>{{ tml.research }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for m in page.members %}
+          {% if m.loc == "kobe" %} {% assign ext_symb = "†"%}
+          {% elsif m.loc == "icrr" %} {% assign ext_symb = "††"%}
+          {% elsif m.loc == "munich" %} {% assign ext_symb = "★"%}
+          {% else %} {% assign ext_symb = "" %}
+          {% endif %}
+          <tr>
+            <td>{% if m.homepage %}<a href="{{ m.homepage }}" target="_blank">{% endif %}{{ m.name }}{% if m.homepage %}</a>{% endif %}<sup>{{ ext_symb }}</sup></td>
+            <td>{{ m.level }}</td>
+            <td>{{ m.tel }}</td>
+            <td>{{ m.email }}</td>
+            <td>{{ m.research }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <p><sup>†</sup>{{ tml.loc_kobe }}</p>
+      <p><sup>††</sup>{{ tml.loc_icrr }}</p>
+      <p><sup>★</sup>{{ tml.loc_munich }}</p>
+      <br/>
+
+      {{ content }}
+
+      <p><a href="{{ site.baseurl }}{{ li.alumni }}/{{ page.lang }}">{{ tml.alumni }}</a></p>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-7">
+    </div>
+
+    <div class="col-md-5">
+    </div>
+    <!-- AYW 2014-07-02 22:56 JST Just kept for reference -->
+    <!-- <img src="{{ site.baseurl }}{{ la.img }}/{{ page.img[0] }}" alt="" class="imageborder alignright"> -->
+    <!-- <img src="js/holder.js/200x170" alt="" class="imageborder alignleft"> -->
+    <!-- <img src="js/holder.js/200x180/social" alt="" class="imageborder alignright"> -->
+
+  </div>
+</div> <!-- container  -->
+
+

@@ -1,0 +1,11 @@
+
+<nav id="sidebar-menu">
+<ul class="nav nav-pills nav-stacked menu animated fadeIn" id="menu">
+  <!--<ul class="nav nav-pills nav-stacked affix menu animated fadeIn" id="menu" data-spy="affix" data-offset-top="400" data-offset-bottom="450">-->
+  {% for it in page.toc %}
+  <li><a href="#{{ it.link }}" class="smooth">{{ it.name }}</a></li>
+  {% endfor %}
+</ul>
+</nav>
+
+

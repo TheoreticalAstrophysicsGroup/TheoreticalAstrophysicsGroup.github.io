@@ -1,0 +1,103 @@
+---
+layout: default
+---
+
+{% assign tml = site.data.translations.members.[page.lang] %}
+{% assign la = site.data.links.assets %}
+{% assign li = site.data.links.internal %}
+
+{% include page_header.html title=page.title %}
+          
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <h3 class="post-title">{{ tml.staff }}</h3>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>{{ tml.name }}</th>
+            <th>{{ tml.position }}</th>
+            <th>{{ tml.lastyr }}</th>
+            <th>{{ tml.degree }}</th>
+            <th>{{ tml.thereafter }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for m in page.staff %}
+          <tr>
+            <td>{{ m.name }}</td>
+            <td>{{ m.position }}</td>
+            <td>{{ m.lastyr }}</td>
+            <td>{{ m.degree }}</td>
+            <td>{{ m.thereafter }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <br/>
+
+      <h3 class="post-title">{{ tml.postgrads }}</h3>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>{{ tml.name }}</th>
+            <th>{{ tml.deg }}</th>
+            <th>{{ tml.lastyr }}</th>
+            <th>{{ tml.thereafter }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for m in page.postgrads %}
+          <tr>
+            <td>{{ m.name }}</td>
+            <td>{{ m.deg }}</td>
+            <td>{{ m.lastyr }}</td>
+            <td>{{ m.thereafter }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <h3 class="post-title">{{ tml.students }}</h3>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>{{ tml.name }}</th>
+            <th>{{ tml.lastyr }}</th>
+            <th>{{ tml.thereafter }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for m in page.students %}
+          <tr>
+            <td>{{ m.name }}</td>
+            <td>{{ m.lastyr }}</td>
+            <td>{{ m.thereafter }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+ 
+      {{ content }}
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-7">
+    </div>
+
+    <div class="col-md-5">
+    </div>
+    <!-- AYW 2014-07-02 22:56 JST Just kept for reference -->
+    <!-- <img src="{{ site.baseurl }}{{ la.img }}/{{ page.img[0] }}" alt="" class="imageborder alignright"> -->
+    <!-- <img src="js/holder.js/200x170" alt="" class="imageborder alignleft"> -->
+    <!-- <img src="js/holder.js/200x180/social" alt="" class="imageborder alignright"> -->
+
+  </div>
+</div> <!-- container  -->
+
+

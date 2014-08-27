@@ -1,0 +1,19 @@
+{% assign tsl = site.data.translations.seminars.[page.lang] %}
+{% assign lel = site.data.links.external.[page.lang] %}
+{% assign li = site.data.links.internal %}
+
+<div class="panel panel-primary">
+  <div class="panel-heading"><i class="fa fa-info-circle"></i> {{tsl.info}} </div>
+  <div class="panel-body">
+    <ul class="fa-ul">
+      <li class="fali"> <i class="fa-li fa fa-calendar"></i> <a href="{{ site.baseurl }}{{ li.calendar}}/{{ page.lang }}">{% include date.html d=page.date l="l" %}</a> </li>
+      <li class="fali"> <i class="fa-li fa fa-clock-o"></i> {{ page.time | replace: ':',' : ' }} </li>
+      <li class="fali"> <i class="fa-li fa fa-map-marker"></i> {{ page.place }} </li>
+      {% if page.host %}<li class="fali"> <i class="fa-li fa fa-paw"></i> {{ tsl.host }} : {{ page.host }}</li>{% endif %}
+      {% if page.webpage %}<li class="fali"> <i class="fa-li fa fa-graduation-cap"></i><a href="{{ page.webpage }}" target="_blank">{{ tsl.about_speaker }}</a> <font size="1"><i class="fa fa-external-link"></i></font></li>{% endif %}
+      <li class="fali"> <i class="fa-li fa fa-location-arrow"></i> <a href="{{ lel.access }}" target="_blank">{{ tsl.access }}</a> <font size="1"><i class="fa fa-external-link"></i></font></li>
+    </ul>
+  </div>
+</div>
+
+

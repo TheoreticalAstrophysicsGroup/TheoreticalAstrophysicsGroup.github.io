@@ -1,0 +1,33 @@
+<!-- AYW 2014-06-20 15:07 JST
+Make breadcrumbs automatic -->
+
+{% assign ln = site.data.links.nav %}
+{% assign thl = site.data.translations.header.[page.lang] %}
+
+{% assign page_url = page.url | split: '/' %}
+
+{% assign urllen = page_url | size %}
+{% assign nback = urllen | minus: 3 %}
+{% assign back = '' %}
+{% for urlbit in page_url %}
+  {% if urlbit == page.lang %}
+    {% assign count = forloop.index %}
+  {% endif %}
+{% endfor %}
+{% for i in (1..nback) %}
+  {% assign back = back | append: '../' %}
+{% endfor %}
+
+{% assign lev1 = page_url[1] %}
+
+{% for navgroup in ln %}
+  {% if navgroup[1] contains lev1 %}
+    {% assign lev0 = navgroup[0] %}
+  {% endif %}
+{% endfor %}
+<ol class="breadcrumb hidden-xs">
+  <li>{{ thl[lev0] | capitalize }}</li>
+  <li><a href="{{ back }}">{{ thl[lev1] | capitalize }}</a></li>
+  <li class="active">{{ include.title }}</li>
+</ol>
+

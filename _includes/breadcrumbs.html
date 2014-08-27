@@ -1,0 +1,84 @@
+<!-- AYW 2014-06-20 15:07 JST -->
+
+{% assign ln = site.data.links.nav %}
+{% assign thl = site.data.translations.header.[page.lang] %}
+
+{% assign page_url = page.url | split: '/' %}
+
+<!-- find depth up to language dir -->
+{% for urlbit in page_url %}
+  {% if urlbit == page.lang %}
+    {% assign count = forloop.index %}
+  {% endif %}
+{% endfor %}
+
+<!-- Find navgroup from category in link -->
+{% assign lev1 = page_url[1] %}
+{% for navgroup in ln %}
+  {% if navgroup[1] contains lev1 %}
+    {% assign lev0 = navgroup[0] %}
+    {% assign lev1path = navgroup[1][lev1] %}
+  {% endif %}
+{% endfor %}
+
+<!-- Create array of years -->
+{% assign allyears = '' %}
+{% for i in (1997..2024) %}
+  {% assign allyears = allyears | append: ',' | append: i %}
+{% endfor %}
+{% assign allyears = allyears | remove_first: ',' | split: ',' %}
+
+<!-- Some parts from the url used for post and archive testing below -->
+{% assign ipostyear = count %}
+{% assign postyear = page_url[ipostyear] %}
+{% assign crumb = page_url[2] %}
+
+<!-- Check if this is a post -->
+{% assign ispost = false %}
+{% assign isarchive = false %}
+{% if allyears contains postyear %}
+  {% assign ispost = true %}
+  {% assign ipostmon = count | plus: 1 %}
+  {% assign ipostday = count | plus: 2 %}
+
+<!-- Check if this is an archive page -->
+{% elsif allyears contains crumb %}
+  {% assign isarchive = true %}
+  {% assign crumbdate = crumb | append: '-' | append: '10' | append: '-' | append: '10' %}
+{% endif %}
+
+<!-- Find post academic date, postyeara, for link -->
+{% if ispost %}
+  {% assign postmon = page_url[ipostmon] | times: 1 %}
+  {% assign postday = page_url[ipostday] %}
+  {% if postmon < 4 %}
+    {% assign postyeara = postyear | minus: 1 %}
+  {% else %}
+    {% assign postyeara = postyear %}
+  {% endif %}
+  {% assign postdate = postyear | append: '-' | append: postmon | append: '-' | append: postday %}
+{% endif %}
+
+<!-- Finally the html -->
+<ol class="breadcrumb hidden-xs">
+
+  <!-- The navgroup -->
+  <li>{{ thl[lev0] }}</li>
+
+  <!-- The category or navitem -->
+  <li><a href="{{ site.baseurl }}{{ lev1path }}/{{ page.lang }}">{{ thl[lev1] }}</a></li>
+
+  <!-- The archive year -->
+  {% if isarchive %}
+    <li><a href="{{ site.baseurl }}{{ lev1path }}/{{ crumb }}/{{ page.lang }}">{% include date.html d=crumbdate l='a' %}</a></li>
+
+  <!-- The post year -->
+  {% elsif ispost %}
+    <li><a href="{{ site.baseurl }}{{ lev1path }}/{{ postyeara }}/{{ page.lang }}">{% include date.html d=postdate l='a' %}</a></li>
+  {% endif %}
+
+  <!-- Page title -->
+  <li class="active">{{ include.title }}</li>
+
+</ol>
+

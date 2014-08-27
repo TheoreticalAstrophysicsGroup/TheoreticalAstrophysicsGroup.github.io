@@ -1,0 +1,20 @@
+---
+---
+
+{% assign home = '/home/ja' %}
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="refresh" content="1;url=http://example.com"> -->
+    <meta http-equiv="refresh" content="1;url={{ home }}">
+    <script type="text/javascript"> window.location.href="{{ home }}" </script>
+    <title>Page Redirection</title>
+  </head>
+  <body>
+    {{ content }}
+    If you are not redirected automatically, please follow <a href="{{ home }}">this link</a>.
+  </body>
+</html>
+
