@@ -1,6 +1,9 @@
 language: ruby
 
 install:
+  # Install Jekyll and dependencies
+  - bundle install
+
   # Install binary pandoc from Rstudio
   # To use Pandoc, uncomment the following
   #- export PATH="$HOME/pandoc:$PATH"
@@ -11,22 +14,21 @@ install:
   #- chmod +x $HOME/pandoc/pandoc
   #- pandoc --version
 
-  # Install Jekyll and dependencies
-  - bundle install
-
 # branch whitelist
-branches:
-  only:
-  - master     # test the gh-pages branch
-  - gh-pages     # test the gh-pages branch
-  - /pages-(.*)/ # test every branch which starts with "pages-"
+#branches:
+#  only:
+#  - master     # test the gh-pages branch
+#  - gh-pages     # test the gh-pages branch
+#  - /pages-(.*)/ # test every branch which starts with "pages-"
+
+script: bundle exec rake site:deploy --quiet
 
 env:
   global:
-  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
-  secure: "MB74xpbqTGCCJm/Au8YcYFS+uhWHRVcHf5FVqTVcNFhhRzh9xLo5WMNhaEMksGjhghW9ADwZ1vZ07+F8DtdPUZsvaNWV7yFbXPjKeAlbAJhHcMtXwjHVPBstiXITHZbxERwqbdFia22gm5EZIoLXmpp5LuzzH2KZ0Xccdd8TqUM="
+    secure: "MB74xpbqTGCCJm/Au8YcYFS+uhWHRVcHf5FVqTVcNFhhRzh9xLo5WMNhaEMksGjhghW9ADwZ1vZ07+F8DtdPUZsvaNWV7yFbXPjKeAlbAJhHcMtXwjHVPBstiXITHZbxERwqbdFia22gm5EZIoLXmpp5LuzzH2KZ0Xccdd8TqUM="
 
-script: bundle exec rake site:deploy --quiet
+#- NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
+#
 
 # Generate your secure token with the travis gem:
 # get Github token from your Travis CI profile page

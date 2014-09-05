@@ -16,9 +16,11 @@ permalink: pretty
 #permalink: /:categories/:year-:month-:day-:title.html
 
 # Travis github
+relative_source: ../ccsastro.github.io/
+destination: ../ccsastro.github.io/
 username: ccsastro
-repo: TheoreticalAstrophysicsGroup
-branch: master
+repo: ccsastro.github.io
+branch: source
 
 # Exclude
 exclude: 
