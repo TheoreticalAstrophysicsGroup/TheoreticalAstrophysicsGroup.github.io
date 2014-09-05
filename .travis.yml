@@ -2,6 +2,7 @@ language: ruby
 
 install:
   # Install Jekyll and dependencies
+  - bundle config build.nokogiri --use-system-libraries
   - bundle install
 
   # Install binary pandoc from Rstudio

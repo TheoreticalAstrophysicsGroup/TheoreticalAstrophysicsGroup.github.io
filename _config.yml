@@ -20,7 +20,7 @@ relative_source:
 destination: ../ccsastro.github.io/
 username: ccsastro
 repo: ccsastro.github.io
-branch: source
+branch: master
 
 # Exclude
 exclude: 
