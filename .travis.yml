@@ -23,12 +23,9 @@ branches:
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
+    secure:
 
 script: bundle exec rake site:deploy --quiet
-
-env:
-  global:
-    secure: EXAMPLE
 
 # Generate your secure token with the travis gem:
 # get Github token from your Travis CI profile page

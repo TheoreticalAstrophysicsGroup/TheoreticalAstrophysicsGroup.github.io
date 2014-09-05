@@ -3,7 +3,9 @@ title: Theoretical Astrophysics Group
 email: ayw@ccs.tsukuba.ac.jp
 webmaster: Alex Wagner
 description: "Theoretical Astrophysics Group, Center for Computational Sciences, University of Tsukuba. We research in Numerical Astrophysics, High-performance Computing, Radiation Hydrodynamics, Galaxy Evolution, Cosmology, First Stars, and much much more."
-baseurl: '/ccs-astro'
+
+## No need for user/organization github pages
+#baseurl: '/ccs-astro'
 #url: ''
 
 timezone: Asia/Tokyo
@@ -13,8 +15,21 @@ markdown: kramdown
 permalink: pretty
 #permalink: /:categories/:year-:month-:day-:title.html
 
+# Travis github
+username: ccsastro
+repo: TheoreticalAstrophysicsGroup
+branch: master
+
 # Exclude
-exclude: [.git, .gitignore, vendor]
+exclude: 
+  - README.md
+  - .git
+  - .gitignore
+  - vendor
+  - .travis.yml
+  - Gemfile
+  - Gemfile.lock
+  - Rakefile
 
 
 # Defaults for categories

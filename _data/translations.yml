@@ -74,6 +74,7 @@ header:
     ccs_astro: "&nbsp; ↳ 研究室トップページ"
     pas: 数理物質科学研究科
     pas_physics: "&nbsp; ↳ 物理専攻"
+    pas_cirfse: "&nbsp; ↳ 数理物質融合科学センター"
     internal: 研究室内部ページ
     astro_internal: 研究室内部ページ
     asj: 日本天文学会
@@ -120,6 +121,7 @@ header:
     ccs_astro: "&nbsp; ↳ Group Introduction Page"
     pas: Graduate School of Pure and Applied Sciences
     pas_physics: "&nbsp; ↳ Physics"
+    pas_cirfse: "&nbsp; ↳ CiRfSE"
     internal: Internal
     astro_internal: Astro Internal
     asj: Astronomical Society of Japan

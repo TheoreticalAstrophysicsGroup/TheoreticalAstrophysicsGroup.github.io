@@ -23,6 +23,7 @@ external:
     ccs_astro: http://www.ccs.tsukuba.ac.jp/ccs_introduction/depart_intro/universe
     pas: http://www.px.tsukuba.ac.jp/senkou/
     pas_physics: http://www.pas.tsukuba.ac.jp/faculty/physics.html
+    pas_cirfse: http://www.pas.tsukuba.ac.jp/~CiRfSE/
     wiki: http://www.ccs.tsukuba.ac.jp/ccswiki/astro/
     first: http://www2.ccs.tsukuba.ac.jp/people/umemura/FIRST/index-j.html
     observers: http://www.px.tsukuba.ac.jp/home/astro/nakai/www0/index.html
@@ -37,6 +38,7 @@ external:
     ccs_astro: http://www.ccs.tsukuba.ac.jp/eng/research-activities/research-divisions/astrophysics-group/
     pas: http://www.px.tsukuba.ac.jp/senkou/en/
     pas_physics: http://www.pas.tsukuba.ac.jp/english/index.html
+    pas_cirfse: http://www.pas.tsukuba.ac.jp/~CiRfSE/eng/index.html
     wiki: http://www.ccs.tsukuba.ac.jp/ccswiki/astro/
     first: http://www2.ccs.tsukuba.ac.jp/people/umemura/FIRST/index-j.html
     observers: http://www.px.tsukuba.ac.jp/home/astro/nakai/www0/index.html
@@ -110,6 +112,7 @@ nav:
     ccs_astro: external
     pas: external
     pas_physics: external
+    pas_cirfse: external
     observers: external  
     asj: external  
     internal: header
