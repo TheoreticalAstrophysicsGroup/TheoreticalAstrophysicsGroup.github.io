@@ -28,7 +28,6 @@ env:
   global:
     secure: "MB74xpbqTGCCJm/Au8YcYFS+uhWHRVcHf5FVqTVcNFhhRzh9xLo5WMNhaEMksGjhghW9ADwZ1vZ07+F8DtdPUZsvaNWV7yFbXPjKeAlbAJhHcMtXwjHVPBstiXITHZbxERwqbdFia22gm5EZIoLXmpp5LuzzH2KZ0Xccdd8TqUM="
 
-#- NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
 #
 # Generate your secure token with the travis gem:
 # get Github token from your Travis CI profile page
