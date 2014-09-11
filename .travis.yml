@@ -3,7 +3,7 @@ language: ruby
 install:
   # Install Jekyll and dependencies
   - bundle config build.nokogiri --use-system-libraries
-  - travis_wait bundle install
+  - bundle install
 
   # Install binary pandoc from Rstudio
   # To use Pandoc, uncomment the following
@@ -22,7 +22,7 @@ install:
 #  - gh-pages     # test the gh-pages branch
 #  - /pages-(.*)/ # test every branch which starts with "pages-"
 
-script: bundle exec rake site:deploy --quiet
+script: travis_wait bundle exec rake site:deploy --quiet
 
 env:
   global:
