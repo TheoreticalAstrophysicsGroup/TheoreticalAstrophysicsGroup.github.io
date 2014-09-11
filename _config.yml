@@ -17,7 +17,7 @@ permalink: pretty
 
 # Travis github
 #relative_source:  ## Don't need this, i think
-destination: ../ccsastro.github.io
+destination: ../destination
 username: ccsastro
 repo: ccsastro.github.io
 branch: source
