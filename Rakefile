@@ -211,10 +211,10 @@ namespace :site do
     Dir.chdir(CONFIG["destination"]) { sh "git checkout #{DESTINATION_BRANCH}" }
 
     # Generate the site
-    sh "travis_wait bundle exec jekyll build -V"
+    sh "bundle exec jekyll build -V"
 
     # Check build
-    sh "travis_wait bundle exec htmlproof CONFIG['destination']"
+    sh "bundle exec htmlproof CONFIG['destination']"
 
     # Commit and push to github
     sha = `git log`.match(/[a-z0-9]{40}/)[0]

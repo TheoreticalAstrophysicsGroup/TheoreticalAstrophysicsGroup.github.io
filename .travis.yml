@@ -25,7 +25,7 @@ branches:
   - source
   - /pages-(.*)/
 
-script: bundle exec rake site:deploy --quiet
+script: travis_wait bundle exec rake site:deploy --quiet
 
 env:
   global:
