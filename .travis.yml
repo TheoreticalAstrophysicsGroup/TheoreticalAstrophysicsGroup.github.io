@@ -1,5 +1,7 @@
 language: ruby
 
+bundler_args: --retry 3
+
 install:
   # Install Jekyll and dependencies
   - bundle config build.nokogiri --use-system-libraries
@@ -16,11 +18,12 @@ install:
   #- pandoc --version
 
 # branch whitelist
-#branches:
-#  only:
-#  - master     # test the gh-pages branch
-#  - gh-pages     # test the gh-pages branch
-#  - /pages-(.*)/ # test every branch which starts with "pages-"
+# test every branch which starts with "pages-"
+# test the gh-pages branch
+branches:
+  only:
+  - source
+  - /pages-(.*)/
 
 script: travis_wait bundle exec rake site:deploy --quiet
 

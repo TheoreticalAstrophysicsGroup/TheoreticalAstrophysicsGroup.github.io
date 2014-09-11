@@ -8,6 +8,7 @@
 require 'rake'
 require 'date'
 require 'yaml'
+require 'html/proofer'
 
 CONFIG = YAML.load(File.read('_config.yml'))
 USERNAME = CONFIG["username"] || ENV['GIT_NAME']
@@ -211,7 +212,10 @@ namespace :site do
     Dir.chdir(CONFIG["destination"]) { sh "git checkout #{DESTINATION_BRANCH}" }
 
     # Generate the site
-    sh "bundle exec jekyll build"
+    sh "travis_wait bundle exec jekyll build -V"
+
+    # Check build
+    sh "travis_wait bundle exec htmlproof CONFIG['destination']"
 
     # Commit and push to github
     sha = `git log`.match(/[a-z0-9]{40}/)[0]

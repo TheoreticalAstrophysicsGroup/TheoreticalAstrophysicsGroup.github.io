@@ -16,8 +16,8 @@ permalink: pretty
 #permalink: /:categories/:year-:month-:day-:title.html
 
 # Travis github
-#relative_source: ../ccsastro.github.io ## Don't need this, i think
-destination: ../destination
+#relative_source:  ## Don't need this, i think
+destination: ../ccsastro.github.io
 username: ccsastro
 repo: ccsastro.github.io
 branch: source
