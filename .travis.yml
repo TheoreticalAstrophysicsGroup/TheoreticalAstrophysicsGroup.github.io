@@ -7,19 +7,8 @@ install:
   - bundle config build.nokogiri --use-system-libraries
   - bundle install
 
-  # Install binary pandoc from Rstudio
-  # To use Pandoc, uncomment the following
-  #- export PATH="$HOME/pandoc:$PATH"
-  #- mkdir $HOME/pandoc
-  #- curl -O https://s3.amazonaws.com/rstudio-buildtools/pandoc-1.12.3.zip
-  #- unzip -j pandoc-1.12.3.zip pandoc-1.12.3/linux/debian/x86_64/pandoc
-  #    -d $HOME/pandoc
-  #- chmod +x $HOME/pandoc/pandoc
-  #- pandoc --version
-
 # branch whitelist
-# test every branch which starts with "pages-"
-# test the gh-pages branch
+# The source branch and every branch starts with "pages-" for proposed changes
 branches:
   only:
   - source
@@ -29,7 +18,7 @@ script: bundle exec rake site:deploy --quiet
 
 env:
   global:
-    secure: "MB74xpbqTGCCJm/Au8YcYFS+uhWHRVcHf5FVqTVcNFhhRzh9xLo5WMNhaEMksGjhghW9ADwZ1vZ07+F8DtdPUZsvaNWV7yFbXPjKeAlbAJhHcMtXwjHVPBstiXITHZbxERwqbdFia22gm5EZIoLXmpp5LuzzH2KZ0Xccdd8TqUM="
+    secure: "FHFRRXsLp7fxjKeL3fiBbCgCZgWQ6C/67yAoI8Strb9pv+HD+NBUC/f50BztqesNMWKdgxMeghmrahq5WjamrUx1wpqbA69DcEiDYOqYB2uZZpJ6LfSA/4lbqUoN4DP0pd5PaL3ZsmlesxfWtjJyG4TPOU+ITgZ4oj/TMj00Hvc="
 
 # Generate your secure token with the travis gem:
 # get Github token from your Travis CI profile page
