@@ -210,8 +210,9 @@ namespace :site do
     sh "git checkout #{SOURCE_BRANCH}"
     Dir.chdir(CONFIG["destination"]) { sh "git checkout #{DESTINATION_BRANCH}" }
 
-    # Generate the site
-    sh "bundle exec jekyll build -V"
+    # Generate the site. Add a random output so that travis won't timeout
+    sh "n=1; while [[ $n -lt 51 ]]; do echo summat; sleep 60; ((n++)); done &"
+    sh "bundle exec jekyll build --verbose"
 
     # Check build
     sh "bundle exec htmlproof CONFIG['destination']"
