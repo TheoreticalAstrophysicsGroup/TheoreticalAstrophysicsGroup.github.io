@@ -5,7 +5,7 @@ webmaster: Alex Wagner
 description: "Theoretical Astrophysics Group, Center for Computational Sciences, University of Tsukuba. We research in Numerical Astrophysics, High-performance Computing, Radiation Hydrodynamics, Galaxy Evolution, Cosmology, First Stars, and much much more."
 
 ## No need for user/organization github pages
-#baseurl: '/ccs-astro'
+#baseurl: ''
 #url: ''
 
 timezone: Asia/Tokyo
@@ -16,8 +16,8 @@ permalink: pretty
 #permalink: /:categories/:year-:month-:day-:title.html
 
 # Travis github
-#relative_source:  ## Don't need this, i think
-destination: ../destination
+relative_source:  ../ccsastro.github.io
+destination: ../ccsastro.github.io-pages
 username: ccsastro
 repo: ccsastro.github.io
 branch: source
