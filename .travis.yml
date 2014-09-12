@@ -3,7 +3,7 @@ language: ruby
 bundler_args: --retry 3
 
 install:
-  # Install Jekyll and dependencies
+  # Install Jekyll and dependencies. Nokogiri for html-proofer.
   - bundle config build.nokogiri --use-system-libraries
   - bundle install
 

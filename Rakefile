@@ -37,7 +37,7 @@ end
 def check_destination
   unless Dir.exist? CONFIG["destination"]
     sh "git clone https://#{ENV['GIT_NAME']}:#{ENV['GH_TOKEN']}@github.com/#{USERNAME}/#{REPO}.git #{CONFIG["destination"]}"
-    Dir.chdir(CONFIG["destination"]) { sh 'git config --global credential.helper "cache --timeout=3600"' }
+    Dir.chdir(CONFIG["destination"]) { sh 'git config --local credential.helper "cache --timeout=3600"' }
   end
 end
 
@@ -80,7 +80,7 @@ namespace :site do
       sh "git config --global user.name '#{ENV['GIT_NAME']}'"
       sh "git config --global user.email '#{ENV['GIT_EMAIL']}'"
       sh "git config --global push.default simple"
-      sh 'git config --global credential.helper "cache --timeout=3600"'
+      sh 'git config --local credential.helper "cache --timeout=3600"'
     end
 
     # Make sure destination folder exists as git repo
@@ -103,8 +103,8 @@ namespace :site do
       sh "git commit -m 'Updating to #{USERNAME}/#{REPO}@#{sha}.'"
       #sh "git remote set-url origin https://#{ENV['GIT_NAME']}:#{ENV['GH_TOKEN']}@github.com/#{USERNAME}/#{REPO}.git"
       #
-      #sh "git push --quiet origin #{DESTINATION_BRANCH}"
-      sh "git push --quiet https://#{ENV['GIT_NAME']}:#{ENV['GH_TOKEN']}@github.com/#{USERNAME}/#{REPO}.git #{DESTINATION_BRANCH}" 
+      sh "git push -u --quiet origin #{DESTINATION_BRANCH}"
+      #sh "git push --quiet https://#{ENV['GIT_NAME']}:#{ENV['GH_TOKEN']}@github.com/#{USERNAME}/#{REPO}.git #{DESTINATION_BRANCH}" 
       puts "Pushed updated branch #{DESTINATION_BRANCH} to GitHub Pages"
     end
   end
