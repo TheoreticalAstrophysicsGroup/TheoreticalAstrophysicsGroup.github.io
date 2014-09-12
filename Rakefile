@@ -8,6 +8,7 @@
 require 'rake'
 require 'date'
 require 'yaml'
+require 'html/proofer'
 
 
 CONFIG = YAML.load(File.read('_config.yml'))
@@ -217,7 +218,7 @@ namespace :site do
     sh "bundle exec jekyll build --verbose"
 
     # Check build
-    sh "bundle exec htmlproof CONFIG['destination']"
+    HTML::Proofer.new("CONFIG['destination']").run
 
     # Commit and push to github
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
