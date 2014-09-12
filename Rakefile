@@ -102,9 +102,9 @@ namespace :site do
       sh "git add --all ."
       sh "git commit -m 'Updating to #{USERNAME}/#{REPO}@#{sha}.'"
       #sh "git remote set-url origin https://#{ENV['GIT_NAME']}:#{ENV['GH_TOKEN']}@github.com/#{USERNAME}/#{REPO}.git"
-      #b3ef9cf07d491f95560fc45e46b550f6b0b84d93
+      #
       #sh "git push --quiet origin #{DESTINATION_BRANCH}"
-      sh "git push --quiet https://#{ENV['GIT_NAME']}:#{ENV['GH_TOKEN']}@github.com/#{USERNAME}/#{REPO}.git #{DESTINATION_BRANCH}" 
+      sh "git push --quiet https://#{ENV['GIT_NAME']}:b3ef9cf07d491f95560fc45e46b550f6b0b84d93@github.com/#{USERNAME}/#{REPO}.git #{DESTINATION_BRANCH}" 
       puts "Pushed updated branch #{DESTINATION_BRANCH} to GitHub Pages"
     end
   end
