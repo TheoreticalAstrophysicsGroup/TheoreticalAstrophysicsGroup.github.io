@@ -9,7 +9,6 @@ require 'rake'
 require 'date'
 require 'yaml'
 
-sh "bash"
 
 CONFIG = YAML.load(File.read('_config.yml'))
 USERNAME = CONFIG["username"] || ENV['GIT_NAME']
@@ -193,6 +192,10 @@ namespace :site do
 
   desc "Generate the site and push changes to remote origin"
   task :deploy do
+
+    # Change to bash
+    sh "bash"
+
     # Detect pull request
     if ENV['TRAVIS_PULL_REQUEST'].to_s.to_i > 0
       puts 'Pull request detected. Not proceeding with deploy.'
