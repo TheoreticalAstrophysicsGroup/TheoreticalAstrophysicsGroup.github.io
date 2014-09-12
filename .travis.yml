@@ -14,7 +14,7 @@ branches:
   - source
   - /pages-(.*)/
 
-script: bundle exec rake site:deploy --quiet
+script: bundle exec rake site:deploy
 
 env:
   global:
