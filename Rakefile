@@ -90,7 +90,7 @@ namespace :site do
     Dir.chdir(CONFIG["destination"]) { sh "git checkout #{DESTINATION_BRANCH}" }
 
     # Generate the site. Add a random output so that travis won't timeout
-    #sh "./summat.sh"
+    sh "./summat.sh"
     sh "bundle exec jekyll build --verbose"
 
     # Check build
@@ -101,10 +101,7 @@ namespace :site do
     Dir.chdir(CONFIG["destination"]) do
       sh "git add --all ."
       sh "git commit -m 'Updating to #{USERNAME}/#{REPO}@#{sha}.'"
-      #sh "git remote set-url origin https://#{ENV['GIT_NAME']}:#{ENV['GH_TOKEN']}@github.com/#{USERNAME}/#{REPO}.git"
-      #
       sh "git push -u --quiet origin #{DESTINATION_BRANCH}"
-      #sh "git push --quiet https://#{ENV['GIT_NAME']}:#{ENV['GH_TOKEN']}@github.com/#{USERNAME}/#{REPO}.git #{DESTINATION_BRANCH}" 
       puts "Pushed updated branch #{DESTINATION_BRANCH} to GitHub Pages"
     end
   end
