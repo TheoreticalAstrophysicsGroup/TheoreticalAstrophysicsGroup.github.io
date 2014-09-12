@@ -6,5 +6,5 @@
 #                 regular intervals
 ##===============================================================================
 
-n=1 while [[ $n -lt 51 ]]; do echo summat; sleep 60; ((n++)); done &
+n=1; while [[ $n -lt 51 ]]; do echo summat; sleep 60; ((n++)); done &
 
