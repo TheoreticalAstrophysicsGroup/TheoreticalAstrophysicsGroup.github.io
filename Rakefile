@@ -193,9 +193,6 @@ namespace :site do
   desc "Generate the site and push changes to remote origin"
   task :deploy do
 
-    # Change to bash
-    sh "bash"
-
     # Detect pull request
     if ENV['TRAVIS_PULL_REQUEST'].to_s.to_i > 0
       puts 'Pull request detected. Not proceeding with deploy.'
@@ -216,7 +213,7 @@ namespace :site do
     Dir.chdir(CONFIG["destination"]) { sh "git checkout #{DESTINATION_BRANCH}" }
 
     # Generate the site. Add a random output so that travis won't timeout
-    sh "n=1; while [[ $n -lt 51 ]]; do echo summat; sleep 60; ((n++)); done &"
+    sh "./summat"
     sh "bundle exec jekyll build --verbose"
 
     # Check build
