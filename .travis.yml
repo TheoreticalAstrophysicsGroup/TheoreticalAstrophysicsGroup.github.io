@@ -1,31 +1,24 @@
 language: ruby
 
-install:
-  # Install binary pandoc from Rstudio
-  # To use Pandoc, uncomment the following
-  #- export PATH="$HOME/pandoc:$PATH"
-  #- mkdir $HOME/pandoc
-  #- curl -O https://s3.amazonaws.com/rstudio-buildtools/pandoc-1.12.3.zip
-  #- unzip -j pandoc-1.12.3.zip pandoc-1.12.3/linux/debian/x86_64/pandoc
-  #    -d $HOME/pandoc
-  #- chmod +x $HOME/pandoc/pandoc
-  #- pandoc --version
+bundler_args: --retry 3
 
-  # Install Jekyll and dependencies
+install:
+  # Install Jekyll and dependencies. Nokogiri for html-proofer.
+  - bundle config build.nokogiri --use-system-libraries
   - bundle install
 
 # branch whitelist
+# The source branch and every branch starts with "pages-" for proposed changes
 branches:
   only:
-  - gh-pages     # test the gh-pages branch
-  - /pages-(.*)/ # test every branch which starts with "pages-"
+  - source
+  - /pages-(.*)/
+
+script: bundle exec rake site:deploy
 
 env:
   global:
-  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
-    secure:
-
-script: bundle exec rake site:deploy --quiet
+    secure: "fZU3U2KfHJTW8n8EnTggxwisjd5aeeQJeWZ/SX7UL5c9zaEto0mCgnKVUeaGVmunfJGXnsCkboBpV282VLpkKwXrAaRx/1OmNlC+HCjEoH7ZWummyj48i7BNqraI4DfOst+wTYexDfL1xZC9r34YOCNNe0egq9aDw3oXhHGWQjs="
 
 # Generate your secure token with the travis gem:
 # get Github token from your Travis CI profile page
