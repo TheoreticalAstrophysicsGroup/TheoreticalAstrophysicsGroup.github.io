@@ -18,7 +18,7 @@ script: bundle exec rake site:deploy
 
 env:
   global:
-    secure: "fZU3U2KfHJTW8n8EnTggxwisjd5aeeQJeWZ/SX7UL5c9zaEto0mCgnKVUeaGVmunfJGXnsCkboBpV282VLpkKwXrAaRx/1OmNlC+HCjEoH7ZWummyj48i7BNqraI4DfOst+wTYexDfL1xZC9r34YOCNNe0egq9aDw3oXhHGWQjs="
+    secure: "jxGIGVf9SZrGoYjDKiMRmiYExovb+s4HQIswmLEdwOIJUP/vU2bbMeoWlwDI8Pvpsv6QEM+yJZcaMonVYlhIvkjwUg7vQLIYN0NeEutI2ygzqtHaido4sUUy81VDgSDYPsZ9ZGDKI7EhUJDYh7bROLHLNj3TS8r85GiksrNm710="
 
 # Generate your secure token with the travis gem:
 # get Github token from your Travis CI profile page

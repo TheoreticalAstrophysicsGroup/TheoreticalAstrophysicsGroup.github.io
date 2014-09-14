@@ -1,7 +1,8 @@
 # Site settings
 title: Theoretical Astrophysics Group
-email: ayw@ccs.tsukuba.ac.jp
+email: astro.ccs.tsukuba@gmail.com
 webmaster: Alex Wagner
+github_organization_owner: ccsastro
 description: "Theoretical Astrophysics Group, Center for Computational Sciences, University of Tsukuba. We research in Numerical Astrophysics, High-performance Computing, Radiation Hydrodynamics, Galaxy Evolution, Cosmology, First Stars, and much much more."
 
 ## No need for user/organization github pages
@@ -16,10 +17,10 @@ permalink: pretty
 #permalink: /:categories/:year-:month-:day-:title.html
 
 # Travis github
-relative_source:  ../ccsastro.github.io
-destination: ../ccsastro.github.io-pages
+relative_source:  ../TheoreticalAstrophysicsGroup.github.io
+destination: ../TheoreticalAstrophysicsGroup.github.io-pages
 username: ccsastro
-repo: ccsastro.github.io
+repo: TheoreticalAstrophysicsGroup.github.io
 branch: source
 
 # Exclude
