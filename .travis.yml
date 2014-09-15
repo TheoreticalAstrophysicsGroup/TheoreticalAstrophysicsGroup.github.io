@@ -18,9 +18,18 @@ script: bundle exec rake site:deploy
 
 env:
   global:
-    secure: "jxGIGVf9SZrGoYjDKiMRmiYExovb+s4HQIswmLEdwOIJUP/vU2bbMeoWlwDI8Pvpsv6QEM+yJZcaMonVYlhIvkjwUg7vQLIYN0NeEutI2ygzqtHaido4sUUy81VDgSDYPsZ9ZGDKI7EhUJDYh7bROLHLNj3TS8r85GiksrNm710="
+    secure: "PgH3+KOAsW4RS4El4eehTkgxeSzyalqExexlZJxtFwmAwMfAIo4KuGtRhGXqkSNb4GQ/q9dL24vCq25zFghFdCcIbgon5IOuFdCNhn1xicNXJV07c0RtvIgfIuGcRSWTW0TBTrNPzdf7txysPblI9+45hdzYYrsJC8oxwH8db+U="
 
 # Generate your secure token with the travis gem:
-# get Github token from your Travis CI profile page
-# gem install travis
-# travis encrypt 'GIT_NAME="YOUR_USERNAME" GIT_EMAIL="YOUR_EMAIL" GH_TOKEN=YOUR_TOKEN'
+#
+# 1) get Github token from your Travis CI profile page
+#
+# 2) gem install travis
+#
+# 3) travis encrypt 'GIT_NAME="YOUR_USERNAME" ORG_NAME="YOUR_ORGNAME" GIT_EMAIL="YOUR_EMAIL" GH_TOKEN=YOUR_TOKEN'
+#
+#    However, this will result in error: data too large - consider using travis encrypt-file or travis env set
+#
+#    So use:
+#
+#    travis encrypt 'GIT_NAME="YOUR_USERNAME" ORG_NAME="YOUR_ORGNAME" GIT_EMAIL="YOUR_EMAIL" GH_TOKEN=YOUR_TOKEN'

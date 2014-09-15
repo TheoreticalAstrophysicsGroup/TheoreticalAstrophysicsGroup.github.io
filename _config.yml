@@ -20,6 +20,7 @@ permalink: pretty
 relative_source:  ../TheoreticalAstrophysicsGroup.github.io
 destination: ../TheoreticalAstrophysicsGroup.github.io-pages
 username: ccsastro
+orgname: TheoreticalAstrophysicsGroup
 repo: TheoreticalAstrophysicsGroup.github.io
 branch: source
 
