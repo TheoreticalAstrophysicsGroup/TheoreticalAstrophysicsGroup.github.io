@@ -108,7 +108,7 @@ namespace :site do
       sh "git commit -m 'Updating to #{ORGNAME}/#{REPO}@#{sha}.'"
       sh "git push -u --quiet origin #{DESTINATION_BRANCH}"
       puts "Pushed updated branch #{DESTINATION_BRANCH} to GitHub Pages"
-      sh "sshpass -p #{ENV['CCS_PW']} rsync -e 'ssh -o StrictHostKeyChecking=no' -Prvi --exclude='.git' --exclude='.gitignore' * #{ENV['CCS_NAME']}@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/"
+      #sh "sshpass -p #{ENV['CCS_PW']} rsync -e 'ssh -o StrictHostKeyChecking=no' -Prvi --exclude='.git' --exclude='.gitignore' * #{ENV['CCS_NAME']}@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/"
     end
   end
 end

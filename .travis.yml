@@ -15,8 +15,8 @@ branches:
   - source
   - /pages-(.*)/
 
-#script: ./summat; bundle exec rake site:deploy
-script: ./summat; bundle exec rake site:deploy --quiet
+#script: bundle exec rake site:deploy
+script: n=1; while [[ $n -lt 51 ]]; do echo summat; sleep 60; ((n++)); done &; bundle exec rake site:deploy --quiet
 
 env:
   global:
