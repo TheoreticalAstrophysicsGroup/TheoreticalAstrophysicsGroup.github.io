@@ -16,7 +16,7 @@ branches:
   - /pages-(.*)/
 
 #script: bundle exec rake site:deploy
-script: n=1; while [ $n -lt 51 ]; do echo summat; sleep 60; n=$[$n+1]; done &; bundle exec rake site:deploy --quiet
+script: bundle exec ./summat; bundle exec rake site:deploy --quiet
 
 env:
   global:
