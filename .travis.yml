@@ -4,6 +4,7 @@ bundler_args: --retry 3
 
 install:
   # Install Jekyll and dependencies. Nokogiri for html-proofer.
+  - sudo apt-get update -qq; sudo apt-get install -qq sshpass
   - bundle config build.nokogiri --use-system-libraries
   - bundle install
 
