@@ -96,7 +96,7 @@ namespace :site do
 
     # Generate the site. Add a random output so that travis won't timeout
     #sh "./summat.sh"
-    sh "bundle exec jekyll build --verbose --baseurl='/Astro'"
+    sh "bundle exec jekyll build --verbose
 
     # Check build
     HTML::Proofer.new("CONFIG['destination']").run
