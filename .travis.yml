@@ -15,8 +15,8 @@ branches:
   - source
   - /pages-(.*)/
 
-script: bundle exec rake site:deploy
-#script: bundle exec rake site:deploy --quiet
+#script: ./summat; bundle exec rake site:deploy
+script: ./summat; bundle exec rake site:deploy --quiet
 
 env:
   global:

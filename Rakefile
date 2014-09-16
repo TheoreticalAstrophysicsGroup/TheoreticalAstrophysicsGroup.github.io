@@ -95,7 +95,7 @@ namespace :site do
     Dir.chdir(CONFIG["destination"]) { sh "git checkout #{DESTINATION_BRANCH}" }
 
     # Generate the site. Add a random output so that travis won't timeout
-    sh "./summat.sh"
+    #sh "./summat.sh"
     sh "bundle exec jekyll build --verbose"
 
     # Check build
