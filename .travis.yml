@@ -16,6 +16,7 @@ branches:
   - /pages-(.*)/
 
 script: bundle exec rake site:deploy
+#script: bundle exec rake site:deploy --quiet
 
 env:
   global:
