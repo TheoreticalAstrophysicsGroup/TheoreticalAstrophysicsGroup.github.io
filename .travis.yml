@@ -15,23 +15,15 @@ branches:
   - source
   - /pages-(.*)/
 
-#script: bundle exec rake site:deploy
+# Run rakefile and a script so that travis-ci won't timeout
 script: bundle exec ./summat.sh; bundle exec rake site:deploy --quiet
 
+# Global environmental variables
 env:
   global:
-    secure: "Eoq2S40HHVSd6LEhdZ3IQ6jAhjG9WwWKTi6YVrxJPoMRZLgVK+wTGP47+saJ+GdD4N1B4V2cobVB99+y1RH1oXxGn5gSs2sOvGICitxJZnxjwDaArmPYCJ8FomSrsj37Wx0FfgcxYmF6ZVsz1NRUJz2f1EN5S8n2ZZVf9ekaGvQ="
+    secure: "ZjRJN6Igf2r1Nq5JBjMeie3SdpdAFPoVb+8LEjblLLqEIaAaqFA1uC07XmOYAxpe0eDqHW0QzzFvgPOARZRGeHbRp90UZBsyOPJpa4zU5W4d8hshf+vU7w6yDIdsFVBoZOE7XigwMZX/kuu5T1FhddOCZdXx+B5wBx5EcbUr+Ds="
 
 # Generate your secure token with the travis gem:
-#
 # 1) get Github token from your Travis CI profile page
-#
 # 2) gem install travis
-#
-# 3) travis encrypt 'GIT_NAME="YOUR_USERNAME" ORG_NAME="YOUR_ORGNAME" GIT_EMAIL="YOUR_EMAIL" GH_TOKEN=YOUR_TOKEN'
-#
-#    However, this will result in error: data too large - consider using travis encrypt-file or travis env set
-#
-#    So, to also include CCS (charon) login details use:
-#
-#    travis encrypt 'CCS_NAME="YOUR_USERNAME" CCS_PW="YOUR_ORGNAME" GH_TOKEN=YOUR_TOKEN'
+# 3) travis encrypt 'GIT_NAME="YOUR_USERNAME" GIT_MAIL="YOUR_EMAIL" GH_TOKEN=YOUR_TOKEN'

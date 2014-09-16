@@ -12,16 +12,13 @@ require 'html/proofer'
 
 
 CONFIG = YAML.load(File.read('_config.yml'))
-USERNAME = CONFIG["username"]
 ORGNAME = CONFIG["orgname"]
-GITEMAIL = CONFIG["gitemail"]
-#USERNAME = CONFIG["username"] || ENV['GIT_NAME']
-#ORGNAME = CONFIG["orgname"] || ENV['ORG_NAME']
+GITEMAIL = CONFIG["gitemail"] || ENV['GIT_MAIL']
+USERNAME = CONFIG["username"] || ENV['GIT_NAME']
 REPO = CONFIG["repo"] || "#{ORGNAME}.github.io"
 
 # Determine source and destination branch
 # User or organization: source -> master
-# Project: master -> gh-pages
 # Name of source branch for user/organization defaults to "source"
 if REPO == "#{ORGNAME}.github.io" || REPO ==  "#{USERNAME}.github.io"
   SOURCE_BRANCH = CONFIG['branch'] || "source"
@@ -41,7 +38,6 @@ end
 def check_destination
   unless Dir.exist? CONFIG["destination"]
     sh "git clone https://#{USERNAME}:#{ENV['GH_TOKEN']}@github.com/#{ORGNAME}/#{REPO}.git #{CONFIG["destination"]}"
-    #sh "git clone https://#{ENV['GIT_NAME']}:#{ENV['GH_TOKEN']}@github.com/#{ORGNAME}/#{REPO}.git #{CONFIG["destination"]}"
     Dir.chdir(CONFIG["destination"]) { sh 'git config --local credential.helper "cache --timeout=3600"' }
   end
 end
@@ -94,8 +90,7 @@ namespace :site do
     sh "git checkout #{SOURCE_BRANCH}"
     Dir.chdir(CONFIG["destination"]) { sh "git checkout #{DESTINATION_BRANCH}" }
 
-    # Generate the site. Add a random output so that travis won't timeout
-    #sh "./summat.sh"
+    # Generate the site
     sh "bundle exec jekyll build --verbose"
 
     # Check build
@@ -108,7 +103,6 @@ namespace :site do
       sh "git commit -m 'Updating to #{ORGNAME}/#{REPO}@#{sha}.'"
       sh "git push -u --quiet origin #{DESTINATION_BRANCH}"
       puts "Pushed updated branch #{DESTINATION_BRANCH} to GitHub Pages"
-      #sh "sshpass -p #{ENV['CCS_PW']} rsync -e 'ssh -o StrictHostKeyChecking=no' -Prvi --exclude='.git' --exclude='.gitignore' * #{ENV['CCS_NAME']}@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/"
     end
   end
 end
