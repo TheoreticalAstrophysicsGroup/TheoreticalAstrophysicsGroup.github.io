@@ -18,7 +18,7 @@ script: bundle exec rake site:deploy
 
 env:
   global:
-    secure: "PgH3+KOAsW4RS4El4eehTkgxeSzyalqExexlZJxtFwmAwMfAIo4KuGtRhGXqkSNb4GQ/q9dL24vCq25zFghFdCcIbgon5IOuFdCNhn1xicNXJV07c0RtvIgfIuGcRSWTW0TBTrNPzdf7txysPblI9+45hdzYYrsJC8oxwH8db+U="
+    secure: "Eoq2S40HHVSd6LEhdZ3IQ6jAhjG9WwWKTi6YVrxJPoMRZLgVK+wTGP47+saJ+GdD4N1B4V2cobVB99+y1RH1oXxGn5gSs2sOvGICitxJZnxjwDaArmPYCJ8FomSrsj37Wx0FfgcxYmF6ZVsz1NRUJz2f1EN5S8n2ZZVf9ekaGvQ="
 
 # Generate your secure token with the travis gem:
 #
@@ -30,6 +30,6 @@ env:
 #
 #    However, this will result in error: data too large - consider using travis encrypt-file or travis env set
 #
-#    So use:
+#    So, to also include CCS (charon) login details use:
 #
-#    travis encrypt 'GIT_NAME="YOUR_USERNAME" ORG_NAME="YOUR_ORGNAME" GIT_EMAIL="YOUR_EMAIL" GH_TOKEN=YOUR_TOKEN'
+#    travis encrypt 'CCS_NAME="YOUR_USERNAME" CCS_PW="YOUR_ORGNAME" GH_TOKEN=YOUR_TOKEN'

@@ -12,8 +12,11 @@ require 'html/proofer'
 
 
 CONFIG = YAML.load(File.read('_config.yml'))
-USERNAME = CONFIG["username"] || ENV['GIT_NAME']
-ORGNAME = CONFIG["orgname"] || ENV['ORG_NAME']
+USERNAME = CONFIG["username"]
+ORGNAME = CONFIG["orgname"]
+GITEMAIL = CONFIG["gitemail"]
+#USERNAME = CONFIG["username"] || ENV['GIT_NAME']
+#ORGNAME = CONFIG["orgname"] || ENV['ORG_NAME']
 REPO = CONFIG["repo"] || "#{ORGNAME}.github.io"
 
 # Determine source and destination branch
@@ -37,7 +40,8 @@ end
 
 def check_destination
   unless Dir.exist? CONFIG["destination"]
-    sh "git clone https://#{ENV['GIT_NAME']}:#{ENV['GH_TOKEN']}@github.com/#{ORGNAME}/#{REPO}.git #{CONFIG["destination"]}"
+    sh "git clone https://#{USERNAME}:#{ENV['GH_TOKEN']}@github.com/#{ORGNAME}/#{REPO}.git #{CONFIG["destination"]}"
+    #sh "git clone https://#{ENV['GIT_NAME']}:#{ENV['GH_TOKEN']}@github.com/#{ORGNAME}/#{REPO}.git #{CONFIG["destination"]}"
     Dir.chdir(CONFIG["destination"]) { sh 'git config --local credential.helper "cache --timeout=3600"' }
   end
 end
@@ -78,8 +82,8 @@ namespace :site do
 
     # Configure git if this is run in Travis CI
     if ENV["TRAVIS"]
-      sh "git config --global user.name '#{ENV['GIT_NAME']}'"
-      sh "git config --global user.email '#{ENV['GIT_EMAIL']}'"
+      sh "git config --global user.name '#{USERNAME}'"
+      sh "git config --global user.email '#{GITEMAIL}'"
       sh "git config --global push.default simple"
       sh 'git config --local credential.helper "cache --timeout=3600"'
     end
@@ -97,13 +101,14 @@ namespace :site do
     # Check build
     HTML::Proofer.new("CONFIG['destination']").run
 
-    # Commit and push to github
+    # Commit and push to github and rsync to charon
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
     Dir.chdir(CONFIG["destination"]) do
       sh "git add --all ."
       sh "git commit -m 'Updating to #{ORGNAME}/#{REPO}@#{sha}.'"
       sh "git push -u --quiet origin #{DESTINATION_BRANCH}"
       puts "Pushed updated branch #{DESTINATION_BRANCH} to GitHub Pages"
+      sh 'sshpass -p ENV['CCS_PW'] rsync -Prvi --exclude=".git" --exclude=".gitignore" * ENV['CCS_NAME']@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/'
     end
   end
 end
