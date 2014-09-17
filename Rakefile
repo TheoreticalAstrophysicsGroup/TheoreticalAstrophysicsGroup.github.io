@@ -32,7 +32,7 @@ DESTINATION_BRANCH_GH = "master"
 #############################################################################
 
 def check_destination_ccs
-  unless Dir.exist? CONFIG["destination"]
+  unless Dir.exist? CONFIG["destination_ccs"]
     sh "git clone https://#{USERNAME}:#{ENV['GH_TOKEN']}@github.com/#{ORGNAME}/#{REPO}.git #{CONFIG["destination_ccs"]}"
     #Dir.chdir(CONFIG["destination_ccs"]) { sh 'git config --local credential.helper "cache --timeout=3600"' }
   end
