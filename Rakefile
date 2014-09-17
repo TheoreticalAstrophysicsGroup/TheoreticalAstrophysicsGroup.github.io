@@ -11,22 +11,18 @@ require 'yaml'
 require 'html/proofer'
 
 
+# Some basic Config and encrypted variables
 CONFIG = YAML.load(File.read('_config.yml'))
 ORGNAME = CONFIG["orgname"]
-GITEMAIL = CONFIG["gitemail"] || ENV['GIT_MAIL']
-USERNAME = CONFIG["username"] || ENV['GIT_NAME']
-REPO = CONFIG["repo"] || "#{ORGNAME}.github.io"
+REPO = "#{ORGNAME}.github.io"
+GITEMAIL = ENV['GIT_MAIL']
+USERNAME = ENV['GIT_NAME']
 
-# Determine source and destination branch
-# User or organization: source -> master
+# Source and destination branch. User or organization: source -> master
 # Name of source branch for user/organization defaults to "source"
-if REPO == "#{ORGNAME}.github.io" || REPO ==  "#{USERNAME}.github.io"
-  SOURCE_BRANCH = CONFIG['branch'] || "source"
-  DESTINATION_BRANCH = "master"
-else
-  SOURCE_BRANCH = "master"
-  DESTINATION_BRANCH = "gh-pages"
-end
+SOURCE_BRANCH = CONFIG['branch'] || "source"
+DESTINATION_BRANCH_CCS = "astro"
+DESTINATION_BRANCH_GH = "master"
 
 
 #############################################################################
@@ -35,12 +31,20 @@ end
 #
 #############################################################################
 
-def check_destination
+def check_destination_ccs
   unless Dir.exist? CONFIG["destination"]
-    sh "git clone https://#{USERNAME}:#{ENV['GH_TOKEN']}@github.com/#{ORGNAME}/#{REPO}.git #{CONFIG["destination"]}"
-    Dir.chdir(CONFIG["destination"]) { sh 'git config --local credential.helper "cache --timeout=3600"' }
+    sh "git clone https://#{USERNAME}:#{ENV['GH_TOKEN']}@github.com/#{ORGNAME}/#{REPO}.git #{CONFIG["destination_ccs"]}"
+    Dir.chdir(CONFIG["destination_ccs"]) { sh 'git config --local credential.helper "cache --timeout=3600"' }
   end
 end
+
+def check_destination_gh
+  unless Dir.exist? CONFIG["destination_gh"]
+    sh "git clone https://#{USERNAME}:#{ENV['GH_TOKEN']}@github.com/#{ORGNAME}/#{REPO}.git #{CONFIG["destination_gh"]}"
+    Dir.chdir(CONFIG["destination_gh"]) { sh 'git config --local credential.helper "cache --timeout=3600"' }
+  end
+end
+
 
 
 #############################################################################
@@ -67,8 +71,11 @@ namespace :site do
     sh "bundle exec jekyll serve --watch"
   end
 
-  desc "Generate the site and push changes to remote origin"
-  task :deploy do
+  desc "Generate sites for deployment on ccs and gh"
+  multitask :deploy => ['site:deploy_ccs', 'site:deploy_gh']
+
+  desc "Generate the site and push changes to remote astro"
+  task :deploy_ccs do
 
     # Detect pull request
     if ENV['TRAVIS_PULL_REQUEST'].to_s.to_i > 0
@@ -85,25 +92,65 @@ namespace :site do
     end
 
     # Make sure destination folder exists as git repo
-    check_destination
+    check_destination_ccs
 
     sh "git checkout #{SOURCE_BRANCH}"
-    Dir.chdir(CONFIG["destination"]) { sh "git checkout #{DESTINATION_BRANCH}" }
+    Dir.chdir(CONFIG["destination_ccs"]) { sh "git checkout #{DESTINATION_BRANCH_CCS}" }
 
     # Generate the site
-    sh "bundle exec jekyll build --verbose"
+    sh "bundle exec jekyll build"
 
     # Check build
-    HTML::Proofer.new("CONFIG['destination']").run
+    HTML::Proofer.new("CONFIG['destination_ccs']").run
 
     # Commit and push to github and rsync to charon
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
-    Dir.chdir(CONFIG["destination"]) do
+    Dir.chdir(CONFIG["destination_ccs"]) do
       sh "git add --all ."
       sh "git commit -m 'Updating to #{ORGNAME}/#{REPO}@#{sha}.'"
-      sh "git push -u --quiet origin #{DESTINATION_BRANCH}"
-      puts "Pushed updated branch #{DESTINATION_BRANCH} to GitHub Pages"
+      sh "git push -u --quiet origin #{DESTINATION_BRANCH_CCS}"
+      puts "Pushed updated branch #{DESTINATION_BRANCH_CCS} to GitHub Pages"
     end
   end
+
+  desc "Generate the site and push changes to remote master"
+  task :deploy_gh do
+
+    # Detect pull request
+    if ENV['TRAVIS_PULL_REQUEST'].to_s.to_i > 0
+      puts 'Pull request detected. Not proceeding with deploy.'
+      exit
+    end
+
+    # Configure git if this is run in Travis CI
+    if ENV["TRAVIS"]
+      sh "git config --global user.name '#{USERNAME}'"
+      sh "git config --global user.email '#{GITEMAIL}'"
+      sh "git config --global push.default simple"
+      sh 'git config --local credential.helper "cache --timeout=3600"'
+    end
+
+    # Make sure destination folder exists as git repo
+    check_destination_gh
+
+    sh "git checkout #{SOURCE_BRANCH}"
+    Dir.chdir(CONFIG["destination_gh"]) { sh "git checkout #{DESTINATION_BRANCH_GH}" }
+
+    # Generate the site. Baseurl must be empty. 
+    sh "bundle exec jekyll build --baseurl ''"
+
+    # Check build
+    HTML::Proofer.new("CONFIG['destination_gh']").run
+
+    # Commit and push to github and rsync to charon
+    sha = `git log`.match(/[a-z0-9]{40}/)[0]
+    Dir.chdir(CONFIG["destination_gh"]) do
+      sh "git add --all ."
+      sh "git commit -m 'Updating to #{ORGNAME}/#{REPO}@#{sha}.'"
+      sh "git push -u --quiet origin #{DESTINATION_BRANCH_GH}"
+      puts "Pushed updated branch #{DESTINATION_BRANCH_GH} to GitHub Pages"
+    end
+  end
+
 end
 
