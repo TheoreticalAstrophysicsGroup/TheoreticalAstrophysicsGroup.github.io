@@ -30,7 +30,7 @@ layout: default
 
         <br/>
 
-        {% assign content_array = page.content | split: '<p>' %}
+        {% assign content_array = content | split: '<p>' %}
         {% assign nc = content_array | size %}
         {% assign ni = page.img | size %}
 
