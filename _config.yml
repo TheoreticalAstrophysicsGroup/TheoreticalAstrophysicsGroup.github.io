@@ -7,8 +7,8 @@ description: "Theoretical Astrophysics Group, Center for Computational Sciences,
 # No need for user/organization github pages
 # but deployment on organization server requires
 # subdirectory "/Astro"
-baseurl: '/Astro'
-#url: ''
+baseurl: /Astro
+#url:
 
 timezone: Asia/Tokyo
 
