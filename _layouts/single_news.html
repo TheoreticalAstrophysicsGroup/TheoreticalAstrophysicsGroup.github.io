@@ -31,6 +31,7 @@ layout: default
         <br/>
 
         {% assign content_array = content | split: '<p>' %}
+        {% assign content_array2 = page.content | split: '<p>' %}
         {% assign nc = content_array | size %}
         {% assign ni = page.img | size %}
 
@@ -41,6 +42,10 @@ layout: default
         <img src="{{ site.baseurl }}{{ la.img }}/{{ page.img[0] }}" class="img-responsive" alt="Image" />
 
         {% assign iimg = 1 %}
+
+        {% for c2 in content_array2 %}
+          <p>{{ c }}
+        {% endfor %}
 
         {% for c in content_array %}
 
