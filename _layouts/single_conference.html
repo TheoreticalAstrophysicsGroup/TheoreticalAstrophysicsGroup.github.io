@@ -100,7 +100,8 @@ layout: default
         <!-- AYW 2014-06-22 13:26 JST Not yet programmed -->
         <!-- {% raw %} {% include aside_search.html %} {% endraw %} -->
 
-        {% if page.abstract %} <!-- don't need this?! -->
+        <!-- don't need this?! -->
+        {% if page.abstract %} 
         {% include aside_about.html a=tcl.abstract t=content %}
         {% endif %}
 
@@ -112,7 +113,7 @@ layout: default
 
       </aside>
     </div> <!-- col -->
-    {% unless %}
+    {% endunless %}
 
 
 

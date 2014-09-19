@@ -1,5 +1,10 @@
 language: ruby
 
+matrix:
+  include:
+    - env: PREP_TARGET=prep_ccs DEPLOY_TARGET=deploy_ccs PUSH_TARGET=push_ccs 
+    - env: PREP_TARGET=prep_gh  DEPLOY_TARGET=deploy_gh  PUSH_TARGET=push_gh 
+
 bundler_args: --retry 3
 
 install:
@@ -15,18 +20,19 @@ branches:
     - /pages-(.*)/
 
 # Run rakefile prep task
-before_script: bundle exec rake site:prep_deploy --quiet
+before_script: bundle exec rake site:$PREP_TARGET --quiet
 
 # Run rakefile deploy task and a script so that travis-ci won't timeout
-script: bundle exec ./summat.sh; bundle exec rake site:deploy --quiet
+script: bundle exec ./summat.sh; bundle exec rake site:$DEPLOY_TARGET --quiet
 
 # Run rakefile push task
-after_success: bundle exec rake site:push_all --quiet
+after_success: bundle exec rake site:$PUSH_TARGET --quiet
 
 # Global environmental variables
 env:
   global:
     secure: "ZjRJN6Igf2r1Nq5JBjMeie3SdpdAFPoVb+8LEjblLLqEIaAaqFA1uC07XmOYAxpe0eDqHW0QzzFvgPOARZRGeHbRp90UZBsyOPJpa4zU5W4d8hshf+vU7w6yDIdsFVBoZOE7XigwMZX/kuu5T1FhddOCZdXx+B5wBx5EcbUr+Ds="
+
 
 # Generate your secure token with the travis gem:
 # 1) get Github token from your Travis CI profile page

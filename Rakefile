@@ -72,11 +72,11 @@ namespace :site do
     sh "bundle exec jekyll serve --watch --future --drafts --limit_posts #{POSTLIMIT} --detach --config _config_gor.yml"
   end
 
-  desc "Generate sites for deployment on ccs and gh"
-  multitask :deploy => ['site:deploy_ccs', 'site:deploy_gh']
+  #desc "Generate sites for deployment on ccs and gh"
+  #multitask :deploy => ['site:deploy_ccs', 'site:deploy_gh']
 
   desc "Deployment preparations"
-  task :prep_deploy do
+  task :prep_ccs do
 
     # Detect pull request
     if ENV['TRAVIS_PULL_REQUEST'].to_s.to_i > 0
@@ -98,6 +98,25 @@ namespace :site do
     # CCS
     check_destination_ccs
     Dir.chdir(CONFIG["destination_ccs"]) { sh "git checkout #{DESTINATION_BRANCH_CCS}" }
+
+  end
+
+  desc "Deployment preparations"
+  task :prep_gh do
+
+    # Detect pull request
+    if ENV['TRAVIS_PULL_REQUEST'].to_s.to_i > 0
+      puts 'Pull request detected. Not proceeding with deploy.'
+      exit
+    end
+
+    # Configure git if this is run in Travis CI
+    if ENV["TRAVIS"]
+      sh "git config --global user.name '#{USERNAME}'"
+      sh "git config --global user.email '#{GITEMAIL}'"
+      sh "git config --global push.default simple"
+      sh 'git config --global credential.helper "cache --timeout=3600"'
+    end
 
     # Github
     check_destination_gh
@@ -124,7 +143,7 @@ namespace :site do
   end
 
   desc "Commit and push to github and rsync to charon"
-  task :push_all do
+  task :push_ccs do
 
     # CCS
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
@@ -134,6 +153,11 @@ namespace :site do
       sh "git push -u --quiet origin #{DESTINATION_BRANCH_CCS}"
       puts "Pushed updated branch #{DESTINATION_BRANCH_CCS} to GitHub Pages"
     end
+
+  end
+
+  desc "Commit and push to github and rsync to charon"
+  task :push_gh do
 
     # Github
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
