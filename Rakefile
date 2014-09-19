@@ -72,9 +72,6 @@ namespace :site do
     sh "bundle exec jekyll serve --watch --future --drafts --limit_posts #{POSTLIMIT} --detach --config _config_gor.yml"
   end
 
-  #desc "Generate sites for deployment on ccs and gh"
-  #multitask :deploy => ['site:deploy_ccs', 'site:deploy_gh']
-
   desc "Deployment preparations"
   task :prep_ccs do
 
