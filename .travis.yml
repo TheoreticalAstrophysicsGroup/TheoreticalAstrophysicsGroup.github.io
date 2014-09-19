@@ -4,7 +4,6 @@ bundler_args: --retry 3
 
 install:
   # Install Jekyll and dependencies. Nokogiri for html-proofer.
-  #- sudo apt-get update -qq; sudo apt-get install -qq sshpass
   - bundle config build.nokogiri --use-system-libraries
   - bundle install
 
@@ -12,11 +11,17 @@ install:
 # The source branch and every branch starts with "pages-" for proposed changes
 branches:
   only:
-  - source
-  - /pages-(.*)/
+    - source
+    - /pages-(.*)/
 
-# Run rakefile and a script so that travis-ci won't timeout
+# Run rakefile prep task
+before_script: bundle exec rake site:prep_deploy --quiet
+
+# Run rakefile deploy task and a script so that travis-ci won't timeout
 script: bundle exec ./summat.sh; bundle exec rake site:deploy --quiet
+
+# Run rakefile push task
+after_success: bundle exec rake site:push_all --quiet
 
 # Global environmental variables
 env:

@@ -52,6 +52,10 @@ layout: default
       <img src="{{ site.baseurl }}{{ la.img }}/{{ page.img[0] }}" class="img-responsive" alt="Image">
       {% endif %}
 
+      {% unless page.web %}
+      {{ content }}
+      {% endunless %}
+
       {% if page.invited %}
       <h3 id="invited"> {{ tcl.invited }} </h3>
       {% endif %}
@@ -89,14 +93,14 @@ layout: default
 
     </div>
 
-    {% if page.web %}
+    {% unless page.web %}
     <div class="col-md-4">
       <aside class="sidebar">
 
         <!-- AYW 2014-06-22 13:26 JST Not yet programmed -->
         <!-- {% raw %} {% include aside_search.html %} {% endraw %} -->
 
-        {% if page.abstract %}
+        {% if page.abstract %} <!-- don't need this?! -->
         {% include aside_about.html a=tcl.abstract t=content %}
         {% endif %}
 
@@ -108,7 +112,7 @@ layout: default
 
       </aside>
     </div> <!-- col -->
-    {% endif %}
+    {% unless %}
 
 
 
