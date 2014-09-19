@@ -30,7 +30,7 @@ layout: default
 
         <br/>
 
-        {% assign content_array = page.content | split: '<p>' %}
+        {% assign content_array = content | split: '<p>' %}
         {% assign nc = content_array | size %}
         {% assign ni = page.img | size %}
 
@@ -79,6 +79,18 @@ layout: default
 
         {% endfor %}
 
+      <br/>
+      <h4>{{ tpl.refs }}</h4>
+
+      {% if page.refs %}
+      <ol>
+        {% for ref in page.refs %}
+        {% assign targ = ref.link | truncate: 4,'' %}
+        {% assign chr1 = targ | truncate: 1,'' %}
+        <li id="ref{{ forloop.index }}"><a href="{% unless targ == "http" %}{{ site.baseurl }}{{ la.doc }}/{% endunless %}{{ ref.link }}" {% if targ == "http" %} target="_blank" {% endif %}>{{ ref.name }}</a> {% if targ == "http" %}{% unless chr1 == "/" %} <i class="fa fa-external-link"></i>{% endunless%}{% endif %}</li>
+        {% endfor %}
+      </ol>
+      {% endif %}
 
       </section>
 

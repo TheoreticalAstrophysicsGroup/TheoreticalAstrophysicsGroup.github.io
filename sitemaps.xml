@@ -1,0 +1,29 @@
+---
+layout:
+permalink: /sitemaps.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {% for pg in site.pages %}
+  <url>
+    <loc>{{ site.url }}{{ pg.url | remove: "index.html" }}</loc>
+    {% assign versions = site.pages | where: "name", pg.name %}
+    {% for version in versions %}
+      <xhtml:link rel="alternate" hreflang="{{ version.lang }}" href="{{ site.url }}{{ version.url | remove: "index.html"}}" />
+    {% endfor %}
+    <changefreq>weekly</changefreq>
+  </url>
+  {% endfor %}
+  {% for pg in site.posts %}
+  <url>
+    <loc>{{ site.url }}{{ pg.url | remove: "index.html" }}</loc>
+    {% assign versions = site.posts | where: "name", pg.name %}
+    {% for version in versions %}
+      <xhtml:link rel="alternate" hreflang="{{ version.lang }}" href="{{ site.url }}{{ version.url | remove: "index.html"}}" />
+    {% endfor %}
+    <lastmod>{{ pg.date | date_to_xmlschema }}</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  {% endfor %}
+</urlset>
+

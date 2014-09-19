@@ -455,6 +455,7 @@ post_gen:
     compact: コンパクト
     list: 全投稿
     full_index: 全投稿一覧
+    refs: 引用文献
   en:
     categories: Categories
     archive: Archives
@@ -468,6 +469,7 @@ post_gen:
     compact: Compact
     list: Full List
     full_index: Full Index
+    refs: References
 
 
 # Post specific translations

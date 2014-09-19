@@ -9,7 +9,7 @@
   {% assign ratio = 1000 %}
 {% endif %}
 {% if page.lang == 'ja' or ratio > 15 %}
-  <p>{{ text | truncate: nja }}</p>
+  <p>{{ text | truncate: nja,''}}</p>
 {% else %}
   <p>{{ text | truncatewords: nen }}</p>
 {% endif %}

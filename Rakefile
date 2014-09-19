@@ -13,6 +13,7 @@ require 'html/proofer'
 
 # Some basic Config and encrypted variables
 CONFIG = YAML.load(File.read('_config.yml'))
+POSTLIMIT = CONFIG["post_limit"] 
 ORGNAME = CONFIG["orgname"]
 REPO = "#{ORGNAME}.github.io"
 GITEMAIL = ENV['GIT_MAIL']
@@ -56,19 +57,22 @@ end
 namespace :site do
   desc "Generate the site"
   task :build do
-    check_destination
-    sh "bundle exec jekyll build"
+    sh "bundle exec jekyll build --future --limit_posts #{POSTLIMIT} --config _config_loc.yml"
   end
 
   desc "Generate the site and serve locally"
   task :serve do
-    check_destination
-    sh "bundle exec jekyll serve"
+    sh "bundle exec jekyll serve --future --limit_posts #{POSTLIMIT} --config _config_loc.yml"
   end
 
   desc "Generate the site, serve locally and watch for changes"
   task :watch do
-    sh "bundle exec jekyll serve --watch"
+    sh "bundle exec jekyll serve --watch --future --limit_posts #{POSTLIMIT} --config _config_loc.yml"
+  end
+
+  desc "Generate the site on gorilla, and serve locally and watch for changes"
+  task :gorilla do
+    sh "bundle exec jekyll serve --watch --future --limit_posts #{POSTLIMIT} --detach --config _config_gor.yml"
   end
 
   desc "Generate sites for deployment on ccs and gh"
@@ -98,7 +102,7 @@ namespace :site do
     Dir.chdir(CONFIG["destination_ccs"]) { sh "git checkout #{DESTINATION_BRANCH_CCS}" }
 
     # Generate the site
-    sh "bundle exec jekyll build"
+    sh "bundle exec jekyll build --future --limit_posts #{POSTLIMIT} --config _config_ccs.yml"
 
     # Check build
     HTML::Proofer.new("CONFIG['destination_ccs']").run
@@ -140,7 +144,7 @@ namespace :site do
     Dir.chdir(CONFIG["destination_gh"]) { sh "git checkout #{DESTINATION_BRANCH_GH}" }
 
     # Generate the site. Baseurl must be empty. 
-    sh "bundle exec jekyll build --baseurl ''"
+    sh "bundle exec jekyll build --future --limit_posts #{POSTLIMIT} --config _config_gh.yml"
 
     # Check build
     HTML::Proofer.new("CONFIG['destination_gh']").run

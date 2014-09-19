@@ -3,6 +3,8 @@ layout: default
 ---
 
 {% assign tcll = site.data.translations.categories.long.[page.lang] %}
+{% assign tpl = site.data.translations.post_gen.[page.lang] %}
+{% assign tnl = site.data.translations.categories.long.[page.lang] %}
 {% assign la = site.data.links.assets %}
 
 {% include page_header.html title=tcll.news %}
@@ -31,7 +33,6 @@ layout: default
         <br/>
 
         {% assign content_array = content | split: '<p>' %}
-        {% assign content_array2 = page.content | split: '<p>' %}
         {% assign nc = content_array | size %}
         {% assign ni = page.img | size %}
 
@@ -42,10 +43,6 @@ layout: default
         <img src="{{ site.baseurl }}{{ la.img }}/{{ page.img[0] }}" class="img-responsive" alt="Image" />
 
         {% assign iimg = 1 %}
-
-        {% for c2 in content_array2 %}
-          <p>{{ c }}
-        {% endfor %}
 
         {% for c in content_array %}
 
@@ -84,6 +81,18 @@ layout: default
 
         {% endfor %}
 
+      <br/>
+      <h4>{{ tpl.refs }}</h4>
+
+      {% if page.refs %}
+      <ol>
+        {% for ref in page.refs %}
+        {% assign targ = ref.link | truncate: 4,'' %}
+        {% assign chr1 = targ | truncate: 1,'' %}
+        <li id="ref{{ forloop.index }}"><a href="{% unless targ == "http" %}{{ site.baseurl }}{{ la.doc }}/{% endunless %}{{ ref.link }}" {% if targ == "http" %} target="_blank" {% endif %}>{{ ref.name }}</a> {% if targ == "http" %}{% unless chr1 == "/" %} <i class="fa fa-external-link"></i>{% endunless%}{% endif %}</li>
+        {% endfor %}
+      </ol>
+      {% endif %}
 
       </section>
 

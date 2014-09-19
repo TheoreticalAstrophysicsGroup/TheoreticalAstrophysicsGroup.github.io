@@ -9,6 +9,9 @@
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
+  <!-- favicon -->
+  <link rel="icon" href="{{ site.baseurl }}{{ la.img }}/favicon.ico">
+
   <!-- CSS -->
   <link href="{{ site.baseurl }}{{ la.css }}/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="{{ site.baseurl }}{{ la.css }}/font-awesome.min.css" rel="stylesheet" media="screen">

@@ -1,0 +1,76 @@
+# Site settings
+title: Theoretical Astrophysics Group
+email: astro.ccs.tsukuba@gmail.com
+webmaster: Alex Wagner
+description: "Theoretical Astrophysics Group, Center for Computational Sciences, University of Tsukuba. We research in Numerical Astrophysics, High-performance Computing, Radiation Hydrodynamics, Galaxy Evolution, Cosmology, First Stars, and much much more."
+
+# No need for user/organization github pages, and localhost,
+# but deployment on organization server requires
+# subdirectory "/Astro"
+#baseurl:
+url: http://TheoreticalAstrophysicsGroup.github.io
+
+timezone: Asia/Tokyo
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+destination: ../gh_version
+
+# Exclude
+exclude: 
+  - README.md
+  - .git
+  - .gitignore
+  - vendor
+  - .travis.yml
+  - Gemfile
+  - Gemfile.lock
+  - Rakefile
+  - summat.sh
+
+
+# Defaults for categories
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      lang: ja
+  -
+    scope:
+      path: seminars
+    values:
+      layout: single_seminar
+  -
+    scope:
+      path: news
+    values:
+      layout: single_news
+  -
+    scope:
+      path: achievements
+    values:
+      layout: single_achievement
+  -
+    scope:
+      path: uchu_forum
+    values:
+      layout: single_uchu_forum
+  -
+    scope:
+      path: conferences
+    values:
+      layout: single_conference
+  -
+    scope:
+      path: featured
+    values:
+      layout: single_featured
+  -
+    scope:
+      path: members
+    values:
+      layout: single_member
+
+
