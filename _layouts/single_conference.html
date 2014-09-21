@@ -52,9 +52,9 @@ layout: default
       <img src="{{ site.baseurl }}{{ la.img }}/{{ page.img[0] }}" class="img-responsive" alt="Image">
       {% endif %}
 
-      {% unless page.web %}
+       
+      <h3>{{ tcl.motivation }}</h3>
       {{ content }}
-      {% endunless %}
 
       {% if page.invited %}
       <h3 id="invited"> {{ tcl.invited }} </h3>

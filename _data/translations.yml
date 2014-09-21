@@ -519,7 +519,7 @@ seminars:
 
 conferences:
   ja:
-    science: サイエンス
+    motivation: サイエンス・開催趣旨
     soc: Science Organizing Committee
     loc: Local Organizing Committee
     access: アクセス
@@ -543,7 +543,7 @@ conferences:
     archive_msg: 全研究会議の一覧はアーカイブを御覧ください。
     info: 情報・案内
   en:
-    science: Science
+    motivation: Science and Motivation
     soc: Science Organizing Committee
     loc: Local Organizing Committee
     access: Access
