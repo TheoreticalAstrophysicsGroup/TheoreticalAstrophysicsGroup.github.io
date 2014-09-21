@@ -19,14 +19,11 @@ branches:
     - source
     - /pages-(.*)/
 
-# Run rakefile prep task
-before_script: bundle exec rake site:$PREP_TARGET --quiet
-
 # Run rakefile deploy task and a script so that travis-ci won't timeout
-script: bundle exec ./summat.sh; bundle exec rake site:$DEPLOY_TARGET --quiet
-
-# Run rakefile push task
-after_success: bundle exec rake site:$PUSH_TARGET --quiet
+script: 
+  - bundle exec rake site:$PREP_TARGET --quiet
+  - bundle exec ./summat.sh; bundle exec rake site:$DEPLOY_TARGET --quiet
+  - bundle exec rake site:$PUSH_TARGET --quiet
 
 # Global environmental variables
 env:
