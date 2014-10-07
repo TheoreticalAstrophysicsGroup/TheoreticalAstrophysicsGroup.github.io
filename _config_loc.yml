@@ -29,6 +29,11 @@ exclude:
   - Rakefile
   - summat.sh
 
+# Collections
+collections:
+  members:
+    output: true
+    permalink: pretty
 
 # Defaults for categories
 defaults:

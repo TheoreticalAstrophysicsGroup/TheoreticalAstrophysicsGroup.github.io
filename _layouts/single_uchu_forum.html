@@ -18,7 +18,8 @@ layout: default
       {% assign nposts = all_posts | size %}
       {% for p in all_posts reversed %}
         {% assign d = page.date | date: "%Y-%m-%d" %}
-        {% if d == p.name %} {% assign npost = forloop.index %} {% endif %}
+        {% assign pname = p.name | date: "%Y-%m-%d" %}
+        {% if d == pname %} {% assign npost = forloop.index %} {% endif %}
       {% endfor %}
 
       <!-- Language dependent surrounds -->

@@ -20,12 +20,12 @@
       <li class="fali"><i class="fa fa-users"></i> &nbsp;{{ tal.members }}<br/>
         <table class="table-striped">
           {% for auth in page.author %}
-            <tr><td>{{ auth.posn }}</td><th>{{ auth.name }}{% if auth.note and auth.note != "grouped" %}<br/>{{ open_surround }}{{ auth.note }}{{ close_surround }}{% endif %}<th/></tr>
+            <tr><td>{{ auth.posn }}</td><td>&nbsp;&nbsp;</td><th>{{ auth.name }}{% if auth.note and auth.note != "grouped" %}<br/>{{ open_surround }}{{ auth.note }}{{ close_surround }}{% endif %}<th/></tr>
           {% endfor %}
         </table>
       </li>
       {% endif %}
-      {% if page.pdf %}<li class="fali"><i class="fa fa-file-pdf"></i> &nbsp;<a href="{{ site.baseurl }}{{ la.doc }}/{{ page.pdf }}" target="_blank">{{ tal.pdf_download }}</a>{% endif %}
+      {% if page.pdf %}<li class="fali"><i class="fa fa-file-pdf-o"></i> &nbsp;<a href="{{ site.baseurl }}{{ la.doc }}/{{ page.pdf }}" target="_blank">{{ tal.pdf_download }}</a>{% endif %}
     </ul>
   </div>
 </div>

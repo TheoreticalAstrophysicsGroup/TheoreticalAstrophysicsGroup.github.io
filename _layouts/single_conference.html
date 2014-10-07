@@ -11,40 +11,35 @@ layout: default
 <div class="container">
   <div class="row">
 
-    {% unless page.web %}
-    <div class="col-md-3">
-      <nav id="sidebar-menu">
-      <ul class="nav nav-pills nav-stacked affix menu animated fadeIn" id="menu" data-spy="affix" data-offset-top="400" data-offset-bottom="450">
-        <li><a href="#title" class="smooth">{{ tcl.top }}</a></li>
-        {% if page.abstract %}<li><a href="#abstract" class="smooth">{{ tcl.abstract }}</a></li>{% endif %}
-        {% if page.invited %}<li><a href="#invited" class="smooth">{{ tcl.invited }}</a></li>{% endif %}
-        {% if page.participants %}<li><a href="#participants" class="smooth">{{ tcl.participants }}</a></li>{% endif %}
-        {% if page.important_dates %}<li><a href="#important_dates" class="smooth">{{ tcl.important_dates }}</a></li>{% endif %}
-        {% if page.soc %}<li><a href="#soc" class="smooth">{{ tcl.soc }}</a></li>{% endif %}
-        {% if page.loc %}<li><a href="#loc" class="smooth">{{ tcl.loc }}</a></li>{% endif %}
-        {% if page.program %}<li><a href="#program" class="smooth">{{ tcl.program }}</a></li>{% endif %}
-        {% if page.dinner %}<li><a href="#dinner" class="smooth">{{ tcl.dinner }}</a></li>{% endif %}
-        {% if page.events %}<li><a href="#events" class="smooth">{{ tcl.events }}</a></li>{% endif %}
-      </ul>
-      </nav>
+    <div class="col-md-4 hidden-md hidden-lg">
+      <aside class="sidebar">
+
+      {% include aside_conf.html %}
+
+      <br/>
+
+      {% unless page.web %}
+        {% include aside_pills_single_conf.html %}
+      {% endunless %}
+
+      </aside>
     </div> <!-- col -->
 
-    {% endunless %}
 
-    {% if page.web %}
       <div class="col-md-8">
-    {% else %}
-      <div class="col-md-5">
-    {% endif %}
 
       <section>
 
       <!-- Language dependent surrounds -->
-      {% if page.part %}
-        <!-- This creates open_surround and close_surround variables into the namespace -->
-        {% include lang_surround.html shape='round' %}
-      {% endif %}
-
+      <!-- This creates open_surround and close_surround variables into the namespace -->
+      {% include lang_surround.html shape='round' %}
+      {% assign open_bra = open_surround %}
+      {% assign close_bra = close_surround%}
+      {% include lang_surround.html shape='quotes' %}
+      {% assign open_quo = open_surround %}
+      {% assign close_quo = close_surround%}
+      {% include lang_surround.html shape='colon' %}
+      {% assign colon = open_surround %}
 
       <h2 id="title" class="post-title">{{ page.title }}</h2>
 
@@ -53,69 +48,176 @@ layout: default
       {% endif %}
 
        
-      <h3>{{ tcl.motivation }}</h3>
+      <h3 id="motivation">{{ tcl.motivation }}</h3>
       {{ content }}
+
+      {% if page.review %}
+      <h3 id="review"> {{ tcl.review }} </h3>
+      <ul>
+        {% for rev in page.review %}
+        <li>{{ rev.speaker }}{{ open_bra }}{{ rev.affil }}{{ close_bra }}{{ colon }}{{ open_quo}}{{ rev.title }}{{ close_quo }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
 
       {% if page.invited %}
       <h3 id="invited"> {{ tcl.invited }} </h3>
+      <ul>
+        {% for inv in page.invited %}
+        <li>{{ inv.name }}{{ open_bra }}{{ inv.affil }}{{ close_bra }}</li>
+        {% endfor %}
+      </ul>
       {% endif %}
 
       {% if page.participants %}
-      <h3 id="participants"> {{ tcl.participants }} </h3>
+      <div class="panel-group" id="accordion1">
+        <div class="panel">
+          <div class="panel-heading">
+            <h4 id="participants" class="panel-title">
+              <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1" href="#collapseOne1">
+                {{ tcl.full_part }}
+              </a>
+            </h4>
+          </div>
+          <div id="collapseOne1" class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul>
+                {% for ptps in page.participants %}
+                <li>{{ ptps.name }}{{ open_bra }}{{ ptps.affil }}{{ close_bra }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
       {% endif %}
+
 
       {% if page.important_dates %}
       <h3 id="important_dates"> {{ tcl.important_dates }} </h3>
-      {% endif %}
-
-      {% if page.soc %}
-      <h3 id="soc"> {{ tcl.soc }} </h3>
-      {% endif %}
-      
-      {% if page.loc %}
-      <h3 id="loc"> {{ tcl.loc }} </h3>
+      <ol>
+        {% for impd in page.important_dates %}
+        <li>{% include date.html d=impd.date l='m' %}{{ colon }}{{ impd.note }}</li>
+        {% endfor %}
+      </ol>
       {% endif %}
 
       {% if page.program %}
+      {% include lang_surround.html shape=round %}
       <h3 id="program"> {{ tcl.program }} </h3>
+      {% for pitem in page.program %}
+      {% include lang_count.html number=pitem.day %}
+      <h4>{{ pitem.day }}{{ lang_count }} {{ tcl.day }}{{ open_surround }}{% include date.html d=pitem.date l='s' %}{{ close_surround }}</h4>
+      {% for session in pitem.sessions %}
+      <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>{% if session.from %}{{ session.from }}{% endif %}{% if session.to %} ~ {{ session.to }}{% endif %}</th>
+          <th>{% if session.title %}{{ session.title }}{% endif %}</th>
+          <th>{% if session.chair %}{{ tcl.chair }}: {{ session.chair }}{% elsif session.emcee %}{{ tcl.emcee }}: {{ session.emcee }}{% endif %}{% if session.affil %}{{ open_surround }}{{ session.affil }}{{ close_surround }}{% endif %}</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for contrib in session.contributions %}
+        <tr>
+          <td>{% if contrib.from %}{{ contrib.from }}{% endif %}{% if contrib.to %} ~ {{ contrib.to }}{% endif %}</td>
+          <td>{{ contrib.title }}{% if contrib.pdf %}<span class="pull-right">&nbsp;<a href="{{ site.baseurl }}{{ la.doc }}/{{ contrib.pdf }}"><i class="fa fa-file-pdf-o"></i></a></span>{% endif %}</td>
+          <td>{% if contrib.speaker %}{{ contrib.speaker }}{% endif %}{% if contrib.affil %}{{ open_surround }}{{ contrib.affil }}{{ close_surround }}{% endif %}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+      </table>
+      {% endfor %}
+      {% endfor %}
       {% endif %}
 
       {% if page.dinner %}
       <h3 id="dinner"> {{ tcl.dinner }} </h3>
       {% endif %}
 
+      {% if page.lunch %}
+      <h3 id="lunch"> {{ tcl.lunch }} </h3>
+      {% endif %}
+
+      {% if page.other_info %}
+      <h3 id="other_info"> {{ tcl.other_info }} </h3>
+      {% endif %}
+
       {% if page.events %}
       <h3 id="events"> {{ tcl.events }} </h3>
       {% endif %}
 
+      {% if page.soc %}
+      <h3 id="soc"> {{ tcl.soc }} </h3>
+      <ul>
+        {% for isoc in page.soc %}
+        <li>{{ isoc.name }}{{ open_bra }}{{ isoc.affil }}{{ close_bra }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+      {% if page.loc %}
+      <h3 id="loc"> {{ tcl.loc }} </h3>
+      <ul>
+        {% for iloc in page.loc %}
+        <li>{{ iloc.name }}{{ open_bra }}{{ iloc.affil }}{{ close_bra }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+      {% if page.photos %}
+      <h3 id="photos"> {{ tcl.photos }} </h3>
+      <div id="Grid" class="row">
+        {% for photo in page.photos %}
+        <div class="col-sm-6 col-lg-3 col-md-4">
+          <a href="{{ site.baseurl }}{{ la.img }}/{{ photo.img }}" class="thumbnail margin-bottom-20" data-lightbox="w1" title="{{ photo.caption }}">
+            <img src="{{ site.baseurl }}{{ la.img }}/{{ photo.img }}" class="img-responsive" alt="Image">
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if page.refs %}
+      <h3 id="refs">{{ tcl.refs }}</h3>
+      <ol>
+        {% for ref in page.refs %}
+        {% assign targ = ref.link | truncate: 4,'' %}
+        {% assign chr1 = targ | truncate: 1,'' %}
+        <li id="ref{{ forloop.index }}"><a href="{% unless targ == "http" %}{{ site.baseurl }}{{ la.doc }}/{% endunless %}{{ ref.link }}" {% if targ == "http" %} target="_blank" {% endif %}>{{ ref.name }}</a> {% if targ == "http" %}{% unless chr1 == "/" %} <i class="fa fa-external-link"></i>{% endunless%}{% endif %}</li>
+        {% endfor %}
+      </ol>
+      {% endif %}
 
       </section>
 
     </div>
 
-    {% unless page.web %}
-    <div class="col-md-4">
+    <div class="col-md-4 hidden-sm hidden-xs">
       <aside class="sidebar">
 
         <!-- AYW 2014-06-22 13:26 JST Not yet programmed -->
         <!-- {% raw %} {% include aside_search.html %} {% endraw %} -->
 
-        <!-- don't need this?! -->
-        {% if page.abstract %} 
-        {% include aside_about.html a=tcl.abstract t=content %}
-        {% endif %}
-
         {% include aside_conf.html %}
-        {% include aside_nav_single.html %}
 
-        <!-- AYW 2014-06-22 13:44 JST Do we really need one? -->
-        <!-- {% raw %} {% include aside_featured.html %} {% endraw %} -->
+        <br/>
+
+        {% unless page.web %}
+          {% include aside_pills_single_conf.html %}
+        {% endunless %}
+
+        <br/>
+        <br/>
 
       </aside>
     </div> <!-- col -->
-    {% endunless %}
 
-
+    <div class="col-md-4">
+      <aside>
+        {% include aside_nav_single.html dup=true %}
+      </aside>
+    </div> <!-- col -->
 
   </div> <!-- row -->
 </div> <!-- container  -->

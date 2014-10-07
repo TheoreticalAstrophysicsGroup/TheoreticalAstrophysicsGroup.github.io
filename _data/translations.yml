@@ -8,7 +8,6 @@ categories:
       uchu_forum: &uchu_forum_short_ja 宇宙フォーラム
       conferences: &conferences_short_ja 研究会
       featured: &featured_short_ja 特集記事
-      members: &members_short_ja メンバー
     en:
       achievements: &achievements_short_en Achievements
       news: &news_short_en News
@@ -16,7 +15,6 @@ categories:
       uchu_forum: &uchu_forum_short_en Uchu Forum
       conferences: &conferences_short_en Conferences
       featured: &featured_short_en Featured
-      members: &members_short_en Members
   long:
     ja:
       achievements: 研究成果・発表論文
@@ -25,7 +23,6 @@ categories:
       uchu_forum: つくば宇宙フォーラム
       conferences: 研究会・一般公開
       featured: &featured_long_ja 特集記事
-      members: &members_long_ja メンバー
     en:
       achievements: Achievements & Publications
       news: News & Updates
@@ -33,7 +30,18 @@ categories:
       uchu_forum: Tsukuba Uchu Forum
       conferences: Conferences & Workshops
       featured: &featured_long_en Featured Articles
-      members: &members_long_en Members
+
+collections:
+  short:
+    ja:
+      members: &members_short_ja メンバー
+    en:
+      members: &members_short_en Members
+  long:
+    ja:
+      members: メンバー
+    en:
+      members: Members
 
 
 # Header translations
@@ -455,7 +463,7 @@ post_gen:
     compact: コンパクト
     list: 全投稿
     full_index: 全投稿一覧
-    refs: 引用文献
+    refs: 参考文献・リンク
   en:
     categories: Categories
     archive: Archives
@@ -520,41 +528,59 @@ seminars:
 conferences:
   ja:
     motivation: サイエンス・開催趣旨
+    review: レビュー講演
     soc: Science Organizing Committee
     loc: Local Organizing Committee
     access: アクセス
+    important_dates: 重要な日付
+    other_info: その他の情報
     webpage: 研究会ウェブページ
     invited: 招待講演者
     top: トップ
     participants: 参加者
+    full_part: 全参加者一覧
     program: プログラム
     dinner: 懇親会
-    local: Local Information
+    photos: アルバム
+    local: 現地の情報
     events: イベント
+    refs: 参考リンク
+    chair: 座長
+    emcee: 司会
+    day: 日目
     past: すでに終了した研究会
     future: 開催予定の研究会
     current: 現在開催中の研究会
     domestic: 国内の研究会
     abroad: 海外での研究会
-    no_current: 現在開先中の研究会はありません。
-    no_future: 現在開催予定の研究会はありません。
-    no_abroad: 現在海外での研究会に就いての投稿はありません。
-    no_domestic: 現在国内での研究会に就いての投稿はありません。
-    archive_msg: 全研究会議の一覧はアーカイブを御覧ください。
+    no_current: 現在開先中の研究会はありません．
+    no_future: 現在開催予定の研究会はありません．
+    no_abroad: 現在海外での研究会に就いての投稿はありません．
+    no_domestic: 現在国内での研究会に就いての投稿はありません．
+    archive_msg: 全研究会議の一覧はアーカイブを御覧ください．
     info: 情報・案内
   en:
     motivation: Science and Motivation
+    review: Review Talks
     soc: Science Organizing Committee
     loc: Local Organizing Committee
     access: Access
+    important_dates: Important Dates
+    other_info: Other Information
     webpage: Conference Webpage
     top: Top
     invited: Invited Speakers
     participants: Participants
+    full_part: Full list of participants
     program: Program
     dinner: Conference Dinner
+    photos: Photo Album
     local: Local Information
     events: Recreational Events
+    refs: Reference links
+    chair: Chair
+    emcee: MC
+    day: Day
     past: Past Local Conferences
     future: Upcoming Local Conferences
     current: Currently Ongoing Local Conferences
@@ -583,6 +609,8 @@ achievements:
     about_header: 発表論文リストに就いて
     members: メンバー
     pdf_download: PDF版ダウンロード
+    refs: 参考文献・リンク
+    photos: Figures
   en:
     ads_url: NASA ADS
     doi: DOI
@@ -598,18 +626,24 @@ achievements:
     about_header: About the publications list
     members: Members
     pdf_download: Download PDF
+    refs: References
+    photos: Figures
 
 featured:
   ja:
     abstract: 概要
     author: 発表者
     about_header: 特集記事に就いて
+    photos: 図
   en:
     abstract: Summary
     author: Author(s)
     about_header: About the Featured Articles
+    photos: Figures
 
 news:
   ja:
+    photos: 写真
   en:
+    photos: Photos
 

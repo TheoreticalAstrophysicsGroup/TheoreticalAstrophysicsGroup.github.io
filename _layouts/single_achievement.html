@@ -27,8 +27,6 @@ layout: default
 
       <br/>
 
-      {% include aside_nav_single.html %}
-
       <!-- AYW 2014-06-22 13:44 JST For movies -->
       <!-- {% raw %} {% include aside_featured.html %} {% endraw %} -->
 
@@ -76,6 +74,15 @@ layout: default
       <br />
       <br />
 
+      <!-- Should use a photo album grid here, but requires relabelling of all 
+      yaml in achievements. Must use a sed script for that. File issue in github.
+      Other issues: 
+        * Index page of everything except for achievements
+        * Breadcrumbs don't show year crumb in some categories
+        * Members should be collections, with a file per member.
+        * Search 
+        * Tags
+      -->
       {% unless page.categories contains "annual_report" or page.categories contains "publications" %}
       <div class="row">
         {% for img in page.img  %}
@@ -87,6 +94,19 @@ layout: default
         {% endfor %}
       </div>
       {% endunless %}
+
+
+      {% if page.refs %}
+      <h3 id="refs">{{ tal.refs }}</h3>
+      <ol>
+        {% for ref in page.refs %}
+        {% assign targ = ref.link | truncate: 4,'' %}
+        {% assign chr1 = targ | truncate: 1,'' %}
+        <li id="ref{{ forloop.index }}"><a href="{% unless targ == "http" %}{{ site.baseurl }}{{ la.doc }}/{% endunless %}{{ ref.link }}" {% if targ == "http" %} target="_blank" {% endif %}>{{ ref.name }}</a> {% if targ == "http" %}{% unless chr1 == "/" %} <i class="fa fa-external-link"></i>{% endunless%}{% endif %}</li>
+        {% endfor %}
+      </ol>
+      {% endif %}
+
 
       </section>    
 
@@ -106,12 +126,17 @@ layout: default
       {% endif %}
 
       <br/>
-
-      {% include aside_nav_single.html dup=true %}
+      <br/>
 
       <!-- AYW 2014-06-22 13:44 JST For movies -->
       <!-- {% raw %} {% include aside_featured.html %} {% endraw %} -->
 
+      </aside>
+    </div> <!-- col -->
+
+    <div class="col-md-4">
+      <aside>
+        {% include aside_nav_single.html dup=true %}
       </aside>
     </div> <!-- col -->
 

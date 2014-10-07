@@ -138,6 +138,9 @@ layout: default
       <a href="{{ last_post_url }}" class="thumbnail"><img src="{{ site.baseurl }}{{ la.img }}/{{ last_post.img[0] }}" class="img-responsive" alt="Image"></a>
       {% endif %}
       <h2 class="home-post-title"><a href="{{ last_post_url }}">{{ last_post.title }}</a></h2>
+      {% if last_post.speaker %}
+      <h3 class="home-post-title"><a href="{{ last_post_url }}">{{ last_post.speaker }}</a></h3>
+      {% endif %}
       {% assign lastpc = last_post.content | strip_html %}
       <p>{% include lang_truncate.html text=lastpc nen=100 nja=500 %}</p>
       <div class="row home-post-footer">

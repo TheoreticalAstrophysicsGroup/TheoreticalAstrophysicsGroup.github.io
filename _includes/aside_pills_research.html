@@ -1,0 +1,10 @@
+
+<nav id="sidebar-menu">
+  <ul class="nav nav-pills nav-stacked menu animated fadeIn" id="menu">
+  <li><a href="#abstract" class="smooth">{{ trl.abstract }}</a></li>
+  {% for top in page.topics %}
+  <li><a href="#research{{ forloop.index }}" class="smooth">{{ top.title }}</a></li>
+  {% endfor %}
+  </ul>
+</nav>
+
