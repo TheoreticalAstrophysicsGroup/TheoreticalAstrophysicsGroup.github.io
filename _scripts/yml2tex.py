@@ -1,6 +1,13 @@
 import yaml
 import re
 import subprocess as sp
+import sys
+import os.path as osp
+
+# This script extracts yaml data from a conference file and 
+# Creates a pdf program. It also includes title, dates, and 
+# the types of contributions.
+# Tested with 2014-11-03-smbh-liason-workshop.html
 
 # Things to edit in this file are
 # - fbase, just below
@@ -8,7 +15,10 @@ import subprocess as sp
 # - The \\\\[<>cm] in the title
 
 # File basename
-fbase = "smbh-liason-workshop"
+if len(sys.argv) > 0:
+    fbase = re.sub('\.html', '', sys.argv[1])
+else:
+    fbase = "confereces_file"
 
 # IO files
 fh = open(fbase+'.html', 'r')
@@ -96,13 +106,14 @@ fl.close()
 
 # Tex Generation (use platex rather than pdflatex 
 # to always include Japanese text)
-sp.call('platex '+fbase+'.tex && dvipdfmx '+fbase+'.dvi')
-dvipdfmx smbh-liason-workshop.dvi
+sp.call(['platex','--output-directory='+osp.dirname(fbase),fbase+'.tex'])
+sp.call(['dvipdfmx','-o',fbase+'.pdf', fbase+'.dvi'])
 
 # Cleanup
-sp.call('rm -f '+fbase+'.yml')
-sp.call('rm -f '+fbase+'.dvi')
-sp.call('rm -f '+fbase+'.aux')
-sp.call('rm -f '+fbase+'.tex')
+sp.call(['rm','-f',fbase+'.yml'])
+sp.call(['rm','-f',fbase+'.log'])
+sp.call(['rm','-f',fbase+'.dvi'])
+sp.call(['rm','-f',fbase+'.aux'])
+sp.call(['rm','-f',fbase+'.tex'])
 
 
