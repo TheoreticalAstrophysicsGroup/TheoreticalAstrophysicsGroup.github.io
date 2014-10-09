@@ -11,6 +11,7 @@
       <li class="fali"> <i class="fa-li fa fa-ellipsis-v"></i> <a href="{{ site.baseurl }}{{ li.calendar}}/{{ page.lang }}">{% include date.html d=page.to l="l" %}</a> </li>
       <li class="fali"> <i class="fa-li fa fa-map-marker"></i> {% if page.place_web %}<a href="{{ page.place_web }}" target="_blank">{% endif %}{{ page.place }}{% if page.place_web %}</a><font size="1"><i class="fa fa-external-link"></i></font>{% endif %}</li>
       {% if page.open_to %}<li class="fali"> <i class="fa-li fa fa-university"></i>{{ tcl.open_to }}: {{ page.open_to }}</li>{% endif %}
+      {% if page.price %}<li class="fali"> <i class="fa-li fa fa-yen"></i>{{ page.price }}</li>{% endif %}
       {% if page.web %}<li class="fali"> <i class="fa-li fa fa-globe"></i><a href="{{ page.web }}" target="_blank">{{ tcl.webpage }}</a> <font size="1"><i class="fa fa-external-link"></i></font></li>{% endif %}
     {% if page.categories contains 'ccs' %}
     <li class="fali"> <i class="fa-li fa fa-location-arrow"></i> <a {% if page.access %}href="{{ page.access }}"{% else %}href="{{ lel.access }}"{% endif %} target="_blank">{{ tcl.access }}</a> <font size="1"><i class="fa fa-external-link"></i></font></li>
