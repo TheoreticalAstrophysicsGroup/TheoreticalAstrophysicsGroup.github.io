@@ -107,7 +107,7 @@ layout: default
       <h3 id="program"> {{ tcl.program }} </h3>
       {% for pitem in page.program %}
       {% include lang_count.html number=pitem.day %}
-      <h4>{{ pitem.day }}{{ lang_count }} {{ tcl.day }}{{ open_surround }}{% include date.html d=pitem.date l='s' %}{{ close_surround }}</h4>
+      <h4>{{ pitem.day }}{{ lang_count }} {{ tcl.day }}{{ open_surround }}{% include date.html d=pitem.date l='M' %}{{ close_surround }}</h4>
       {% for session in pitem.sessions %}
       <table class="table table-striped">
       <thead>
@@ -136,7 +136,7 @@ layout: default
       <h3 id="dinner"> {{ tcl.dinner }} </h3>
       <ul class="fa-ul">
         {% if pd.place %}<li><i class="fa-li fa fa-map-marker"></i>{% if pd.web %}<li><a href="{{ pd.web }}" target="_blank">{% endif %}{{ pd.place }}{% if pd.web %} <i class="fa fa-external-link-square "></i></a>{% endif %}</li>{% endif %}
-        {% if pd.date %}<li><i class="fa-li fa fa-calendar"></i>{% include date.html d=pd.date l="m" %}</li>{% endif %}
+        {% if pd.date %}<li><i class="fa-li fa fa-calendar"></i>{% include date.html d=pd.date l="M" %}</li>{% endif %}
         {% if pd.from %}<li><i class="fa-li fa fa-clock-o"></i>{{ pd.from }}{% if pd.to %} ~ {{ pd.to }}{% endif %}</li>{% endif %}
         {% if pd.price %}<li><i class="fa-li fa fa-yen"></i>{{ pd.price }}</li>{% endif %}
         {% if pd.about %}<li><i class="fa-li fa fa-question-circle"></i>{{ pd.about }}</li>{% endif %}
