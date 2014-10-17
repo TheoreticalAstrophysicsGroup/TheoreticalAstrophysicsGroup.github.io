@@ -651,16 +651,16 @@ Apr 2000 ~ Mar 2001
 
 
 <!-- AYW 2014-07-04 13:32 JST
-     We wish to sort by date and group by tags-->
+We wish to sort by date and group by tags-->
 
 
-     <div class="container">
-       <div class="row">
+<div class="container">
+  <div class="row">
 
-         <div class="col-md-4 hidden-md hidden-lg">
-           <aside class="sidebar">
+    <div class="col-md-4 hidden-md hidden-lg">
+      <aside class="sidebar">
 
-           
+      
 
 
 
@@ -687,6 +687,13 @@ Apr 2000 ~ Mar 2001
 
 
 <!-- Change preferred view according to page type -->
+<!-- Puts mix1, mix2, mix3, and mix4 into namespace -->
+<!-- This snippet determines the mix class order 
+(default is mix1) according to a bit in url 
+which indicates whether we are on an index page, 
+a archive page, or a normal category page -->
+
+
 
 
 
@@ -1672,75 +1679,103 @@ Apr 1997 ~ Mar 1998
  
 
 
- </div> <!-- tab-content -->
+  </div> <!-- tab-content -->
 </div>
 
 
 
-           </aside> <!-- Sidebar -->
-         </div>
+      </aside> <!-- Sidebar -->
+    </div>
 
-         <div class="col-md-8">
+    <div class="col-md-8" id="Grid">
 
-           <!-- Get post number by comparing dates -->
-           
-
- 
-           <!-- academic year range -->
-           
-           
-           
-           
-           
-            
-            
+      <!-- Get post number by comparing dates -->
+      
 
 
-           <!-- Limit number of posts on non-archive pages -->
-           
-           
-             
-           
+      <!-- academic year range -->
+      
+      
+      
+      
+      
+       
+      
+      
+       
 
-           
-           
 
-           <!-- Test condition that this post is in the page's academic year -->
-           
-           
-             
-           
-           
-           
+      <!-- Limit number of posts -->
+      
+      
+      
+      
+      
+      
+      
 
-           <!-- Test condition that this post is in the page's academic year -->
-           
-           
-             
-           
-           
-           
+      <!-- Change preferred view according to page type -->
+      <!-- Puts mix1, mix2, mix3, and mix4 into namespace -->
+      <!-- This snippet determines the mix class order 
+(default is mix1) according to a bit in url 
+which indicates whether we are on an index page, 
+a archive page, or a normal category page -->
 
-           <!-- Test condition that this post is in the page's academic year -->
-           
-           
-             
-           
-           
-           
 
-           <!-- Test condition that this post is in the page's academic year -->
-           
-           
-             
-           
-           
-           
 
-           
-             
-             
-               <p>There are no items for the academic year 
+
+
+
+
+
+
+
+
+
+      <!-- Loop over posts -->
+      <div class="mix 2">
+
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+      </div> <!-- mix -->
+
+      
+      
+      
+      <p>There are no items for the academic year 
 
 
 
@@ -1767,17 +1802,15 @@ Apr 2000 ~ Mar 2001
 
 
 .</p>
-             
-           
-  
+      
+      
 
+    </div> <!-- col-md-8 -->
 
-         </div> <!-- col-md-8 -->
+    <div class="col-md-4 hidden-xs hidden-sm">
+      <aside class="sidebar">
 
-         <div class="col-md-4 hidden-xs hidden-sm">
-           <aside class="sidebar">
-
-           
+      
 
 
 
@@ -1804,6 +1837,13 @@ Apr 2000 ~ Mar 2001
 
 
 <!-- Change preferred view according to page type -->
+<!-- Puts mix1, mix2, mix3, and mix4 into namespace -->
+<!-- This snippet determines the mix class order 
+(default is mix1) according to a bit in url 
+which indicates whether we are on an index page, 
+a archive page, or a normal category page -->
+
+
 
 
 
@@ -2789,16 +2829,16 @@ Apr 1997 ~ Mar 1998
  
 
 
- </div> <!-- tab-content -->
+  </div> <!-- tab-content -->
 </div>
 
 
 
-           </aside> <!-- Sidebar -->
-         </div> 
+      </aside> <!-- Sidebar -->
+    </div> 
 
-       </div> <!-- row -->
-     </div> <!-- container  -->
+  </div> <!-- row -->
+</div> <!-- container  -->
 
 
 
