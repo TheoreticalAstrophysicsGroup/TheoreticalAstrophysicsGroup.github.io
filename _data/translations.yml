@@ -541,6 +541,7 @@ conferences:
     full_part: 全参加者一覧
     program: プログラム
     dinner: 懇親会
+    upload: アップロード
     photos: アルバム
     local: 現地の情報
     events: イベント
@@ -574,6 +575,7 @@ conferences:
     full_part: Full list of participants
     program: Program
     dinner: Conference Dinner
+    upload: Upload
     photos: Photo Album
     local: Local Information
     events: Recreational Events

@@ -100,11 +100,19 @@ layout: default
         <li>{% include date.html d=impd.date l='m' %}{{ colon }}{{ impd.note }}</li>
         {% endfor %}
       </ol>
+      {% if page.info_download %}
+      {% assign pid = page.info_download %}
+      <p><a href="{{ site.baseurl }}{{ la.doc }}/{{ pid.link }}">{{ pid.text }}</a></p>
+      {% endif %}
       {% endif %}
 
       {% if page.program %}
       {% include lang_surround.html shape=round %}
       <h3 id="program"> {{ tcl.program }} </h3>
+      {% if page.program_download %}
+      {% assign ppd = page.program_download %}
+      <p><a href="{{ site.baseurl }}{{ la.doc }}/{{ ppd.link }}">{{ ppd.text }}</a></p>
+      {% endif %}
       {% for pitem in page.program %}
       {% include lang_count.html number=pitem.day %}
       <h4>{{ pitem.day }}{{ lang_count }} {{ tcl.day }}{{ open_surround }}{% include date.html d=pitem.date l='M' %}{{ close_surround }}</h4>
@@ -130,6 +138,17 @@ layout: default
       {% endfor %}
       {% endfor %}
       {% endif %}
+
+      {% if page.upload %}
+      <h3 id="upload"> {{ tcl.upload }} </h3>
+      {% assign pu = page.upload %}
+      <p>{{ pu.text }}</p>
+      {% if pu.type == "dbinbox" %}
+      <a href="https://dbinbox.com/{{ pu.link }}" class="dbinbox">Upload Files through dbinbox.com</a>
+      <script type="text/javascript" src="https://dbinbox.com/embed.js"></script>
+      {% endif %}
+      {% endif %}
+
 
       {% if page.dinner %}
       {% assign pd = page.dinner %}
