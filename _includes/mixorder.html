@@ -1,0 +1,23 @@
+<!-- This snippet determines the mix class order 
+(default is mix1) according to a bit in url 
+which indicates whether we are on an index page, 
+a archive page, or a normal category page -->
+{% assign page_year = page_url[2] %}
+{% if page_year == page.lang %}
+{% assign mix1 = '1' %}
+{% assign mix2 = '2' %}
+{% assign mix3 = '3' %}
+{% assign mix4 = '4' %}
+{% elsif page_year == 'index' %}
+{% assign mix1 = '2' %}
+{% assign mix2 = '3' %}
+{% assign mix3 = '4' %}
+{% assign mix4 = '1' %}
+{% else %}
+{% assign mix1 = '2' %}
+{% assign mix2 = '3' %}
+{% assign mix3 = '1' %}
+{% assign mix4 = '4' %}
+{% endif %}
+
+

@@ -27,10 +27,6 @@ layout: default
       <!-- Get all posts -->
       {% assign all_posts = site.categories['achievements'] | where: 'lang', page.lang %}
 
-      <!-- Language dependent surrounds -->
-      <!-- This creates open_surround and close_surround variables into the namespace -->
-      {% include lang_surround.html shape='round' %}
-
 
       <!-- academic year range -->
       {% assign page_url = page.url | split: '/' %}
@@ -62,23 +58,8 @@ layout: default
       {% endif %}
 
       <!-- Change preferred view according to page type -->
-      {% assign page_year = page_url[2] %}
-      {% if page_year == page.lang %}
-      {% assign mix1 = '1' %}
-      {% assign mix2 = '2' %}
-      {% assign mix3 = '3' %}
-      {% assign mix4 = '4' %}
-      {% elsif page_year == 'index' %}
-      {% assign mix1 = '2' %}
-      {% assign mix2 = '3' %}
-      {% assign mix3 = '4' %}
-      {% assign mix4 = '1' %}
-      {% else %}
-      {% assign mix1 = '2' %}
-      {% assign mix2 = '3' %}
-      {% assign mix3 = '1' %}
-      {% assign mix4 = '4' %}
-      {% endif %}
+      <!-- Puts mix1, mix2, mix3, and mix4 into namespace -->
+      {% include mixorder.html %}
 
 
       <!-- Loop over posts -->
@@ -143,7 +124,6 @@ layout: default
           </div>
         </div>
       </div>
-
       </article> <!-- post -->
       {% assign nposts = nposts | plus: 1 %}
       {% endif %}
