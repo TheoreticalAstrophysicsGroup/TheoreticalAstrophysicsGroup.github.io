@@ -1,7 +1,10 @@
 <!-- This snippet determines the mix class order 
 (default is mix1) according to a bit in url 
 which indicates whether we are on an index page, 
-a archive page, or a normal category page -->
+a archive page, or a normal category page.
+For a normal page, the mix class hierarchy is
+from biggest to smallest. For others it's different. -->
+<!-- This is for use with the mixit javascript -->
 {% assign page_year = page_url[2] %}
 {% if page_year == page.lang %}
 {% assign mix1 = '1' %}
