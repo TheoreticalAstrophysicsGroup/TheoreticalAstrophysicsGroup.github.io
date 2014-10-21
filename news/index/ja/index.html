@@ -658,7 +658,10 @@ We wish to sort by date and group by tags-->
 <!-- This snippet determines the mix class order 
 (default is mix1) according to a bit in url 
 which indicates whether we are on an index page, 
-a archive page, or a normal category page -->
+a archive page, or a normal category page.
+For a normal page, the mix class hierarchy is
+from biggest to smallest. For others it's different. -->
+<!-- This is for use with the mixit javascript -->
 
 
 
@@ -1399,6 +1402,9 @@ a archive page, or a normal category page -->
           <a href="#" class="tag">LOFAR</a>
         
         
+          <a href="#" class="tag"></a>
+        
+        
           <a href="#" class="tag">M-σ関係</a>
         
         
@@ -1555,7 +1561,7 @@ a archive page, or a normal category page -->
           <a href="#" class="tag">銀河間磁場</a>
         
         
-          <a href="#" class="tag">M-σ関係</a>
+          <a href="#" class="tag"></a>
         
         
           <a href="#" class="tag">大質量星</a>
@@ -1678,32 +1684,53 @@ a archive page, or a normal category page -->
       
 
 
-      <!-- academic year range -->
+      <!-- Academic year range -->
+      <!-- Puts yearbegin and yearend, the begin and end years 
+      of the academic years into namespace -->
       
-      
-      
-      
-       
-      
-      
-       
+<!-- Academic year range depending on the type of category page, 
+differentiating between the standard category page, index, or 
+archive. See also mixorder.html and npost_limits.html -->
+
+
+
+
+ 
+
+
+ 
+
+
 
 
       <!-- Limit number of posts -->
+      <!-- Puts posts_per_page1,2,3,4 into namespace 
+      depending on the type of page -->
       
-      
-      
-      
-      
-      
-      
+<!-- Puts posts_per_page1,2,3,4 into namespace 
+depending on the type of category page -->
+<!-- If page type is not the standard category page
+e.g. index or archive the limits are much higher.
+See also academic_year_range.html and mixorder.html -->
+
+
+
+
+
+
+
+
+
 
       <!-- Change preferred view according to page type -->
       <!-- Puts mix1, mix2, mix3, and mix4 into namespace -->
       <!-- This snippet determines the mix class order 
 (default is mix1) according to a bit in url 
 which indicates whether we are on an index page, 
-a archive page, or a normal category page -->
+a archive page, or a normal category page.
+For a normal page, the mix class hierarchy is
+from biggest to smallest. For others it's different. -->
+<!-- This is for use with the mixit javascript -->
 
 
 
@@ -2023,6 +2050,664 @@ a archive page, or a normal category page -->
 
       </div> <!-- mix -->
 
+      <!-- Loop over posts -->
+      <div class="list-group mix 3">
+
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/news/ja/2014/07/27/soubun-2014/" class="list-group-item">
+          <div class="media">
+            <img src="/assets/img/2014-07-27-Soubun-thumb.png" class="pull-left media-object" alt="Image" width="150px" height="150px">
+            <div class="media-body">
+              <h3 class="media-heading">第３８回全国高等学校総合文化祭茨城大会「いばらき総文2014」新聞部門インタビュー</h3>
+              
+              
+  
+  
+
+
+
+  
+
+
+  <p>2014年7月28日，第３８回全国高等学校総合文化祭茨城大会「いばらき総文2014」の新聞部門の方によるインタビューを小松勇さん（博士後期課程３年）が受けました．
+  
+全国高等学校総合文化祭は文化部のインターハイと呼ばれ，全国から集まった高校生がそれぞれの部門にて成果発表をします．今年は7月27日〜31日の日程で行われ，茨城県が開催地でした．
+
+
+計算科学研究センター（CCS）に取材に来たのはその新聞部門で，取材を元に「交流新聞」を作成するとのことです．
+
+広報の方によるCCS紹介，スーパーコ</p>
+
+
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+平26年 7月
+  
+
+
+ &nbsp;
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              
+              奉仕活動  
+              
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/news/ja/2014/04/01/gakushin/" class="list-group-item">
+          <div class="media">
+            <img src="/assets/img/gakushin_thumb.png" class="pull-left media-object" alt="Image" width="150px" height="150px">
+            <div class="media-body">
+              <h3 class="media-heading">日本学術振興会 特別研究員 平成26年度採用報告</h3>
+              
+              
+  
+  
+
+
+
+  
+
+
+  <p>左から右へ：桐原 崇亘, 小松 勇, 鈴木 裕行
+
+
+
+このたびは，宇宙物理理論研究室の小松勇さん，桐原崇亘さん，鈴木裕行さんの3名が学振特別研究員に採用されました．
+
+
+小松 勇 (DC2)
+
+博士後期課程3年
+
+課題名：「光合成光捕集機構の量子力学計算による太陽系外惑星のバイオマーカー・モデルの構築」
+
+惑星のハビタビリティ（生命居住可能性）と絡めて，分野，手法などの枠に捉われずに様々なアプローチをしてみようと画策しています．
+
+
+
+鈴木 裕行 (DC1)
+
+博士後期課程1年
+
+課題名：「大</p>
+
+
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+   
+
+平26年 4月
+  
+
+
+ &nbsp;
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              
+              受賞 ,  
+              
+              日本学術振興会  
+              
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/news/ja/2014/02/23/suzuki-campus-life-plus/" class="list-group-item">
+          <div class="media">
+            <img src="/assets/img/suzuki-campus-life-plus-thumb.png" class="pull-left media-object" alt="Image" width="150px" height="150px">
+            <div class="media-body">
+              <h3 class="media-heading">夢コンテスト：鈴木裕行（Ｍ２）が優勝！</h3>
+              
+              
+  
+  
+
+
+
+  
+
+
+  <p>本日，宇宙物理理論研究室(M2)の鈴木裕行がタウンワークプレゼンツ「Campus Life +1」のファイナルコンテストに出場し，【「宇宙」で多くの人を笑顔に幸せにしたい】という夢をプレゼンしてきました．その結界，応募者2,000人以上の中で全国優勝しました．鈴木：「正直当日のプレゼンテーションには自信がなくて駄目だろうと思っていましたが審査員の方に自分の今まで行なってきた活動や持っている夢が認められ，本当によかったです．今後とも頑張っていきたいと思います」
+
+</p>
+
+
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+平26年 2月
+  
+
+
+ &nbsp;
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              
+              受賞  
+              
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/news/ja/2012/11/16/ishiyama-gordon-bell/" class="list-group-item">
+          <div class="media">
+            <img src="/assets/img/2012-11-16-ishiyama-gordon-bell-thumb.png" class="pull-left media-object" alt="Image" width="150px" height="150px">
+            <div class="media-body">
+              <h3 class="media-heading">石山智明 ゴードン・ベル賞を受賞</h3>
+              
+              
+  
+  
+
+
+
+  
+
+
+  <p>石山智明 研究員らが「京」を用いて行ったダークマターシミュレーションの結果がゴードン・ベル賞を受賞しました
+
+引用文献
+
+  CCSプレスリリース全文
+  理化学研究所計算科学研究機構
+  SC12, ソルトレイクシティ, 公式サイト
+
+
+</p>
+
+
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+   
+
+平24年 11月
+  
+
+
+ &nbsp;
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              
+              受賞 ,  
+              
+              高性能計算  
+              
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+      </div> <!-- mix -->
+
+
+      <div class="list-group mix 4">
+
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/news/ja/2014/07/27/soubun-2014/" class="list-group-item">
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">第３８回全国高等学校総合文化祭茨城大会「いばらき総文2014」新聞部門インタビュー</h4>
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+平26年 7月
+  
+
+
+ &nbsp;
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              
+              奉仕活動  
+              
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/news/ja/2014/04/01/gakushin/" class="list-group-item">
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">日本学術振興会 特別研究員 平成26年度採用報告</h4>
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+   
+
+平26年 4月
+  
+
+
+ &nbsp;
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              
+              受賞 ,  
+              
+              日本学術振興会  
+              
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/news/ja/2014/02/23/suzuki-campus-life-plus/" class="list-group-item">
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">夢コンテスト：鈴木裕行（Ｍ２）が優勝！</h4>
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+平26年 2月
+  
+
+
+ &nbsp;
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              
+              受賞  
+              
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/news/ja/2012/11/16/ishiyama-gordon-bell/" class="list-group-item">
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">石山智明 ゴードン・ベル賞を受賞</h4>
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+   
+
+平24年 11月
+  
+
+
+ &nbsp;
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              
+              受賞 ,  
+              
+              高性能計算  
+              
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+      </div> <!-- mix -->
+
+      <div class="mix 1">
+        <ul>
+
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+
+          
+          <li><a href="/news/ja/2014/07/27/soubun-2014/">第３８回全国高等学校総合文化祭茨城大会「いばらき総文2014」新聞部門インタビュー</a>
+          <i>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+平26年 7月
+  
+
+
+</i>
+          </li>
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+
+          
+          <li><a href="/news/ja/2014/04/01/gakushin/">日本学術振興会 特別研究員 平成26年度採用報告</a>
+          <i>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+   
+
+平26年 4月
+  
+
+
+</i>
+          </li>
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+
+          
+          <li><a href="/news/ja/2014/02/23/suzuki-campus-life-plus/">夢コンテスト：鈴木裕行（Ｍ２）が優勝！</a>
+          <i>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+平26年 2月
+  
+
+
+</i>
+          </li>
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+
+          
+          <li><a href="/news/ja/2012/11/16/ishiyama-gordon-bell/">石山智明 ゴードン・ベル賞を受賞</a>
+          <i>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+   
+
+平24年 11月
+  
+
+
+</i>
+          </li>
+          
+          
+          
+        </ul>
+      </div> <!-- mix -->
+
+
       
 
     </div> <!-- col-md-8 -->
@@ -2061,7 +2746,10 @@ a archive page, or a normal category page -->
 <!-- This snippet determines the mix class order 
 (default is mix1) according to a bit in url 
 which indicates whether we are on an index page, 
-a archive page, or a normal category page -->
+a archive page, or a normal category page.
+For a normal page, the mix class hierarchy is
+from biggest to smallest. For others it's different. -->
+<!-- This is for use with the mixit javascript -->
 
 
 
@@ -2802,6 +3490,9 @@ a archive page, or a normal category page -->
           <a href="#" class="tag">LOFAR</a>
         
         
+          <a href="#" class="tag"></a>
+        
+        
           <a href="#" class="tag">M-σ関係</a>
         
         
@@ -2958,7 +3649,7 @@ a archive page, or a normal category page -->
           <a href="#" class="tag">銀河間磁場</a>
         
         
-          <a href="#" class="tag">M-σ関係</a>
+          <a href="#" class="tag"></a>
         
         
           <a href="#" class="tag">大質量星</a>
@@ -3336,9 +4027,9 @@ a archive page, or a normal category page -->
                             
                             <div class="media">
                                 
-                                <a class="pull-left" href="/conferences/ccs/ja/2014/10/17/tentaikeisei/"><img class="media-object" src="/assets/img/colliding-galaxies-thumb.png" width="75" height="75" alt="image"></a>
+                                <a class="pull-left" href="/seminars/ja/2014/10/29/dubois/"><img class="media-object" src="/assets/img/Yohan_Dubois.png" width="75" height="75" alt="image"></a>
                                 <div class="media-body">
-                                    <h4 class="media-heading"><a href="/conferences/ccs/ja/2014/10/17/tentaikeisei/">天体形成研究会</a></h4>
+                                    <h4 class="media-heading"><a href="/seminars/ja/2014/10/29/dubois/">Dancing in the dark: galactic properties trace spin swings along the cosmic...</a></h4>
                                     <small>
 
 
@@ -3357,7 +4048,7 @@ a archive page, or a normal category page -->
  
    
 
-平26年 10月 17日
+平26年 10月 29日
   
 
 
@@ -3367,9 +4058,9 @@ a archive page, or a normal category page -->
                             
                             <div class="media">
                                 
-                                <a class="pull-left" href="/conferences/ccs/ja/2014/09/27/twenty-years/"><img class="media-object" src="/assets/img/twenty_years-thumb.png" width="75" height="75" alt="image"></a>
+                                <a class="pull-left" href="/seminars/ja/2014/10/29/bieri/"><img class="media-object" src="/assets/img/no_thumb-f.png" width="75" height="75" alt="image"></a>
                                 <div class="media-body">
-                                    <h4 class="media-heading"><a href="/conferences/ccs/ja/2014/09/27/twenty-years/">筑波大学宇宙物理理論研究室発足20周年記念式典・交流会</a></h4>
+                                    <h4 class="media-heading"><a href="/seminars/ja/2014/10/29/bieri/">Exploring the Role of AGN Feedback in Galaxy Formation</a></h4>
                                     <small>
 
 
@@ -3388,7 +4079,7 @@ a archive page, or a normal category page -->
  
    
 
-平26年 9月 27日
+平26年 10月 29日
   
 
 
