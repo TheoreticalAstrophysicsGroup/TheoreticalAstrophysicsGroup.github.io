@@ -62,6 +62,7 @@ We wish to sort by date and group by tags-->
         {% endif %}
         {% if in_time_interval and nposts < posts_per_page1 %}
 
+        <!-- Calculate delays -->
         {% assign d = post.date | date: "%Y-%m-%d" %}
         {% assign delay_add = forloop.index | mod: posts_per_page1 | times: 3 %}
         {% assign delay = 8 | plus: delay_add %}
@@ -86,18 +87,15 @@ We wish to sort by date and group by tags-->
           <div class="panel-footer">
             <div class="row">
               <div class="col-lg-10 col-md-9 col-sm-8">
-                <ul class="fa-ul">
-                  <li> <i class="fa-li fa fa-calendar"></i> &nbsp; {{ d }} </li>
-                  <li> <i class="fa-li fa fa-tags"></i> &nbsp; 
-                  {% if page.lang == 'ja' %}
-                  {% for t in post.tags %}
-                  {{ tt[t] }} {% unless forloop.last %}, {% endunless %} 
-                  {% endfor %}
-                  {% else %}
-                  {{ post.tags | array_to_sentence_string }}
-                  {% endif %}
-                  </li>
-                </ul>
+                <i class="fa fa-calendar"></i> {% include date.html d=post.date l='t' %} &nbsp; <br />
+                <i class="fa fa-tags"></i> &nbsp; 
+                {% if page.lang == 'ja' %}
+                {% for t in post.tags %}
+                {{ tt[t] }} {% unless forloop.last %}, {% endunless %} 
+                {% endfor %}
+                {% else %}
+                {{ post.tags | array_to_sentence_string }}
+                {% endif %}
               </div>
               <div class="col-lg-2 col-md-3 col-sm-4">
                 <a href="{{ posturl }}" class="pull-right">{{ tpl.read_more }} &raquo;</a>

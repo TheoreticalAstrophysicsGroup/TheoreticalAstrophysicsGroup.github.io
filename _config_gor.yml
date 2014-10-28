@@ -21,14 +21,15 @@ destination: ./..
 # Exclude
 exclude: 
   - README.md
-  - .git
-  - .gitignore
   - vendor
-  - .travis.yml
   - Gemfile
   - Gemfile.lock
   - Rakefile
   - summat.sh
+
+# Include
+include:
+  - .htaccess
 
 # Collections
 collections:

@@ -464,6 +464,7 @@ post_gen:
     list: 全投稿
     full_index: 全投稿一覧
     refs: 参考文献・リンク
+    pdf_download: PDF版ダウンロード
   en:
     categories: Categories
     archive: Archives
@@ -478,6 +479,7 @@ post_gen:
     list: Full List
     full_index: Full Index
     refs: References
+    pdf_download: Download PDF
 
 
 # Post specific translations
@@ -492,6 +494,7 @@ uchu_forum: # Make these the same as categories naming below?
     access: アクセス
     about_speaker: 発表者に就いて
     about_header: 宇宙フォーラムに就いて
+    pdf_download: 発表スライドPDFダウンロード
   en:
     count_pre: ""
     count_aft: " Uchu Forum"
@@ -502,6 +505,7 @@ uchu_forum: # Make these the same as categories naming below?
     access: Access
     about_speaker: About the Speaker
     about_header: About the Uchu Forum
+    pdf_download: Download talk slides as PDF
 
 seminars:
   ja:
@@ -514,6 +518,7 @@ seminars:
     access: アクセス
     about_speaker: 発表者に就いて
     about_header: セミナーに就いて
+    pdf_download: 発表スライドPDFダウンロード
   en:
     count_pre: ""
     count_aft: " Seminar"
@@ -524,6 +529,7 @@ seminars:
     access: Access
     about_speaker: About the Speaker
     about_header: About the Seminars
+    pdf_download: Download talk slides as PDF
 
 conferences:
   ja:
