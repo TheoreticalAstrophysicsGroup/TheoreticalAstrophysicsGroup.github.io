@@ -651,7 +651,7 @@ Apr 2011 ~ Mar 2012
 
 
 <!-- AYW 2014-07-04 13:32 JST
-     We wish to sort by date and group by tags-->
+We wish to sort by date and group by tags-->
 
 
 <div class="container">
@@ -1427,7 +1427,7 @@ Apr 1997 ~ Mar 1998
           <a href="#" class="tag">LOFAR</a>
         
         
-          <a href="#" class="tag">Lyman Alpha Blob</a>
+          <a href="#" class="tag">Lyman Alpha Blobs</a>
         
         
           <a href="#" class="tag">M-sigma relation</a>
@@ -1703,18 +1703,77 @@ Apr 1997 ~ Mar 1998
       </aside> <!-- Sidebar -->
     </div> 
 
-    <div class="col-md-8">
+    <div class="col-md-8" id="Grid">
 
-    <!-- Get post number by comparing dates -->
-    
-    
-    
-    
-    
+      <!-- Get post number by comparing dates -->
+      
+      
+      
+      
+      
 
-    <!-- Language dependent surrounds -->
-    <!-- This creates open_surround and close_surround variables into the namespace -->
-    <!-- Language dependent surrounds -->
+      <!-- Academic year range -->
+      <!-- Puts yearbegin and yearend, the begin and end years 
+      of the academic years into namespace -->
+      
+<!-- Academic year range depending on the type of category page, 
+differentiating between the standard category page, index, or 
+archive. See also mixorder.html and npost_limits.html -->
+
+
+
+
+
+ 
+
+
+ 
+
+
+
+
+      <!-- Limit number of posts -->
+      <!-- Puts posts_per_page1,2,3,4 into namespace 
+      depending on the type of page -->
+      
+<!-- Puts posts_per_page1,2,3,4 into namespace 
+depending on the type of category page -->
+<!-- If page type is not the standard category page
+e.g. index or archive the limits are much higher.
+See also academic_year_range.html and mixorder.html -->
+
+
+
+
+
+
+
+
+
+
+      <!-- Change preferred view according to page type -->
+      <!-- Puts mix1, mix2, mix3, and mix4 into namespace -->
+      <!-- This snippet determines the mix class order 
+(default is mix1) according to a bit in url 
+which indicates whether we are on an index page, 
+a archive page, or a normal category page.
+For a normal page, the mix class hierarchy is
+from biggest to smallest. For others it's different. -->
+<!-- This is for use with the mixit javascript -->
+
+
+
+
+
+
+
+
+
+
+
+      <!-- Language dependent surrounds -->
+      <!-- This creates open_surround and close_surround variables into the namespace -->
+      <!-- Language dependent surrounds -->
 
 
                      
@@ -1722,162 +1781,158 @@ Apr 1997 ~ Mar 1998
   
 
 
-    <!-- academic year range -->
-    
-    
-    
-    
-    
-     
-     
+      <!-- Loop over posts -->
+      <div class="mix 2">
 
-    <!-- Limit number of posts on non-archive pages -->
-    
-    
-      
-    
-
-    <!-- Loop over posts begins here -->
-    
-    
-
-      
-       
         
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Update post count -->
         
-      
-      
-      
-
-      
-      
-
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+         
+          
+          
         
-      
-      
-      
 
-      
-       
+        <!-- Test condition that this post is in the page's academic year -->
         
         
-      
-
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
-        
-      
-      
-      
-
-      
-       
         
         
-      
-
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
-        
-      
-      
-      
-
-      
-       
         
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
-        
-      
-      
-      
-
-      
-       
+        <!-- Update post count -->
         
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
-        
-      
-      
-      
-
-      
-      
-
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
-        
-      
-      
-      
-
-      
-      
-
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
-        
-      
-      
-      
-
-      
-       
+        <!-- Test condition that this post is in the page's academic year -->
         
         
-      
-
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
-        
-      
-      
-      
-
-      
-       
         
         
-      
-
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
         
-      
-      
+        
 
+        <!-- Update post count -->
+        
+         
+          
+          
+        
 
-      
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
 
-      <!-- This creates an lang_count variable into the namespace -->
-      <!-- English number count suffix creation 
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        <!-- Calculate delays -->
+        
+        
+
+        <!-- This creates an lang_count variable into the namespace -->
+        <!-- English number count suffix creation 
      This creates an lang_count variable -->
 
 
@@ -1890,20 +1945,1093 @@ Apr 1997 ~ Mar 1998
 
 
 
-      <article class="post animated fadeInLeft animation-delay-38">
-      <div class="panel panel-default">
-        <div class="panel-body">
+        <article class="post animated fadeInLeft animation-delay-38">
 
-          
-          <span class="badge pull-right">25<sup>th</sup> Seminar</span>
-          <h3 class="post-title"><a href="/Astro/seminars/en/2012/03/26/takahashi/" class="transicion"> 1. The effects of Chern-Simons Gravity and Electromagnetic fields in Blach Hole space-time 2. Space-time rotation induced Landau quantization</a></h3>
-          <div class="row">
-            <div class="col-lg-6">
-              <img src="/Astro/assets/img/black_hole.png" class="img-post img-responsive" alt="Image">
+        <div class="panel panel-default">
+          <div class="panel-body">
+
+            
+            <span class="badge pull-right">25<sup>th</sup> Seminar</span>
+            <h3 class="post-title"><a href="/Astro/seminars/en/2012/03/26/takahashi/" class="transicion"> 1. The effects of Chern-Simons Gravity and Electromagnetic fields in Blach Hole space-time 2. Space-time rotation induced Landau quantization</a></h3>
+            <div class="row">
+              <div class="col-lg-6">
+                <img src="/Astro/assets/img/black_hole.png" class="img-post img-responsive" alt="Image">
+              </div>
+              <div class="col-lg-6">
+                <h4>Takahashi Rohta</h4>
+                <h5>Tomakomai National College of Technology</h5> 
+                
+                
+  
+  
+
+
+
+  
+
+
+  <p>1. One of the goals of galactic center black hole observations is the validation of theories of gravity. In addition, recent radio observations have revealed visibility and positional information of light source, and in hte near future we will obtain interferometer observations that will show how the magnetic radiation plasma...</p>
+
+
+              </div>
             </div>
-            <div class="col-lg-6">
-              <h4><a href="http://www.tomakomai-ct.ac.jp/department/gene/am/staff/takahashi.html" target="_blank">Takahashi Rohta</a></h4>
-              <h5>Tomakomai National College of Technology</h5> 
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-lg-10 col-md-9 col-sm-8">
+                <i class="fa fa-calendar"></i> <a href="/Astro/calendar/en">
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+March 2012
+  
+
+
+</a> &nbsp;
+                <i class="fa fa-clock-o"></i> 13 : 30 &nbsp;  
+                <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Seminar Room A</a><br />
+                <i class="fa fa-tags"></i> &nbsp; 
+                
+                black holes, general relativity, and radiative transfer
+                
+              </div>
+              <div class="col-lg-2 col-md-3 col-sm-4">
+                <a href="/Astro/seminars/en/2012/03/26/takahashi/" class="pull-right">Read more &raquo;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </article> <!-- post -->
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        <!-- Calculate delays -->
+        
+        
+
+        <!-- This creates an lang_count variable into the namespace -->
+        <!-- English number count suffix creation 
+     This creates an lang_count variable -->
+
+
+
+  
+  
+  
+  
+  
+
+
+
+        <article class="post animated fadeInLeft animation-delay-41">
+
+        <div class="panel panel-default">
+          <div class="panel-body">
+
+            
+            <span class="badge pull-right">24<sup>th</sup> Seminar</span>
+            <h3 class="post-title"><a href="/Astro/seminars/en/2012/03/09/yajima/" class="transicion"> Are Lyman alpha emitters the building blocks of the Milky Way?</a></h3>
+            <div class="row">
+              <div class="col-lg-6">
+                <img src="/Astro/assets/img/lae.png" class="img-post img-responsive" alt="Image">
+              </div>
+              <div class="col-lg-6">
+                <h4>Hidenobu Yajima</h4>
+                <h5>Pennsylvania State University</h5> 
+                
+                
+  
+  
+
+
+
+  
+
+
+  <p>Strong Lyman alpha emitting galaxies have been observed in large numbers over a wide range in redshift. Such galaxies are called Lyman alpha emitters (LAEs), and they are thought to be galaxies in the early stages of evolution. However, there are still many open questions regarding their formation and evolution....</p>
+
+
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-lg-10 col-md-9 col-sm-8">
+                <i class="fa fa-calendar"></i> <a href="/Astro/calendar/en">
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+March 2012
+  
+
+
+</a> &nbsp;
+                <i class="fa fa-clock-o"></i> 13 : 30 &nbsp;  
+                <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Seminar Room A</a><br />
+                <i class="fa fa-tags"></i> &nbsp; 
+                
+                LAE, cosmology, radiative transfer, and Milky Way
+                
+              </div>
+              <div class="col-lg-2 col-md-3 col-sm-4">
+                <a href="/Astro/seminars/en/2012/03/09/yajima/" class="pull-right">Read more &raquo;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </article> <!-- post -->
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        <!-- Calculate delays -->
+        
+        
+
+        <!-- This creates an lang_count variable into the namespace -->
+        <!-- English number count suffix creation 
+     This creates an lang_count variable -->
+
+
+
+  
+  
+  
+   
+  
+
+
+
+        <article class="post animated fadeInLeft animation-delay-44">
+
+        <div class="panel panel-default">
+          <div class="panel-body">
+
+            
+            <span class="badge pull-right">23<sup>rd</sup> Seminar</span>
+            <h3 class="post-title"><a href="/Astro/seminars/en/2012/02/23/riguccini/" class="transicion"> The AGN/Starburst connection at z~2 from an IR/submillimeter point of view</a></h3>
+            <div class="row">
+              <div class="col-lg-6">
+                <img src="/Astro/assets/img/agn_torus.png" class="img-post img-responsive" alt="Image">
+              </div>
+              <div class="col-lg-6">
+                <h4>Laurie Riguccini</h4>
+                <h5>Ehime University</h5> 
+                
+                
+  
+  
+
+
+
+  
+
+
+  <p>It is well known nowadays that most of the mass assembly occurs at z~1-3. However, a non-negligible fraction of the star formation across cosmic time occurred within dust-enshrouded environments. One important question is therefore whether we really know the exact amount of star formation activity, which could be strongly biased...</p>
+
+
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-lg-10 col-md-9 col-sm-8">
+                <i class="fa fa-calendar"></i> <a href="/Astro/calendar/en">
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+
+
+February 2012
+  
+
+
+</a> &nbsp;
+                <i class="fa fa-clock-o"></i> 13 : 30 &nbsp;  
+                <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Seminar Room A</a><br />
+                <i class="fa fa-tags"></i> &nbsp; 
+                
+                AGN, starbursts, high-z galaxies, galaxy formation, IR, and submm
+                
+              </div>
+              <div class="col-lg-2 col-md-3 col-sm-4">
+                <a href="/Astro/seminars/en/2012/02/23/riguccini/" class="pull-right">Read more &raquo;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </article> <!-- post -->
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        <!-- Calculate delays -->
+        
+        
+
+        <!-- This creates an lang_count variable into the namespace -->
+        <!-- English number count suffix creation 
+     This creates an lang_count variable -->
+
+
+
+  
+  
+  
+   
+  
+
+
+
+        <article class="post animated fadeInLeft animation-delay-47">
+
+        <div class="panel panel-default">
+          <div class="panel-body">
+
+            
+            <span class="badge pull-right">22<sup>nd</sup> Seminar</span>
+            <h3 class="post-title"><a href="/Astro/seminars/en/2011/12/07/susa/" class="transicion"> The effect of photo-dissociation in the mass accretion phase of PopIII.1 stars</a></h3>
+            <div class="row">
+              <div class="col-lg-6">
+                <img src="/Astro/assets/img/first_stars.png" class="img-post img-responsive" alt="Image">
+              </div>
+              <div class="col-lg-6">
+                <h4>Hajime Susa</h4>
+                <h5>Konan University</h5> 
+                
+                
+  
+  
+
+
+
+  
+
+
+  <p>Studies throughout the past decade indicate that the mass of the first generation of stars was extremely large, unlike most stars in our galaxy. However, according to recent work on the mass accretion phase, the gas is likely to fragment and produce a cluster of stars, rather than accreting smoothly...</p>
+
+
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-lg-10 col-md-9 col-sm-8">
+                <i class="fa fa-calendar"></i> <a href="/Astro/calendar/en">
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+December 2011
+  
+
+
+</a> &nbsp;
+                <i class="fa fa-clock-o"></i> 13 : 30 &nbsp;  
+                <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Seminar Room A</a><br />
+                <i class="fa fa-tags"></i> &nbsp; 
+                
+                PopIII stars, accretion discs, radiative feedback, and star formation
+                
+              </div>
+              <div class="col-lg-2 col-md-3 col-sm-4">
+                <a href="/Astro/seminars/en/2011/12/07/susa/" class="pull-right">Read more &raquo;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </article> <!-- post -->
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        <!-- Calculate delays -->
+        
+        
+
+        <!-- This creates an lang_count variable into the namespace -->
+        <!-- English number count suffix creation 
+     This creates an lang_count variable -->
+
+
+
+  
+  
+  
+   
+  
+
+
+
+        <article class="post animated fadeInLeft animation-delay-50">
+
+        <div class="panel panel-default">
+          <div class="panel-body">
+
+            
+            <span class="badge pull-right">21<sup>st</sup> Seminar</span>
+            <h3 class="post-title"><a href="/Astro/seminars/en/2011/09/07/greif/" class="transicion"> The formation of the first stars and galaxies</a></h3>
+            <div class="row">
+              <div class="col-lg-6">
+                <img src="/Astro/assets/img/first_stars.png" class="img-post img-responsive" alt="Image">
+              </div>
+              <div class="col-lg-6">
+                <h4>Thomas Greif</h4>
+                <h5>Max Planck Institut für Astrophysik</h5> 
+                
+                
+  
+  
+
+
+
+  
+
+
+  <p>One of the final frontiers in modern cosmology is the formation of the first stars and galaxies at the end of the cosmic dark ages, when the Universe transitioned from its simple initial state to one of ever increasing complexity. I will discuss how the first bound gas clouds condensed...</p>
+
+
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-lg-10 col-md-9 col-sm-8">
+                <i class="fa fa-calendar"></i> <a href="/Astro/calendar/en">
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+September 2011
+  
+
+
+</a> &nbsp;
+                <i class="fa fa-clock-o"></i> 15 : 00 &nbsp;  
+                <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Seminar Room A</a><br />
+                <i class="fa fa-tags"></i> &nbsp; 
+                
+                first stars and first galaxies
+                
+              </div>
+              <div class="col-lg-2 col-md-3 col-sm-4">
+                <a href="/Astro/seminars/en/2011/09/07/greif/" class="pull-right">Read more &raquo;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </article> <!-- post -->
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        <!-- Calculate delays -->
+        
+        
+
+        <!-- This creates an lang_count variable into the namespace -->
+        <!-- English number count suffix creation 
+     This creates an lang_count variable -->
+
+
+
+  
+  
+  
+  
+  
+
+
+
+        <article class="post animated fadeInLeft animation-delay-53">
+
+        <div class="panel panel-default">
+          <div class="panel-body">
+
+            
+            <span class="badge pull-right">20<sup>th</sup> Seminar (Part2) </span>
+            <h3 class="post-title"><a href="/Astro/seminars/en/2011/08/22/tanaka/" class="transicion"> Modeling the Electromagnetic Signature of Merging Supermassive Black Holes</a></h3>
+            <div class="row">
+              <div class="col-lg-6">
+                <img src="/Astro/assets/img/nbody.png" class="img-post img-responsive" alt="Image">
+              </div>
+              <div class="col-lg-6">
+                <h4>Takamitsu Tanaka</h4>
+                <h5>Max Planck Institut für Astrophysik</h5> 
+                
+                
+  
+  
+
+
+
+  
+
+
+  <p>Recently, intense attention has focused on the possibility that merging supermassive black hole binaries could be observed with both electromagnetic and gravitational waves. Such multi-messenger studies would (i) probe dark energy out to z~10, and (ii) allow follow-up studies of active galactic nuclei with central engines whose masses and spins...</p>
+
+
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-lg-10 col-md-9 col-sm-8">
+                <i class="fa fa-calendar"></i> <a href="/Astro/calendar/en">
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+  
+
+August 2011
+  
+
+
+</a> &nbsp;
+                <i class="fa fa-clock-o"></i> 15 : 00 &nbsp;  
+                <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Workshop Room</a><br />
+                <i class="fa fa-tags"></i> &nbsp; 
+                
+                SMBH, SMBH mergers, and accretion discs
+                
+              </div>
+              <div class="col-lg-2 col-md-3 col-sm-4">
+                <a href="/Astro/seminars/en/2011/08/22/tanaka/" class="pull-right">Read more &raquo;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </article> <!-- post -->
+        
+        
+        
+
+        <!-- Update post count -->
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        <!-- Calculate delays -->
+        
+        
+
+        <!-- This creates an lang_count variable into the namespace -->
+        <!-- English number count suffix creation 
+     This creates an lang_count variable -->
+
+
+
+  
+  
+  
+  
+  
+
+
+
+        <article class="post animated fadeInLeft animation-delay-56">
+
+        <div class="panel panel-default">
+          <div class="panel-body">
+
+            
+            <span class="badge pull-right">20<sup>th</sup> Seminar (Part1) </span>
+            <h3 class="post-title"><a href="/Astro/seminars/en/2011/08/22/hayasaki/" class="transicion"> A Road to Supermassive Black Hole Merger</a></h3>
+            <div class="row">
+              <div class="col-lg-6">
+                <img src="/Astro/assets/img/nbody.png" class="img-post img-responsive" alt="Image">
+              </div>
+              <div class="col-lg-6">
+                <h4>Kimitake Hayasaki</h4>
+                <h5>Kyoto University</h5> 
+                
+                
+  
+  
+
+
+
+  
+
+
+  <p>Hierarchical structure formation hypothesis inevitably leads to the formation of binary supermassive black holes (SMBHs) on a subparsec scale in merged galactic nuclei. However, to date there has been no unambiguous detection of such systems. In this talk, I propose how binary SMBHs merge and a feasible method to detect...</p>
+
+
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-lg-10 col-md-9 col-sm-8">
+                <i class="fa fa-calendar"></i> <a href="/Astro/calendar/en">
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+  
+
+August 2011
+  
+
+
+</a> &nbsp;
+                <i class="fa fa-clock-o"></i> 15 : 00 &nbsp;  
+                <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Workshop Room</a><br />
+                <i class="fa fa-tags"></i> &nbsp; 
+                
+                SMBH, SMBH mergers, accretion discs, SPH, and X-rays
+                
+              </div>
+              <div class="col-lg-2 col-md-3 col-sm-4">
+                <a href="/Astro/seminars/en/2011/08/22/hayasaki/" class="pull-right">Read more &raquo;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </article> <!-- post -->
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+      </div> <!-- mix -->
+
+      <!-- Loop over posts -->
+      <div class="list-group mix 3">
+
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/Astro/seminars/en/2012/03/26/takahashi/" class="list-group-item">
+          <div class="media">
+            <img src="/Astro/assets/img/no_thumb-m.png" class="pull-left media-object" alt="Image" width="150px" height="150px">
+            <div class="media-body">
+              <h3 class="media-heading">1. The effects of Chern-Simons Gravity and Electromagnetic fields in Blach Hole space-time 2. Space-time rotation induced Landau quantization</h3>
+              <h4 class="media-heading">Takahashi Rohta</h4>
+              <h5 class="media-heading">Tomakomai National College of Technology</h5>
               
               
   
@@ -1917,13 +3045,7 @@ Apr 1997 ~ Mar 1998
   <p>1. One of the goals of galactic center black hole observations is the validation of theories of gravity. In addition, recent radio observations have revealed visibility and positional information of light source, and in hte near future we will obtain interferometer observations that will show how the magnetic radiation plasma...</p>
 
 
-            </div>
-          </div>
-        </div>
-        <div class="panel-footer">
-          <div class="row">
-            <div class="col-lg-10 col-md-9 col-sm-8">
-              <i class="fa fa-calendar"></i> <a href="/Astro/calendar/en">
+              <i class="fa fa-calendar"></i> 
 
 
 
@@ -1940,69 +3062,38 @@ Apr 1997 ~ Mar 1998
  
 
 
-Mar 26, 2012
+March 2012
   
 
 
-</a> <i class="fa fa-clock-o"></i> 13 : 30 <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Seminar Room A</a>
-              </div>
-              <div class="col-lg-2 col-md-3 col-sm-4">
-                <a href="/Astro/seminars/en/2012/03/26/takahashi/" class="pull-right">Read more &raquo;</a>
-              </div>
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 13 : 30 &nbsp;
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              black holes, general relativity, and radiative transfer
+              
             </div>
           </div>
-        </div>
-        </article> <!-- post -->
-      
-      
-      
-
-      
-       
+        </a>
         
         
-      
-
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
         
-      
-      
 
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
 
-      
-      
-      
-
-      <!-- This creates an lang_count variable into the namespace -->
-      <!-- English number count suffix creation 
-     This creates an lang_count variable -->
-
-
-
-  
-  
-  
-  
-  
-
-
-
-      <article class="post animated fadeInLeft animation-delay-41">
-      <div class="panel panel-default">
-        <div class="panel-body">
-
-          
-          <span class="badge pull-right">24<sup>th</sup> Seminar</span>
-          <h3 class="post-title"><a href="/Astro/seminars/en/2012/03/09/yajima/" class="transicion"> Are Lyman alpha emitters the building blocks of the Milky Way?</a></h3>
-          <div class="row">
-            <div class="col-lg-6">
-              <img src="/Astro/assets/img/lae.png" class="img-post img-responsive" alt="Image">
-            </div>
-            <div class="col-lg-6">
-              <h4><a href="http://www.personal.psu.edu/yuh19/index.html" target="_blank">Hidenobu Yajima</a></h4>
-              <h5>Pennsylvania State University</h5> 
+        
+        <a href="/Astro/seminars/en/2012/03/09/yajima/" class="list-group-item">
+          <div class="media">
+            <img src="/Astro/assets/img/no_thumb-m.png" class="pull-left media-object" alt="Image" width="150px" height="150px">
+            <div class="media-body">
+              <h3 class="media-heading">Are Lyman alpha emitters the building blocks of the Milky Way?</h3>
+              <h4 class="media-heading">Hidenobu Yajima</h4>
+              <h5 class="media-heading">Pennsylvania State University</h5>
               
               
   
@@ -2016,13 +3107,7 @@ Mar 26, 2012
   <p>Strong Lyman alpha emitting galaxies have been observed in large numbers over a wide range in redshift. Such galaxies are called Lyman alpha emitters (LAEs), and they are thought to be galaxies in the early stages of evolution. However, there are still many open questions regarding their formation and evolution....</p>
 
 
-            </div>
-          </div>
-        </div>
-        <div class="panel-footer">
-          <div class="row">
-            <div class="col-lg-10 col-md-9 col-sm-8">
-              <i class="fa fa-calendar"></i> <a href="/Astro/calendar/en">
+              <i class="fa fa-calendar"></i> 
 
 
 
@@ -2039,69 +3124,38 @@ Mar 26, 2012
  
 
 
-Mar 9, 2012
+March 2012
   
 
 
-</a> <i class="fa fa-clock-o"></i> 13 : 30 <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Seminar Room A</a>
-              </div>
-              <div class="col-lg-2 col-md-3 col-sm-4">
-                <a href="/Astro/seminars/en/2012/03/09/yajima/" class="pull-right">Read more &raquo;</a>
-              </div>
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 13 : 30 &nbsp;
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              LAE, cosmology, radiative transfer, and Milky Way
+              
             </div>
           </div>
-        </div>
-        </article> <!-- post -->
-      
-      
-      
-
-      
-       
+        </a>
         
         
-      
-
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
         
-      
-      
 
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
 
-      
-      
-      
-
-      <!-- This creates an lang_count variable into the namespace -->
-      <!-- English number count suffix creation 
-     This creates an lang_count variable -->
-
-
-
-  
-  
-  
-   
-  
-
-
-
-      <article class="post animated fadeInLeft animation-delay-44">
-      <div class="panel panel-default">
-        <div class="panel-body">
-
-          
-          <span class="badge pull-right">23<sup>rd</sup> Seminar</span>
-          <h3 class="post-title"><a href="/Astro/seminars/en/2012/02/23/riguccini/" class="transicion"> The AGN/Starburst connection at z~2 from an IR/submillimeter point of view</a></h3>
-          <div class="row">
-            <div class="col-lg-6">
-              <img src="/Astro/assets/img/agn_torus.png" class="img-post img-responsive" alt="Image">
-            </div>
-            <div class="col-lg-6">
-              <h4><a href="http://spacescience.arc.nasa.gov/staff/laurie-riguccini" target="_blank">Laurie Riguccini</a></h4>
-              <h5>Ehime University</h5> 
+        
+        <a href="/Astro/seminars/en/2012/02/23/riguccini/" class="list-group-item">
+          <div class="media">
+            <img src="/Astro/assets/img/no_thumb-f.png" class="pull-left media-object" alt="Image" width="150px" height="150px">
+            <div class="media-body">
+              <h3 class="media-heading">The AGN/Starburst connection at z~2 from an IR/submillimeter point of view</h3>
+              <h4 class="media-heading">Laurie Riguccini</h4>
+              <h5 class="media-heading">Ehime University</h5>
               
               
   
@@ -2115,13 +3169,7 @@ Mar 9, 2012
   <p>It is well known nowadays that most of the mass assembly occurs at z~1-3. However, a non-negligible fraction of the star formation across cosmic time occurred within dust-enshrouded environments. One important question is therefore whether we really know the exact amount of star formation activity, which could be strongly biased...</p>
 
 
-            </div>
-          </div>
-        </div>
-        <div class="panel-footer">
-          <div class="row">
-            <div class="col-lg-10 col-md-9 col-sm-8">
-              <i class="fa fa-calendar"></i> <a href="/Astro/calendar/en">
+              <i class="fa fa-calendar"></i> 
 
 
 
@@ -2138,69 +3186,38 @@ Mar 9, 2012
          
 
 
-Feb 23, 2012
+February 2012
   
 
 
-</a> <i class="fa fa-clock-o"></i> 13 : 30 <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Seminar Room A</a>
-              </div>
-              <div class="col-lg-2 col-md-3 col-sm-4">
-                <a href="/Astro/seminars/en/2012/02/23/riguccini/" class="pull-right">Read more &raquo;</a>
-              </div>
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 13 : 30 &nbsp;
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              AGN, starbursts, high-z galaxies, galaxy formation, IR, and submm
+              
             </div>
           </div>
-        </div>
-        </article> <!-- post -->
-      
-      
-      
-
-      
-       
+        </a>
         
         
-      
-
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
         
-      
-      
 
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
 
-      
-      
-      
-
-      <!-- This creates an lang_count variable into the namespace -->
-      <!-- English number count suffix creation 
-     This creates an lang_count variable -->
-
-
-
-  
-  
-  
-   
-  
-
-
-
-      <article class="post animated fadeInLeft animation-delay-47">
-      <div class="panel panel-default">
-        <div class="panel-body">
-
-          
-          <span class="badge pull-right">22<sup>nd</sup> Seminar</span>
-          <h3 class="post-title"><a href="/Astro/seminars/en/2011/12/07/susa/" class="transicion"> The effect of photo-dissociation in the mass accretion phase of PopIII.1 stars</a></h3>
-          <div class="row">
-            <div class="col-lg-6">
-              <img src="/Astro/assets/img/first_stars.png" class="img-post img-responsive" alt="Image">
-            </div>
-            <div class="col-lg-6">
-              <h4><a href="http://researchers.adm.konan-u.ac.jp/html/136_ja.html" target="_blank">Hajime Susa</a></h4>
-              <h5>Konan University</h5> 
+        
+        <a href="/Astro/seminars/en/2011/12/07/susa/" class="list-group-item">
+          <div class="media">
+            <img src="/Astro/assets/img/no_thumb-m.png" class="pull-left media-object" alt="Image" width="150px" height="150px">
+            <div class="media-body">
+              <h3 class="media-heading">The effect of photo-dissociation in the mass accretion phase of PopIII.1 stars</h3>
+              <h4 class="media-heading">Hajime Susa</h4>
+              <h5 class="media-heading">Konan University</h5>
               
               
   
@@ -2214,13 +3231,7 @@ Feb 23, 2012
   <p>Studies throughout the past decade indicate that the mass of the first generation of stars was extremely large, unlike most stars in our galaxy. However, according to recent work on the mass accretion phase, the gas is likely to fragment and produce a cluster of stars, rather than accreting smoothly...</p>
 
 
-            </div>
-          </div>
-        </div>
-        <div class="panel-footer">
-          <div class="row">
-            <div class="col-lg-10 col-md-9 col-sm-8">
-              <i class="fa fa-calendar"></i> <a href="/Astro/calendar/en">
+              <i class="fa fa-calendar"></i> 
 
 
 
@@ -2237,69 +3248,38 @@ Feb 23, 2012
  
 
 
-Dec 7, 2011
+December 2011
   
 
 
-</a> <i class="fa fa-clock-o"></i> 13 : 30 <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Seminar Room A</a>
-              </div>
-              <div class="col-lg-2 col-md-3 col-sm-4">
-                <a href="/Astro/seminars/en/2011/12/07/susa/" class="pull-right">Read more &raquo;</a>
-              </div>
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 13 : 30 &nbsp;
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              PopIII stars, accretion discs, radiative feedback, and star formation
+              
             </div>
           </div>
-        </div>
-        </article> <!-- post -->
-      
-      
-      
-
-      
-       
+        </a>
         
         
-      
-
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
         
-      
-      
 
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
 
-      
-      
-      
-
-      <!-- This creates an lang_count variable into the namespace -->
-      <!-- English number count suffix creation 
-     This creates an lang_count variable -->
-
-
-
-  
-  
-  
-   
-  
-
-
-
-      <article class="post animated fadeInLeft animation-delay-50">
-      <div class="panel panel-default">
-        <div class="panel-body">
-
-          
-          <span class="badge pull-right">21<sup>st</sup> Seminar</span>
-          <h3 class="post-title"><a href="/Astro/seminars/en/2011/09/07/greif/" class="transicion"> The formation of the first stars and galaxies</a></h3>
-          <div class="row">
-            <div class="col-lg-6">
-              <img src="/Astro/assets/img/first_stars.png" class="img-post img-responsive" alt="Image">
-            </div>
-            <div class="col-lg-6">
-              <h4><a href="https://www.cfa.harvard.edu/~tgreif/" target="_blank">Thomas Greif</a></h4>
-              <h5>Max Planck Institut für Astrophysik</h5> 
+        
+        <a href="/Astro/seminars/en/2011/09/07/greif/" class="list-group-item">
+          <div class="media">
+            <img src="/Astro/assets/img/no_thumb-m.png" class="pull-left media-object" alt="Image" width="150px" height="150px">
+            <div class="media-body">
+              <h3 class="media-heading">The formation of the first stars and galaxies</h3>
+              <h4 class="media-heading">Thomas Greif</h4>
+              <h5 class="media-heading">Max Planck Institut für Astrophysik</h5>
               
               
   
@@ -2313,13 +3293,7 @@ Dec 7, 2011
   <p>One of the final frontiers in modern cosmology is the formation of the first stars and galaxies at the end of the cosmic dark ages, when the Universe transitioned from its simple initial state to one of ever increasing complexity. I will discuss how the first bound gas clouds condensed...</p>
 
 
-            </div>
-          </div>
-        </div>
-        <div class="panel-footer">
-          <div class="row">
-            <div class="col-lg-10 col-md-9 col-sm-8">
-              <i class="fa fa-calendar"></i> <a href="/Astro/calendar/en">
+              <i class="fa fa-calendar"></i> 
 
 
 
@@ -2336,69 +3310,38 @@ Dec 7, 2011
  
 
 
-Sep 7, 2011
+September 2011
   
 
 
-</a> <i class="fa fa-clock-o"></i> 15 : 00 <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Seminar Room A</a>
-              </div>
-              <div class="col-lg-2 col-md-3 col-sm-4">
-                <a href="/Astro/seminars/en/2011/09/07/greif/" class="pull-right">Read more &raquo;</a>
-              </div>
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 15 : 00 &nbsp;
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              first stars and first galaxies
+              
             </div>
           </div>
-        </div>
-        </article> <!-- post -->
-      
-      
-      
-
-      
-       
+        </a>
         
         
-      
-
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
         
-      
-      
 
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
 
-      
-      
-      
-
-      <!-- This creates an lang_count variable into the namespace -->
-      <!-- English number count suffix creation 
-     This creates an lang_count variable -->
-
-
-
-  
-  
-  
-  
-  
-
-
-
-      <article class="post animated fadeInLeft animation-delay-53">
-      <div class="panel panel-default">
-        <div class="panel-body">
-
-          
-          <span class="badge pull-right">20<sup>th</sup> Seminar (Part2) </span>
-          <h3 class="post-title"><a href="/Astro/seminars/en/2011/08/22/tanaka/" class="transicion"> Modeling the Electromagnetic Signature of Merging Supermassive Black Holes</a></h3>
-          <div class="row">
-            <div class="col-lg-6">
-              <img src="/Astro/assets/img/nbody.png" class="img-post img-responsive" alt="Image">
-            </div>
-            <div class="col-lg-6">
-              <h4><a href="http://www.mpa-garching.mpg.de/~taka/" target="_blank">Takamitsu Tanaka</a></h4>
-              <h5>Max Planck Institut für Astrophysik</h5> 
+        
+        <a href="/Astro/seminars/en/2011/08/22/tanaka/" class="list-group-item">
+          <div class="media">
+            <img src="/Astro/assets/img/no_thumb-m.png" class="pull-left media-object" alt="Image" width="150px" height="150px">
+            <div class="media-body">
+              <h3 class="media-heading">Modeling the Electromagnetic Signature of Merging Supermassive Black Holes</h3>
+              <h4 class="media-heading">Takamitsu Tanaka</h4>
+              <h5 class="media-heading">Max Planck Institut für Astrophysik</h5>
               
               
   
@@ -2412,13 +3355,7 @@ Sep 7, 2011
   <p>Recently, intense attention has focused on the possibility that merging supermassive black hole binaries could be observed with both electromagnetic and gravitational waves. Such multi-messenger studies would (i) probe dark energy out to z~10, and (ii) allow follow-up studies of active galactic nuclei with central engines whose masses and spins...</p>
 
 
-            </div>
-          </div>
-        </div>
-        <div class="panel-footer">
-          <div class="row">
-            <div class="col-lg-10 col-md-9 col-sm-8">
-              <i class="fa fa-calendar"></i> <a href="/Astro/calendar/en">
+              <i class="fa fa-calendar"></i> 
 
 
 
@@ -2435,66 +3372,38 @@ Sep 7, 2011
          
   
 
-Aug 22, 2011
+August 2011
   
 
 
-</a> <i class="fa fa-clock-o"></i> 15 : 00 <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Workshop Room</a>
-              </div>
-              <div class="col-lg-2 col-md-3 col-sm-4">
-                <a href="/Astro/seminars/en/2011/08/22/tanaka/" class="pull-right">Read more &raquo;</a>
-              </div>
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 15 : 00 &nbsp;
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              SMBH, SMBH mergers, and accretion discs
+              
             </div>
           </div>
-        </div>
-        </article> <!-- post -->
-      
-      
-      
-
-      
-      
-
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        </a>
         
-      
-      
+        
+        
 
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
 
-      
-      
-      
-
-      <!-- This creates an lang_count variable into the namespace -->
-      <!-- English number count suffix creation 
-     This creates an lang_count variable -->
-
-
-
-  
-  
-  
-  
-  
-
-
-
-      <article class="post animated fadeInLeft animation-delay-56">
-      <div class="panel panel-default">
-        <div class="panel-body">
-
-          
-          <span class="badge pull-right">20<sup>th</sup> Seminar (Part1) </span>
-          <h3 class="post-title"><a href="/Astro/seminars/en/2011/08/22/hayasaki/" class="transicion"> A Road to Supermassive Black Hole Merger</a></h3>
-          <div class="row">
-            <div class="col-lg-6">
-              <img src="/Astro/assets/img/nbody.png" class="img-post img-responsive" alt="Image">
-            </div>
-            <div class="col-lg-6">
-              <h4><a href="http://odori.univnet.jp/teachers/detail/12" target="_blank">Kimitake Hayasaki</a></h4>
-              <h5>Kyoto University</h5> 
+        
+        <a href="/Astro/seminars/en/2011/08/22/hayasaki/" class="list-group-item">
+          <div class="media">
+            <img src="/Astro/assets/img/no_thumb-m.png" class="pull-left media-object" alt="Image" width="150px" height="150px">
+            <div class="media-body">
+              <h3 class="media-heading">A Road to Supermassive Black Hole Merger</h3>
+              <h4 class="media-heading">Kimitake Hayasaki</h4>
+              <h5 class="media-heading">Kyoto University</h5>
               
               
   
@@ -2508,13 +3417,7 @@ Aug 22, 2011
   <p>Hierarchical structure formation hypothesis inevitably leads to the formation of binary supermassive black holes (SMBHs) on a subparsec scale in merged galactic nuclei. However, to date there has been no unambiguous detection of such systems. In this talk, I propose how binary SMBHs merge and a feasible method to detect...</p>
 
 
-            </div>
-          </div>
-        </div>
-        <div class="panel-footer">
-          <div class="row">
-            <div class="col-lg-10 col-md-9 col-sm-8">
-              <i class="fa fa-calendar"></i> <a href="/Astro/calendar/en">
+              <i class="fa fa-calendar"></i> 
 
 
 
@@ -2531,288 +3434,1227 @@ Aug 22, 2011
          
   
 
-Aug 22, 2011
+August 2011
   
 
 
-</a> <i class="fa fa-clock-o"></i> 15 : 00 <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Workshop Room</a>
-              </div>
-              <div class="col-lg-2 col-md-3 col-sm-4">
-                <a href="/Astro/seminars/en/2011/08/22/hayasaki/" class="pull-right">Read more &raquo;</a>
-              </div>
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 15 : 00 &nbsp;
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              SMBH, SMBH mergers, accretion discs, SPH, and X-rays
+              
             </div>
           </div>
-        </div>
-        </article> <!-- post -->
-      
-      
-      
+        </a>
+        
+        
+        
 
-      
-       
+        <!-- Test condition that this post is in the page's academic year -->
         
         
-      
+        
+        
+        
+        
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Test condition that this post is in the page's academic year -->
         
         
-      
+        
+        
+        
+        
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Test condition that this post is in the page's academic year -->
         
         
-      
+        
+        
+        
+        
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Test condition that this post is in the page's academic year -->
         
         
-      
+        
+        
+        
+        
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Test condition that this post is in the page's academic year -->
         
         
-      
+        
+        
+        
+        
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Test condition that this post is in the page's academic year -->
         
         
-      
+        
+        
+        
+        
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Test condition that this post is in the page's academic year -->
         
         
-      
+        
+        
+        
+        
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Test condition that this post is in the page's academic year -->
         
         
-      
+        
+        
+        
+        
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Test condition that this post is in the page's academic year -->
         
         
-      
+        
+        
+        
+        
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Test condition that this post is in the page's academic year -->
         
         
-      
+        
+        
+        
+        
+      </div> <!-- mix -->
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
-        
-      
-      
-      
+      <div class="list-group mix 1">
 
-      
-       
         
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Test condition that this post is in the page's academic year -->
         
         
-      
+        
+        
+        
+        
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Test condition that this post is in the page's academic year -->
         
         
-      
+        
+        
+        
+        
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Test condition that this post is in the page's academic year -->
         
         
-      
+        
+        
+        
+        
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Test condition that this post is in the page's academic year -->
         
         
-      
+        
+        
+        
+        
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Test condition that this post is in the page's academic year -->
         
         
-      
+        
+        
+        
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
         
-      
-      
-      
+        <a href="/Astro/seminars/en/2012/03/26/takahashi/" class="list-group-item">
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">1. The effects of Chern-Simons Gravity and Electromagnetic fields in Blach Hole space-time 2. Space-time rotation induced Landau quantization</h4>
+              <h5 class="media-heading"> (Tomakomai National College of Technology) </h5>
+              <i class="fa fa-calendar"></i> 
 
-      
-       
-        
-        
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
-        
-      
-      
-      
 
-      
-       
-        
-        
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
-        
-      
-      
-      
 
-      
-       
-        
-        
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+
+
+
+
+
+
+
+ 
+
+
+March 2012
+  
+
+
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 13 : 30 &nbsp; 
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              black holes, general relativity, and radiative transfer
+              
+            </div>
+          </div>
+        </a>
         
-      
-      
-      
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/Astro/seminars/en/2012/03/09/yajima/" class="list-group-item">
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">Are Lyman alpha emitters the building blocks of the Milky Way?</h4>
+              <h5 class="media-heading"> (Pennsylvania State University) </h5>
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+March 2012
+  
+
+
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 13 : 30 &nbsp; 
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              LAE, cosmology, radiative transfer, and Milky Way
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/Astro/seminars/en/2012/02/23/riguccini/" class="list-group-item">
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">The AGN/Starburst connection at z~2 from an IR/submillimeter point of view</h4>
+              <h5 class="media-heading"> (Ehime University) </h5>
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+
+
+February 2012
+  
+
+
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 13 : 30 &nbsp; 
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              AGN, starbursts, high-z galaxies, galaxy formation, IR, and submm
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/Astro/seminars/en/2011/12/07/susa/" class="list-group-item">
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">The effect of photo-dissociation in the mass accretion phase of PopIII.1 stars</h4>
+              <h5 class="media-heading"> (Konan University) </h5>
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+December 2011
+  
+
+
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 13 : 30 &nbsp; 
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              PopIII stars, accretion discs, radiative feedback, and star formation
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/Astro/seminars/en/2011/09/07/greif/" class="list-group-item">
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">The formation of the first stars and galaxies</h4>
+              <h5 class="media-heading"> (Max Planck Institut für Astrophysik) </h5>
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+September 2011
+  
+
+
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 15 : 00 &nbsp; 
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              first stars and first galaxies
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/Astro/seminars/en/2011/08/22/tanaka/" class="list-group-item">
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">Modeling the Electromagnetic Signature of Merging Supermassive Black Holes</h4>
+              <h5 class="media-heading"> (Max Planck Institut für Astrophysik) </h5>
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+  
+
+August 2011
+  
+
+
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 15 : 00 &nbsp; 
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              SMBH, SMBH mergers, and accretion discs
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/Astro/seminars/en/2011/08/22/hayasaki/" class="list-group-item">
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">A Road to Supermassive Black Hole Merger</h4>
+              <h5 class="media-heading"> (Kyoto University) </h5>
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+  
+
+August 2011
+  
+
+
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 15 : 00 &nbsp; 
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              SMBH, SMBH mergers, accretion discs, SPH, and X-rays
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+      </div> <!-- mix -->
+
+      <div class="mix 4">
+        <ul>
+
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+
+          
+          <li><a href="/Astro/seminars/en/2012/03/26/takahashi/">1. The effects of Chern-Simons Gravity and Electromagnetic fields in Blach Hole space-time 2. Space-time rotation induced Landau quantization</a>,
+          <i>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+March 2012
+  
+
+
+</i>, &nbsp;
+          13 : 30 &nbsp;  
+          </li>
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+
+          
+          <li><a href="/Astro/seminars/en/2012/03/09/yajima/">Are Lyman alpha emitters the building blocks of the Milky Way?</a>,
+          <i>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+March 2012
+  
+
+
+</i>, &nbsp;
+          13 : 30 &nbsp;  
+          </li>
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+
+          
+          <li><a href="/Astro/seminars/en/2012/02/23/riguccini/">The AGN/Starburst connection at z~2 from an IR/submillimeter point of view</a>,
+          <i>
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+
+
+February 2012
+  
+
+
+</i>, &nbsp;
+          13 : 30 &nbsp;  
+          </li>
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+
+          
+          <li><a href="/Astro/seminars/en/2011/12/07/susa/">The effect of photo-dissociation in the mass accretion phase of PopIII.1 stars</a>,
+          <i>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+December 2011
+  
+
+
+</i>, &nbsp;
+          13 : 30 &nbsp;  
+          </li>
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+
+          
+          <li><a href="/Astro/seminars/en/2011/09/07/greif/">The formation of the first stars and galaxies</a>,
+          <i>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+September 2011
+  
+
+
+</i>, &nbsp;
+          15 : 00 &nbsp;  
+          </li>
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+
+          
+          <li><a href="/Astro/seminars/en/2011/08/22/tanaka/">Modeling the Electromagnetic Signature of Merging Supermassive Black Holes</a>,
+          <i>
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+  
+
+August 2011
+  
+
+
+</i>, &nbsp;
+          15 : 00 &nbsp;  
+          </li>
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+
+          
+          <li><a href="/Astro/seminars/en/2011/08/22/hayasaki/">A Road to Supermassive Black Hole Merger</a>,
+          <i>
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+  
+
+August 2011
+  
+
+
+</i>, &nbsp;
+          15 : 00 &nbsp;  
+          </li>
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+        </ul>
+      </div> <!-- mix -->
+
+
 
       
 
@@ -3589,7 +5431,7 @@ Apr 1997 ~ Mar 1998
           <a href="#" class="tag">LOFAR</a>
         
         
-          <a href="#" class="tag">Lyman Alpha Blob</a>
+          <a href="#" class="tag">Lyman Alpha Blobs</a>
         
         
           <a href="#" class="tag">M-sigma relation</a>
