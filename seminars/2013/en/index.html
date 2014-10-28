@@ -651,7 +651,7 @@ Apr 2013 ~ Mar 2014
 
 
 <!-- AYW 2014-07-04 13:32 JST
-     We wish to sort by date and group by tags-->
+We wish to sort by date and group by tags-->
 
 
 <div class="container">
@@ -1427,7 +1427,7 @@ Apr 1997 ~ Mar 1998
           <a href="#" class="tag">LOFAR</a>
         
         
-          <a href="#" class="tag">Lyman Alpha Blob</a>
+          <a href="#" class="tag">Lyman Alpha Blobs</a>
         
         
           <a href="#" class="tag">M-sigma relation</a>
@@ -1703,18 +1703,77 @@ Apr 1997 ~ Mar 1998
       </aside> <!-- Sidebar -->
     </div> 
 
-    <div class="col-md-8">
+    <div class="col-md-8" id="Grid">
 
-    <!-- Get post number by comparing dates -->
-    
-    
-    
-    
-    
+      <!-- Get post number by comparing dates -->
+      
+      
+      
+      
+      
 
-    <!-- Language dependent surrounds -->
-    <!-- This creates open_surround and close_surround variables into the namespace -->
-    <!-- Language dependent surrounds -->
+      <!-- Academic year range -->
+      <!-- Puts yearbegin and yearend, the begin and end years 
+      of the academic years into namespace -->
+      
+<!-- Academic year range depending on the type of category page, 
+differentiating between the standard category page, index, or 
+archive. See also mixorder.html and npost_limits.html -->
+
+
+
+
+
+ 
+
+
+ 
+
+
+
+
+      <!-- Limit number of posts -->
+      <!-- Puts posts_per_page1,2,3,4 into namespace 
+      depending on the type of page -->
+      
+<!-- Puts posts_per_page1,2,3,4 into namespace 
+depending on the type of category page -->
+<!-- If page type is not the standard category page
+e.g. index or archive the limits are much higher.
+See also academic_year_range.html and mixorder.html -->
+
+
+
+
+
+
+
+
+
+
+      <!-- Change preferred view according to page type -->
+      <!-- Puts mix1, mix2, mix3, and mix4 into namespace -->
+      <!-- This snippet determines the mix class order 
+(default is mix1) according to a bit in url 
+which indicates whether we are on an index page, 
+a archive page, or a normal category page.
+For a normal page, the mix class hierarchy is
+from biggest to smallest. For others it's different. -->
+<!-- This is for use with the mixit javascript -->
+
+
+
+
+
+
+
+
+
+
+
+      <!-- Language dependent surrounds -->
+      <!-- This creates open_surround and close_surround variables into the namespace -->
+      <!-- Language dependent surrounds -->
 
 
                      
@@ -1722,98 +1781,89 @@ Apr 1997 ~ Mar 1998
   
 
 
-    <!-- academic year range -->
-    
-    
-    
-    
-    
-     
-     
+      <!-- Loop over posts -->
+      <div class="mix 2">
 
-    <!-- Limit number of posts on non-archive pages -->
-    
-    
-      
-    
-
-    <!-- Loop over posts begins here -->
-    
-    
-
-      
-       
         
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Update post count -->
         
-      
-      
-      
-
-      
-      
-
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+         
+          
+          
         
-      
-      
-      
 
-      
-       
+        <!-- Test condition that this post is in the page's academic year -->
         
         
-      
-
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
-        
-      
-      
-      
-
-      
-       
         
         
-      
-
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
-        
-      
-      
-      
-
-      
-       
         
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Update post count -->
         
-      
-      
+        
 
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
 
-      
-      
-      
+        <!-- Update post count -->
+        
+         
+          
+          
+        
 
-      <!-- This creates an lang_count variable into the namespace -->
-      <!-- English number count suffix creation 
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Update post count -->
+        
+         
+          
+          
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        <!-- Calculate delays -->
+        
+        
+
+        <!-- This creates an lang_count variable into the namespace -->
+        <!-- English number count suffix creation 
      This creates an lang_count variable -->
 
 
@@ -1826,22 +1876,23 @@ Apr 1997 ~ Mar 1998
 
 
 
-      <article class="post animated fadeInLeft animation-delay-23">
-      <div class="panel panel-default">
-        <div class="panel-body">
+        <article class="post animated fadeInLeft animation-delay-23">
 
-          
-          <span class="badge pull-right">28<sup>th</sup> Seminar</span>
-          <h3 class="post-title"><a href="/seminars/en/2014/02/20/burkert/" class="transicion"> Watching a Little Gas Cloud on its Way into the Galactic Supermassive Black Hole</a></h3>
-          <div class="row">
-            <div class="col-lg-6">
-              <img src="/assets/img/g2.png" class="img-post img-responsive" alt="Image">
-            </div>
-            <div class="col-lg-6">
-              <h4><a href="http://www.usm.uni-muenchen.de/CAST/people.htm" target="_blank">Andreas Burkert</a></h4>
-              <h5>Ludwig Maximilians Universität München</h5> 
-              
-              
+        <div class="panel panel-default">
+          <div class="panel-body">
+
+            
+            <span class="badge pull-right">28<sup>th</sup> Seminar</span>
+            <h3 class="post-title"><a href="/seminars/en/2014/02/20/burkert/" class="transicion"> Watching a Little Gas Cloud on its Way into the Galactic Supermassive Black Hole</a></h3>
+            <div class="row">
+              <div class="col-lg-6">
+                <img src="/assets/img/g2.png" class="img-post img-responsive" alt="Image">
+              </div>
+              <div class="col-lg-6">
+                <h4>Andreas Burkert</h4>
+                <h5>Ludwig Maximilians Universität München</h5> 
+                
+                
   
   
 
@@ -1853,13 +1904,13 @@ Apr 1997 ~ Mar 1998
   <p>The Galactic center is one of the most fascinating and extreme places in the Galaxy. Harboring a supermassive black hole with a mass of order 4 million solar masses it experiences cycles of activity and star formation, separated by periods of quiescence that last of order a million years. The...</p>
 
 
+              </div>
             </div>
           </div>
-        </div>
-        <div class="panel-footer">
-          <div class="row">
-            <div class="col-lg-10 col-md-9 col-sm-8">
-              <i class="fa fa-calendar"></i> <a href="/calendar/en">
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-lg-10 col-md-9 col-sm-8">
+                <i class="fa fa-calendar"></i> <a href="/calendar/en">
 
 
 
@@ -1876,11 +1927,17 @@ Apr 1997 ~ Mar 1998
  
 
 
-Feb 20, 2014
+February 2014
   
 
 
-</a> <i class="fa fa-clock-o"></i> 17 : 00 <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Seminar Room A</a>
+</a> &nbsp;
+                <i class="fa fa-clock-o"></i> 17 : 00 &nbsp;  
+                <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Seminar Room A</a><br />
+                <i class="fa fa-tags"></i> &nbsp; 
+                
+                hydrodynamics, G2, clouds, Galactic center, SMBH, AGN, and accretion discs
+                
               </div>
               <div class="col-lg-2 col-md-3 col-sm-4">
                 <a href="/seminars/en/2014/02/20/burkert/" class="pull-right">Read more &raquo;</a>
@@ -1889,30 +1946,30 @@ Feb 20, 2014
           </div>
         </div>
         </article> <!-- post -->
-      
-      
-      
-
-      
-       
         
         
-      
-
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
         
-      
-      
 
+        <!-- Update post count -->
+        
+         
+          
+          
+        
 
-      
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
 
-      <!-- This creates an lang_count variable into the namespace -->
-      <!-- English number count suffix creation 
+        <!-- Calculate delays -->
+        
+        
+
+        <!-- This creates an lang_count variable into the namespace -->
+        <!-- English number count suffix creation 
      This creates an lang_count variable -->
 
 
@@ -1925,22 +1982,23 @@ Feb 20, 2014
 
 
 
-      <article class="post animated fadeInLeft animation-delay-26">
-      <div class="panel panel-default">
-        <div class="panel-body">
+        <article class="post animated fadeInLeft animation-delay-26">
 
-          
-          <span class="badge pull-right">27<sup>th</sup> Seminar (Part1) </span>
-          <h3 class="post-title"><a href="/seminars/en/2013/08/29/steinhardt/" class="transicion"> Puzzling Features of Quasar Accretion</a></h3>
-          <div class="row">
-            <div class="col-lg-6">
-              <img src="/assets/img/quasar.png" class="img-post img-responsive" alt="Image">
-            </div>
-            <div class="col-lg-6">
-              <h4><a href="http://db.ipmu.jp/member/personal/1268en.html" target="_blank">Charles Steinhardt</a></h4>
-              <h5>Kavli IPMU</h5> 
-              
-              
+        <div class="panel panel-default">
+          <div class="panel-body">
+
+            
+            <span class="badge pull-right">27<sup>th</sup> Seminar (Part1) </span>
+            <h3 class="post-title"><a href="/seminars/en/2013/08/29/steinhardt/" class="transicion"> Puzzling Features of Quasar Accretion</a></h3>
+            <div class="row">
+              <div class="col-lg-6">
+                <img src="/assets/img/quasar.png" class="img-post img-responsive" alt="Image">
+              </div>
+              <div class="col-lg-6">
+                <h4>Charles Steinhardt</h4>
+                <h5>Kavli IPMU</h5> 
+                
+                
   
   
 
@@ -1952,13 +2010,13 @@ Feb 20, 2014
   <p>The development of virial mass estimates for the central black hole using one quasar spectrum has allowed a dramatic improvement in our understanding of supermassive black hole evolution. I will describe several new puzzles arising from the combination of virial masses with luminosity and redshift measurements, many of which are...</p>
 
 
+              </div>
             </div>
           </div>
-        </div>
-        <div class="panel-footer">
-          <div class="row">
-            <div class="col-lg-10 col-md-9 col-sm-8">
-              <i class="fa fa-calendar"></i> <a href="/calendar/en">
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-lg-10 col-md-9 col-sm-8">
+                <i class="fa fa-calendar"></i> <a href="/calendar/en">
 
 
 
@@ -1975,11 +2033,17 @@ Feb 20, 2014
  
 
 
-Aug 29, 2013
+August 2013
   
 
 
-</a> <i class="fa fa-clock-o"></i> 15 : 00 <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Workshop Room</a>
+</a> &nbsp;
+                <i class="fa fa-clock-o"></i> 15 : 00 &nbsp;  
+                <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Workshop Room</a><br />
+                <i class="fa fa-tags"></i> &nbsp; 
+                
+                quasars, SMBH, and AGN
+                
               </div>
               <div class="col-lg-2 col-md-3 col-sm-4">
                 <a href="/seminars/en/2013/08/29/steinhardt/" class="pull-right">Read more &raquo;</a>
@@ -1988,27 +2052,27 @@ Aug 29, 2013
           </div>
         </div>
         </article> <!-- post -->
-      
-      
-      
-
-      
-      
-
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
         
-      
-      
+        
+        
 
+        <!-- Update post count -->
+        
+        
 
-      
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
 
-      <!-- This creates an lang_count variable into the namespace -->
-      <!-- English number count suffix creation 
+        <!-- Calculate delays -->
+        
+        
+
+        <!-- This creates an lang_count variable into the namespace -->
+        <!-- English number count suffix creation 
      This creates an lang_count variable -->
 
 
@@ -2021,22 +2085,23 @@ Aug 29, 2013
 
 
 
-      <article class="post animated fadeInLeft animation-delay-29">
-      <div class="panel panel-default">
-        <div class="panel-body">
+        <article class="post animated fadeInLeft animation-delay-29">
 
-          
-          <span class="badge pull-right">27<sup>th</sup> Seminar (Part3) </span>
-          <h3 class="post-title"><a href="/seminars/en/2013/08/29/speagle/" class="transicion"> The Evolution of Star-Forming Galaxies Over Cosmic Time</a></h3>
-          <div class="row">
-            <div class="col-lg-6">
-              <img src="/assets/img/quasar.png" class="img-post img-responsive" alt="Image">
-            </div>
-            <div class="col-lg-6">
-              <h4>Josh Speagle</h4>
-              <h5>Harvard University, Kavli IPMU</h5> 
-              
-              
+        <div class="panel panel-default">
+          <div class="panel-body">
+
+            
+            <span class="badge pull-right">27<sup>th</sup> Seminar (Part3) </span>
+            <h3 class="post-title"><a href="/seminars/en/2013/08/29/speagle/" class="transicion"> The Evolution of Star-Forming Galaxies Over Cosmic Time</a></h3>
+            <div class="row">
+              <div class="col-lg-6">
+                <img src="/assets/img/quasar.png" class="img-post img-responsive" alt="Image">
+              </div>
+              <div class="col-lg-6">
+                <h4>Josh Speagle</h4>
+                <h5>Harvard University, Kavli IPMU</h5> 
+                
+                
   
   
 
@@ -2048,13 +2113,13 @@ Aug 29, 2013
   <p>The assembly and evolution of galaxies over cosmic time is a complex process. Historically, galaxy evolution was thought to be governed by mainlystochastic, potentially divergent processes such as major mergers, whichwere linked to active galactic nuclei (AGN) activity and vigorous starformation followed by a rapid "quenching" process. In the last...</p>
 
 
+              </div>
             </div>
           </div>
-        </div>
-        <div class="panel-footer">
-          <div class="row">
-            <div class="col-lg-10 col-md-9 col-sm-8">
-              <i class="fa fa-calendar"></i> <a href="/calendar/en">
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-lg-10 col-md-9 col-sm-8">
+                <i class="fa fa-calendar"></i> <a href="/calendar/en">
 
 
 
@@ -2071,11 +2136,17 @@ Aug 29, 2013
  
 
 
-Aug 29, 2013
+August 2013
   
 
 
-</a> <i class="fa fa-clock-o"></i> 16 : 20 <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Workshop Room</a>
+</a> &nbsp;
+                <i class="fa fa-clock-o"></i> 16 : 20 &nbsp;  
+                <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Workshop Room</a><br />
+                <i class="fa fa-tags"></i> &nbsp; 
+                
+                quasars, SMBH, and AGN
+                
               </div>
               <div class="col-lg-2 col-md-3 col-sm-4">
                 <a href="/seminars/en/2013/08/29/speagle/" class="pull-right">Read more &raquo;</a>
@@ -2084,27 +2155,27 @@ Aug 29, 2013
           </div>
         </div>
         </article> <!-- post -->
-      
-      
-      
-
-      
-      
-
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
         
-      
-      
+        
+        
 
+        <!-- Update post count -->
+        
+        
 
-      
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
 
-      <!-- This creates an lang_count variable into the namespace -->
-      <!-- English number count suffix creation 
+        <!-- Calculate delays -->
+        
+        
+
+        <!-- This creates an lang_count variable into the namespace -->
+        <!-- English number count suffix creation 
      This creates an lang_count variable -->
 
 
@@ -2117,22 +2188,23 @@ Aug 29, 2013
 
 
 
-      <article class="post animated fadeInLeft animation-delay-32">
-      <div class="panel panel-default">
-        <div class="panel-body">
+        <article class="post animated fadeInLeft animation-delay-32">
 
-          
-          <span class="badge pull-right">27<sup>th</sup> Seminar (Part2) </span>
-          <h3 class="post-title"><a href="/seminars/en/2013/08/29/khabiboulline/" class="transicion"> How Does Galaxy Environment Influence AGN Activity?</a></h3>
-          <div class="row">
-            <div class="col-lg-6">
-              <img src="/assets/img/quasar.png" class="img-post img-responsive" alt="Image">
-            </div>
-            <div class="col-lg-6">
-              <h4>Emil Khabiboulline</h4>
-              <h5>Caltech, Kavli IPMU</h5> 
-              
-              
+        <div class="panel panel-default">
+          <div class="panel-body">
+
+            
+            <span class="badge pull-right">27<sup>th</sup> Seminar (Part2) </span>
+            <h3 class="post-title"><a href="/seminars/en/2013/08/29/khabiboulline/" class="transicion"> How Does Galaxy Environment Influence AGN Activity?</a></h3>
+            <div class="row">
+              <div class="col-lg-6">
+                <img src="/assets/img/quasar.png" class="img-post img-responsive" alt="Image">
+              </div>
+              <div class="col-lg-6">
+                <h4>Emil Khabiboulline</h4>
+                <h5>Caltech, Kavli IPMU</h5> 
+                
+                
   
   
 
@@ -2144,13 +2216,13 @@ Aug 29, 2013
   <p>The development of virial mass estimates for the central black hole using one quasar spectrum has allowed a dramatic improvement in our understanding of supermassive black hole evolution. I will describe several new puzzles arising from the combination of virial masses with luminosity and redshift measurements, many of which are...</p>
 
 
+              </div>
             </div>
           </div>
-        </div>
-        <div class="panel-footer">
-          <div class="row">
-            <div class="col-lg-10 col-md-9 col-sm-8">
-              <i class="fa fa-calendar"></i> <a href="/calendar/en">
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-lg-10 col-md-9 col-sm-8">
+                <i class="fa fa-calendar"></i> <a href="/calendar/en">
 
 
 
@@ -2167,11 +2239,17 @@ Aug 29, 2013
  
 
 
-Aug 29, 2013
+August 2013
   
 
 
-</a> <i class="fa fa-clock-o"></i> 15 : 40 <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Workshop Room</a>
+</a> &nbsp;
+                <i class="fa fa-clock-o"></i> 15 : 40 &nbsp;  
+                <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Workshop Room</a><br />
+                <i class="fa fa-tags"></i> &nbsp; 
+                
+                quasars, SMBH, and AGN
+                
               </div>
               <div class="col-lg-2 col-md-3 col-sm-4">
                 <a href="/seminars/en/2013/08/29/khabiboulline/" class="pull-right">Read more &raquo;</a>
@@ -2180,30 +2258,30 @@ Aug 29, 2013
           </div>
         </div>
         </article> <!-- post -->
-      
-      
-      
-
-      
-       
         
         
-      
-
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
         
-      
-      
 
+        <!-- Update post count -->
+        
+         
+          
+          
+        
 
-      
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
 
-      <!-- This creates an lang_count variable into the namespace -->
-      <!-- English number count suffix creation 
+        <!-- Calculate delays -->
+        
+        
+
+        <!-- This creates an lang_count variable into the namespace -->
+        <!-- English number count suffix creation 
      This creates an lang_count variable -->
 
 
@@ -2216,22 +2294,23 @@ Aug 29, 2013
 
 
 
-      <article class="post animated fadeInLeft animation-delay-35">
-      <div class="panel panel-default">
-        <div class="panel-body">
+        <article class="post animated fadeInLeft animation-delay-35">
 
-          
-          <span class="badge pull-right">26<sup>th</sup> Seminar</span>
-          <h3 class="post-title"><a href="/seminars/en/2013/07/23/bicknell/" class="transicion"> Relativistic Jets and Black Hole Accretion Disks</a></h3>
-          <div class="row">
-            <div class="col-lg-6">
-              <img src="/assets/img/radio_jet.png" class="img-post img-responsive" alt="Image">
-            </div>
-            <div class="col-lg-6">
-              <h4><a href="http://rsaa.anu.edu.au/people/geoff-bicknell" target="_blank">Geoffrey Bicknell</a></h4>
-              <h5>The Australian National University</h5> 
-              
-              
+        <div class="panel panel-default">
+          <div class="panel-body">
+
+            
+            <span class="badge pull-right">26<sup>th</sup> Seminar</span>
+            <h3 class="post-title"><a href="/seminars/en/2013/07/23/bicknell/" class="transicion"> Relativistic Jets and Black Hole Accretion Disks</a></h3>
+            <div class="row">
+              <div class="col-lg-6">
+                <img src="/assets/img/radio_jet.png" class="img-post img-responsive" alt="Image">
+              </div>
+              <div class="col-lg-6">
+                <h4>Geoffrey Bicknell</h4>
+                <h5>The Australian National University</h5> 
+                
+                
   
   
 
@@ -2243,13 +2322,13 @@ Aug 29, 2013
   <p>Since about 2005 our group at the ANU, in collaboration with Alex Wagner, has been conducting fundamental research on the interaction of jets with the interstellar medium of evolving galaxies. One area of research involves the interaction of relativistic jets with an inhomogeneous interstellar medium consisting of dense clouds. This...</p>
 
 
+              </div>
             </div>
           </div>
-        </div>
-        <div class="panel-footer">
-          <div class="row">
-            <div class="col-lg-10 col-md-9 col-sm-8">
-              <i class="fa fa-calendar"></i> <a href="/calendar/en">
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-lg-10 col-md-9 col-sm-8">
+                <i class="fa fa-calendar"></i> <a href="/calendar/en">
 
 
 
@@ -2266,11 +2345,17 @@ Aug 29, 2013
          
 
 
-Jul 23, 2013
+July 2013
   
 
 
-</a> <i class="fa fa-clock-o"></i> 14 : 00 <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Seminar Room A</a>
+</a> &nbsp;
+                <i class="fa fa-clock-o"></i> 14 : 00 &nbsp;  
+                <i class="fa fa-map-marker"></i> <a href="http://www.ccs.tsukuba.ac.jp/eng/about-2/access/" target="_blank">CCS Seminar Room A</a><br />
+                <i class="fa fa-tags"></i> &nbsp; 
+                
+                AGN, AGN feedback, AGN jets, SMBH, M-sigma relation, MHD, accretion discs, radio galaxies, and Hydra A
+                
               </div>
               <div class="col-lg-2 col-md-3 col-sm-4">
                 <a href="/seminars/en/2013/07/23/bicknell/" class="pull-right">Read more &raquo;</a>
@@ -2279,370 +2364,1871 @@ Jul 23, 2013
           </div>
         </div>
         </article> <!-- post -->
-      
-      
-      
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-      
+        <!-- Update post count -->
+        
+        
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
 
-      
-       
+        <!-- Update post count -->
         
+         
+          
+          
         
-      
 
-      <!-- Test condition that this post is in the page's academic year -->
-      
-      
+        <!-- Test condition that this post is in the page's academic year -->
         
-      
-      
-      
+        
+        
+        
+        
+        
+
+      </div> <!-- mix -->
+
+      <!-- Loop over posts -->
+      <div class="list-group mix 3">
+
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/seminars/en/2014/02/20/burkert/" class="list-group-item">
+          <div class="media">
+            <img src="/assets/img/burkert.png" class="pull-left media-object" alt="Image" width="150px" height="150px">
+            <div class="media-body">
+              <h3 class="media-heading">Watching a Little Gas Cloud on its Way into the Galactic Supermassive Black Hole</h3>
+              <h4 class="media-heading">Andreas Burkert</h4>
+              <h5 class="media-heading">Ludwig Maximilians Universität München</h5>
+              
+              
+  
+  
+
+
+
+  
+
+
+  <p>The Galactic center is one of the most fascinating and extreme places in the Galaxy. Harboring a supermassive black hole with a mass of order 4 million solar masses it experiences cycles of activity and star formation, separated by periods of quiescence that last of order a million years. The...</p>
+
+
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+February 2014
+  
+
+
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 17 : 00 &nbsp;
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              hydrodynamics, G2, clouds, Galactic center, SMBH, AGN, and accretion discs
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/seminars/en/2013/08/29/steinhardt/" class="list-group-item">
+          <div class="media">
+            <img src="/assets/img/steinhardt.png" class="pull-left media-object" alt="Image" width="150px" height="150px">
+            <div class="media-body">
+              <h3 class="media-heading">Puzzling Features of Quasar Accretion</h3>
+              <h4 class="media-heading">Charles Steinhardt</h4>
+              <h5 class="media-heading">Kavli IPMU</h5>
+              
+              
+  
+  
+
+
+
+  
+
+
+  <p>The development of virial mass estimates for the central black hole using one quasar spectrum has allowed a dramatic improvement in our understanding of supermassive black hole evolution. I will describe several new puzzles arising from the combination of virial masses with luminosity and redshift measurements, many of which are...</p>
+
+
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+August 2013
+  
+
+
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 15 : 00 &nbsp;
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              quasars, SMBH, and AGN
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/seminars/en/2013/08/29/speagle/" class="list-group-item">
+          <div class="media">
+            <img src="/assets/img/no_thumb-m.png" class="pull-left media-object" alt="Image" width="150px" height="150px">
+            <div class="media-body">
+              <h3 class="media-heading">The Evolution of Star-Forming Galaxies Over Cosmic Time</h3>
+              <h4 class="media-heading">Josh Speagle</h4>
+              <h5 class="media-heading">Harvard University, Kavli IPMU</h5>
+              
+              
+  
+  
+
+
+
+  
+
+
+  <p>The assembly and evolution of galaxies over cosmic time is a complex process. Historically, galaxy evolution was thought to be governed by mainlystochastic, potentially divergent processes such as major mergers, whichwere linked to active galactic nuclei (AGN) activity and vigorous starformation followed by a rapid "quenching" process. In the last...</p>
+
+
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+August 2013
+  
+
+
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 16 : 20 &nbsp;
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              quasars, SMBH, and AGN
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/seminars/en/2013/08/29/khabiboulline/" class="list-group-item">
+          <div class="media">
+            <img src="/assets/img/no_thumb-m.png" class="pull-left media-object" alt="Image" width="150px" height="150px">
+            <div class="media-body">
+              <h3 class="media-heading">How Does Galaxy Environment Influence AGN Activity?</h3>
+              <h4 class="media-heading">Emil Khabiboulline</h4>
+              <h5 class="media-heading">Caltech, Kavli IPMU</h5>
+              
+              
+  
+  
+
+
+
+  
+
+
+  <p>The development of virial mass estimates for the central black hole using one quasar spectrum has allowed a dramatic improvement in our understanding of supermassive black hole evolution. I will describe several new puzzles arising from the combination of virial masses with luminosity and redshift measurements, many of which are...</p>
+
+
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+August 2013
+  
+
+
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 15 : 40 &nbsp;
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              quasars, SMBH, and AGN
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/seminars/en/2013/07/23/bicknell/" class="list-group-item">
+          <div class="media">
+            <img src="/assets/img/bicknell.png" class="pull-left media-object" alt="Image" width="150px" height="150px">
+            <div class="media-body">
+              <h3 class="media-heading">Relativistic Jets and Black Hole Accretion Disks</h3>
+              <h4 class="media-heading">Geoffrey Bicknell</h4>
+              <h5 class="media-heading">The Australian National University</h5>
+              
+              
+  
+  
+
+
+
+  
+
+
+  <p>Since about 2005 our group at the ANU, in collaboration with Alex Wagner, has been conducting fundamental research on the interaction of jets with the interstellar medium of evolving galaxies. One area of research involves the interaction of relativistic jets with an inhomogeneous interstellar medium consisting of dense clouds. This...</p>
+
+
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+
+
+July 2013
+  
+
+
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 14 : 00 &nbsp;
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              AGN, AGN feedback, AGN jets, SMBH, M-sigma relation, MHD, accretion discs, radio galaxies, and Hydra A
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+      </div> <!-- mix -->
+
+      <div class="list-group mix 1">
+
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/seminars/en/2014/02/20/burkert/" class="list-group-item">
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">Watching a Little Gas Cloud on its Way into the Galactic Supermassive Black Hole</h4>
+              <h5 class="media-heading"> (Ludwig Maximilians Universität München) </h5>
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+February 2014
+  
+
+
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 17 : 00 &nbsp; 
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              hydrodynamics, G2, clouds, Galactic center, SMBH, AGN, and accretion discs
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/seminars/en/2013/08/29/steinhardt/" class="list-group-item">
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">Puzzling Features of Quasar Accretion</h4>
+              <h5 class="media-heading"> (Kavli IPMU) </h5>
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+August 2013
+  
+
+
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 15 : 00 &nbsp; 
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              quasars, SMBH, and AGN
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/seminars/en/2013/08/29/speagle/" class="list-group-item">
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">The Evolution of Star-Forming Galaxies Over Cosmic Time</h4>
+              <h5 class="media-heading"> (Harvard University, Kavli IPMU) </h5>
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+August 2013
+  
+
+
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 16 : 20 &nbsp; 
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              quasars, SMBH, and AGN
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/seminars/en/2013/08/29/khabiboulline/" class="list-group-item">
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">How Does Galaxy Environment Influence AGN Activity?</h4>
+              <h5 class="media-heading"> (Caltech, Kavli IPMU) </h5>
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+August 2013
+  
+
+
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 15 : 40 &nbsp; 
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              quasars, SMBH, and AGN
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+
+        
+        <a href="/seminars/en/2013/07/23/bicknell/" class="list-group-item">
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">Relativistic Jets and Black Hole Accretion Disks</h4>
+              <h5 class="media-heading"> (The Australian National University) </h5>
+              <i class="fa fa-calendar"></i> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+
+
+July 2013
+  
+
+
+ &nbsp;
+              <i class="fa fa-clock-o"></i> 14 : 00 &nbsp; 
+              <i class="fa fa-tags"></i> &nbsp; 
+              
+              AGN, AGN feedback, AGN jets, SMBH, M-sigma relation, MHD, accretion discs, radio galaxies, and Hydra A
+              
+            </div>
+          </div>
+        </a>
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+
+        <!-- Test condition that this post is in the page's academic year -->
+        
+        
+        
+        
+        
+        
+      </div> <!-- mix -->
+
+      <div class="mix 4">
+        <ul>
+
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+
+          
+          <li><a href="/seminars/en/2014/02/20/burkert/">Watching a Little Gas Cloud on its Way into the Galactic Supermassive Black Hole</a>,
+          <i>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+February 2014
+  
+
+
+</i>, &nbsp;
+          17 : 00 &nbsp;  
+          </li>
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+
+          
+          <li><a href="/seminars/en/2013/08/29/steinhardt/">Puzzling Features of Quasar Accretion</a>,
+          <i>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+August 2013
+  
+
+
+</i>, &nbsp;
+          15 : 00 &nbsp;  
+          </li>
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+
+          
+          <li><a href="/seminars/en/2013/08/29/speagle/">The Evolution of Star-Forming Galaxies Over Cosmic Time</a>,
+          <i>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+August 2013
+  
+
+
+</i>, &nbsp;
+          16 : 20 &nbsp;  
+          </li>
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+
+          
+          <li><a href="/seminars/en/2013/08/29/khabiboulline/">How Does Galaxy Environment Influence AGN Activity?</a>,
+          <i>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+August 2013
+  
+
+
+</i>, &nbsp;
+          15 : 40 &nbsp;  
+          </li>
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+
+          
+          <li><a href="/seminars/en/2013/07/23/bicknell/">Relativistic Jets and Black Hole Accretion Disks</a>,
+          <i>
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+
+
+July 2013
+  
+
+
+</i>, &nbsp;
+          14 : 00 &nbsp;  
+          </li>
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+
+          <!-- Test condition that this post is in the page's academic year -->
+          
+          
+          
+          
+          
+          
+        </ul>
+      </div> <!-- mix -->
+
+
 
       
 
@@ -3419,7 +5005,7 @@ Apr 1997 ~ Mar 1998
           <a href="#" class="tag">LOFAR</a>
         
         
-          <a href="#" class="tag">Lyman Alpha Blob</a>
+          <a href="#" class="tag">Lyman Alpha Blobs</a>
         
         
           <a href="#" class="tag">M-sigma relation</a>

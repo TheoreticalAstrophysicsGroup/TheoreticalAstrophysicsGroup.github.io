@@ -1,0 +1,4 @@
+AuthType Basic  
+AuthName "restricted area"  
+AuthUserFile /Users/ayw/TheoreticalAstrophysicsGroup-webpage/.htpasswd
+require valid-user
