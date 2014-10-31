@@ -89,8 +89,8 @@ for day in yd["program"]:
                 '\\item[',
                 contrib["from"], ' -- ' + contrib["to"] if contrib.has_key("to") else "",
                 ']',
-                ' {\\color{Periwinkle}' + contrib["speaker"].encode('utf8') + '}' if contrib.has_key("speaker") else "",
-                ' {\\color{Periwinkle}({\\footnotesize ' + contrib["affil"].encode('utf8') + '})}' if contrib.has_key("affil") else "",
+                ' {\\color{MidnightBlue}' + contrib["speaker"].encode('utf8') + '}' if contrib.has_key("speaker") else "",
+                ' {\\color{MidnightBlue}({\\footnotesize ' + contrib["affil"].encode('utf8') + '})}' if contrib.has_key("affil") else "",
                 ' ' + contrib["title"].encode('utf8') + '',
                 '\n'
             ])
