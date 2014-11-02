@@ -59,6 +59,20 @@ layout: default
         <img src="{{ site.baseurl }}{{ la.img }}/{{ page.img[0] }}" class="img-responsive" alt="Image">
         {% endif %}
 
+
+        {% if page.photos %}
+        <h3 id="photos"> {{ tsl.photos }} </h3>
+        <div id="Grid" class="row">
+          {% for photo in page.photos %}
+          <div class="col-sm-6 col-lg-3 col-md-4">
+            <a href="{{ site.baseurl }}{{ la.img }}/{{ photo.img }}" class="thumbnail margin-bottom-20" data-lightbox="w1" title="{{ photo.caption }}">
+              <img src="{{ site.baseurl }}{{ la.img }}/{{ photo.img }}" class="img-responsive" alt="Image">
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+
       </section>
 
     </div>

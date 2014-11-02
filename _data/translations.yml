@@ -495,6 +495,7 @@ uchu_forum: # Make these the same as categories naming below?
     about_speaker: 発表者に就いて
     about_header: 宇宙フォーラムに就いて
     pdf_download: 発表スライドPDFダウンロード
+    photos: アルバム
   en:
     count_pre: ""
     count_aft: " Uchu Forum"
@@ -506,6 +507,7 @@ uchu_forum: # Make these the same as categories naming below?
     about_speaker: About the Speaker
     about_header: About the Uchu Forum
     pdf_download: Download talk slides as PDF
+    photos: Photo Album
 
 seminars:
   ja:
@@ -519,6 +521,7 @@ seminars:
     about_speaker: 発表者に就いて
     about_header: セミナーに就いて
     pdf_download: 発表スライドPDFダウンロード
+    photos: アルバム
   en:
     count_pre: ""
     count_aft: " Seminar"
@@ -530,6 +533,7 @@ seminars:
     about_speaker: About the Speaker
     about_header: About the Seminars
     pdf_download: Download talk slides as PDF
+    photos: Photo Album
 
 conferences:
   ja:
