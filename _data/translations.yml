@@ -551,6 +551,9 @@ conferences:
     full_part: 全参加者一覧
     program: プログラム
     dinner: 懇親会
+    lunch: 昼食
+    lunch_info_web: 昼食情報（ウェブ）
+    lunch_info_pdf: 昼食情報（PDFダウンロード）
     upload: アップロード
     photos: アルバム
     local: 現地の情報
@@ -585,6 +588,9 @@ conferences:
     full_part: Full list of participants
     program: Program
     dinner: Conference Dinner
+    lunch: Lunch
+    lunch_info_web: Lunch information (Web)
+    lunch_info_pdf: Lunch information (PDF download)
     upload: Upload
     photos: Photo Album
     local: Local Information
