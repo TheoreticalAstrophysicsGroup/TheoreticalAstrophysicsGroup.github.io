@@ -209,6 +209,9 @@ layout: default
         </div>
         {% endfor %}
       </div>
+      {% if page.photos_zip %}
+      <p><a href="{{ site.baseurl }}{{ la.img }}/{{ page.photos_zip }}" target="_blank">{{ tcl.photos_zip }}</a></p>
+      {% endif %}
       {% endif %}
 
       {% if page.refs %}

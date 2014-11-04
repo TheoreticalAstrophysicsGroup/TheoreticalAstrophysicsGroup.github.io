@@ -496,6 +496,7 @@ uchu_forum: # Make these the same as categories naming below?
     about_header: 宇宙フォーラムに就いて
     pdf_download: 発表スライドPDFダウンロード
     photos: アルバム
+    photos_zip: 全写真ハイレズ (zip)
   en:
     count_pre: ""
     count_aft: " Uchu Forum"
@@ -508,6 +509,7 @@ uchu_forum: # Make these the same as categories naming below?
     about_header: About the Uchu Forum
     pdf_download: Download talk slides as PDF
     photos: Photo Album
+    photos_zip: Download all photos at high res (zip)
 
 seminars:
   ja:
@@ -522,6 +524,7 @@ seminars:
     about_header: セミナーに就いて
     pdf_download: 発表スライドPDFダウンロード
     photos: アルバム
+    photos_zip: 全写真ハイレズ (zip)
   en:
     count_pre: ""
     count_aft: " Seminar"
@@ -534,6 +537,7 @@ seminars:
     about_header: About the Seminars
     pdf_download: Download talk slides as PDF
     photos: Photo Album
+    photos_zip: Download all photos at high res (zip)
 
 conferences:
   ja:
@@ -556,6 +560,7 @@ conferences:
     lunch_info_pdf: 昼食情報（PDFダウンロード）
     upload: アップロード
     photos: アルバム
+    photos_zip: 全写真ハイレズ (zip)
     local: 現地の情報
     events: イベント
     refs: 参考リンク
@@ -593,6 +598,7 @@ conferences:
     lunch_info_pdf: Lunch information (PDF download)
     upload: Upload
     photos: Photo Album
+    photos_zip: Download all photos at high res (zip)
     local: Local Information
     events: Recreational Events
     refs: Reference links
