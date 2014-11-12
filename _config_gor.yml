@@ -7,7 +7,7 @@ description: "Theoretical Astrophysics Group, Center for Computational Sciences,
 # No need for user/organization github pages, and localhost,
 # but deployment on organization server requires
 # subdirectory "/Astro"
-#baseurl:
+baseurl: /Astro
 url: http://gorilla.ccs.tsukuba.ac.jp
 host: gorilla.ccs.tsukuba.ac.jp
 
@@ -16,7 +16,7 @@ timezone: Asia/Tokyo
 # Build settings
 markdown: kramdown
 permalink: pretty
-destination: ./..
+destination: ../Astro
 
 # Exclude
 exclude: 
