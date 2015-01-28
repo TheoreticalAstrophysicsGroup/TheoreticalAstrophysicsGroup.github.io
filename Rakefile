@@ -126,7 +126,7 @@ namespace :site do
 
     # Generate and check the site.
     sh "bundle exec jekyll build --future --limit_posts #{POSTLIMIT} --config _config_ccs.yml"
-    HTML::Proofer.new("CONFIG['destination_ccs']").run
+    HTML::Proofer.new(CONFIG["destination_ccs"]).run
 
   end
 
@@ -135,7 +135,7 @@ namespace :site do
 
     # Generate and check the site. baseurl must be empty. 
     sh "bundle exec jekyll build --future --limit_posts #{POSTLIMIT} --config _config_gh.yml"
-    HTML::Proofer.new("CONFIG['destination_gh']").run
+    HTML::Proofer.new(CONFIG["destination_gh"]).run
 
   end
 

@@ -1,16 +1,22 @@
 language: ruby
+
+# The first three options (rvm, env, and gemfile)
+# create the build matrix.
 rvm:
   - 2.1.1
 
-matrix:
-  include:
-    - env: PREP_TARGET=prep_ccs DEPLOY_TARGET=deploy_ccs PUSH_TARGET=push_ccs 
-    - env: PREP_TARGET=prep_gh  DEPLOY_TARGET=deploy_gh  PUSH_TARGET=push_gh 
+env:
+  - PREP_TARGET=prep_ccs DEPLOY_TARGET=deploy_ccs PUSH_TARGET=push_ccs 
+  - PREP_TARGET=prep_gh  DEPLOY_TARGET=deploy_gh  PUSH_TARGET=push_gh 
+
+gemfile:
+  - Gemfile
+
 
 bundler_args: --retry 3
 
 install:
-  # Install Jekyll and dependencies. Nokogiri for html-proofer.
+  # Install Jekyll and dependencies.
   - bundle config build.nokogiri --use-system-libraries
   - bundle install
 
