@@ -5,8 +5,9 @@ language: ruby
 rvm:
   - 2.1.1
 env:
-  - PREP_TARGET=prep_ccs DEPLOY_TARGET=deploy_ccs PUSH_TARGET=push_ccs 
-  - PREP_TARGET=prep_gh  DEPLOY_TARGET=deploy_gh  PUSH_TARGET=push_gh 
+  matrix:
+    - PREP_TARGET=prep_ccs DEPLOY_TARGET=deploy_ccs PUSH_TARGET=push_ccs 
+    - PREP_TARGET=prep_gh  DEPLOY_TARGET=deploy_gh  PUSH_TARGET=push_gh 
 gemfile:
   - Gemfile
 
