@@ -33,8 +33,6 @@ We wish to sort by date and group by tags-->
       {% assign all_posts = site.categories['seminars'] | where: 'lang', page.lang %}
       {% assign all_posts_grouped = all_posts | group_by: 'date' %}
       {% assign nsem = all_posts_grouped | size %}
-      {% assign d_prev = 0 %}
-      {% assign npost = nsem | plus: 1 %}
 
       <!-- Academic year range -->
       <!-- Puts yearbegin and yearend, the begin and end years 
@@ -57,7 +55,12 @@ We wish to sort by date and group by tags-->
       <!-- Loop over posts -->
       <div class="mix {{ mix1 }}">
 
+        <!-- Initialise some counters -->
         {% assign nposts = 0 %}
+        {% assign d_prev = 0 %}
+        {% assign npost = nsem | plus: 1 %}
+
+        <!-- Loop over all posts -->
         {% for post in all_posts %}
 
         <!-- Update post count -->
@@ -134,8 +137,20 @@ We wish to sort by date and group by tags-->
       <!-- Loop over posts -->
       <div class="list-group mix {{ mix2 }}">
 
+        <!-- Initialise some counters -->
         {% assign nposts = 0 %}
+        {% assign d_prev = 0 %}
+        {% assign npost = nsem | plus: 1 %}
+
+        <!-- Loop over all posts -->
         {% for post in all_posts %}
+
+        <!-- Update post count -->
+        {% assign d = post.date | date: "%Y-%m-%d" %}
+        {% unless d == d_prev %} 
+          {% assign d_prev = d %}
+          {% assign npost = npost | minus: 1 %}
+        {% endunless %}
 
         <!-- Test condition that this post is in the page's academic year -->
         {% assign unixdate = post.date | date: "%s"| times: 1 %}
@@ -146,10 +161,16 @@ We wish to sort by date and group by tags-->
         {% endif %}
         {% if in_time_interval and nposts < posts_per_page1 %}
 
+        <!-- This creates an lang_count variable into the namespace -->
+        {% include lang_count.html number=npost %}
+
         {% assign posturl = post.url | prepend: site.baseurl %}
         <a href="{{ posturl }}" class="list-group-item">
           <div class="media">
-            {% if post.img_thumb %}<img src="{{ site.baseurl }}{{ la.img }}/{{ post.img_thumb }}" class="pull-left media-object" alt="Image" width="150px" height="150px">{% endif %}
+            <span class="pull-left">
+              <span class="badge">{{ tsl.count_pre }}{{ npost }}<sup>{{ lang_count }}</sup>{{ tsl.count_aft }}{% if post.part %}{{ open_surround }}{{ tsl.part }}{{ post.part }}{{ close_surround }}{% endif %}</span><br /><br />
+            {% if post.img_thumb %}<img src="{{ site.baseurl }}{{ la.img }}/{{ post.img_thumb }}" class="pull-left media-object" alt="Image" width="150px" height="150px">{% endif %}</span>
+
             <div class="media-body">
               <h3 class="media-heading">{{ post.title }}</h3>
               <h4 class="media-heading">{{ post.speaker }}</h4>
@@ -176,8 +197,20 @@ We wish to sort by date and group by tags-->
 
       <div class="list-group mix {{ mix3 }}">
 
+        <!-- Initialise some counters -->
         {% assign nposts = 0 %}
+        {% assign d_prev = 0 %}
+        {% assign npost = nsem | plus: 1 %}
+
+        <!-- Loop over all posts -->
         {% for post in all_posts %}
+
+        <!-- Update post count -->
+        {% assign d = post.date | date: "%Y-%m-%d" %}
+        {% unless d == d_prev %} 
+          {% assign d_prev = d %}
+          {% assign npost = npost | minus: 1 %}
+        {% endunless %}
 
         <!-- Test condition that this post is in the page's academic year -->
         {% assign unixdate = post.date | date: "%s"| times: 1 %}
@@ -188,12 +221,15 @@ We wish to sort by date and group by tags-->
         {% endif %}
         {% if in_time_interval and nposts < posts_per_page3 %}
 
+        <!-- This creates an lang_count variable into the namespace -->
+        {% include lang_count.html number=npost %}
+
         {% assign posturl = post.url | prepend: site.baseurl %}
         <a href="{{ posturl }}" class="list-group-item">
           <div class="media">
             <div class="media-body">
-              <h4 class="media-heading">{{ post.title }}</h4>
-              <h5 class="media-heading">{{ post.author }}{{ open_surround }}{{ post.affil }}{{ close_surround }}</h5>
+              <h4 class="media-heading"><span class="badge pull-right">{{ tsl.count_pre }}{{ npost }}<sup>{{ lang_count }}</sup>{{ tsl.count_aft }}{% if post.part %}{{ open_surround }}{{ tsl.part }}{{ post.part }}{{ close_surround }}{% endif %}</span> {{ post.title }} </h4>
+              <h5 class="media-heading">{{ post.speaker }}{{ open_surround }}{{ post.affil }}{{ close_surround }}</h5>
               <i class="fa fa-calendar"></i> {% include date.html d=post.date l='t' %} &nbsp;
               <i class="fa fa-clock-o"></i> {{ post.time | replace: ':',' : ' }} &nbsp; 
               <i class="fa fa-tags"></i> &nbsp; 
@@ -213,10 +249,22 @@ We wish to sort by date and group by tags-->
       </div> <!-- mix -->
 
       <div class="mix {{ mix4 }}">
-        <ul>
+        <ol reversed>
 
+          <!-- Initialise some counters -->
           {% assign nposts = 0 %}
+          {% assign d_prev = 0 %}
+          {% assign npost = nsem | plus: 1 %}
+
+          <!-- Loop over all posts -->
           {% for post in all_posts %}
+
+          <!-- Update post count -->
+          {% assign d = post.date | date: "%Y-%m-%d" %}
+          {% unless d == d_prev %} 
+            {% assign d_prev = d %}
+            {% assign npost = npost | minus: 1 %}
+          {% endunless %}
 
           <!-- Test condition that this post is in the page's academic year -->
           {% assign unixdate = post.date | date: "%s"| times: 1 %}
@@ -229,13 +277,13 @@ We wish to sort by date and group by tags-->
 
           {% assign posturl = post.url | prepend: site.baseurl %}
           <li><a href="{{ posturl }}">{{ post.title }}</a>,
-          <i>{% include date.html d=post.date l='t' %}</i>, &nbsp;
-          {{ post.time | replace: ':',' : ' }} &nbsp;  
+          {{ post.speaker }}{{ open_surround }}{{ post.affil }}{{ close_surround }} &nbsp;
+          <i>{% include date.html d=post.date l='t' %}</i> &nbsp;
           </li>
           {% assign nposts = nposts | plus: 1 %}
           {% endif %}
           {% endfor %}
-        </ul>
+        </ol>
       </div> <!-- mix -->
 
 

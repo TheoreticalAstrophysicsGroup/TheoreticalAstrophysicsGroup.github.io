@@ -79,4 +79,7 @@ defaults:
     values:
       layout: single_member
 
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
 
