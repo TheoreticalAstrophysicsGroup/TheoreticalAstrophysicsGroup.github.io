@@ -13,7 +13,7 @@
       {% if page.host %}<li class="fali"> <i class="fa-li fa fa-paw"></i> {{ tsl.host }} : {{ page.host }}</li>{% endif %}
       {% if page.webpage %}<li class="fali"> <i class="fa-li fa fa-graduation-cap"></i><a href="{{ page.webpage }}" target="_blank">{{ tsl.about_speaker }}</a> <font size="1"><i class="fa fa-external-link"></i></font></li>{% endif %}
       <li class="fali"> <i class="fa-li fa fa-location-arrow"></i> <a href="{{ lel.access }}" target="_blank">{{ tsl.access }}</a> <font size="1"><i class="fa fa-external-link"></i></font></li>
-      <li class="fali"> <i class="fa-li fa fa-file-pdf-o"></i> <a href="{{ site.baseurl }}{{ la.doc }}/{{ page.pdf }}">{{ tpl.pdf_download }}</a></li>
+      {% if page.pdf %}<li class="fali"> <i class="fa-li fa fa-file-pdf-o"></i> <a href="{{ site.baseurl }}{{ la.doc }}/{{ page.pdf }}">{{ tpl.pdf_download }}</a></li>{% endif %}
     </ul>
   </div>
 </div>
