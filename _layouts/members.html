@@ -28,8 +28,8 @@ layout: default
         <tbody>
           {% for m in page.members %}
           {% if m.loc == "kobe" %} {% assign ext_symb = "†"%}
-          {% elsif m.loc == "icrr" %} {% assign ext_symb = "††"%}
-          {% elsif m.loc == "munich" %} {% assign ext_symb = "★"%}
+          <!--{% elsif m.loc == "icrr" %} {% assign ext_symb = "††"%}-->
+          <!--{% elsif m.loc == "munich" %} {% assign ext_symb = "★"%}-->
           {% else %} {% assign ext_symb = "" %}
           {% endif %}
           <tr>
@@ -43,8 +43,8 @@ layout: default
         </tbody>
       </table>
       <p><sup>†</sup>{{ tml.loc_kobe }}</p>
-      <p><sup>††</sup>{{ tml.loc_icrr }}</p>
-      <p><sup>★</sup>{{ tml.loc_munich }}</p>
+      <!--<p><sup>††</sup>{{ tml.loc_icrr }}</p>-->
+      <!--<p><sup>★</sup>{{ tml.loc_munich }}</p>-->
       <br/>
 
       {{ content }}
