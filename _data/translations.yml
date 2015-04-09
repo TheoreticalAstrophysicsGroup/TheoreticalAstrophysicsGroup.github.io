@@ -496,6 +496,7 @@ uchu_forum: # Make these the same as categories naming below?
     about_speaker: 発表者に就いて
     about_header: 宇宙フォーラムに就いて
     pdf_download: 発表スライドPDFダウンロード
+    pdf_ccswiki: 内部用ウィキ
     photos: アルバム
     photos_zip: 全写真ハイレズ (zip)
   en:
@@ -509,6 +510,7 @@ uchu_forum: # Make these the same as categories naming below?
     about_speaker: About the Speaker
     about_header: About the Uchu Forum
     pdf_download: Download talk slides as PDF
+    pdf_ccswiki: Internal Wiki
     photos: Photo Album
     photos_zip: Download all photos at high res (zip)
 
@@ -524,6 +526,7 @@ seminars:
     about_speaker: 発表者に就いて
     about_header: セミナーに就いて
     pdf_download: 発表スライドPDFダウンロード
+    pdf_ccswiki: 内部用ウィキ
     photos: アルバム
     photos_zip: 全写真ハイレズ (zip)
   en:
@@ -537,6 +540,7 @@ seminars:
     about_speaker: About the Speaker
     about_header: About the Seminars
     pdf_download: Download talk slides as PDF
+    pdf_ccswiki: Internal Wiki
     photos: Photo Album
     photos_zip: Download all photos at high res (zip)
 
