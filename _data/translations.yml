@@ -262,7 +262,7 @@ members:
     name: <i class="fa fa-user"></i> 氏名
     level: <i class="fa fa-graduation-cap"></i> 職/学年
     tel: <i class="fa fa-phone"></i> 029-853-<i class="fa fa-tablet"></i><i class="fa fa-tablet"></i><i class="fa fa-tablet"></i><i class="fa fa-tablet"></i>
-    email: <i class="fa fa-envelope-o"></i> @ccs.tsukuba.ac.jp
+    email: <i class="fa fa-envelope-o"></i> <i class="fa fa-at"></i> ccs.tsukuba.ac.jp
     research: <i class="fa fa-rocket"></i> 主な研究テーマ
     loc: 勤務
     loc_kobe: 筑波大学 計算科学研究センター 神戸分室
