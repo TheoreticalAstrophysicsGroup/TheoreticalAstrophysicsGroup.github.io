@@ -12,8 +12,8 @@ require 'yaml'
 
 # Some basic Config and encrypted variables
 CONFIG = YAML.load(File.read('_config.yml'))
-POSTLIMIT = CONFIG["post_limit"] 
-ORGNAME = CONFIG["orgname"]
+POSTLIMIT = CONFIG['post_limit'] 
+ORGNAME = CONFIG['orgname']
 REPO = "#{ORGNAME}.github.io"
 GITEMAIL = ENV['GIT_MAIL']
 USERNAME = ENV['GIT_NAME']
@@ -32,14 +32,14 @@ DESTINATION_BRANCH_GH = "master"
 #############################################################################
 
 def check_destination_ccs
-  unless Dir.exist? CONFIG["destination_ccs"]
-    sh "git clone https://#{USERNAME}:#{ENV['GH_TOKEN']}@github.com/#{ORGNAME}/#{REPO}.git #{ENV['TRAVIS_BUILD_DIR']}/#{CONFIG["destination_ccs"]}"
+  unless Dir.exist? CONFIG['destination_ccs']
+    sh "git clone https://#{USERNAME}:#{ENV['GH_TOKEN']}@github.com/#{ORGNAME}/#{REPO}.git #{ENV['TRAVIS_BUILD_DIR']}/#{CONFIG['destination_ccs']}"
   end
 end
 
 def check_destination_gh
-  unless Dir.exist? CONFIG["destination_gh"]
-    sh "git clone https://#{USERNAME}:#{ENV['GH_TOKEN']}@github.com/#{ORGNAME}/#{REPO}.git #{CONFIG["destination_gh"]}"
+  unless Dir.exist? CONFIG['destination_gh']
+    sh "git clone https://#{USERNAME}:#{ENV['GH_TOKEN']}@github.com/#{ORGNAME}/#{REPO}.git #{CONFIG['destination_gh']}"
   end
 end
 
@@ -81,7 +81,7 @@ namespace :site do
     end
 
     # Configure git if this is run in Travis CI
-    if ENV["TRAVIS"]
+    if ENV['TRAVIS']
       sh "git config --global user.name '#{USERNAME}'"
       sh "git config --global user.email '#{GITEMAIL}'"
       sh "git config --global push.default simple"
@@ -93,7 +93,7 @@ namespace :site do
 
     # CCS
     check_destination_ccs
-    Dir.chdir(ENV['TRAVIS_BUILD_DIR']/CONFIG["destination_ccs"]) { sh "git checkout #{DESTINATION_BRANCH_CCS}" }
+    Dir.chdir("#{ENV['TRAVIS_BUILD_DIR']}/#{CONFIG['destination_ccs']}") { sh "git checkout #{DESTINATION_BRANCH_CCS}" }
 
   end
 
@@ -107,7 +107,7 @@ namespace :site do
     #end
 
     # Configure git if this is run in Travis CI
-    if ENV["TRAVIS"]
+    if ENV['TRAVIS']
       sh "git config --global user.name '#{USERNAME}'"
       sh "git config --global user.email '#{GITEMAIL}'"
       sh "git config --global push.default simple"
@@ -116,7 +116,7 @@ namespace :site do
 
     # Github
     check_destination_gh
-    Dir.chdir(CONFIG["destination_gh"]) { sh "git checkout #{DESTINATION_BRANCH_GH}" }
+    Dir.chdir(CONFIG['destination_gh']) { sh "git checkout #{DESTINATION_BRANCH_GH}" }
 
   end
 
@@ -125,7 +125,7 @@ namespace :site do
 
     # Generate and check the site.
     sh "bundle exec jekyll build --future --limit_posts #{POSTLIMIT} --config _config_ccs.yml"
-    #HTML::Proofer.new(ENV['TRAVIS_BUILD_DIR']/CONFIG["destination_ccs"]).run
+    #HTML::Proofer.new("#{ENV['TRAVIS_BUILD_DIR']}/#{CONFIG['destination_ccs']}").run
 
   end
 
@@ -134,7 +134,7 @@ namespace :site do
 
     # Generate and check the site. baseurl must be empty. 
     sh "bundle exec jekyll build --future --limit_posts #{POSTLIMIT} --config _config_gh.yml"
-    #HTML::Proofer.new(CONFIG["destination_gh"]).run
+    #HTML::Proofer.new(CONFIG['destination_gh']).run
 
   end
 
@@ -143,7 +143,7 @@ namespace :site do
 
     # CCS
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
-    Dir.chdir(ENV['TRAVIS_BUILD_DIR']/CONFIG["destination_ccs"]) do
+    Dir.chdir("#{ENV['TRAVIS_BUILD_DIR']}/#{CONFIG['destination_ccs']}") do
       sh "git add --all ."
       sh "git commit -m 'Updating to #{ORGNAME}/#{REPO}@#{sha}.'"
       sh "git push -u --quiet origin #{DESTINATION_BRANCH_CCS}"
@@ -157,7 +157,7 @@ namespace :site do
 
     # Github
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
-    Dir.chdir(CONFIG["destination_gh"]) do
+    Dir.chdir(CONFIG['destination_gh']) do
       sh "git add --all ."
       sh "git commit -m 'Updating to #{ORGNAME}/#{REPO}@#{sha}.'"
       sh "git push -u --quiet origin #{DESTINATION_BRANCH_GH}"

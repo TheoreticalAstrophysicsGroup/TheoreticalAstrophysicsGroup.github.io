@@ -1,5 +1,8 @@
 language: ruby
 
+# So as to use container-based infrastructure 
+sudo: false
+
 # The first three options (rvm, env, and gemfile)
 # create the build matrix.
 matrix:
