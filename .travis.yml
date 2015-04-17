@@ -10,9 +10,9 @@ matrix:
     - rvm: 2.1.1
       gemfile: Gemfile
       env: PREP_TARGET=prep_ccs DEPLOY_TARGET=deploy_ccs PUSH_TARGET=push_ccs 
-#    - rvm: 2.1.1
-#      gemfile: Gemfile
-#      env: PREP_TARGET=prep_gh  DEPLOY_TARGET=deploy_gh  PUSH_TARGET=push_gh 
+    - rvm: 2.1.1
+      gemfile: Gemfile
+      env: PREP_TARGET=prep_gh  DEPLOY_TARGET=deploy_gh  PUSH_TARGET=push_gh 
 
 
 bundler_args: --retry 3

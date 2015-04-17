@@ -39,7 +39,7 @@ end
 
 def check_destination_gh
   unless Dir.exist? CONFIG['destination_gh']
-    sh "git clone https://#{USERNAME}:#{ENV['GH_TOKEN']}@github.com/#{ORGNAME}/#{REPO}.git #{CONFIG['destination_gh']}"
+    sh "git clone https://#{USERNAME}:#{ENV['GH_TOKEN']}@github.com/#{ORGNAME}/#{REPO}.git #{ENV['TRAVIS_BUILD_DIR']}/#{CONFIG['destination_gh']}"
   end
 end
 
@@ -116,7 +116,7 @@ namespace :site do
 
     # Github
     check_destination_gh
-    Dir.chdir(CONFIG['destination_gh']) { sh "git checkout #{DESTINATION_BRANCH_GH}" }
+    Dir.chdir("#{ENV['TRAVIS_BUILD_DIR']}/#{CONFIG['destination_gh']}") { sh "git checkout #{DESTINATION_BRANCH_GH}" }
 
   end
 
@@ -134,7 +134,7 @@ namespace :site do
 
     # Generate and check the site. baseurl must be empty. 
     sh "bundle exec jekyll build --future --limit_posts #{POSTLIMIT} --config _config_gh.yml"
-    #HTML::Proofer.new(CONFIG['destination_gh']).run
+    #HTML::Proofer.new("#{ENV['TRAVIS_BUILD_DIR']}/#{CONFIG['destination_gh']}").run
 
   end
 
@@ -157,7 +157,7 @@ namespace :site do
 
     # Github
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
-    Dir.chdir(CONFIG['destination_gh']) do
+    Dir.chdir("#{ENV['TRAVIS_BUILD_DIR']}/#{CONFIG['destination_gh']}") do
       sh "git add --all ."
       sh "git commit -m 'Updating to #{ORGNAME}/#{REPO}@#{sha}.'"
       sh "git push -u --quiet origin #{DESTINATION_BRANCH_GH}"
