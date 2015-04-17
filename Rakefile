@@ -33,7 +33,7 @@ DESTINATION_BRANCH_GH = "master"
 
 def check_destination_ccs
   unless Dir.exist? CONFIG["destination_ccs"]
-    sh "git clone https://#{USERNAME}:#{ENV['GH_TOKEN']}@github.com/#{ORGNAME}/#{REPO}.git #{CONFIG["destination_ccs"]}"
+    sh "git clone https://#{USERNAME}:#{ENV['GH_TOKEN']}@github.com/#{ORGNAME}/#{REPO}.git #{ENV['TRAVIS_BUILD_DIR']}/#{CONFIG["destination_ccs"]}"
   end
 end
 
@@ -93,7 +93,7 @@ namespace :site do
 
     # CCS
     check_destination_ccs
-    Dir.chdir(CONFIG["destination_ccs"]) { sh "git checkout #{DESTINATION_BRANCH_CCS}" }
+    Dir.chdir(ENV['TRAVIS_BUILD_DIR']/CONFIG["destination_ccs"]) { sh "git checkout #{DESTINATION_BRANCH_CCS}" }
 
   end
 
@@ -101,10 +101,10 @@ namespace :site do
   task :prep_gh do
 
     # Detect pull request
-    if ENV['TRAVIS_PULL_REQUEST'].to_s.to_i > 0
-      puts 'Pull request detected. Not proceeding with deploy.'
-      exit
-    end
+    #if ENV['TRAVIS_PULL_REQUEST'].to_s.to_i > 0
+    #  puts 'Pull request detected. Not proceeding with deploy.'
+    #  exit
+    #end
 
     # Configure git if this is run in Travis CI
     if ENV["TRAVIS"]
@@ -125,7 +125,7 @@ namespace :site do
 
     # Generate and check the site.
     sh "bundle exec jekyll build --future --limit_posts #{POSTLIMIT} --config _config_ccs.yml"
-    #HTML::Proofer.new(CONFIG["destination_ccs"]).run
+    #HTML::Proofer.new(ENV['TRAVIS_BUILD_DIR']/CONFIG["destination_ccs"]).run
 
   end
 
@@ -143,7 +143,7 @@ namespace :site do
 
     # CCS
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
-    Dir.chdir(CONFIG["destination_ccs"]) do
+    Dir.chdir(ENV['TRAVIS_BUILD_DIR']/CONFIG["destination_ccs"]) do
       sh "git add --all ."
       sh "git commit -m 'Updating to #{ORGNAME}/#{REPO}@#{sha}.'"
       sh "git push -u --quiet origin #{DESTINATION_BRANCH_CCS}"
