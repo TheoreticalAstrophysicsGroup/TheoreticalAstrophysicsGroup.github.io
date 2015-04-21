@@ -92,3 +92,24 @@
         SyntaxHighlighter.all()
     </script>
 
+    <!-- Tipue search (www.tipue.com) -->
+    {% if page.url contains "search" %}
+    <script>
+      $(document).ready(function() {
+        $('#tipue_search_input').tipuesearch({
+          'mode': 'static',
+          'show': 100,
+          'newWindow': false,
+          'showURL': true,
+          'showTitleCount': true,
+          'minimumLength': 3,
+          'descriptiveWords': 25,
+          'highlightTerms': true,
+          'highlightEveryTerm': false,
+          'contentLocation': '{{ site.baseurl }}{{ la.tipuesearch }}/tipuesearch_content.js',
+          'debug': true
+        });
+      });
+    </script>
+    {% endif %}
+

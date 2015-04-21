@@ -42,10 +42,14 @@
 
                 <div id="search-header" class="{{ hl }} animated fadeInRight">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="{{ thl.search }}">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-                            </span>
+
+                      <!-- Tipue search (www.tipue.com) -->
+                      <form action="{{ site.baseurl }}/search/{{ page.lang }}/">
+                        <input type="text" class="form-control" name="q" id="tipue_search_input" placeholder="{{ thl.search }}" autocomplete="off" required>
+                      </form>
+
+                          <!-- <span class="input-group-btn"> <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button> </span> -->
+
                     </div><!-- /input-group -->
                 </div>
             </div> <!-- container -->
