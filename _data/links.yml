@@ -73,6 +73,7 @@ assets:
   js: /assets/js
   fonts: /assets/fonts
   doc: /assets/doc
+  tipuesearch: /assets/tipuesearch
 
 
 # Nav links

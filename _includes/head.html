@@ -32,6 +32,16 @@
   </script>
   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
+
+  <!-- Tipue search (www.tipue.com) -->
+  <link href=" {{ site.baseurl }}{{ la.tipuesearch }}/tipuesearch.css" rel="stylesheet">
+  {% if page.url contains "search" %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="{{ site.baseurl }}{{ la.tipuesearch }}/tipuesearch_content.js"></script>
+  <script src="{{ site.baseurl }}{{ la.tipuesearch }}/tipuesearch_set.js"></script>
+  <script src="{{ site.baseurl }}{{ la.tipuesearch }}/tipuesearch.min.js"></script>
+  {% endif %}
+
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
   <script src="{{ site.baseurl }}{{ la.js }}/html5shiv.js"></script>
