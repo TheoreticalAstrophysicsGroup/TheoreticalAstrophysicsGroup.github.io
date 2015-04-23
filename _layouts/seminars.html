@@ -12,304 +12,304 @@ layout: default
 {% include page_header.html title=tcll.seminars %}
 
 <!-- AYW 2014-07-04 13:32 JST
-We wish to sort by date and group by tags-->
+  We wish to sort by date and group by tags-->
 
 
-<div class="container">
-  <div class="row">
+  <div class="container">
+    <div class="row">
 
-    <div class="col-md-4 hidden-md hidden-lg">
-      <aside class="sidebar">
+      <div class="col-md-4 hidden-md hidden-lg">
+        <aside class="sidebar">
 
-      {% include aside_about.html a=content t=tsl.about_header %}
-      {% include aside_nav.html %}
+          {% include aside_about.html a=content t=tsl.about_header %}
+          {% include aside_nav.html %}
 
-      </aside> <!-- Sidebar -->
-    </div> 
+        </aside> <!-- Sidebar -->
+      </div> 
 
-    <div class="col-md-8" id="Grid">
+      <div class="col-md-8" id="Grid">
 
-      <!-- Get post number by comparing dates -->
-      {% assign all_posts = site.categories['seminars'] | where: 'lang', page.lang %}
-      {% assign all_posts_grouped = all_posts | group_by: 'date' %}
-      {% assign nsem = all_posts_grouped | size %}
+        <!-- Get post number by comparing dates -->
+        {% assign all_posts = site.categories['seminars'] | where: 'lang', page.lang %}
+        {% assign all_posts_grouped = all_posts | group_by: 'date' %}
+        {% assign nsem = all_posts_grouped | size %}
 
-      <!-- Academic year range -->
-      <!-- Puts yearbegin and yearend, the begin and end years 
-      of the academic years into namespace -->
-      {% include academic_year_range.html %}
+        <!-- Academic year range -->
+        <!-- Puts yearbegin and yearend, the begin and end years 
+          of the academic years into namespace -->
+          {% include academic_year_range.html %}
 
-      <!-- Limit number of posts -->
-      <!-- Puts posts_per_page1,2,3,4 into namespace 
-      depending on the type of page -->
-      {% include npost_limits.html %}
+          <!-- Limit number of posts -->
+          <!-- Puts posts_per_page1,2,3,4 into namespace 
+            depending on the type of page -->
+            {% include npost_limits.html %}
 
-      <!-- Change preferred view according to page type -->
-      <!-- Puts mix1, mix2, mix3, and mix4 into namespace -->
-      {% include mixorder.html %}
+            <!-- Change preferred view according to page type -->
+            <!-- Puts mix1, mix2, mix3, and mix4 into namespace -->
+            {% include mixorder.html %}
 
-      <!-- Language dependent surrounds -->
-      <!-- This creates open_surround and close_surround variables into the namespace -->
-      {% include lang_surround.html shape='round' %}
+            <!-- Language dependent surrounds -->
+            <!-- This creates open_surround and close_surround variables into the namespace -->
+            {% include lang_surround.html shape='round' %}
 
-      <!-- Loop over posts -->
-      <div class="mix {{ mix1 }}">
+            <!-- Loop over posts -->
+            <div class="mix {{ mix1 }}">
 
-        <!-- Initialise some counters -->
-        {% assign nposts = 0 %}
-        {% assign d_prev = 0 %}
-        {% assign npost = nsem | plus: 1 %}
+              <!-- Initialise some counters -->
+              {% assign nposts = 0 %}
+              {% assign d_prev = 0 %}
+              {% assign npost = nsem | plus: 1 %}
 
-        <!-- Loop over all posts -->
-        {% for post in all_posts %}
+              <!-- Loop over all posts -->
+              {% for post in all_posts %}
 
-        <!-- Update post count -->
-        {% assign d = post.date | date: "%Y-%m-%d" %}
-        {% unless d == d_prev %} 
-          {% assign d_prev = d %}
-          {% assign npost = npost | minus: 1 %}
-        {% endunless %}
+              <!-- Update post count -->
+              {% assign d = post.date | date: "%Y-%m-%d" %}
+              {% unless d == d_prev %} 
+              {% assign d_prev = d %}
+              {% assign npost = npost | minus: 1 %}
+              {% endunless %}
 
-        <!-- Test condition that this post is in the page's academic year -->
-        {% assign unixdate = post.date | date: "%s"| times: 1 %}
-        {% if unixdate >= yearbegin and unixdate <= yearend %}
-        {% assign in_time_interval = true %}
-        {% else %}
-        {% assign in_time_interval = false %}
-        {% endif %}
-        {% if in_time_interval and nposts < posts_per_page1 %}
-
-        <!-- Calculate delays -->
-        {% assign delay_add = forloop.index | mod: posts_per_page1 | times: 3 %}
-        {% assign delay = 8 | plus: delay_add %}
-
-        <!-- This creates an lang_count variable into the namespace -->
-        {% include lang_count.html number=npost %}
-
-        <article class="post animated fadeInLeft animation-delay-{{ delay }}">
-
-        <div class="panel panel-default">
-          <div class="panel-body">
-
-            {% assign posturl = post.url | prepend: site.baseurl %}
-            <span class="badge pull-right">{{ tsl.count_pre }}{{ npost }}<sup>{{ lang_count }}</sup>{{ tsl.count_aft }}{% if post.part %}{{ open_surround }}{{ tsl.part }}{{ post.part }}{{ close_surround }}{% endif %}</span>
-            <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a></h3>
-            <div class="row">
-              <div class="col-lg-6">
-                <img src="{{ site.baseurl }}{{ la.img }}/{% if post.img %}{{ post.img[0] }}{% else %}no_img.jpg{% endif %}" class="img-post img-responsive" alt="Image">
-              </div>
-              <div class="col-lg-6">
-                <h4>{{ post.speaker }}</h4>
-                <h5>{{ post.affil }}</h5> 
-                {% assign postcontent = post.content | strip_html %}
-                {% include lang_truncate.html text=postcontent %}
-              </div>
-            </div>
-          </div>
-          <div class="panel-footer">
-            <div class="row">
-              <div class="col-lg-10 col-md-9 col-sm-8">
-                <i class="fa fa-calendar"></i> <a href="{{ site.baseurl }}{{ li.calendar}}/{{ page.lang }}">{% include date.html d=post.date l='t' %}</a> &nbsp;
-                <i class="fa fa-clock-o"></i> {{ post.time | replace: ':',' : ' }} &nbsp;  
-                <i class="fa fa-map-marker"></i> <a href="{{ lel.access }}" target="_blank">{{ post.place }}</a><br />
-                <i class="fa fa-tags"></i> &nbsp; 
-                {% if page.lang == 'ja' %}
-                {% for t in post.tags %}
-                {{ tt[t] }} {% unless forloop.last %}, {% endunless %} 
-                {% endfor %}
-                {% else %}
-                {{ post.tags | array_to_sentence_string }}
-                {% endif %}
-              </div>
-              <div class="col-lg-2 col-md-3 col-sm-4">
-                <a href="{{ posturl }}" class="pull-right">{{ tpl.read_more }} &raquo;</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        </article> <!-- post -->
-        {% assign nposts = nposts | plus: 1 %}
-        {% endif %}
-        {% endfor %}
-
-      </div> <!-- mix -->
-
-      <!-- Loop over posts -->
-      <div class="list-group mix {{ mix2 }}">
-
-        <!-- Initialise some counters -->
-        {% assign nposts = 0 %}
-        {% assign d_prev = 0 %}
-        {% assign npost = nsem | plus: 1 %}
-
-        <!-- Loop over all posts -->
-        {% for post in all_posts %}
-
-        <!-- Update post count -->
-        {% assign d = post.date | date: "%Y-%m-%d" %}
-        {% unless d == d_prev %} 
-          {% assign d_prev = d %}
-          {% assign npost = npost | minus: 1 %}
-        {% endunless %}
-
-        <!-- Test condition that this post is in the page's academic year -->
-        {% assign unixdate = post.date | date: "%s"| times: 1 %}
-        {% if unixdate >= yearbegin and unixdate <= yearend %}
-        {% assign in_time_interval = true %}
-        {% else %}
-        {% assign in_time_interval = false %}
-        {% endif %}
-        {% if in_time_interval and nposts < posts_per_page1 %}
-
-        <!-- This creates an lang_count variable into the namespace -->
-        {% include lang_count.html number=npost %}
-
-        {% assign posturl = post.url | prepend: site.baseurl %}
-        <a href="{{ posturl }}" class="list-group-item">
-          <div class="media">
-            <span class="pull-left">
-              <span class="badge">{{ tsl.count_pre }}{{ npost }}<sup>{{ lang_count }}</sup>{{ tsl.count_aft }}{% if post.part %}{{ open_surround }}{{ tsl.part }}{{ post.part }}{{ close_surround }}{% endif %}</span><br /><br />
-            {% if post.img_thumb %}<img src="{{ site.baseurl }}{{ la.img }}/{{ post.img_thumb }}" class="pull-left media-object" alt="Image" width="150px" height="150px">{% endif %}</span>
-
-            <div class="media-body">
-              <h3 class="media-heading">{{ post.title }}</h3>
-              <h4 class="media-heading">{{ post.speaker }}</h4>
-              <h5 class="media-heading">{{ post.affil }}</h5>
-              {% assign postcontent = post.content | strip_html %}
-              {% include lang_truncate.html text=postcontent %}
-              <i class="fa fa-calendar"></i> {% include date.html d=post.date l='t' %} &nbsp;
-              <i class="fa fa-clock-o"></i> {{ post.time | replace: ':',' : ' }} &nbsp;
-              <i class="fa fa-tags"></i> &nbsp; 
-              {% if page.lang == 'ja' %}
-              {% for t in post.tags %}
-              {{ tt[t] }} {% unless forloop.last %}, {% endunless %} 
-              {% endfor %}
+              <!-- Test condition that this post is in the page's academic year -->
+              {% assign unixdate = post.date | date: "%s"| times: 1 %}
+              {% if unixdate >= yearbegin and unixdate <= yearend %}
+              {% assign in_time_interval = true %}
               {% else %}
-              {{ post.tags | array_to_sentence_string }}
+              {% assign in_time_interval = false %}
               {% endif %}
-            </div>
-          </div>
-        </a>
-        {% assign nposts = nposts | plus: 1 %}
-        {% endif %}
-        {% endfor %}
-      </div> <!-- mix -->
+              {% if in_time_interval and nposts < posts_per_page1 %}
 
-      <div class="list-group mix {{ mix3 }}">
+              <!-- Calculate delays -->
+              {% assign delay_add = forloop.index | mod: posts_per_page1 | times: 3 %}
+              {% assign delay = 8 | plus: delay_add %}
 
-        <!-- Initialise some counters -->
-        {% assign nposts = 0 %}
-        {% assign d_prev = 0 %}
-        {% assign npost = nsem | plus: 1 %}
+              <!-- This creates an lang_count variable into the namespace -->
+              {% include lang_count.html number=npost %}
 
-        <!-- Loop over all posts -->
-        {% for post in all_posts %}
+              <article class="post animated fadeInLeft animation-delay-{{ delay }}">
 
-        <!-- Update post count -->
-        {% assign d = post.date | date: "%Y-%m-%d" %}
-        {% unless d == d_prev %} 
-          {% assign d_prev = d %}
-          {% assign npost = npost | minus: 1 %}
-        {% endunless %}
+                <div class="panel panel-default">
+                  <div class="panel-body">
 
-        <!-- Test condition that this post is in the page's academic year -->
-        {% assign unixdate = post.date | date: "%s"| times: 1 %}
-        {% if unixdate >= yearbegin and unixdate <= yearend %}
-        {% assign in_time_interval = true %}
-        {% else %}
-        {% assign in_time_interval = false %}
-        {% endif %}
-        {% if in_time_interval and nposts < posts_per_page3 %}
-
-        <!-- This creates an lang_count variable into the namespace -->
-        {% include lang_count.html number=npost %}
-
-        {% assign posturl = post.url | prepend: site.baseurl %}
-        <a href="{{ posturl }}" class="list-group-item">
-          <div class="media">
-            <div class="media-body">
-              <h4 class="media-heading"><span class="badge pull-right">{{ tsl.count_pre }}{{ npost }}<sup>{{ lang_count }}</sup>{{ tsl.count_aft }}{% if post.part %}{{ open_surround }}{{ tsl.part }}{{ post.part }}{{ close_surround }}{% endif %}</span> {{ post.title }} </h4>
-              <h5 class="media-heading">{{ post.speaker }}{{ open_surround }}{{ post.affil }}{{ close_surround }}</h5>
-              <i class="fa fa-calendar"></i> {% include date.html d=post.date l='t' %} &nbsp;
-              <i class="fa fa-clock-o"></i> {{ post.time | replace: ':',' : ' }} &nbsp; 
-              <i class="fa fa-tags"></i> &nbsp; 
-              {% if page.lang == 'ja' %}
-              {% for t in post.tags %}
-              {{ tt[t] }} {% unless forloop.last %}, {% endunless %} 
+                    {% assign posturl = post.url | prepend: site.baseurl %}
+                    <span class="badge pull-right">{{ tsl.count_pre }}{{ npost }}<sup>{{ lang_count }}</sup>{{ tsl.count_aft }}{% if post.part %}{{ open_surround }}{{ tsl.part }}{{ post.part }}{{ close_surround }}{% endif %}</span>
+                    <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a></h3>
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <img src="{{ site.baseurl }}{{ la.img }}/{% if post.img %}{{ post.img[0] }}{% else %}no_img.jpg{% endif %}" class="img-post img-responsive" alt="Image">
+                      </div>
+                      <div class="col-lg-6">
+                        <h4>{{ post.speaker }}</h4>
+                        <h5>{{ post.affil }}</h5> 
+                        {% assign postcontent = post.content | strip_html %}
+                        {% include lang_truncate.html text=postcontent %}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel-footer">
+                    <div class="row">
+                      <div class="col-lg-10 col-md-9 col-sm-8">
+                        <i class="fa fa-calendar"></i> <a href="{{ site.baseurl }}{{ li.calendar}}/{{ page.lang }}">{% include date.html d=post.date l='t' %}</a> &nbsp;
+                        <i class="fa fa-clock-o"></i> {{ post.time | replace: ':',' : ' }} &nbsp;  
+                        <i class="fa fa-map-marker"></i> <a href="{{ lel.access }}" target="_blank">{{ post.place }}</a><br />
+                        <i class="fa fa-tags"></i> &nbsp; 
+                        {% if page.lang == 'ja' %}
+                        {% for t in post.tags %}
+                        {{ tt[t] }} {% unless forloop.last %}, {% endunless %} 
+                        {% endfor %}
+                        {% else %}
+                        {{ post.tags | array_to_sentence_string }}
+                        {% endif %}
+                      </div>
+                      <div class="col-lg-2 col-md-3 col-sm-4">
+                        <a href="{{ posturl }}" class="pull-right">{{ tpl.read_more }} &raquo;</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article> <!-- post -->
+              {% assign nposts = nposts | plus: 1 %}
+              {% endif %}
               {% endfor %}
+
+            </div> <!-- mix -->
+
+            <!-- Loop over posts -->
+            <div class="list-group mix {{ mix2 }}">
+
+              <!-- Initialise some counters -->
+              {% assign nposts = 0 %}
+              {% assign d_prev = 0 %}
+              {% assign npost = nsem | plus: 1 %}
+
+              <!-- Loop over all posts -->
+              {% for post in all_posts %}
+
+              <!-- Update post count -->
+              {% assign d = post.date | date: "%Y-%m-%d" %}
+              {% unless d == d_prev %} 
+              {% assign d_prev = d %}
+              {% assign npost = npost | minus: 1 %}
+              {% endunless %}
+
+              <!-- Test condition that this post is in the page's academic year -->
+              {% assign unixdate = post.date | date: "%s"| times: 1 %}
+              {% if unixdate >= yearbegin and unixdate <= yearend %}
+              {% assign in_time_interval = true %}
               {% else %}
-              {{ post.tags | array_to_sentence_string }}
+              {% assign in_time_interval = false %}
               {% endif %}
-            </div>
-          </div>
-        </a>
-        {% assign nposts = nposts | plus: 1 %}
-        {% endif %}
-        {% endfor %}
-      </div> <!-- mix -->
+              {% if in_time_interval and nposts < posts_per_page1 %}
 
-      <div class="mix {{ mix4 }}">
-        <ol reversed>
+              <!-- This creates an lang_count variable into the namespace -->
+              {% include lang_count.html number=npost %}
 
-          <!-- Initialise some counters -->
-          {% assign nposts = 0 %}
-          {% assign d_prev = 0 %}
-          {% assign npost = nsem | plus: 1 %}
+              {% assign posturl = post.url | prepend: site.baseurl %}
+              <a href="{{ posturl }}" class="list-group-item">
+                <div class="media">
+                  <span class="pull-left">
+                    <span class="badge">{{ tsl.count_pre }}{{ npost }}<sup>{{ lang_count }}</sup>{{ tsl.count_aft }}{% if post.part %}{{ open_surround }}{{ tsl.part }}{{ post.part }}{{ close_surround }}{% endif %}</span><br /><br />
+                    {% if post.img_thumb %}<img src="{{ site.baseurl }}{{ la.img }}/{{ post.img_thumb }}" class="pull-left media-object" alt="Image" width="150px" height="150px">{% endif %}</span>
 
-          <!-- Loop over all posts -->
-          {% for post in all_posts %}
+                  <div class="media-body">
+                    <h3 class="media-heading">{{ post.title }}</h3>
+                    <h4 class="media-heading">{{ post.speaker }}</h4>
+                    <h5 class="media-heading">{{ post.affil }}</h5>
+                    {% assign postcontent = post.content | strip_html %}
+                    {% include lang_truncate.html text=postcontent %}
+                    <i class="fa fa-calendar"></i> {% include date.html d=post.date l='t' %} &nbsp;
+                    <i class="fa fa-clock-o"></i> {{ post.time | replace: ':',' : ' }} &nbsp;
+                    <i class="fa fa-tags"></i> &nbsp; 
+                    {% if page.lang == 'ja' %}
+                    {% for t in post.tags %}
+                    {{ tt[t] }} {% unless forloop.last %}, {% endunless %} 
+                    {% endfor %}
+                    {% else %}
+                    {{ post.tags | array_to_sentence_string }}
+                    {% endif %}
+                  </div>
+                </div>
+              </a>
+              {% assign nposts = nposts | plus: 1 %}
+              {% endif %}
+              {% endfor %}
+            </div> <!-- mix -->
 
-          <!-- Update post count -->
-          {% assign d = post.date | date: "%Y-%m-%d" %}
-          {% unless d == d_prev %} 
-            {% assign d_prev = d %}
-            {% assign npost = npost | minus: 1 %}
-          {% endunless %}
+            <div class="list-group mix {{ mix3 }}">
 
-          <!-- Test condition that this post is in the page's academic year -->
-          {% assign unixdate = post.date | date: "%s"| times: 1 %}
-          {% if unixdate >= yearbegin and unixdate <= yearend %}
-          {% assign in_time_interval = true %}
-          {% else %}
-          {% assign in_time_interval = false %}
-          {% endif %}
-          {% if in_time_interval and nposts < posts_per_page4 %}
+              <!-- Initialise some counters -->
+              {% assign nposts = 0 %}
+              {% assign d_prev = 0 %}
+              {% assign npost = nsem | plus: 1 %}
 
-          {% assign posturl = post.url | prepend: site.baseurl %}
-          <li><a href="{{ posturl }}">{{ post.title }}</a>,
-          {{ post.speaker }}{{ open_surround }}{{ post.affil }}{{ close_surround }} &nbsp;
-          <i>{% include date.html d=post.date l='t' %}</i> &nbsp;
-          </li>
-          {% assign nposts = nposts | plus: 1 %}
-          {% endif %}
-          {% endfor %}
-        </ol>
-      </div> <!-- mix -->
+              <!-- Loop over all posts -->
+              {% for post in all_posts %}
+
+              <!-- Update post count -->
+              {% assign d = post.date | date: "%Y-%m-%d" %}
+              {% unless d == d_prev %} 
+              {% assign d_prev = d %}
+              {% assign npost = npost | minus: 1 %}
+              {% endunless %}
+
+              <!-- Test condition that this post is in the page's academic year -->
+              {% assign unixdate = post.date | date: "%s"| times: 1 %}
+              {% if unixdate >= yearbegin and unixdate <= yearend %}
+                 {% assign in_time_interval = true %}
+                 {% else %}
+                 {% assign in_time_interval = false %}
+                 {% endif %}
+                 {% if in_time_interval and nposts < posts_per_page3 %}
+
+                 <!-- This creates an lang_count variable into the namespace -->
+                 {% include lang_count.html number=npost %}
+
+                 {% assign posturl = post.url | prepend: site.baseurl %}
+                 <a href="{{ posturl }}" class="list-group-item">
+                   <div class="media">
+                     <div class="media-body">
+                       <h4 class="media-heading"><span class="badge pull-right">{{ tsl.count_pre }}{{ npost }}<sup>{{ lang_count }}</sup>{{ tsl.count_aft }}{% if post.part %}{{ open_surround }}{{ tsl.part }}{{ post.part }}{{ close_surround }}{% endif %}</span> {{ post.title }} </h4>
+                       <h5 class="media-heading">{{ post.speaker }}{{ open_surround }}{{ post.affil }}{{ close_surround }}</h5>
+                       <i class="fa fa-calendar"></i> {% include date.html d=post.date l='t' %} &nbsp;
+                       <i class="fa fa-clock-o"></i> {{ post.time | replace: ':',' : ' }} &nbsp; 
+                       <i class="fa fa-tags"></i> &nbsp; 
+                       {% if page.lang == 'ja' %}
+                       {% for t in post.tags %}
+                       {{ tt[t] }} {% unless forloop.last %}, {% endunless %} 
+                       {% endfor %}
+                       {% else %}
+                       {{ post.tags | array_to_sentence_string }}
+                       {% endif %}
+                     </div>
+                   </div>
+                 </a>
+                 {% assign nposts = nposts | plus: 1 %}
+                 {% endif %}
+                 {% endfor %}
+            </div> <!-- mix -->
+
+            <div class="mix {{ mix4 }}">
+              <ol reversed>
+
+                <!-- Initialise some counters -->
+                {% assign nposts = 0 %}
+                {% assign d_prev = 0 %}
+                {% assign npost = nsem | plus: 1 %}
+
+                <!-- Loop over all posts -->
+                {% for post in all_posts %}
+
+                <!-- Update post count -->
+                {% assign d = post.date | date: "%Y-%m-%d" %}
+                {% unless d == d_prev %} 
+                {% assign d_prev = d %}
+                {% assign npost = npost | minus: 1 %}
+                {% endunless %}
+
+                <!-- Test condition that this post is in the page's academic year -->
+                {% assign unixdate = post.date | date: "%s"| times: 1 %}
+                {% if unixdate >= yearbegin and unixdate <= yearend %}
+                 {% assign in_time_interval = true %}
+                 {% else %}
+                 {% assign in_time_interval = false %}
+                 {% endif %}
+                 {% if in_time_interval and nposts < posts_per_page4 %}
+
+                 {% assign posturl = post.url | prepend: site.baseurl %}
+                 <li><a href="{{ posturl }}">{{ post.title }}</a>,
+                   {{ post.speaker }}{{ open_surround }}{{ post.affil }}{{ close_surround }} &nbsp;
+                   <i>{% include date.html d=post.date l='t' %}</i> &nbsp;
+                 </li>
+                 {% assign nposts = nposts | plus: 1 %}
+                 {% endif %}
+                 {% endfor %}
+              </ol>
+            </div> <!-- mix -->
 
 
 
-      {% if nposts == 0 %}
-      {% capture acad_date %}{{ page_url[2]}}-10-10{% endcapture %}
-      {% if page.lang == 'en' %}
-      <p>There are no items for the academic year {% include date.html d=acad_date l='a' %}.</p>
-      {% elsif page.lang == 'ja' %}
-      <p>{% include date.html d=acad_date l='a' %}の投稿はありません．</p>
-      {% endif %}
-      {% endif %}
+            {% if nposts == 0 %}
+            {% capture acad_date %}{{ page_url[2]}}-10-10{% endcapture %}
+            {% if page.lang == 'en' %}
+            <p>There are no items for the academic year {% include date.html d=acad_date l='a' %}.</p>
+            {% elsif page.lang == 'ja' %}
+            <p>{% include date.html d=acad_date l='a' %}の投稿はありません．</p>
+            {% endif %}
+            {% endif %}
 
 
-    </div> <!-- col-md-8 -->
+      </div> <!-- col-md-8 -->
 
-    <div class="col-md-4 hidden-xs hidden-sm">
-      <aside class="sidebar">
+      <div class="col-md-4 hidden-xs hidden-sm">
+        <aside class="sidebar">
 
-      {% include aside_about.html a=content t=tsl.about_header %}
-      {% include aside_nav.html dup=true %}
+          {% include aside_about.html a=content t=tsl.about_header %}
+          {% include aside_nav.html dup=true %}
 
-      </aside> <!-- Sidebar -->
-    </div> 
+        </aside> <!-- Sidebar -->
+      </div> 
 
-  </div> <!-- row -->
-</div> <!-- container  -->
+    </div> <!-- row -->
+  </div> <!-- container  -->
 
 

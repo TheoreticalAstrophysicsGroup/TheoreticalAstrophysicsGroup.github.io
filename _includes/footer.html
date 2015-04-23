@@ -4,91 +4,91 @@
 {% assign la = site.data.links.assets %}
 {% assign ln = site.data.links.nav %}
 
-        <aside id="footer-widgets">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                      <h3 class="footer-widget-title">{{ tfl.sitemap }}</h3>
-                        <ul class="list-unstyled three_cols">
-                          {% for l in ln %}
-                            {% assign lk = l[0] %}
-                            {% assign lv = l[1] %}
-                            {% unless lk == 'home' %}
-                              {% for dl in lv %}
-                                {% assign dlk = dl[0] %}
-                                {% assign dlv = dl[1] %}
-                                {% if dlv contains '/' %}
-                                  {% assign link =  dlv | prepend: site.baseurl | append: '/' | append: page.lang %}
-                                  <li><a href="{{ link }}">{{ tfl.[dlk] }}</a></li>
-                                {% endif %}
-                              {% endfor %}
-                            {% endunless %}
-                          {% endfor %}
-                        </ul>
-                    </div>
+<aside id="footer-widgets">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h3 class="footer-widget-title">{{ tfl.sitemap }}</h3>
+        <ul class="list-unstyled three_cols">
+          {% for l in ln %}
+          {% assign lk = l[0] %}
+          {% assign lv = l[1] %}
+          {% unless lk == 'home' %}
+          {% for dl in lv %}
+          {% assign dlk = dl[0] %}
+          {% assign dlv = dl[1] %}
+          {% if dlv contains '/' %}
+          {% assign link =  dlv | prepend: site.baseurl | append: '/' | append: page.lang %}
+          <li><a href="{{ link }}">{{ tfl.[dlk] }}</a></li>
+          {% endif %}
+          {% endfor %}
+          {% endunless %}
+          {% endfor %}
+        </ul>
+      </div>
 
-                    <div class="col-md-4">
-                        <div class="footer-widget">
-                          <h3 class="footer-widget-title">{{ tfl.recent_posts }}</h3>
-                            {% assign posts_lang = site.posts | where: 'lang', page.lang %}
-                            {% for post in posts_lang limit: 3 %}
-                            <div class="media">
-                                {% assign posturl = post.url | prepend: site.baseurl %}
-                                <a class="pull-left" href="{{ posturl }}"><img class="media-object" src="{{ site.baseurl }}{{ la.img }}/{% if post.img_thumb %}{{ post.img_thumb }}{% else %}sq-no_img.jpg{% endif %}" width="75" height="75" alt="image"></a>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><a href="{{ posturl }}">{{ post.title | truncatewords: 12 }}</a></h4>
-                                    <small>{% include date.html d=post.date l='s' %}</small>
-                                </div>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
+      <div class="col-md-4">
+        <div class="footer-widget">
+          <h3 class="footer-widget-title">{{ tfl.recent_posts }}</h3>
+          {% assign posts_lang = site.posts | where: 'lang', page.lang %}
+          {% for post in posts_lang limit: 3 %}
+          <div class="media">
+            {% assign posturl = post.url | prepend: site.baseurl %}
+            <a class="pull-left" href="{{ posturl }}"><img class="media-object" src="{{ site.baseurl }}{{ la.img }}/{% if post.img_thumb %}{{ post.img_thumb }}{% else %}sq-no_img.jpg{% endif %}" width="75" height="75" alt="image"></a>
+            <div class="media-body">
+              <h4 class="media-heading"><a href="{{ posturl }}">{{ post.title | truncatewords: 12 }}</a></h4>
+              <small>{% include date.html d=post.date l='s' %}</small>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
 
-                    <div class="col-md-4">
-                        <div class="footer-widget">
-                          <h3 class="footer-widget-title">{{ tfl.recent_works }}</h3>
-                            <div class="row">
-                                {% assign posts_lang = site.categories.['achievements'] | where: 'lang', page.lang %}
-                                {% for post in posts_lang limit: 4 %}
-                                {% assign posturl = post.url | prepend: site.baseurl %}
-                                <div class="col-lg-6 col-md-6 col-sm-3 col-xs-6">
-                                    <a href="{{ posturl }}" class="thumbnail"><img src="{{ site.baseurl }}{{ la.img }}/{% if post.img %}{{ post.img[0] | replace: '.png', '-360x240.png' }}{% else %}no_img-360x240.png{% endif %}" class="img-responsive" alt="Image"></a>
-                                </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </aside> <!-- footer-widgets -->
+      <div class="col-md-4">
+        <div class="footer-widget">
+          <h3 class="footer-widget-title">{{ tfl.recent_works }}</h3>
+          <div class="row">
+            {% assign posts_lang = site.categories.['achievements'] | where: 'lang', page.lang %}
+            {% for post in posts_lang limit: 4 %}
+            {% assign posturl = post.url | prepend: site.baseurl %}
+            <div class="col-lg-6 col-md-6 col-sm-3 col-xs-6">
+              <a href="{{ posturl }}" class="thumbnail"><img src="{{ site.baseurl }}{{ la.img }}/{% if post.img %}{{ post.img[0] | replace: '.png', '-360x240.png' }}{% else %}no_img-360x240.png{% endif %}" class="img-responsive" alt="Image"></a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div> <!-- row -->
+  </div> <!-- container -->
+</aside> <!-- footer-widgets -->
 
-        <footer id="footer">
-        <!-- Make these links language dependent too -->
-        <p>&copy; {{ site.time | date: "%Y" }} <a href="{{ site.baseurl }}{{ li.home }}/{{ page.lang }}">{{ tfl.title }}</a>, <a href="{{ lcl.ccs }}">{{ tfl.subtitle }}</a>, <a href="{{ lcl.uot }}">{{ tfl.uni }}</a>. All rights reserved.</p>
-        </footer>
+<footer id="footer">
+  <!-- Make these links language dependent too -->
+  <p>&copy; {{ site.time | date: "%Y" }} <a href="{{ site.baseurl }}{{ li.home }}/{{ page.lang }}">{{ tfl.title }}</a>, <a href="{{ lcl.ccs }}">{{ tfl.subtitle }}</a>, <a href="{{ lcl.uot }}">{{ tfl.uni }}</a>. All rights reserved.</p>
+</footer>
 
-    </div> <!-- boxed -->
+</div> <!-- boxed -->
 
-    <div id="back-top">
-        <a href="#header"><i class="fa fa-chevron-up"></i></a>
-    </div>
+<div id="back-top">
+  <a href="#header"><i class="fa fa-chevron-up"></i></a>
+</div>
 
 
-    <!-- Scripts -->
-    <script src="{{ site.baseurl }}{{ la.js }}/jquery-1.10.2.min.js"></script>
-    <script src="{{ site.baseurl }}{{ la.js }}/jquery.cookie.js"></script>
-    <script src="{{ site.baseurl }}{{ la.js }}/bootstrap.min.js"></script>
-    <script src="{{ site.baseurl }}{{ la.js }}/jquery.mixitup.min.js"></script>
-    <script src="{{ site.baseurl }}{{ la.js }}/lightbox-2.6.min.js"></script>
-    <script src="{{ site.baseurl }}{{ la.js }}/holder.js"></script>
-    <script src="{{ site.baseurl }}{{ la.js }}/app.js"></script>
-    <script src="{{ site.baseurl }}{{ la.js }}/styleswitcher.js"></script>
+<!-- Scripts -->
+<script src="{{ site.baseurl }}{{ la.js }}/jquery-1.10.2.min.js"></script>
+<script src="{{ site.baseurl }}{{ la.js }}/jquery.cookie.js"></script>
+<script src="{{ site.baseurl }}{{ la.js }}/bootstrap.min.js"></script>
+<script src="{{ site.baseurl }}{{ la.js }}/jquery.mixitup.min.js"></script>
+<script src="{{ site.baseurl }}{{ la.js }}/lightbox-2.6.min.js"></script>
+<script src="{{ site.baseurl }}{{ la.js }}/holder.js"></script>
+<script src="{{ site.baseurl }}{{ la.js }}/app.js"></script>
+<script src="{{ site.baseurl }}{{ la.js }}/styleswitcher.js"></script>
 
-    <script src="{{ site.baseurl }}{{ la.js }}/syntax/shCore.js"></script>
-    <script src="{{ site.baseurl }}{{ la.js }}/syntax/shBrushXml.js"></script>
-    <script src="{{ site.baseurl }}{{ la.js }}/syntax/shBrushJScript.js"></script>
+<script src="{{ site.baseurl }}{{ la.js }}/syntax/shCore.js"></script>
+<script src="{{ site.baseurl }}{{ la.js }}/syntax/shBrushXml.js"></script>
+<script src="{{ site.baseurl }}{{ la.js }}/syntax/shBrushJScript.js"></script>
 
-    <script type="text/javascript">
-        SyntaxHighlighter.all()
-    </script>
+<script type="text/javascript">
+SyntaxHighlighter.all()
+</script>
 

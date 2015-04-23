@@ -4,117 +4,118 @@
 {% assign li = site.data.links.internal %}
 {% assign ln = site.data.links.nav %}
 
-    <div class="boxed animated fadeIn animation-delay-5">
+<div class="boxed animated fadeIn animation-delay-5">
 
-        {% assign hl = 'hidden-xs hidden-sm' %}
-        {% assign hs = 'hidden-md hidden-lg' %}
-        {% assign vs = 'visible-xs visible-sm' %}
-        <header id="header" class="{{ hl }}">
-            <div class="container">
-                <div id="header-title">
+  {% assign hl = 'hidden-xs hidden-sm' %}
+  {% assign hs = 'hidden-md hidden-lg' %}
+  {% assign vs = 'visible-xs visible-sm' %}
+  <header id="header" class="{{ hl }}">
+    <div class="container">
+      <div id="header-title">
 
-                  {% if page.lang == 'ja' %}
-                  <h1 class="animated fadeInDown"><a href="{{ site.baseurl }}{{ li.home }}/{{ page.lang }}"><img src="{{ site.baseurl }}{{ la.img }}/title-ja-l.png"></img></a></h1>
-                  {% else %}
-                  <h1 class="animated fadeInDown"><a href="{{ site.baseurl }}{{ li.home }}/{{ page.lang }}"><span>{{ thl.title_l }}</span>{{ thl.title_r }}</a></h1>
-                  {% endif %}
-                  <p class="animated fadeInLeft">{{ thl.subtitle }}</p>
+        {% if page.lang == 'ja' %}
+        <h1 class="animated fadeInDown"><a href="{{ site.baseurl }}{{ li.home }}/{{ page.lang }}"><img src="{{ site.baseurl }}{{ la.img }}/title-ja-l.png"></img></a></h1>
+        {% else %}
+        <h1 class="animated fadeInDown"><a href="{{ site.baseurl }}{{ li.home }}/{{ page.lang }}"><span>{{ thl.title_l }}</span>{{ thl.title_r }}</a></h1>
+        {% endif %}
+        <p class="animated fadeInLeft">{{ thl.subtitle }}</p>
 
-                </div>
+      </div>
 
-                <!-- AYW 2014-06-09 13:14 JST Used social media icons for special links and language switcher -->
-                {% if page.lang == 'ja' %} 
-                  {% assign l1 = '/ja/' %}
-                  {% assign l2 = '/en/' %}
-                {% else %}
-                  {% assign l1 = '/en/' %}
-                  {% assign l2 = '/ja/' %}
-                {% endif %}
-                <div id="social-header" class="{{ hl }}">
-                    <a href="{{ site.baseurl }}{{ li.contact }}/{{ page.lang }}" class="social-icon soc-contact animated fadeInDown animation-delay-1"><i class="fa fa-envelope"></i></a>
-                    <a href="{{ lel.access }}" class="social-icon soc-access animated fadeInDown animation-delay-2"><i class="fa fa-location-arrow"></i></a>
-                    <a href="{{ lel.ccs }}" class="social-icon soc-ccs animated fadeInDown animation-delay-3"><img src="{{ site.baseurl }}{{ la.img }}/ccs-w-s.png"></img></a>
-                    <a href="{{ lel.uot }}" class="social-icon soc-uot animated fadeInDown animation-delay-4"><img src="{{ site.baseurl }}{{ la.img }}/uot-w-s.png"></img></a>
-                    <a href="{{ site.baseurl }}{{ page.url | replace_first: '/en/','/ja/' | remove: 'index.html' }}" class="social-icon soc-lang-sel animated fadeInDown animation-delay-5 {% if page.lang == 'ja' %} active {% endif %}"><sub>{{ thl.ja }}</sub></a>
-                    <a href="{{ site.baseurl }}{{ page.url | replace_first: l1,l2 | remove: 'index.html'}}" class="social-icon soc-language animated fadeInDown animation-delay-6"><i class="fa fa-language"></i></a>
-                    <a href="{{ site.baseurl }}{{ page.url | replace_first: '/ja/','/en/' | remove: 'index.html'}}" class="social-icon soc-lang-sel animated fadeInDown animation-delay-7 {% if page.lang == 'en' %} active {% endif %}"><sub>{{ thl.en }}</sub></a>
-                </div>
+      <!-- AYW 2014-06-09 13:14 JST Used social media icons for special links and language switcher -->
+      {% if page.lang == 'ja' %} 
+      {% assign l1 = '/ja/' %}
+      {% assign l2 = '/en/' %}
+      {% else %}
+      {% assign l1 = '/en/' %}
+      {% assign l2 = '/ja/' %}
+      {% endif %}
+      <div id="social-header" class="{{ hl }}">
+        <a href="{{ site.baseurl }}{{ li.contact }}/{{ page.lang }}" class="social-icon soc-contact animated fadeInDown animation-delay-1"><i class="fa fa-envelope"></i></a>
+        <a href="{{ lel.access }}" class="social-icon soc-access animated fadeInDown animation-delay-2"><i class="fa fa-location-arrow"></i></a>
+        <a href="{{ lel.ccs }}" class="social-icon soc-ccs animated fadeInDown animation-delay-3"><img src="{{ site.baseurl }}{{ la.img }}/ccs-w-s.png"></img></a>
+        <a href="{{ lel.uot }}" class="social-icon soc-uot animated fadeInDown animation-delay-4"><img src="{{ site.baseurl }}{{ la.img }}/uot-w-s.png"></img></a>
+        <a href="{{ site.baseurl }}{{ page.url | replace_first: '/en/','/ja/' | remove: 'index.html' }}" class="social-icon soc-lang-sel animated fadeInDown animation-delay-5 {% if page.lang == 'ja' %} active {% endif %}"><sub>{{ thl.ja }}</sub></a>
+        <a href="{{ site.baseurl }}{{ page.url | replace_first: l1,l2 | remove: 'index.html'}}" class="social-icon soc-language animated fadeInDown animation-delay-6"><i class="fa fa-language"></i></a>
+        <a href="{{ site.baseurl }}{{ page.url | replace_first: '/ja/','/en/' | remove: 'index.html'}}" class="social-icon soc-lang-sel animated fadeInDown animation-delay-7 {% if page.lang == 'en' %} active {% endif %}"><sub>{{ thl.en }}</sub></a>
+      </div>
 
-                <div id="search-header" class="{{ hl }} animated fadeInRight">
-                    <div class="input-group">
+      <div id="search-header" class="{{ hl }} animated fadeInRight">
+        <div class="input-group">
 
-                      <div id="search-header" class="hidden-xs animated bounceInRight">
-                        <div class="input-group">
-                          <input type="text" class="form-control" placeholder="{{ thl.search }}">
-                          <span class="input-group-btn">
-                            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
-                          </span>
-                      </div><!-- /input-group -->
-                </div>
-            </div> <!-- container -->
-        </header> <!-- header -->
+          <input type="text" class="form-control" placeholder="{{ thl.search }}">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+          </span>
+        </div><!-- /input-group -->
+      </div>
 
-        <nav class="navbar navbar-static-top navbar-mind" role="navigation">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
+    </div> <!-- container -->
 
-                  {% if page.lang == 'ja' %}
-                  <a class="navbar-brand {{ vs }}" href="{{ site.baseurl }}{{ li.home }}/{{ page.lang }}"><img src="{{ site.baseurl }}{{ la.img }}/title-ja-s.png"></img></a>
-                  {% else %}
-                  <a class="navbar-brand {{ vs }}" href="{{ site.baseurl }}{{ li.home }}/{{ page.lang }}"><span>{{ thl.title_l }}</span>{{ thl.title_r }}</a>
-                  {% endif %}
+  </header> <!-- header -->
 
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-mind-collapse">
-                        <span class="sr-only">{{ thl.toggle_nav }}</span>
-                        <i class="fa fa-bars fa-inverse"></i>
-                    </button>
-                </div>
+  <nav class="navbar navbar-static-top navbar-mind" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse navbar-mind-collapse">
-                    <ul class="nav navbar-nav">
-                        <!-- AYW 2014-06-27 15:49 JST Don't need Home, the logo takes us there. -->
-                        {% for l in ln %}
-                          {% assign lk = l[0] %}
-                          {% assign lv = l[1] %}
-                          {% assign pu_array = page.url | split: '/' %}
-                          {% assign pu = pu_array[1] %}
-                          <li class="dropdown {% if lv contains pu %} active {% endif %}">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ thl.[lk] }} <b class="caret"></b></a>
-                              <ul class="dropdown-menu">
-                                {% for dl in lv %}
-                                  {% assign dlk = dl[0] %}
-                                  {% assign dlv = dl[1] %}
-                                  {% if dlv == 'header' %}
-                                    <li class="dropdown-header">{{ thl.[dlk] }}</li>
-                                  {% else %}
-                                    {% if dlv == 'external' %} {% assign link = lel.[dlk] %}
-                                    {% elsif dlk == 'home_ja' %} {% assign link =  dlv | prepend: site.baseurl | append: '/' | append: 'ja' %}
-                                    {% elsif dlk == 'home_en' %} {% assign link =  dlv | prepend: site.baseurl | append: '/' | append: 'en' %}
-                                    {% else %} {% assign link =  dlv | prepend: site.baseurl | append: '/' | append: page.lang %}
-                                    {% endif %}
-                                    <li {% if pu == dlk %} class="active" {% endif %}><a href="{{ link }}" {% if dlv == 'external' %}target="_blank"{% endif %}>{{ thl.[dlk] }} {% if dlv == 'external' %} <font size="1"><i class="fa fa-external-link"></i></font>{% endif %}</a></li>
-                                  {% endif %}
-                                {% endfor %}
-                              </ul>
-                          </li> <!-- dropdown -->
-                          <!--{% unless lk == 'home' %}-->
-                          <!--{% endunless %}-->
-                        {% endfor %}
+        {% if page.lang == 'ja' %}
+        <a class="navbar-brand {{ vs }}" href="{{ site.baseurl }}{{ li.home }}/{{ page.lang }}"><img src="{{ site.baseurl }}{{ la.img }}/title-ja-s.png"></img></a>
+        {% else %}
+        <a class="navbar-brand {{ vs }}" href="{{ site.baseurl }}{{ li.home }}/{{ page.lang }}"><span>{{ thl.title_l }}</span>{{ thl.title_r }}</a>
+        {% endif %}
 
-                    </ul> <!-- nav nabvar-nav -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-mind-collapse">
+          <span class="sr-only">{{ thl.toggle_nav }}</span>
+          <i class="fa fa-bars fa-inverse"></i>
+        </button>
+      </div>
 
-                    <!-- AYW 2014-06-27 15:37 JST Right navbar is to replace language switch 
-                         and contact and access links for xs size which are in social icons in other sizes -->
-                    <ul class="nav navbar-nav navbar-right {{ hs }}">
-                        {% assign pu_array = page.url | split: '/' %}
-                        {% assign pu = pu_array[1] %}
-                        <li class="dropdown"> <a href="{{ site.baseurl }}{{ page.url | replace_first: l1,l2 | remove: 'index.html'}}"><i class="fa fa-language"></i> 　{{ thl.readin }}</a></li>
-                        <li class="dropdown {% if pu == 'contact' %} active {% endif %}"> <a href="{{ site.baseurl }}{{ li.contact }}/{{ page.lang }}"><i class="fa fa-envelope"></i>　{{ thl.contact }}</a> </li>
-                        <li class="dropdown "> <a href="{{ lel.access }}" target="_blank"><i class="fa fa-location-arrow"></i> 　{{ thl.access }} <sup><i class="fa fa-external-link"></i></sup></a> </li>
-                    </ul> <!-- nav nabvar-nav navbar-right -->
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-mind-collapse">
+        <ul class="nav navbar-nav">
+          <!-- AYW 2014-06-27 15:49 JST Don't need Home, the logo takes us there. -->
+          {% for l in ln %}
+          {% assign lk = l[0] %}
+          {% assign lv = l[1] %}
+          {% assign pu_array = page.url | split: '/' %}
+          {% assign pu = pu_array[1] %}
+          <li class="dropdown {% if lv contains pu %} active {% endif %}">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ thl.[lk] }} <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              {% for dl in lv %}
+              {% assign dlk = dl[0] %}
+              {% assign dlv = dl[1] %}
+              {% if dlv == 'header' %}
+              <li class="dropdown-header">{{ thl.[dlk] }}</li>
+              {% else %}
+              {% if dlv == 'external' %} {% assign link = lel.[dlk] %}
+              {% elsif dlk == 'home_ja' %} {% assign link =  dlv | prepend: site.baseurl | append: '/' | append: 'ja' %}
+              {% elsif dlk == 'home_en' %} {% assign link =  dlv | prepend: site.baseurl | append: '/' | append: 'en' %}
+              {% else %} {% assign link =  dlv | prepend: site.baseurl | append: '/' | append: page.lang %}
+              {% endif %}
+              <li {% if pu == dlk %} class="active" {% endif %}><a href="{{ link }}" {% if dlv == 'external' %}target="_blank"{% endif %}>{{ thl.[dlk] }} {% if dlv == 'external' %} <font size="1"><i class="fa fa-external-link"></i></font>{% endif %}</a></li>
+              {% endif %}
+              {% endfor %}
+            </ul>
+          </li> <!-- dropdown -->
+          <!--{% unless lk == 'home' %}-->
+          <!--{% endunless %}-->
+          {% endfor %}
 
-                </div><!-- navbar-collapse -->
-            </div> <!-- container -->
-        </nav> <!-- navbar navbar-default -->
+        </ul> <!-- nav nabvar-nav -->
+
+        <!-- AYW 2014-06-27 15:37 JST Right navbar is to replace language switch 
+          and contact and access links for xs size which are in social icons in other sizes -->
+          <ul class="nav navbar-nav navbar-right {{ hs }}">
+            {% assign pu_array = page.url | split: '/' %}
+            {% assign pu = pu_array[1] %}
+            <li class="dropdown"> <a href="{{ site.baseurl }}{{ page.url | replace_first: l1,l2 | remove: 'index.html'}}"><i class="fa fa-language"></i> 　{{ thl.readin }}</a></li>
+            <li class="dropdown {% if pu == 'contact' %} active {% endif %}"> <a href="{{ site.baseurl }}{{ li.contact }}/{{ page.lang }}"><i class="fa fa-envelope"></i>　{{ thl.contact }}</a> </li>
+            <li class="dropdown "> <a href="{{ lel.access }}" target="_blank"><i class="fa fa-location-arrow"></i> 　{{ thl.access }} <sup><i class="fa fa-external-link"></i></sup></a> </li>
+          </ul> <!-- nav nabvar-nav navbar-right -->
+
+      </div><!-- navbar-collapse -->
+    </div> <!-- container -->
+  </nav> <!-- navbar navbar-default -->
+
