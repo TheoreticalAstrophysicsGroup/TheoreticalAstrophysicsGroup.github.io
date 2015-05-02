@@ -26,7 +26,7 @@ external:
     pas_cirfse: http://www.pas.tsukuba.ac.jp/~CiRfSE/
     wiki: http://www.ccs.tsukuba.ac.jp/ccswiki/astro/
     first: http://www2.ccs.tsukuba.ac.jp/people/umemura/FIRST/index-j.html
-    observers: http://www.px.tsukuba.ac.jp/home/astro/nakai/www0/index.html
+    observers: http://www.px.tsukuba.ac.jp/~nakai/astroobs/index.html
     scheduler: https://www2.ccs.tsukuba.ac.jp/cgi-bin/cbag/ag.cgi
     uot_calendar: http://www.tsukuba.ac.jp/campuslife/calendar/
   en: 
@@ -41,7 +41,7 @@ external:
     pas_cirfse: http://www.pas.tsukuba.ac.jp/~CiRfSE/eng/index.html
     wiki: http://www.ccs.tsukuba.ac.jp/ccswiki/astro/
     first: http://www2.ccs.tsukuba.ac.jp/people/umemura/FIRST/index-j.html
-    observers: http://www.px.tsukuba.ac.jp/home/astro/nakai/www0/index.html
+    observers: http://www.px.tsukuba.ac.jp/~nakai/astroobs/index.html
     scheduler: https://www2.ccs.tsukuba.ac.jp/cgi-bin/cbag/ag.cgi
     uot_calendar: https://www.tsukuba.ac.jp/english/campuslife/calendar.html
 
