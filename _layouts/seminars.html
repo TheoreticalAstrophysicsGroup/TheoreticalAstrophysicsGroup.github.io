@@ -102,7 +102,7 @@ layout: default
                         <h4>{{ post.speaker }}</h4>
                         <h5>{{ post.affil }}</h5> 
                         {% assign postcontent = post.content | strip_html %}
-                        {% include lang_truncate.html text=postcontent %}
+                        <p>{% include lang_truncate.html text=postcontent %}</p>
                       </div>
                     </div>
                   </div>
@@ -176,7 +176,7 @@ layout: default
                     <h4 class="media-heading">{{ post.speaker }}</h4>
                     <h5 class="media-heading">{{ post.affil }}</h5>
                     {% assign postcontent = post.content | strip_html %}
-                    {% include lang_truncate.html text=postcontent %}
+                    <p>{% include lang_truncate.html text=postcontent %}</p>
                     <i class="fa fa-calendar"></i> {% include date.html d=post.date l='t' %} &nbsp;
                     <i class="fa fa-clock-o"></i> {{ post.time | replace: ':',' : ' }} &nbsp;
                     <i class="fa fa-tags"></i> &nbsp; 

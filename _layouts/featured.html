@@ -78,7 +78,7 @@ layout: default
                 <div class="col-lg-6">
                   <!-- <h5></h5> -->
                   {% assign postcontent = post.content | strip_html %}
-                  {% include lang_truncate.html text=postcontent %}
+                  <p>{% include lang_truncate.html text=postcontent %}</p>
                 </div>
               </div>
             </div>

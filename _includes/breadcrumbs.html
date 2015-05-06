@@ -13,6 +13,11 @@
 {% endfor %}
 
 <!-- Find navgroup from category in link -->
+<!-- TODO: 
+     There is possibly some error here... 
+     the level1 key should be obtained from the 
+     level1 value within a navgroup. Currently, 
+     this only works if the level1 value == key -->
 {% assign lev1 = page_url[1] %}
 {% for navgroup in ln %}
   {% if navgroup[1] contains lev1 %}
@@ -60,7 +65,7 @@
 {% endif %}
 
 <!-- Finally the html -->
-<ol class="breadcrumb hidden-xs">
+<ol class="breadcrumb hidden-xs hidden-sm">
 
   <!-- The navgroup -->
   <li>{{ thl[lev0] }}</li>
@@ -78,7 +83,7 @@
   {% endif %}
 
   <!-- Page title -->
-  <li class="active">{{ include.title }}</li>
+  <li class="active">{% include lang_truncate.html text=include.title nen=3 nja=12 %}</li>
 
 </ol>
 

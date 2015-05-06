@@ -61,7 +61,7 @@ internal:
   seminars: *seminars
   conferences: *conferences
   calendar: &calendar /calendar
-  tag_admission: &admission /admission
+  admission: &admission /admission
   astro_internal: &astro_internal /astro_internal # previously Astro-Internal
   alumni: &alumni /alumni
 
@@ -104,7 +104,7 @@ nav:
   projects:
     first: external
   postgrad:
-    tag_admission: *admission
+    admission: *admission
     pas_admission: external
     uot_admission: external
   links:

@@ -73,7 +73,7 @@ header:
     first: FIRST プロジェクト
     observers: 宇宙観測研究室
     postgrad: 大学院入学案内
-    tag_admission: 宇宙物理理論研究室
+    admission: 宇宙物理理論研究室
     pas_admission: 数理物質科学研究科
     uot_admission: 筑波大学
     links: リンク
@@ -120,7 +120,7 @@ header:
     first: FIRST Projects
     observers: Observational Astrophysics Group
     postgrad: Graduate School
-    tag_admission: Theoretical Astrophysics Group
+    admission: Theoretical Astrophysics Group
     pas_admission: Graduate School of Pure and Applied Sciences
     uot_admission: University of Tsukuba
     links: Links
@@ -308,9 +308,9 @@ calendar:
 # Admissions page translations
 admission:
   ja:
-    tag_admission: 宇宙物理理論研究室 入学案内
+    admission: 宇宙物理理論研究室 入学案内
   en:
-    tag_admission: Theoretical Astrophysics Group Admission Information
+    admission: Theoretical Astrophysics Group Admission Information
 
 # Contact page translations
 contact:

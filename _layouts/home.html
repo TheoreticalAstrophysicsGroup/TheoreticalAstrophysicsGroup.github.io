@@ -84,7 +84,7 @@ layout: default
               <a href="{{ posturl }}" class="thumbnail"><img src="{{ site.baseurl }}{{ la.img }}/{{ last_feature.img[0] }}" class="img-responsive" alt="Image"></a>
               {% endif %}
               {% assign lastfc = last_feature.content | strip_html %}
-              {% include lang_truncate.html text=lastfc %}
+              <p>{% include lang_truncate.html text=lastfc %}</p>
             </div>
           </div>
         </div>
