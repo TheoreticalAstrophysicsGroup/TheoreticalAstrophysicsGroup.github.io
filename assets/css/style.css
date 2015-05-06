@@ -1876,6 +1876,9 @@ hr {
   background-color: #eee;
   margin: 0 auto 20px auto;
   /*max-height: 150px;*/
+
+  /* AYW -- Firefox resize image issue */
+  width:100%;
 }
 .post p {
   line-height: 170%;
