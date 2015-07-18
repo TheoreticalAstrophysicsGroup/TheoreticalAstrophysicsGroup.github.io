@@ -578,11 +578,11 @@ conferences:
     current: 現在開催中の研究会
     domestic: 国内の研究会
     abroad: 海外での研究会
-    no_current: 現在開先中の研究会はありません．
-    no_future: 現在開催予定の研究会はありません．
-    no_abroad: 現在海外での研究会に就いての投稿はありません．
-    no_domestic: 現在国内での研究会に就いての投稿はありません．
-    archive_msg: 全研究会議の一覧はアーカイブを御覧ください．
+    no_current: 現在開先中の研究会はありません。
+    no_future: 現在開催予定の研究会はありません。
+    no_abroad: 現在海外での研究会に就いての投稿はありません。
+    no_domestic: 現在国内での研究会に就いての投稿はありません。
+    archive_msg: 全研究会議の一覧はアーカイブを御覧ください。
     info: 情報・案内
   en:
     motivation: Science and Motivation
