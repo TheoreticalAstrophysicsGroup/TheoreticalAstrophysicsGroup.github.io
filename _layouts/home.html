@@ -65,9 +65,11 @@ layout: default
       <h2 class="section-title">{{ page.title }}</h2>
       <img src="{{ site.baseurl }}{{ la.img }}/{{ page.img }}" class="img-responsive imageborder" alt="Image">
       <p class="p-lg">{{ content }}</p>
+      {% if page.important %}
       <div class="alert alert-info">
         <strong>{{ thl.important }}</strong> {{ page.important }}
       </div>
+      {% endif %}
     </div>
     <div class="col-md-5">
       <h2 class="section-title">{{ tcll.featured }}</h2>
