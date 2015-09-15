@@ -3,10 +3,13 @@
 {% assign li = site.data.links.internal %}
 {% assign la = site.data.links.assets %}
 {% assign ln = site.data.links.nav %}
+{% assign lel = site.data.links.external.[page.lang] %}
 
 <aside id="footer-widgets">
   <div class="container">
     <div class="row">
+
+      <!-- Sitemap  -->
       <div class="col-md-4">
         <h3 class="footer-widget-title">{{ tfl.sitemap }}</h3>
         <ul class="list-unstyled three_cols">
@@ -27,6 +30,7 @@
         </ul>
       </div>
 
+      <!-- Recent Posts -->
       <div class="col-md-4">
         <div class="footer-widget">
           <h3 class="footer-widget-title">{{ tfl.recent_posts }}</h3>
@@ -44,6 +48,7 @@
         </div>
       </div>
 
+      <!-- Recent Achievements -->
       <div class="col-md-4">
         <div class="footer-widget">
           <h3 class="footer-widget-title">{{ tfl.recent_works }}</h3>
@@ -52,7 +57,7 @@
             {% for post in posts_lang limit: 4 %}
             {% assign posturl = post.url | prepend: site.baseurl %}
             <div class="col-lg-6 col-md-6 col-sm-3 col-xs-6">
-              <a href="{{ posturl }}" class="thumbnail"><img src="{{ site.baseurl }}{{ la.img }}/{% if post.img %}{{ post.img[0] | replace: '.png', '-360x240.png' }}{% else %}no_img-360x240.png{% endif %}" class="img-responsive" alt="Image"></a>
+              <a href="{{ posturl }}" class="thumbnail"><img src="{{ site.baseurl }}{{ la.img }}{{la.img_achievements}}/{% if post.img %}{{ post.img[0] | replace: '.png', '-360x240.png' }}{% else %}no_img-360x240.png{% endif %}" class="img-responsive" alt="Image"></a>
             </div>
             {% endfor %}
           </div>
@@ -62,9 +67,9 @@
   </div> <!-- container -->
 </aside> <!-- footer-widgets -->
 
+<!-- Copyright  -->
 <footer id="footer">
-  <!-- Make these links language dependent too -->
-  <p>&copy; {{ site.time | date: "%Y" }} <a href="{{ site.baseurl }}{{ li.home }}/{{ page.lang }}">{{ tfl.title }}</a>, <a href="{{ lcl.ccs }}">{{ tfl.subtitle }}</a>, <a href="{{ lcl.uot }}">{{ tfl.uni }}</a>. All rights reserved.</p>
+  <p>&copy; {{ site.time | date: "%Y" }} <a href="{{ site.baseurl }}{{ li.home }}/{{ page.lang }}">{{ tfl.title }}</a>, <a href="{{ lel.ccs }}">{{ tfl.subtitle }}</a>, <a href="{{ lel.uot }}">{{ tfl.uni }}</a>. All rights reserved.</p>
 </footer>
 
 </div> <!-- boxed -->

@@ -70,6 +70,10 @@ internal:
 # Internal links
 assets:
   img: /assets/img
+  img_achievements: /achievements
+  img_people: /people
+  img_events: /events
+  img_albums: /albums
   css: /assets/css
   js: /assets/js
   fonts: /assets/fonts

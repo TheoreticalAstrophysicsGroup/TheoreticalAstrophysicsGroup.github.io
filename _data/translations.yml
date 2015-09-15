@@ -431,6 +431,7 @@ tags:
   protoclusters: プロトクラスター
   protoplanetary discs: 原始惑星系円盤
   protostars: 原始星
+  protostellar discs: 原始星円盤
   pulsars: パルサー
   quasars: クエーサー
   radiative feedback: 輻射によるフィードバック
@@ -460,6 +461,7 @@ tags:
   transients: 突発天体
   turbulence: 乱流
   UHECR: 超高エネルギー宇宙線
+  ULIRG: 超光度赤外線銀河
   visualization: 可視化
   Vlasov-Poisson simulations: ブラソフ・ポアソンシミュレーション
   WHIM: WHIM
