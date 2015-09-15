@@ -57,7 +57,7 @@
             {% for post in posts_lang limit: 4 %}
             {% assign posturl = post.url | prepend: site.baseurl %}
             <div class="col-lg-6 col-md-6 col-sm-3 col-xs-6">
-              <a href="{{ posturl }}" class="thumbnail"><img src="{{ site.baseurl }}{{ la.img }}{{la.img_achievements}}/{% if post.img %}{{ post.img[0] | replace: '.png', '-360x240.png' }}{% else %}no_img-360x240.png{% endif %}" class="img-responsive" alt="Image"></a>
+              <a href="{{ posturl }}" class="thumbnail"><img src="{{ site.baseurl }}{{la.img_achievements}}/{% if post.img %}{{ post.img[0] | replace: '.png', '-360x240.png' }}{% else %}no_img-360x240.png{% endif %}" class="img-responsive" alt="Image"></a>
             </div>
             {% endfor %}
           </div>
