@@ -87,6 +87,7 @@ header:
     astro_internal: 研究室内部ページ
     asj: 日本天文学会
     scheduler: サイボーズスケジュラー
+    resources: リソース
     uot_calendar: 筑波大学カレンダー
     ja: Ja
     en: En
@@ -134,6 +135,7 @@ header:
     astro_internal: Astro Internal
     asj: Astronomical Society of Japan
     scheduler: CCS Scheduler
+    resources: Resources
     uot_calendar: University of Tsukuba Calendar
     ja: 和
     en: 英
@@ -326,6 +328,20 @@ contact:
     message: <i class="fa fa-edit"></i> Message
     send: Send Message
     contact_form: Contact Form
+
+# Resources page translations
+resources:
+  ja:
+    study: 学習 
+    it: IT
+    research: 研究
+    about_header: リソース一覧に就て
+  en:
+    study: Study
+    it: IT
+    research: Research
+    about_header: About the resources listed
+  
 
 
 # Tag translations, so that we only need to use

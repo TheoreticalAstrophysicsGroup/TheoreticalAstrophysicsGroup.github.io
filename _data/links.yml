@@ -62,11 +62,12 @@ internal:
   conferences: *conferences
   calendar: &calendar /calendar
   admission: &admission /admission
+  resources: &resources /resources
   astro_internal: &astro_internal /astro_internal # previously Astro-Internal
   alumni: &alumni /alumni
 
 
-# Internal links (resources)
+# Internal links
 assets:
   img: /assets/img
   css: /assets/css
@@ -117,6 +118,7 @@ nav:
     observers: external  
     asj: external  
     internal: header
+    resources: *resources
     astro_internal: *astro_internal # previously Astro-Internal
 
 

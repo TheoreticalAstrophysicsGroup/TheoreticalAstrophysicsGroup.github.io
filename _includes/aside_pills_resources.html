@@ -1,0 +1,11 @@
+<nav id="sidebar-menu">
+  <ul class="nav nav-pills nav-stacked menu animated fadeIn" id="menu">
+  <!--<ul class="nav nav-pills nav-stacked affix menu animated fadeIn" id="menu" data-spy="affix" data-offset-top="400" data-offset-bottom="450">-->
+  {% for resource_category in trl %}
+    <li><a href="#{{ resource_category[0] }}" class="smooth">{{ resource_category[1] }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>
+
+
+

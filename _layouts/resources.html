@@ -1,0 +1,80 @@
+---
+layout: default
+---
+
+{% assign trl = site.data.translations.resources.[page.lang] %}
+{% assign la = site.data.links.assets %}
+
+{% include page_header.html title=page.title%}
+
+
+<div class="container">
+  <div class="row">
+
+
+    <div class="col-md-4 hidden-md hidden-lg">
+
+      {% include aside_about.html a=content t=trl.about_header %}
+
+      <br/>
+
+      {% include aside_pills_resources.html %}
+
+    </div> <!-- col -->
+
+    <div class="col-md-8">
+
+      {% for resource_category in page.resources %}
+
+      <div class="list-group ">
+
+        {% assign rc = resource_category[0] %}
+        <h3 id="{{ rc }}" class="section-title">{{ trl.[rc] }}</h3>
+
+        {% for resource in resource_category[1] %}
+
+        {% if resource.link  %}
+        <a href="{{ site.baseurl }}{{ resource.link }}" target="blank_"class="list-group-item">
+        {% endif %}
+
+          {% if resource.img %}
+          <span class="pull-left"><img src="{{ site.baseurl }}{{ la.img }}/{{ resource.img }}" class="pull-left media-object" alt="Image" width="50px" height="50px"></span>
+          {% endif %}
+
+
+          <div class="media-body">
+            <h4 class="media-heading">{{ resource.title }}
+              {% if resource.type == 'pdf' %}<span class="pull-right"><i class="fa fa-pdf"></i></span>
+                {% elsif resource.type == 'web' %}<span class="pull-right"><i class="fa fa-external-link"></i></span>
+              {% endif %}
+            </h4>
+            {{ resource.description }}
+          </div>
+
+          {% if resource.link  %}
+        </a>
+        {% endif %}
+
+        {% endfor %} <!-- resource_category loop -->
+
+      </div> <!-- list group -->
+
+      {% endfor %} <!-- resources loop -->
+
+    </div> <!-- col-md-8 -->
+
+    <div class="col-md-4 hidden-xs hidden-sm">
+      <aside class="sidebar">
+
+      {% include aside_about.html a=content t=trl.about_header %}
+      {% include aside_pills_resources.html %}
+
+
+      </aside> <!-- Sidebar -->
+    </div> 
+
+  </div> <!-- row -->
+</div> <!-- container  -->
+
+
+
