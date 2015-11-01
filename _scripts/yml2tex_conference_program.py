@@ -9,6 +9,9 @@ import os.path as osp
 # the types of contributions.
 # Tested with 2014-11-03-smbh-liason-workshop.html
 
+# If tex compilation doesn't work, use commands 
+# at the end of this document manually. 
+
 # Things to edit in this file are
 # - fbase, just below
 # - LaTeX header addtolengths 
@@ -108,6 +111,9 @@ fl.close()
 # to always include Japanese text)
 sp.call(['platex','--output-directory='+osp.dirname(fbase),fbase+'.tex'])
 sp.call(['dvipdfmx','-o',fbase+'.pdf', fbase+'.dvi'])
+
+print('platex --output-directory='+osp.dirname(fbase)+fbase+'.tex')
+print('dvipdfmx -o '+fbase+'.pdf '+fbase+'.dvi')
 
 # Cleanup
 sp.call(['rm','-f',fbase+'.yml'])
