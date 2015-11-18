@@ -48,15 +48,15 @@ module Jekyll
         end
         hash.to_json
       end
-  
-  
+
   end
-  
+
   # This is our generator
   # it will recreate js/tipuesearch_content.js everytime jekyll build is run
   class TipueGenerator < Generator
     safe true
-    
+
+   
     def generate(site)
       
       pages=Array.new
@@ -69,13 +69,13 @@ module Jekyll
       # Process all posts but the last one
       all_but_last.each do |page|
         
-        tp_page = TipuePage.new(page.data['title'], page.content.to_s, page.data['tags'].to_s, page.url)
+        tp_page = TipuePage.new(page.data['title'], page.content.to_s, page.data['tags'].to_s, site.baseurl+page.url)
         target.puts(tp_page.to_json + ',')
         
       end
       
       # Do the last
-      tp_page = TipuePage.new(last.data['title'], last.content.to_s, last.data['tags'].to_s, last.url)
+      tp_page = TipuePage.new(last.data['title'], last.content.to_s, last.data['tags'].to_s, site.baseurl+last.url)
       target.puts(tp_page.to_json)
       
       target.puts(']};')
