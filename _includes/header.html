@@ -40,19 +40,26 @@
         <a href="{{ site.baseurl }}{{ page.url | replace_first: '/ja/','/en/' | remove: 'index.html'}}" class="social-icon soc-lang-sel animated fadeInDown animation-delay-7 {% if page.lang == 'en' %} active {% endif %}"><sub>{{ thl.en }}</sub></a>
       </div>
 
-      <!-- Search Header
-      <div id="search-header" class="{{ hl }} animated fadeInRight">
-        <div class="input-group">
 
-          <input type="text" class="form-control" placeholder="{{ thl.search }}">
+
+      <!-- Search Header -->
+      <div id="search-header" class="{{ hl }} animated fadeInRight">
+        <!--<div class="input-group">-->
+
+        <form action="{{ site.baseurl }}{{ li.search }}/{{ page.lang }}/index.html">
+        <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+        </form>
+
+          <!--
           <span class="input-group-btn">
             <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
           </span>
-        </div>
+          -->
+        <!--</div>-->
       </div>
-      -->
 
     </div> <!-- container -->
+
 
   </header> <!-- header -->
 

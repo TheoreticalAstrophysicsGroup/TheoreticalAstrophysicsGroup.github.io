@@ -63,6 +63,7 @@ internal:
   calendar: &calendar /calendar
   admission: &admission /admission
   resources: &resources /resources
+  search: &search /search
   astro_internal: &astro_internal /astro_internal # previously Astro-Internal
   alumni: &alumni /alumni
 
