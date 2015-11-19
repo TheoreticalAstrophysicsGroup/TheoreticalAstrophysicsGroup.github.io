@@ -68,14 +68,27 @@ module Jekyll
       
       # Process all posts but the last one
       all_but_last.each do |page|
-        
-        tp_page = TipuePage.new(page.data['title'], page.content.to_s, page.data['tags'].to_s, site.baseurl+page.url)
+
+        if page.data['lang'].to_s == 'en'
+          language = 'English'
+        else
+          language = '日本語'
+        end
+
+        tp_page = TipuePage.new(page.data['title']+'【'+language+'】', page.content.to_s, page.data['tags'].to_s, site.baseurl+page.url)
         target.puts(tp_page.to_json + ',')
         
       end
-      
+ 
+        if last.data['lang'].to_s == 'en'
+          language = 'English'
+        else
+          language = '日本語'
+        end
+
+     
       # Do the last
-      tp_page = TipuePage.new(last.data['title'], last.content.to_s, last.data['tags'].to_s, site.baseurl+last.url)
+      tp_page = TipuePage.new(last.data['title']+'【'+language+'】', last.content.to_s, last.data['tags'].to_s, site.baseurl+last.url)
       target.puts(tp_page.to_json)
       
       target.puts(']};')
