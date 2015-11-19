@@ -25,20 +25,39 @@ var tipuesearch_replace = {'words': [
 
 
 // Weighting
+// Scores are *added* to the internally calculated scores
 
-var tipuesearch_weight = {'weight': [
-     {'url': 'http://www.tipue.com', 'score': 200},
-     {'url': 'http://www.tipue.com/search', 'score': 100},
-     {'url': 'http://www.tipue.com/about', 'score': 100}
-]};
+var baseurl = '/Astro/';
+// var baseurl = '/';
+var ann_rep_score = -1000;
+var ann_pub_score = -1000;
+
+var tipuesearch_weight = {
+    'weight': [{
+        'url': 'some_url',
+            'score': 0
+    }, {
+        'url': 'some_other_url',
+            'score': 0
+    }]
+};
+
+// Reduce the relevance of annual reports and achievements
+for (i = 1998; i < 2050; i++) {
+    tipuesearch_weight['weight'].push({ 'url': baseurl + 'achievements/annual_report/ja/' + i.toString() + '/03/31/annual-report/', 'score': ann_rep_score });
+    tipuesearch_weight['weight'].push({ 'url': baseurl + 'achievements/publications/ja/' + i.toString() + '/03/31/publications/', 'score': ann_pub_score });
+    tipuesearch_weight['weight'].push({ 'url': baseurl + 'achievements/annual_report/en/' + i.toString() + '/03/31/annual-report/', 'score': ann_rep_score });
+    tipuesearch_weight['weight'].push({ 'url': baseurl + 'achievements/publications/en/' + i.toString() + '/03/31/publications/', 'score': ann_pub_score });
+}
 
 
 // Stemming
+// Stems are just added to search
 
 var tipuesearch_stem = {'words': [
-     {'word': 'e-mail', 'stem': 'email'},
-     {'word': 'javascript', 'stem': 'jquery'},
-     {'word': 'javascript', 'stem': 'js'}
+     {'word': 'turbulent', 'stem': 'turbulence'},
+     {'word': 'magnetohydrodynamics', 'stem': 'mhd'},
+     {'word': 'radiative', 'stem': 'radiation'}
 ]};
 
 
