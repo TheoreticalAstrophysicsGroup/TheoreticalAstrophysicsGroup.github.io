@@ -27,7 +27,7 @@ layout: default
         </thead>
         <tbody>
           {% for m in page.members %}
-          {% if m.loc == "kobe" %} {% assign ext_symb = "†" %}
+          {% if m.loc == "paris" %} {% assign ext_symb = "†" %}
           {% else %} {% assign ext_symb = "" %}
           {% endif %}
           <tr>
@@ -40,7 +40,7 @@ layout: default
           {% endfor %}
         </tbody>
       </table>
-      <p><sup>†</sup>{{ tml.loc_kobe }}</p>
+      <p><sup>†</sup>{{ tml.loc_paris }}</p>
       <br/>
 
       {{ content }}

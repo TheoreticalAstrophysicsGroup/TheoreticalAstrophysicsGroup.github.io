@@ -270,6 +270,7 @@ members:
     loc_kobe: 筑波大学 計算科学研究センター 神戸分室
     loc_icrr: 東京大学 宇宙線研究所
     loc_munich: ドイツ ミュンヘン大学
+    loc_paris: パリ，IAP
     alumni: 出身者一覧
     staff: スタッフ及び研究員
     position: <i class="fa fa-child"></i> 在籍時の身分 
@@ -290,6 +291,7 @@ members:
     loc_kobe: Riken, Kobe
     loc_icrr: University of Tokyo Institute for Cosmic Ray Research
     loc_munich: University of Munich
+    loc_paris: Paris, IAP
     alumni: Past Members (Alumni)
     staff: Staff and Postdocs
     position: <i class="fa fa-child"></i> Position at the time
@@ -575,6 +577,7 @@ conferences:
     other_info: その他の情報
     webpage: 研究会ウェブページ
     invited: 招待講演者
+    contributed: 一般講演
     top: トップ
     participants: 参加者
     full_part: 全参加者一覧
@@ -614,6 +617,7 @@ conferences:
     webpage: Conference Webpage
     top: Top
     invited: Invited Speakers
+    invited: Contributed Talks
     participants: Participants
     full_part: Full list of participants
     program: Program

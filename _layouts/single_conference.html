@@ -69,6 +69,16 @@ layout: default
       </ul>
       {% endif %}
 
+      {% if page.contributed %}
+      <h3 id="contributed"> {{ tcl.contributed }} </h3>
+      <ul>
+        {% for con in page.contributed %}
+        <li>{{ con.name }}{{ open_bra }}{{ con.affil }}{{ close_bra }}{% if con.title %}{{ colon }}{{ open_quo}}{{ con.title }}{{ close_quo }}{% endif %}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+
       {% if page.participants %}
       <div class="panel-group" id="accordion1">
         <div class="panel">
