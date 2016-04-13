@@ -55,7 +55,7 @@ layout: default
       <h3 id="review"> {{ tcl.review }} </h3>
       <ul>
         {% for rev in page.review %}
-        <li>{{ rev.speaker }}{{ open_bra }}{{ rev.affil }}{{ close_bra }}{{ colon }}{{ open_quo}}{{ rev.title }}{{ close_quo }}</li>
+        <li>{{ rev.name }}{{ open_bra }}{{ rev.affil }}{{ close_bra }}{% if rev.title %}{{ colon }}{{ open_quo}}{{ rev.title }}{{ close_quo }}{% endif %}</li>
         {% endfor %}
       </ul>
       {% endif %}
@@ -64,7 +64,7 @@ layout: default
       <h3 id="invited"> {{ tcl.invited }} </h3>
       <ul>
         {% for inv in page.invited %}
-        <li>{{ inv.name }}{{ open_bra }}{{ inv.affil }}{{ close_bra }}</li>
+        <li>{{ inv.name }}{{ open_bra }}{{ inv.affil }}{{ close_bra }}{% if inv.title %}{{ colon }}{{ open_quo}}{{ inv.title }}{{ close_quo }}{% endif %}</li>
         {% endfor %}
       </ul>
       {% endif %}
