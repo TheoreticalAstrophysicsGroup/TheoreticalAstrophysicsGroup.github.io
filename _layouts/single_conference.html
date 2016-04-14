@@ -78,8 +78,6 @@ layout: default
       </ul>
       {% endif %}
 
-
-      {% if page.participants %}
       <div class="panel-group" id="accordion1">
         <div class="panel">
           <div class="panel-heading">
@@ -92,15 +90,31 @@ layout: default
           <div id="collapseOne1" class="panel-collapse collapse">
             <div class="panel-body">
               <ul>
-                {% for ptps in page.participants %}
-                <li>{{ ptps.name }}{{ open_bra }}{{ ptps.affil }}{{ close_bra }}</li>
-                {% endfor %}
+                {% if page.review %}
+                  {% for rev in page.review %}
+                    <li>{{ rev.name }}{{ open_bra }}{{ rev.affil }}{{ close_bra }}</li>
+                  {% endfor %}
+                {% endif %}
+                {% if page.invited %}
+                  {% for inv in page.invited %}
+                    <li>{{ inv.name }}{{ open_bra }}{{ inv.affil }}{{ close_bra }}</li>
+                  {% endfor %}
+                {% endif %}
+                {% if page.contributed %}
+                  {% for con in page.contributed %}
+                    <li>{{ con.name }}{{ open_bra }}{{ con.affil }}{{ close_bra }}</li>
+                  {% endfor %}
+                {% endif %}
+                {% if page.participants %}
+                  {% for ptp in page.participants %}
+                    <li>{{ ptp.name }}{{ open_bra }}{{ ptp.affil }}{{ close_bra }}</li>
+                  {% endfor %}
+                {% endif %}
               </ul>
             </div>
           </div>
         </div>
       </div>
-      {% endif %}
 
       {% if page.important_dates %}
       <h3 id="important_dates"> {{ tcl.important_dates }} </h3>
