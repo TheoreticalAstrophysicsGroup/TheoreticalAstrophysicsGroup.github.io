@@ -570,16 +570,16 @@ conferences:
   ja:
     motivation: サイエンス・開催趣旨
     review: レビュー講演
+    invited: 招待講演
+    contributed: 一般講演
+    participants: 参加者
     soc: Science Organizing Committee
     loc: Local Organizing Committee
     access: アクセス
     important_dates: 重要な日付
     other_info: その他の情報
     webpage: 研究会ウェブページ
-    invited: 招待講演者
-    contributed: 一般講演
     top: トップ
-    participants: 参加者
     full_part: 全参加者一覧
     program: プログラム
     dinner: 懇親会
@@ -609,6 +609,9 @@ conferences:
   en:
     motivation: Science and Motivation
     review: Review Talks
+    invited: Invited Talks
+    contributed: Contributed Talks
+    participants: Participants
     soc: Science Organizing Committee
     loc: Local Organizing Committee
     access: Access
@@ -616,9 +619,6 @@ conferences:
     other_info: Other Information
     webpage: Conference Webpage
     top: Top
-    invited: Invited Speakers
-    invited: Contributed Talks
-    participants: Participants
     full_part: Full list of participants
     program: Program
     dinner: Conference Dinner
