@@ -122,7 +122,7 @@
             <li class="dropdown"> <a href="{{ site.baseurl }}{{ page.url | replace_first: l1,l2 | remove: 'index.html'}}"><i class="fa fa-language"></i> 　{{ thl.readin }}</a></li>
             <li class="dropdown {% if pu == 'contact' %} active {% endif %}"> <a href="{{ site.baseurl }}{{ li.contact }}/{{ page.lang }}"><i class="fa fa-envelope"></i>　{{ thl.contact }}</a> </li>
             <li class="dropdown "> <a href="{{ lel.access }}" target="_blank"><i class="fa fa-location-arrow"></i> 　{{ thl.access }} <sup><i class="fa fa-external-link"></i></sup></a> </li>
-            <li class="dropdown "> <a href="{{ li.search }}/{{ page.lang }}" target="_blank"><i class="fa fa-search"></i> 　{{ thl.search }} </a> </li>
+            <li class="dropdown "> <a href="{{ site.baseurl }}{{ li.search }}/{{ page.lang }}" target="_blank"><i class="fa fa-search"></i> 　{{ thl.search }} </a> </li>
           </ul> <!-- nav nabvar-nav navbar-right -->
 
       </div><!-- navbar-collapse -->
