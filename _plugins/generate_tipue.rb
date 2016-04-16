@@ -64,7 +64,7 @@ module Jekyll
       target.truncate(target.size)
       target.puts('var tipuesearch = {"pages": [')
       
-      all_but_last, last = site.posts[0..-2], site.posts.last
+      all_but_last, last = site.posts.docs[0..-2], site.posts.docs.last
       
       # Process all posts but the last one
       all_but_last.each do |page|

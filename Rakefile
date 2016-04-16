@@ -53,17 +53,17 @@ end
 namespace :site do
   desc "Generate the site"
   task :build do
-    sh "bundle exec jekyll build --future --drafts --limit_posts #{POSTLIMIT} --config _config_loc.yml"
+    sh "bundle exec jekyll build --future --drafts --limit_posts #{POSTLIMIT} --profile --config _config_loc.yml"
   end
 
   desc "Generate the site and serve locally"
   task :serve do
-    sh "bundle exec jekyll serve --watch --future --drafts --limit_posts #{POSTLIMIT} --config _config_loc.yml"
+    sh "bundle exec jekyll serve --watch --future --drafts --limit_posts #{POSTLIMIT} --incremental --config _config_loc.yml"
   end
 
   desc "Generate the site, serve locally and watch for changes"
   task :watch do
-    sh "bundle exec jekyll serve --watch --future --drafts --limit_posts #{POSTLIMIT} --config _config_loc.yml"
+    sh "bundle exec jekyll serve --watch --future --drafts --limit_posts #{POSTLIMIT} --incremental --config _config_loc.yml"
   end
 
   desc "Generate the site on gorilla, and serve locally and watch for changes"
