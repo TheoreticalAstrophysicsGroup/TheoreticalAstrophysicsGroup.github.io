@@ -34,7 +34,6 @@ include:
 collections:
   members:
     output: true
-    permalink: pretty
 
 # Defaults for categories
 defaults:
@@ -77,6 +76,6 @@ defaults:
     scope:
       path: members
     values:
-      layout: single_member
+      layout: redirect_back
 
 

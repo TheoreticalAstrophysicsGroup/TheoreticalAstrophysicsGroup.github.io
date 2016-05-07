@@ -243,6 +243,7 @@ achievements:
 
 
 # Information page translations
+# TODO: Check if this is even used.
 information:
   ja:
     current: 現在開催しているセミナー
@@ -262,7 +263,7 @@ members:
   ja:
     current: 現在のメンバー
     name: <i class="fa fa-user"></i> 氏名
-    level: <i class="fa fa-graduation-cap"></i> 職/学年
+    position: <i class="fa fa-graduation-cap"></i> 職/学年
     tel: <i class="fa fa-phone"></i> 029-853-<i class="fa fa-tablet"></i><i class="fa fa-tablet"></i><i class="fa fa-tablet"></i><i class="fa fa-tablet"></i>
     email: <i class="fa fa-envelope-o"></i> <i class="fa fa-at"></i> ccs.tsukuba.ac.jp
     research: <i class="fa fa-rocket"></i> 主な研究テーマ
@@ -272,18 +273,21 @@ members:
     loc_munich: ドイツ ミュンヘン大学
     loc_paris: パリ，IAP
     alumni: 出身者一覧
-    staff: スタッフ及び研究員
-    position: <i class="fa fa-child"></i> 在籍時の身分 
-    lastyr: <i class="fa fa-history"></i> 最終在籍年度 
-    degree: <i class="fa fa-graduation-cap"></i> 取得学位
-    thereafter: <i class="fa fa-road"></i> その後
-    postgrads: 大学院生
-    deg: <i class="fa fa-graduation-cap"></i> 学位
-    students: 学類生
+    professor: 教授
+    associate_professor: 准教授
+    lecturer: 講師
+    assistant_professor: 助教
+    postdoc: 研究員
+    d3: D3
+    d2: D2
+    d1: D1
+    m2: M2
+    m1: M1
+    y4: ４年
   en:
     current: Current Members
     name: <i class="fa fa-user"></i> Name
-    level: <i class="fa fa-graduation-cap"></i> Position
+    position: <i class="fa fa-graduation-cap"></i> Position
     tel: <i class="fa fa-phone"></i> 029-853-<i class="fa fa-tablet"></i><i class="fa fa-tablet"></i><i class="fa fa-tablet"></i><i class="fa fa-tablet"></i>
     email: <i class="fa fa-envelope-o"></i> @ccs.tsukuba.ac.jp
     research: <i class="fa fa-rocket"></i> Research Interests
@@ -293,6 +297,74 @@ members:
     loc_munich: University of Munich
     loc_paris: Paris, IAP
     alumni: Past Members (Alumni)
+    professor: Professor
+    associate_professor: Associate Professor
+    lecturer: Lecturer
+    assistant_professor: Assistant Professor
+    postdoc: Postdoc
+    d3: D3
+    d2: D2
+    d1: D1
+    m2: M2
+    m1: M1
+    y4: Y4
+
+# Single member profile page translations
+profile:
+  ja:
+    name: 氏名
+    position: 職
+    tel: 029-853-
+    email: メール
+    research: 研究テーマ
+    since: 着任
+    loc: 居所・拠点
+    cv: 略歴
+    cv_pdf: 履歴書 PDF版
+    teaching: 教職歴・講座・講義
+    publications: 投稿論文（選集）
+    talks: 招待講演・研究会（選集）
+    awards: 研究助成・賞
+    achievements: 成果・業績・功績
+    skills: スキル
+    links: リンク
+    tsukuba: 筑波大学計算科学研究センター 〒３０５−８５７７ 茨城県つくば市天王台１−１−１
+    paris: Institut d'Astrophysique Paris, 98 bis Boulevard Arago, 75014 Paris
+  en:
+    name: Name
+    position: Position
+    tel: 029-853-
+    email: Email
+    research: Research Interests
+    since: Member since
+    loc: Location
+    cv: Curriculum Vitae
+    cv_pdf: Curriculum Vitae PDF
+    teaching: Teaching experience, courses & lectures
+    publications: Selected publications
+    talks: Selected talks and conference 
+    awards: Awards
+    achievements: Achievements
+    skills: Skills
+    links: Links
+    tsukuba: University of Tsukuba, Center for Computational Sciences, Tennodai 1-1-1, Tsukuba, Ibaraki, Japan 305-8577
+    paris: Institut d'Astrophysique Paris, 98 bis Boulevard Arago, 75014 Paris
+
+
+# Members page translations
+alumni:
+  ja:
+    name: <i class="fa fa-user"></i> 氏名
+    staff: スタッフ及び研究員
+    position: <i class="fa fa-child"></i> 在籍時の身分 
+    lastyr: <i class="fa fa-history"></i> 最終在籍年度 
+    degree: <i class="fa fa-graduation-cap"></i> 取得学位
+    thereafter: <i class="fa fa-road"></i> その後
+    postgrads: 大学院生
+    deg: <i class="fa fa-graduation-cap"></i> 学位
+    students: 学類生
+  en:
+    name: <i class="fa fa-user"></i> Name
     staff: Staff and Postdocs
     position: <i class="fa fa-child"></i> Position at the time
     lastyr: <i class="fa fa-history"></i> Final year
@@ -301,6 +373,7 @@ members:
     postgrads: Postgrads
     deg: <i class="fa fa-graduation-cap"></i> Degree
     students: Students
+
 
 # Calendar page translations
 calendar:

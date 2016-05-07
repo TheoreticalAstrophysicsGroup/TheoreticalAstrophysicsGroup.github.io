@@ -77,7 +77,7 @@ defaults:
     scope:
       path: members
     values:
-      layout: single_member
+      layout: redirect_back
 
 compress_html:
   clippings: all
