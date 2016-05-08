@@ -34,7 +34,6 @@ include:
 collections:
   members:
     output: true
-    permalink: pretty
 
 # Defaults for categories
 defaults:
