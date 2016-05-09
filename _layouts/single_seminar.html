@@ -31,7 +31,7 @@ layout: default
       <!-- This creates an lang_count variable into the namespace -->
       {% include lang_count.html number=npost %}
 
-      <p class="lead">{{ tsl.count_pre }}{{ npost }}<sup>{{ lang_count }}</sup>{{ tsl.count_aft }}{% if page.part %}{{ open_surround }}{{ tsl.part }}{{ page.part }}{{ close_surround }}{% endif %}</p>
+      <p class="lead">{{ tsl.count_pre }}{{ npost }}<sup>{{ lang_count }}</sup>{{ tsl.count_aft }}{% if page.part %}{{ open_surround }}{{ tsl.part }} {{ page.part }}{{ close_surround }}{% endif %}</p>
 
       {% if page.img_thumb %}
       {% unless page.img_thumb contains 'no_thumb' %}
