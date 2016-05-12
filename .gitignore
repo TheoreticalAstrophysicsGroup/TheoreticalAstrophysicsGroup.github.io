@@ -3,3 +3,4 @@ __plugins
 **/.*.sw*
 vendor
 .sitemaps.xml
+assets/tipuesearch/tipuesearch_content.js

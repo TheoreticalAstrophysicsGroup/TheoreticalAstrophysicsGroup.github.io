@@ -1,0 +1,249 @@
+---
+layout: default
+---
+
+{% assign tml = site.data.translations.members.[page.lang] %}
+{% assign tpl = site.data.translations.profile.[page.lang] %}
+{% assign la = site.data.links.assets %}
+{% assign li = site.data.links.internal %}
+
+{% include page_header.html title=page.title %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <section>
+        <img src="{{ site.baseurl }}{{ la.img }}/{{ page.profile_pic }} " alt="avatar" class="img-responsive imageborder">
+      </section>
+      <section>
+        {% include aside_pills_profile.html %}
+      </section>
+    </div>
+    <div class="col-md-9">
+
+      <section>
+        <div id="general" class="panel panel-primary">
+          <table class="table table-striped">
+            <tr>
+              <th><i class="fa fa-user"></i></th>
+              <th>{{ tpl.name }}</th>
+              <td>{{ page.name }}</td>
+            </tr>
+            <tr>
+              <th><i class="fa fa-graduation-cap"></i></th>
+              <th>{{ tpl.position }}</th>
+              <td>{{ tml[page.position] }}</td>
+            </tr>
+            <tr>
+              <th><i class="fa fa-history"></i></th>
+              <th>{{ tpl.since }}</th>
+              <td>{% include date.html d=page.since l='t' %}</td>
+            </tr>
+            <tr>
+              <th><i class="fa fa-map-marker"></i></th>
+              <th>{{ tpl.loc }}</th>
+              <td>{{ tpl[page.loc] }}</td>
+            </tr>
+            <tr>
+              <th><i class="fa fa-phone"></i></th>
+              <th>{{ tpl.tel }}</th>
+              <td>{{ page.tel }}</td>
+            </tr>
+            <tr>
+              <th><i class="fa fa-envelope-o"></i></th>
+              <th>{{ tpl.email }}</th>
+              <td>{{ page.email }} <i class="fa fa-at"></i> ccs.tsukuba.ac.jp</td>
+            </tr>
+            <tr>
+              <th><i class="fa fa-rocket"></i></th>
+              <th>{{ tpl.research }}</th>
+              <td>{{ page.research }}</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+      {% if page.cv %}
+      <section>
+        <!--<h3 id="cv" class="post-title" >{{ tpl.cv }}</h3>-->
+        <h2 id="cv" >{{ tpl.cv }}</h2>
+        <div class="panel">
+          <table class="table">
+            {% for cv_item in page.cv %}
+            <tr>
+              <td>{{ cv_item.period.begin }}</td>
+              <td><i class="fa fa-ellipsis-h"></i></td>
+              <td>{{ cv_item.period.end }}</td>
+              <td>{{ cv_item.position }}</td>
+              <td>{{ cv_item.location }}</td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </section>
+      {% endif %}
+
+      {% if page.cv_pdf %}
+      <p><a href="{{ site.baseurl }}{{ li.doc }}/{{ page.cv_pdf }}" target="_blank">{{ tpl.pdf }}</a></p>
+      {% endif %}
+
+      {% if page.teaching %}
+      <section>
+        <h2 id="teaching" >{{ tpl.teaching }}</h2>
+        <div class="panel">
+          <ol>
+            {% for t in page.teaching %}
+            <li>{{ t.description }} <a href="{{ t.link }}" target="_blank"><i class="fa fa-external-link"></i></a></li>
+            {% endfor %}
+          </ol>
+        </div>
+      </section>
+      {% endif %}
+
+      {% if page.selected_publications %}
+      <section>
+        <h2 id="publications" >{{ tpl.publications }}</h2>
+        <div class="panel">
+          <ol>
+            {% for p in page.selected_publications %}
+            <li>{{ p.description }} <a href="{{ p.link }}" target="_blank"><i class="fa fa-external-link"></i></a></li>
+            {% endfor %}
+          </ol>
+        </div>
+      </section>
+      {% endif %}
+
+      {% if page.selected_talks %}
+      <section>
+        <h2 id="talks" >{{ tpl.talks }}</h2>
+        <div class="panel">
+          <ol>
+            {% for t in page.selected_talks %}
+            <li>{{ t.description }} <a href="{{ t.link }}" target="_blank"><i class="fa fa-external-link"></i></a></li>
+            {% endfor %}
+          </ol>
+        </div>
+      </section>
+      {% endif %}
+
+      {% if page.awards %}
+      <section>
+        <h2 id="awards" >{{ tpl.awards }}</h2>
+        <div class="panel">
+          <ol>
+            {% for a in page.awards %}
+            <li>{{ a.description }} <a href="{{ a.link }}" target="_blank"><i class="fa fa-external-link"></i></a></li>
+            {% endfor %}
+          </ol>
+        </div>
+      </section>
+      {% endif %}
+
+      {% if page.achievements %}
+      <section>
+        <h2 id="achievements" >{{ tpl.achievements }}</h2>
+        <div class="panel">
+          <ol>
+            {% for a in page.achievements %}
+            <li>{{ a.description }} <a href="{{ a.link }}" target="_blank"><i class="fa fa-external-link"></i></a></li>
+            {% endfor %}
+          </ol>
+        </div>
+      </section>
+      {% endif %}
+
+      {% if page.skills %}
+      <section>
+        <h2 id="skills" >{{ tpl.skills }}</h2>
+        <div class="panel">
+          <ol>
+            {% for s in page.skills %}
+            <li>{{ s }}</li>
+            {% endfor %}
+          </ol>
+        </div>
+      </section>
+      {% endif %}
+
+      <section>
+        <!--<h3 id="research" class="post-title" >{{ tpl.research }}</h3>-->
+        <h2 id="research" >{{ tpl.research }}</h2>
+        <!-- AYW 2014-06-23 13:30 JST Some tips for content
+          - Use <strong></strong> for emphasis,
+          - <p></p>, <p class="lead"></p> for leading text, 
+          - and <h3> for sub-titles
+          - Put all images in img and use: <img src="img/7.jpg" class="img-responsive imageborder" alt="Image"> 
+        -->
+
+
+        {% assign content_array = content | split: '<p>' %}
+        {% assign nc = content_array | size %}
+        {% assign ni = page.img | size %}
+
+        {% if ni > 0 %} {% assign ncpni = nc | divided_by: ni %}
+        {% else %} {% assign ncpni = nc %}
+        {% endif %}
+
+        {% if page.img[0] %}
+        <img src="{{ site.baseurl }}{{ la.img }}/{{ page.img[0] }}" class="img-responsive" alt="Image" />
+        {% endif %}
+
+        {% assign iimg = 1 %}
+
+        {% for c in content_array %}
+
+        <p>{{ c }}
+
+        {% if ncpni < 1  %}
+
+        {% assign ncpni = ncpni | times: 2 %}
+
+        {% assign iimg1 = forloop.index | times: 2 | minus: 1 %}
+        {% assign iimg2 = forloop.index | times: 2 %}
+        {% assign img1 = page.img[iimg1] %}
+        {% assign img2 = page.img[iimg2] %}
+
+        {% if img1 %} <img src="{{ site.baseurl }}{{ la.img }}/{{ img1 }}" class="im-responsive alignleft" alt="Image" style="max-width: 25em" /> {% endif %}
+        {% if img2 %} <img src="{{ site.baseurl }}{{ la.img }}/{{ img2 }}" class="im-responsive alignright" alt="Image" style="max-width: 25em" /> {% endif %}
+
+        {% else %}
+
+        {% assign mfi = iimg | modulo: 2 %}
+        {% if mfi == 1 %}
+        {% assign imgclass = 'img-responsive alignright' %}
+        {% assign imgstyle = 'max-width: 30em; ' %}
+        {% else %} 
+        {% assign imgclass = 'img-responsive alignleft' %}
+        {% assign imgstyle = 'max-width: 30em; ' %}
+        {% endif %}
+
+        {% assign fimodiimg = forloop.index | modulo: ncpni %}
+        {% if fimodiimg == 0 and page.img[iimg] %}
+        <img src="{{ site.baseurl }}{{ la.img }}/{{ page.img[iimg] }}" class="{{ imgclass }}" alt="Image" style="{{ imgstyle }}"/>
+        {% assign iimg = iimg | plus: 1 %}
+        {% endif %}
+
+        {% endif %}
+
+        {% endfor %}
+
+      </section>
+
+      {% if page.links %}
+      <section>
+        <!--<h3 id="links" class="post-title" >{{ tpl.links }}</h3>-->
+        <h2 id="links" >{{ tpl.links }}</h2>
+        <div class="panel">
+          <ol>
+            {% for l in page.links %}
+            <li><a href="{{ l.link }}" target="_blank">{{ l.description }}</a></li>
+            {% endfor %}
+          </ol>
+        </div>
+      </section>
+      {% endif %}
+
+    </div>
+  </div>
+</div> <!-- container  -->
+

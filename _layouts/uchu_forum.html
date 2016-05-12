@@ -275,9 +275,12 @@ layout: default
           {% if in_time_interval and nposts < posts_per_page4 %}
 
           {% assign posturl = post.url | prepend: site.baseurl %}
-          <li><a href="{{ posturl }}">{{ post.title }}</a>,
-          {{ post.speaker }}{{ open_surround }}{{ post.affil }}{{ close_surround }} &nbsp;
-          <i>{% include date.html d=post.date l='t' %}</i> &nbsp;
+          <li>
+          {% if post.part == 1 %}<ul><li>{% endif %}
+            <a href="{{ posturl }}">{{ post.title }}</a>,
+            {{ post.speaker }}{{ open_surround }}{{ post.affil }}{{ close_surround }} &nbsp;
+            <i>{% include date.html d=post.date l='t' %}</i> &nbsp;
+            {% if post.part == post.parts %}</li></ul>{% endif %}
           </li>
           {% assign nposts = nposts | plus: 1 %}
           {% endif %}

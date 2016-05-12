@@ -1,0 +1,16 @@
+
+      <nav id="sidebar-menu">
+      <ul class="nav nav-pills nav-stacked menu animated fadeIn">
+        {% if page.cv %}<li><a href="#cv" class="smooth">{{ tpl.cv }}</a></li>{% endif %}
+        {% if page.teaching %} <li><a href="#teaching" class="smooth">{{ tpl.teaching }}</a></li>{% endif %}
+        {% if page.selected_publications %} <li><a href="#publications" class="smooth">{{ tpl.publications }}</a></li>{% endif %}
+        {% if page.selected_talks %} <li><a href="#talks" class="smooth">{{ tpl.talks }}</a></li>{% endif %}
+        {% if page.awards %} <li><a href="#awards" class="smooth">{{ tpl.awards }}</a></li>{% endif %}
+        {% if page.achievements %} <li><a href="#achievements" class="smooth">{{ tpl.achievements }}</a></li>{% endif %}
+        {% if page.skills %} <li><a href="#skills" class="smooth">{{ tpl.skills }}</a></li>{% endif %}
+        {% if page.links %} <li><a href="#links" class="smooth">{{ tpl.links }}</a></li>{% endif %}
+         <li><a href="#research" class="smooth">{{ tpl.research }}</a></li>
+      </ul>
+      </nav>
+
+

@@ -2,7 +2,7 @@
 layout: default
 ---
 
-{% assign tml = site.data.translations.members.[page.lang] %}
+{% assign tal = site.data.translations.alumni.[page.lang] %}
 {% assign la = site.data.links.assets %}
 {% assign li = site.data.links.internal %}
 
@@ -12,16 +12,16 @@ layout: default
   <div class="row">
     <div class="col-xs-12">
 
-      <h3 class="post-title">{{ tml.staff }}</h3>
+      <h3 class="post-title">{{ tal.staff }}</h3>
 
       <table class="table">
         <thead>
           <tr>
-            <th>{{ tml.name }}</th>
-            <th>{{ tml.position }}</th>
-            <th>{{ tml.lastyr }}</th>
-            <th>{{ tml.degree }}</th>
-            <th>{{ tml.thereafter }}</th>
+            <th>{{ tal.name }}</th>
+            <th>{{ tal.position }}</th>
+            <th>{{ tal.lastyr }}</th>
+            <th>{{ tal.degree }}</th>
+            <th>{{ tal.thereafter }}</th>
           </tr>
         </thead>
         <tbody>
@@ -38,15 +38,15 @@ layout: default
       </table>
       <br/>
 
-      <h3 class="post-title">{{ tml.postgrads }}</h3>
+      <h3 class="post-title">{{ tal.postgrads }}</h3>
 
       <table class="table">
         <thead>
           <tr>
-            <th>{{ tml.name }}</th>
-            <th>{{ tml.deg }}</th>
-            <th>{{ tml.lastyr }}</th>
-            <th>{{ tml.thereafter }}</th>
+            <th>{{ tal.name }}</th>
+            <th>{{ tal.deg }}</th>
+            <th>{{ tal.lastyr }}</th>
+            <th>{{ tal.thereafter }}</th>
           </tr>
         </thead>
         <tbody>
@@ -61,14 +61,14 @@ layout: default
         </tbody>
       </table>
 
-      <h3 class="post-title">{{ tml.students }}</h3>
+      <h3 class="post-title">{{ tal.students }}</h3>
 
       <table class="table">
         <thead>
           <tr>
-            <th>{{ tml.name }}</th>
-            <th>{{ tml.lastyr }}</th>
-            <th>{{ tml.thereafter }}</th>
+            <th>{{ tal.name }}</th>
+            <th>{{ tal.lastyr }}</th>
+            <th>{{ tal.thereafter }}</th>
           </tr>
         </thead>
         <tbody>
