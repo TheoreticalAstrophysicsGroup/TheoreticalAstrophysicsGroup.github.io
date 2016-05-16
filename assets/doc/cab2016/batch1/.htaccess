@@ -1,6 +1,5 @@
 AuthType Basic
 AuthName "Computational Astrobiology Workshop documents"
-AuthUserFile /home-WWW/Research/Astro/assets/doc/cab2016/batch1/.htpasswd
-#AuthUserFile /home-WWW/Research/Astro/Members/aikawa/.htpasswd
+AuthUserFile /home-WWW/Research/Astro/Members/aikawa/.htpasswd
 require valid-user
 
