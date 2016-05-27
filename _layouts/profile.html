@@ -12,9 +12,12 @@ layout: default
 <div class="container">
   <div class="row">
     <div class="col-md-3">
+
+      {% if page.profile_pic %}
       <section>
         <img src="{{ site.baseurl }}{{ la.img }}/{{ page.profile_pic }} " alt="avatar" class="img-responsive imageborder">
       </section>
+      {% endif %}
       <section>
         {% include aside_pills_profile.html %}
       </section>
