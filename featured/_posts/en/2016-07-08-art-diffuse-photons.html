@@ -1,0 +1,58 @@
+---
+title: 3-dimensional radiative transfer simulations including diffuse photons on GPUs (Part 1)
+lang: en
+authors:
+  - name: Satoshi Tanaka
+    affil: University of Tsukuba, CCS
+  - name: Kohji Yoshikawa
+    affil: University of Tsukuba, CCS
+  - name: Takashi Okamoto
+    affil: Hokkaido University
+  - name: Kenji Hasegawa
+    affil: Nagoya University
+img_thumb: tanaka_art_diffuse-thumb.jpg
+img:
+  - tanaka_art_diffuse.jpg
+  - tanaka_art_diffuse-2.jpg
+
+categories:
+  - featured
+  - en
+---
+
+<!-- fig.1 : 中心星の近くに遮蔽物を置いた際の電離度の時間発展の様子。
+  上：中心星からの光と再結合光子の輸送を考慮した計算。下：中心星からの光のみの計算。-->
+
+<!--fig.2 : CPUのみとGPUを用いた際の計算時間の比較。
+  GPUを使用した計算時間はおおよそ10倍高速化されている。-->
+
+<h3>Abstract</h3>
+<p>
+Accurately solving the equations of radiative transfer for the radiation from stars and the interstellar medium is vital to underestanding the physics governing the interstellar medium, galaxy formation and evolution, and large-scale structure. Light from stars is absorbed and attenuated by neutral gas, but ultra-violet photons and those beyond will ionize the neutral gas. The ionized gas may recombine with free electrons and in the process emit what is called a recombination photon. The recombination photons (diffuse photons) may effect their surroundings, and this effect cannot be ignored. To examine the effects of the diffuse photons, we have developed a new radiative transfer code which runs on GPUs, and, therefore, accelerates a very time-consuming calculation. 
+</p>
+
+<h3>Method</h3>
+<p>
+A method of integrating along the paths of radiation and solving the equations of radiative transfer is the ray-tracing method.
+Because the method is very expensive compared to hydrodynamic or gravitational N-body calculations, the recombination photons from ionized gas is usually ignored, and only the direct radiation from the stars is taken into account. In this approximation called the "on the spot" approximation, it is assumed that the recombination photon is directly absorbed in the neighborhood where it was emitted. Despite the fact that this approximation is strictly only valid in regions of very high neutral gas density (large optical depths), most of the work studying low-density environments hitherto has made use of this approximation. In our work, we augment the ray-tracing method called ART (Authentic Radiative Transfer) to make it possible to take into account the recombination photons from the gas in the interstellar medium. For the photons from the stars, we used the ARGOT (Accelerated Radiative Transfer on Grids using Oct-Tree) method, and the combination of the two results in a drastic reduction of the calculation time while maintining high accuracy. 
+</p>
+
+<h3>Results</h3>
+<p>
+
+Figure 1 shows the evolution of ionization front driven by the ionizing radiation from a central star, impacting a shielding, high high-density clump adjacent (to the right) of the central star. 
+The upper panels shows the evolution including the effect of the diffuse photons from the interstellar medium, and the bottom panels show the evolution with the on-the-spot approximation. When the recombination photons are taken into account, we see that the diffuse recombination photons are able to leak behind into the shadow of the shielding cloud, resulting in an expansion of the HII region (ionized region) even in the shadow of the cloud. We also see that, in other directions, the ionization front progresses more rapidly , thanks to the enhanced forward ionization of the recombination photons, and the radiation from the central star can penetrate the ionized region more quickly compared to the case without the recombination photons. Since the ionization front affects the thermal and chemical evolution of the interstellar medium, the effect of the diffuse photons may in some circumstances be quite importnant.
+</p>
+
+<h3>Acceleration of the calculations</h3>
+<p>
+The calculation of the recombination photons has always been a severe bottleneck in the speed of these numerical experiments, but we have developed our scheme to run efficiently on multi-core CPUs and GPUs commonly used in supercomputing, paving the way for large-scale simulations. Using the GPU cluster on the HA-PACS supercomputer hosted at the Center for Computational Sciences, University of Tsukuba, the calculation has been accelerated by a factor of 10 compared to a calculation that uses only CPUs (Figure 2).
+</p>
+
+<h3>Ultimate aims</h3>
+<p>
+Using our numerical scheme, we aim to calculate the impact of the intertellar radiation field during the cosmological era of re-ionization, the escape fraction of radiation from galaxies, and the amount of dust absorption and infrared dust emission.
+</p>
+
+<a href="http://pasj.oxfordjournals.org/content/67/4/62">The paper</a> was published in the Publication of the Astronomical Society of Japan.
+
