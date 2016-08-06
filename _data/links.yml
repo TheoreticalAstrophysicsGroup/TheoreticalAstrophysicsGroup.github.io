@@ -16,12 +16,12 @@ categories:
 external:
   ja:
     access: https://www.ccs.tsukuba.ac.jp/ccs_introduction/access
-    pas_admission: http://www.px.tsukuba.ac.jp/senkou/admission.php
+    pas_admission: http://www.px.tsukuba.ac.jp/~senkou/admission.php
     uot_admission: http://www.tsukuba.ac.jp/admission/graduate/infomation.html
     uot: http://www.tsukuba.ac.jp/
     ccs: https://www.ccs.tsukuba.ac.jp/
     ccs_astro: http://www.ccs.tsukuba.ac.jp/ccs_introduction/depart_intro/universe
-    pas: http://www.px.tsukuba.ac.jp/senkou/
+    pas: http://www.px.tsukuba.ac.jp/~senkou/
     pas_physics: http://www.pas.tsukuba.ac.jp/faculty/physics.html
     pas_cirfse: http://www.pas.tsukuba.ac.jp/~CiRfSE/
     wiki: http://www.ccs.tsukuba.ac.jp/ccswiki/astro/
@@ -31,12 +31,12 @@ external:
     uot_calendar: http://www.tsukuba.ac.jp/campuslife/calendar/
   en: 
     access: http://www.ccs.tsukuba.ac.jp/eng/about-2/access/
-    pas_admission: http://www.px.tsukuba.ac.jp/senkou/en/admission.php
+    pas_admission: http://www.px.tsukuba.ac.jp/~senkou/en/admission.php
     uot_admission: http://www.tsukuba.ac.jp/english/admission/
     uot: http://www.tsukuba.ac.jp/english/
     ccs: http://www.ccs.tsukuba.ac.jp/eng/
     ccs_astro: http://www.ccs.tsukuba.ac.jp/eng/research-activities/research-divisions/astrophysics-group/
-    pas: http://www.px.tsukuba.ac.jp/senkou/en/
+    pas: http://www.px.tsukuba.ac.jp/~senkou/en/
     pas_physics: http://www.pas.tsukuba.ac.jp/english/index.html
     pas_cirfse: http://www.pas.tsukuba.ac.jp/~CiRfSE/eng/index.html
     wiki: http://www.ccs.tsukuba.ac.jp/ccswiki/astro/
