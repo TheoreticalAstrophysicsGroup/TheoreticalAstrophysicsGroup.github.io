@@ -441,6 +441,7 @@ tags:
   clouds: クラウド
   CMB: 宇宙マイクロ波背景放射
   CMZ: CMZ
+  collisionless: systems 無衝突系
   coronagraphs: コロナグラフ
   cosmic magnetic fields: 宇宙論的磁場
   cosmic rays: 宇宙線
@@ -520,6 +521,7 @@ tags:
   reionization: 再電離
   relativistic jets: 相対論的ジェット
   Riemann solvers: リーマン解法
+  self-gravitating systems: 自己重力系
   semi-analytic models: 半解析モデル
   SgrA*: SgrA*
   SKA: SKA
