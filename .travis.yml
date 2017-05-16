@@ -39,9 +39,9 @@ script:
   - bundle exec rake site:$PUSH_TARGET --quiet
 
 # Global environmental variables
-env:
-  global:
-    secure: "O4XWjgppQYETJNxi3BcBqMIJxXy2AgbbOpsI7fSLfJiJyTKMh//Ljfe4lO0s03Lt2EOxvc0o8f0p5W7ANJHjVm/WfkVDIP9uwk8WBhO2W0Eeb4XlC5N3XKeAKnJbwnFEWdST/wMyhb62tuVVx9JpzECyBJ0Uss17h4NNwKxgOfI="
+#env:
+#  global:
+#    secure: "O4XWjgppQYETJNxi3BcBqMIJxXy2AgbbOpsI7fSLfJiJyTKMh//Ljfe4lO0s03Lt2EOxvc0o8f0p5W7ANJHjVm/WfkVDIP9uwk8WBhO2W0Eeb4XlC5N3XKeAKnJbwnFEWdST/wMyhb62tuVVx9JpzECyBJ0Uss17h4NNwKxgOfI="
 
 
 # Generate your secure token with the travis gem:
