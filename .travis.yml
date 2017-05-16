@@ -38,13 +38,24 @@ script:
   - bundle exec ./summat.sh; bundle exec rake site:$DEPLOY_TARGET --quiet
   - bundle exec rake site:$PUSH_TARGET --quiet
 
-# Global environmental variables
-#env:
-#  global:
-#    secure: "O4XWjgppQYETJNxi3BcBqMIJxXy2AgbbOpsI7fSLfJiJyTKMh//Ljfe4lO0s03Lt2EOxvc0o8f0p5W7ANJHjVm/WfkVDIP9uwk8WBhO2W0Eeb4XlC5N3XKeAKnJbwnFEWdST/wMyhb62tuVVx9JpzECyBJ0Uss17h4NNwKxgOfI="
 
-
+# Using personal access token to let Travis push to GitHub, following:
+# https://github.com/steveklabnik/automatically_update_github_pages_with_travis_example
+# and entering the variables GIT_NAME, GIT_MAIL, and GH_TOKEN into the Travis settings for the repository'
+# https://travis-ci.org/TheoreticalAstrophysicsGroup/TheoreticalAstrophysicsGroup.github.io/settings
+#
+#
+# Previously we used the following:
+#
 # Generate your secure token with the travis gem:
 # 1) get Github token from your Travis CI profile page
 # 2) gem install travis
 # 3) travis encrypt 'GIT_NAME="YOUR_USERNAME" GIT_MAIL="YOUR_EMAIL" GH_TOKEN=YOUR_TOKEN'
+# 4) add under:
+ 
+# Global environmental variables
+#env:
+#  global:
+#    secure: {token}
+
+
