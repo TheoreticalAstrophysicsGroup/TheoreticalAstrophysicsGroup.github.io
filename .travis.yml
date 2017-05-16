@@ -41,7 +41,7 @@ script:
 # Global environmental variables
 env:
   global:
-    secure: "ZjRJN6Igf2r1Nq5JBjMeie3SdpdAFPoVb+8LEjblLLqEIaAaqFA1uC07XmOYAxpe0eDqHW0QzzFvgPOARZRGeHbRp90UZBsyOPJpa4zU5W4d8hshf+vU7w6yDIdsFVBoZOE7XigwMZX/kuu5T1FhddOCZdXx+B5wBx5EcbUr+Ds="
+    secure: "O4XWjgppQYETJNxi3BcBqMIJxXy2AgbbOpsI7fSLfJiJyTKMh//Ljfe4lO0s03Lt2EOxvc0o8f0p5W7ANJHjVm/WfkVDIP9uwk8WBhO2W0Eeb4XlC5N3XKeAKnJbwnFEWdST/wMyhb62tuVVx9JpzECyBJ0Uss17h4NNwKxgOfI="
 
 
 # Generate your secure token with the travis gem:
