@@ -1,21 +1,22 @@
 ---
 title: 銀河スケールのダークマターハローのスケーリング則について
-speaker: Masao Mori
-affil: University of Tsukuba, Theoretical Astrophysics Group
+speaker: 森 正夫 氏
+affil: 筑波大学 宇宙理論研究室
 webpage: http://www2.ccs.tsukuba.ac.jp/Astro/Members/mmori/
 date: 2017-06-14
 time: "13:30" # Must use quotes
-place: CCS Workshop Room
+place: 計算科学研究センター ワークショップ室
 #host: 
-lang: en
+lang: ja
 tags: [dark matter, dwarf galaxies]
-pdf: 2017-06-14-uchu-forum-mori.pdf
+pdf: 
+  - 2017-06-14-uchu-forum-mori.pdf
 img_thumb: Masao_Mori.jpg
 img:
   - 2017-06-14-uchu-forum-mori.png
 categories:
   - uchu_forum
-  - en
+  - ja
 ---
 
 <p>
