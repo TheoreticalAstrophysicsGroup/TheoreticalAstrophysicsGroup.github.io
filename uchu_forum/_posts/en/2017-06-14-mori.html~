@@ -9,7 +9,8 @@ place: CCS Workshop Room
 #host: 
 lang: en
 tags: [dark matter, dwarf galaxies]
-pdf: 2017-06-14-uchu-forum-mori.pdf
+pdf: 
+  - 2017-06-14-uchu-forum-mori.pdf
 img_thumb: Masao_Mori.jpg
 img:
   - 2017-06-14-uchu-forum-mori.png
