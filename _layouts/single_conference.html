@@ -78,6 +78,7 @@ layout: default
       </ul>
       {% endif %}
 
+      {% if page.show_all_participants %}
       <div class="panel-group" id="accordion1">
         <div class="panel">
           <div class="panel-heading">
@@ -115,6 +116,7 @@ layout: default
           </div>
         </div>
       </div>
+      {% endif %}
 
       {% if page.important_dates %}
       <h3 id="important_dates"> {{ tcl.important_dates }} </h3>
@@ -221,6 +223,16 @@ layout: default
         {% endfor %}
       </ul>
       {% endif %}
+
+      {% if page.organizers %}
+      <h3 id="org"> {{ tcl.org }} </h3>
+      <ul>
+        {% for iorg in page.organizers %}
+        <li>{{ iorg.name }}{{ open_bra }}{{ iorg.affil }}{{ close_bra }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
 
       {% if page.photos %}
       <h3 id="photos"> {{ tcl.photos }} </h3>

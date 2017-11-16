@@ -653,6 +653,7 @@ conferences:
     participants: 参加者
     soc: Science Organizing Committee
     loc: Local Organizing Committee
+    org: 世話人
     access: アクセス
     important_dates: 重要な日付
     other_info: その他の情報
@@ -692,6 +693,7 @@ conferences:
     participants: Participants
     soc: Science Organizing Committee
     loc: Local Organizing Committee
+    org: Organizers
     access: Access
     important_dates: Important Dates
     other_info: Other Information
