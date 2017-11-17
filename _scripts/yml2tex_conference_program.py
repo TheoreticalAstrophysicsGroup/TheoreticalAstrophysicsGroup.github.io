@@ -81,7 +81,7 @@ for day in yd["program"]:
         fl.writelines([
             '\\subsection*{',  
             session["title"].encode('utf8'),
-            ' ' + session["from"], ' -- ' + session["to"] if session.has_key("to") else "",
+            ' $\quad$ ' + session["from"], ' -- ' + session["to"] if session.has_key("to") else "",
             ' \\hspace{\\stretch{1}}\\small Chair: ' + session["chair"].encode('utf8') if session.has_key("chair") else "",
             ' \\hspace{\\stretch{1}}\\small MC: ' + session["emcee"].encode('utf8') if session.has_key("emcee") else "",
             '}\n'
