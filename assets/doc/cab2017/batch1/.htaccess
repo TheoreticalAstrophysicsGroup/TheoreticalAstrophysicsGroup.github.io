@@ -1,6 +1,7 @@
 AuthType Basic
 AuthName "CAB Workshop documents"
-AuthUserFile /home/www/html/people/Research/Astro/Members/cab2017/batch1/.htpasswd
+AuthUserFile /home/www/html/people/Research/Astro/Members/ayumuw/.htpasswd
+#AuthUserFile /home/www/html/people/Research/Astro/Members/cab2017/batch1/.htpasswd
 #AuthUserFile /home/www/html/people/Research/Astro/Members/aikawa/.htpasswd
 #AuthUserFile /home/www/html/people/Research/Astro/assets/doc/cab2016/batch1/.htpasswd
 require valid-user
