@@ -278,6 +278,7 @@ members:
     lecturer: 講師
     assistant_professor: 助教
     postdoc: 研究員
+    d4: D4
     d3: D3
     d2: D2
     d1: D1
@@ -302,6 +303,7 @@ members:
     lecturer: Lecturer
     assistant_professor: Assistant Professor
     postdoc: Postdoc
+    d4: D4
     d3: D3
     d2: D2
     d1: D1
