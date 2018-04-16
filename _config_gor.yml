@@ -18,11 +18,17 @@ permalink: pretty
 destination: ../Astro
 
 # Exclude
+# See https://jekyllrb.com/docs/troubleshooting/#configuration-problems
+
 exclude: 
-  - README.md
-  - vendor
   - Gemfile
   - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
   - Rakefile
   - summat.sh
 
