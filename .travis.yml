@@ -25,6 +25,7 @@ bundler_args: --retry 3
 # This is to circumvent bug: https://github.com/travis-ci/travis-ci/issues/8978
 before_install:
   - gem update --system
+  - gem install bundler
 
 # Install Jekyll and dependencies.
 install:
