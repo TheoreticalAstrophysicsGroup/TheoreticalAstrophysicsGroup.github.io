@@ -29,9 +29,10 @@ layout: default
           {% for p in positions %}
           {% assign mem = site.members | where: 'lang', page.lang | where: 'position', p | sort: 'order' %}
           {% for m in mem %}
-          {% if m.loc == 'paris' %} {% assign ext_symb = '†' %}
-          {% else %} {% assign ext_symb = '' %}
-          {% endif %}
+          <!-- TODO: have a map in data somewhere and automate this so that we don't have to hack this layout every time -->
+          <!-- {% if m.loc == 'paris' %} {% assign ext_symb = '†' %} -->
+          <!-- {% else %} {% assign ext_symb = '' %} -->
+          <!-- {% endif %} -->
           {% assign fname = m.path | split: '/' | last | remove: '.html' %}
           {% if fname != "einstein_albert" %}
           <tr>
@@ -46,7 +47,7 @@ layout: default
           {% endfor %}
         </tbody>
       </table>
-      <p><sup>†</sup>{{ tml.loc_paris }}</p>
+      <!-- <p><sup>†</sup>{{ tml.loc_paris }}</p> -->
       <br/>
 
       {{ content }}
