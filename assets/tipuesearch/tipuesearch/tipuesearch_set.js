@@ -1,7 +1,7 @@
 
 /*
-Tipue Search 5.0
-Copyright (c) 2015 Tipue
+Tipue Search 6.1
+Copyright (c) 2017 Tipue
 Tipue Search is released under the MIT License
 http://www.tipue.com/search
 */
@@ -18,46 +18,37 @@ var tipuesearch_stop_words = ["a", "about", "above", "after", "again", "against"
 // Word replace
 
 var tipuesearch_replace = {'words': [
-     {'word': 'tipua', 'replace_with': 'tipue'},
+     {'word': 'tip', 'replace_with': 'tipue'},
      {'word': 'javscript', 'replace_with': 'javascript'},
      {'word': 'jqeury', 'replace_with': 'jquery'}
 ]};
 
 
 // Weighting
-// Scores are *added* to the internally calculated scores
 
-var baseurl = '/Astro/';
-// var baseurl = '/';
-var ann_rep_score = -1000;
-var ann_pub_score = -1000;
-
-var tipuesearch_weight = {
-    'weight': [{
-        'url': 'some_url',
-            'score': 0
-    }, {
-        'url': 'some_other_url',
-            'score': 0
-    }]
-};
-
-// Reduce the relevance of annual reports and achievements
-for (i = 1998; i < 2050; i++) {
-    tipuesearch_weight['weight'].push({ 'url': baseurl + 'achievements/annual_report/ja/' + i.toString() + '/03/31/annual-report/', 'score': ann_rep_score });
-    tipuesearch_weight['weight'].push({ 'url': baseurl + 'achievements/publications/ja/' + i.toString() + '/03/31/publications/', 'score': ann_pub_score });
-    tipuesearch_weight['weight'].push({ 'url': baseurl + 'achievements/annual_report/en/' + i.toString() + '/03/31/annual-report/', 'score': ann_rep_score });
-    tipuesearch_weight['weight'].push({ 'url': baseurl + 'achievements/publications/en/' + i.toString() + '/03/31/publications/', 'score': ann_pub_score });
-}
+var tipuesearch_weight = {'weight': [
+     {'url': 'http://www.tipue.com', 'score': 20},
+     {'url': 'http://www.tipue.com/search', 'score': 30},
+     {'url': 'http://www.tipue.com/is', 'score': 10}
+]};
 
 
-// Stemming
-// Stems are just added to search
+// Illogical stemming
 
 var tipuesearch_stem = {'words': [
-     {'word': 'turbulent', 'stem': 'turbulence'},
-     {'word': 'magnetohydrodynamics', 'stem': 'mhd'},
-     {'word': 'radiative', 'stem': 'radiation'}
+     {'word': 'e-mail', 'stem': 'email'},
+     {'word': 'javascript', 'stem': 'jquery'},
+     {'word': 'javascript', 'stem': 'js'}
+]};
+
+
+// Related searches
+
+var tipuesearch_related = {'searches': [
+     {'search': 'tipue', 'related': 'Tipue Search'},
+     {'search': 'tipue', 'before': 'Tipue Search', 'related': 'Getting Started'},
+     {'search': 'tipue', 'before': 'Tipue', 'related': 'jQuery'},
+     {'search': 'tipue', 'before': 'Tipue', 'related': 'Blog'}
 ]};
 
 
@@ -68,11 +59,22 @@ var tipuesearch_string_2 = 'Showing results for';
 var tipuesearch_string_3 = 'Search instead for';
 var tipuesearch_string_4 = '1 result';
 var tipuesearch_string_5 = 'results';
-var tipuesearch_string_6 = 'Prev';
-var tipuesearch_string_7 = 'Next';
-var tipuesearch_string_8 = 'Nothing found';
-var tipuesearch_string_9 = 'Common words are largely ignored';
+var tipuesearch_string_6 = 'Back';
+var tipuesearch_string_7 = 'More';
+var tipuesearch_string_8 = 'Nothing found.';
+var tipuesearch_string_9 = 'Common words are largely ignored.';
 var tipuesearch_string_10 = 'Search too short';
-var tipuesearch_string_11 = 'Should be one character or more';
+var tipuesearch_string_11 = 'Should be one character or more.';
 var tipuesearch_string_12 = 'Should be';
-var tipuesearch_string_13 = 'characters or more';
+var tipuesearch_string_13 = 'characters or more.';
+var tipuesearch_string_14 = 'seconds';
+var tipuesearch_string_15 = 'Searches related to';
+
+
+// Internals
+
+
+// Timer for showTime
+
+var startTimer = new Date().getTime();
+
