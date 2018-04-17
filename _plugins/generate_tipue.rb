@@ -1,6 +1,7 @@
 # encoding: utf-8
 #
 # Jekyll tipuesearch_content generator.
+# https://github.com/masterperas/masterperas.github.io/blob/master/_plugins/generate_tipue.rb
 # check http://www.tipue.com/search for more info
 #
 # Version: 0.1.1 
@@ -65,6 +66,14 @@ module Jekyll
       target.puts('var tipuesearch = {"pages": [')
       
       all_but_last, last = site.posts.docs[0..-2], site.posts.docs.last
+
+      # Fix for when baseurl is a nil object (since Jekyll 3.5) 
+      # See...
+      # https://github.com/github/pages-gem/issues/350
+      # http://ben.balter.com/jekyll-style-guide/config/#baseurl
+      # https://jekyllrb.com/docs/variables/
+      # https://codereview.stackexchange.com/questions/214/avoiding-null-in-variable-assignment
+      baseurl = site.baseurl || ""
       
       # Process all posts but the last one
       all_but_last.each do |page|
@@ -75,7 +84,7 @@ module Jekyll
           language = '日本語'
         end
 
-        tp_page = TipuePage.new(page.data['title']+'【'+language+'】', page.content.to_s, page.data['tags'].to_s, site.baseurl+page.url)
+        tp_page = TipuePage.new(page.data['title']+'【'+language+'】', page.content.to_s, page.data['tags'].to_s, baseurl + page.url)
         target.puts(tp_page.to_json + ',')
         
       end
@@ -88,7 +97,7 @@ module Jekyll
 
      
       # Do the last
-      tp_page = TipuePage.new(last.data['title']+'【'+language+'】', last.content.to_s, last.data['tags'].to_s, site.baseurl+last.url)
+      tp_page = TipuePage.new(last.data['title']+'【'+language+'】', last.content.to_s, last.data['tags'].to_s, baseurl + last.url)
       target.puts(tp_page.to_json)
       
       target.puts(']};')
