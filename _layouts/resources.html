@@ -2,7 +2,7 @@
 layout: default
 ---
 
-{% assign trl = site.data.translations.resources.[page.lang] %}
+{% assign trl = site.data.translations.resources[page.lang] %}
 {% assign la = site.data.links.assets %}
 
 {% include page_header.html title=page.title%}
@@ -29,7 +29,7 @@ layout: default
       <div class="list-group ">
 
         {% assign rc = resource_category[0] %}
-        <h3 id="{{ rc }}" class="section-title">{{ trl.[rc] }}</h3>
+        <h3 id="{{ rc }}" class="section-title">{{ trl[rc] }}</h3>
 
         {% for resource in resource_category[1] %}
 

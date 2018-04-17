@@ -1,9 +1,9 @@
 
-{% assign tfl = site.data.translations.footer.[page.lang] %}
+{% assign tfl = site.data.translations.footer[page.lang] %}
 {% assign li = site.data.links.internal %}
 {% assign la = site.data.links.assets %}
 {% assign ln = site.data.links.nav %}
-{% assign lel = site.data.links.external.[page.lang] %}
+{% assign lel = site.data.links.external[page.lang] %}
 
 <aside id="footer-widgets">
   <div class="container">
@@ -22,7 +22,7 @@
           {% assign dlv = dl[1] %}
           {% if dlv contains '/' %}
           {% assign link =  dlv | prepend: site.baseurl | append: '/' | append: page.lang %}
-          <li><a href="{{ link }}">{{ tfl.[dlk] }}</a></li>
+          <li><a href="{{ link }}">{{ tfl[dlk] }}</a></li>
           {% endif %}
           {% endfor %}
           {% endunless %}
@@ -53,7 +53,7 @@
         <div class="footer-widget">
           <h3 class="footer-widget-title">{{ tfl.recent_works }}</h3>
           <div class="row">
-            {% assign posts_lang = site.categories.['achievements'] | where: 'lang', page.lang %}
+            {% assign posts_lang = site.categories['achievements'] | where: 'lang', page.lang %}
             {% for post in posts_lang limit: 4 %}
             {% assign posturl = post.url | prepend: site.baseurl %}
             <div class="col-lg-6 col-md-6 col-sm-3 col-xs-6">

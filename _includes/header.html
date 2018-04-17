@@ -1,5 +1,5 @@
-{% assign thl = site.data.translations.header.[page.lang] %}
-{% assign lel = site.data.links.external.[page.lang] %}
+{% assign thl = site.data.translations.header[page.lang] %}
+{% assign lel = site.data.links.external[page.lang] %}
 {% assign la = site.data.links.assets %}
 {% assign li = site.data.links.internal %}
 {% assign ln = site.data.links.nav %}
@@ -89,20 +89,20 @@
           {% assign pu_array = page.url | split: '/' %}
           {% assign pu = pu_array[1] %}
           <li class="dropdown {% if lv contains pu %} active {% endif %}">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ thl.[lk] }} <b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ thl[lk] }} <b class="caret"></b></a>
             <ul class="dropdown-menu">
               {% for dl in lv %}
               {% assign dlk = dl[0] %}
               {% assign dlv = dl[1] %}
               {% if dlv == 'header' %}
-              <li class="dropdown-header">{{ thl.[dlk] }}</li>
+              <li class="dropdown-header">{{ thl[dlk] }}</li>
               {% else %}
-              {% if dlv == 'external' %} {% assign link = lel.[dlk] %}
+              {% if dlv == 'external' %} {% assign link = lel[dlk] %}
               {% elsif dlk == 'home_ja' %} {% assign link =  dlv | prepend: site.baseurl | append: '/' | append: 'ja' %}
               {% elsif dlk == 'home_en' %} {% assign link =  dlv | prepend: site.baseurl | append: '/' | append: 'en' %}
               {% else %} {% assign link =  dlv | prepend: site.baseurl | append: '/' | append: page.lang %}
               {% endif %}
-              <li {% if pu == dlk %} class="active" {% endif %}><a href="{{ link }}" {% if dlv == 'external' %}target="_blank"{% endif %}>{{ thl.[dlk] }} {% if dlv == 'external' %} <font size="1"><i class="fa fa-external-link"></i></font>{% endif %}</a></li>
+              <li {% if pu == dlk %} class="active" {% endif %}><a href="{{ link }}" {% if dlv == 'external' %}target="_blank"{% endif %}>{{ thl[dlk] }} {% if dlv == 'external' %} <font size="1"><i class="fa fa-external-link"></i></font>{% endif %}</a></li>
               {% endif %}
               {% endfor %}
             </ul>
