@@ -60,6 +60,11 @@ internal:
   uchu_forum: *uchu_forum
   seminars: *seminars
   conferences: *conferences
+  conferences_future_local: &conferences_fl /conferences/#future
+  conferences_current_local: &conferences_cl /conferences/#current
+  conferences_past_local: &conferences_pl /conferences/#past
+  conferences_abroad: &conferences_ab /conferences/#abroad
+  conferences_domestic: &conferences_do /conferences/#domestic
   calendar: &calendar /calendar
   admission: &admission /admission
   resources: &resources /resources
@@ -101,12 +106,17 @@ nav:
   schedule:
     uchu_forum: *uchu_forum
     seminars: *seminars
-    conferences: *conferences
     calendar: *calendar
     uot_calendar: external
     internal: header
     wiki: external
     scheduler: external
+  conferences:
+    conferences_future_local: *conferences_fl
+    conferences_current_local: *conferences_cl
+    conferences_past_local: *conferences_pl
+    conferences_abroad: *conferences_ab
+    conferences_domestic: *conferences_do
   projects:
     first: external
   postgrad:

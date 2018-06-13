@@ -93,10 +93,18 @@
               {% if dlv == 'header' %}
               <li class="dropdown-header">{{ thl[dlk] }}</li>
               {% else %}
-              {% if dlv == 'external' %} {% assign link = lel[dlk] %}
-              {% elsif dlk == 'home_ja' %} {% assign link =  dlv | prepend: site.baseurl | append: '/' | append: 'ja' %}
-              {% elsif dlk == 'home_en' %} {% assign link =  dlv | prepend: site.baseurl | append: '/' | append: 'en' %}
-              {% else %} {% assign link =  dlv | prepend: site.baseurl | append: '/' | append: page.lang %}
+                {% if dlv == 'external' %} {% assign link = lel[dlk] %}
+                {% elsif dlk == 'home_ja' %} {% assign link =  dlv | prepend: site.baseurl | append: '/' | append: 'ja' %}
+                {% elsif dlk == 'home_en' %} {% assign link =  dlv | prepend: site.baseurl | append: '/' | append: 'en' %}
+                {% else %} 
+                  {% if dlv contains '#' %} 
+                    {% assign dlv_split = dlv | split: '#' %} 
+                    {% assign dlv_cat = dlv_split[0] %}
+                    {% assign dlv_loc = dlv_split[1] %}
+                    {% assign link =  dlv_cat | prepend: site.baseurl | append: page.lang | append: '/#' | append: dlv_loc %}
+                  {% else %}
+                    {% assign link =  dlv | prepend: site.baseurl | append: '/' | append: page.lang %}
+                  {% endif %}
               {% endif %}
               <li {% if pu == dlk %} class="active" {% endif %}><a href="{{ link }}" {% if dlv == 'external' %}target="_blank"{% endif %}>{{ thl[dlk] }} {% if dlv == 'external' %} <font size="1"><i class="fa fa-external-link"></i></font>{% endif %}</a></li>
               {% endif %}

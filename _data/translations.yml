@@ -43,108 +43,6 @@ collections:
     en:
       members: Members
 
-
-# Header translations
-# Categories for posts are listed separately 
-header:
-  ja:
-    home: ホーム
-    home_ja: 日本語
-    home_en: English
-    title_l: 宇宙物理理論
-    title_r: 研究室
-    subtitle: 筑波大学 計算科学研究センター
-    group: 研究室紹介
-    members: *members_short_ja
-    research: 研究内容
-    achievements: *achievements_short_ja
-    featured: *featured_short_ja
-    news: *news_short_ja
-    access: 研究室の場所・アクセス
-    information: 各種情報
-    alumni: 出身者一覧
-    schedule: スケジュール
-    uchu_forum: *uchu_forum_short_ja
-    seminars: *seminars_short_ja
-    conferences: *conferences_short_ja
-    calendar: カレンダー
-    wiki: 内部用ウィキ 
-    projects: プロジェクト
-    first: FIRST プロジェクト
-    observers: 宇宙観測研究室
-    postgrad: 大学院入学案内
-    admission: 宇宙物理理論研究室
-    pas_admission: 数理物質科学研究科
-    uot_admission: 筑波大学
-    links: リンク
-    uot: 筑波大学
-    ccs: 計算科学研究センター
-    ccs_astro: "&nbsp; ↳ 研究室トップページ"
-    pas: 数理物質科学研究科
-    pas_physics: "&nbsp; ↳ 物理専攻"
-    pas_cirfse: "&nbsp; ↳ 数理物質融合科学センター"
-    internal: 研究室内部ページ
-    astro_internal: 研究室内部ページ
-    asj: 日本天文学会
-    scheduler: サイボーズスケジュラー
-    resources: リソース
-    uot_calendar: 筑波大学カレンダー
-    ja: Ja
-    en: En
-    search: 検索
-    readin: Read in English
-    contact: お問い合わせ
-    toggle_nav: ナビゲーション切替
-  en:
-    home: Home
-    home_ja: 日本語
-    home_en: English
-    title_l: Theoretical Astrophysics
-    title_r: Group
-    subtitle: University of Tsukuba, Center for Computational Sciences
-    group: Our Group
-    members: *members_short_en
-    research: Research Topics
-    achievements: *achievements_short_en
-    featured: *featured_short_en
-    news: *news_short_en
-    access: Location and Access
-    information: Information
-    alumni: Alumni
-    schedule: Schedule
-    uchu_forum: *uchu_forum_short_en
-    seminars: *seminars_short_en
-    conferences: *conferences_short_en
-    calendar: Calendar
-    wiki: Internal Wiki
-    projects: Projects
-    first: FIRST Projects
-    observers: Observational Astrophysics Group
-    postgrad: Graduate School
-    admission: Theoretical Astrophysics Group
-    pas_admission: Graduate School of Pure and Applied Sciences
-    uot_admission: University of Tsukuba
-    links: Links
-    uot: University of Tsukuba
-    ccs: Center for Computational Sciences
-    ccs_astro: "&nbsp; ↳ Group Introduction Page"
-    pas: Graduate School of Pure and Applied Sciences
-    pas_physics: "&nbsp; ↳ Physics"
-    pas_cirfse: "&nbsp; ↳ CiRfSE"
-    internal: Internal
-    astro_internal: Astro Internal
-    asj: Astronomical Society of Japan
-    scheduler: CCS Scheduler
-    resources: Resources
-    uot_calendar: University of Tsukuba Calendar
-    ja: 和
-    en: 英
-    search: Search
-    readin: 日本語で読む
-    contact: Contact
-    toggle_nav: Toggle navigation
-
-
 # Footer translations
 footer:
   ja:
@@ -679,11 +577,11 @@ conferences:
     chair: 座長
     emcee: 司会
     day: 日目
-    past: すでに終了した研究会
-    future: 開催予定の研究会
-    current: 現在開催中の研究会
-    domestic: 国内の研究会
-    abroad: 海外での研究会
+    past: &conferences_pl_ja すでに終了した研究会
+    future: &conferences_fl_ja 開催予定の研究会
+    current: &conferences_cl_ja 現在開催中の研究会
+    domestic: &conferences_do_ja 国内の研究会
+    abroad: &conferences_ab_ja 海外での研究会
     no_current: 現在開先中の研究会はありません。
     no_future: 現在開催予定の研究会はありません。
     no_abroad: 現在海外での研究会に就いての投稿はありません。
@@ -719,11 +617,11 @@ conferences:
     chair: Chair
     emcee: MC
     day: Day
-    past: Past Local Conferences
-    future: Upcoming Local Conferences
-    current: Currently Ongoing Local Conferences
-    domestic: Domestic Conferences
-    abroad: Conferences Abroad
+    past: &conferences_pl_en Past Local Conferences
+    future: &conferences_fl_en Upcoming Local Conferences
+    current: &conferences_cl_en Currently Ongoing Local Conferences
+    domestic: &conferences_do_en Domestic Conferences
+    abroad: &conferences_ab_en Conferences Abroad
     no_current: There are no ongoing conferences at the moment.
     no_future: There are no future conferences planned at the moment.
     no_abroad: There are currently no posts regarding conferences abroad.
@@ -784,4 +682,116 @@ news:
     photos: 写真
   en:
     photos: Photos
+
+
+# Header translations
+# Categories for posts are listed separately 
+header:
+  ja:
+    home: ホーム
+    home_ja: 日本語
+    home_en: English
+    title_l: 宇宙物理理論
+    title_r: 研究室
+    subtitle: 筑波大学 計算科学研究センター
+    group: 研究室紹介
+    members: *members_short_ja
+    research: 研究内容
+    achievements: *achievements_short_ja
+    featured: *featured_short_ja
+    news: *news_short_ja
+    access: 研究室の場所・アクセス
+    information: 各種情報
+    alumni: 出身者一覧
+    schedule: スケジュール
+    uchu_forum: *uchu_forum_short_ja
+    seminars: *seminars_short_ja
+    conferences: *conferences_short_ja
+    conferences_past_local: *conferences_pl_ja
+    conferences_current_local: *conferences_cl_ja
+    conferences_future_local: *conferences_fl_ja
+    conferences_abroad: *conferences_ab_ja
+    conferences_domestic: *conferences_do_ja
+    calendar: カレンダー
+    wiki: 内部用ウィキ 
+    projects: プロジェクト
+    first: FIRST プロジェクト
+    observers: 宇宙観測研究室
+    postgrad: 大学院入学案内
+    admission: 宇宙物理理論研究室
+    pas_admission: 数理物質科学研究科
+    uot_admission: 筑波大学
+    links: リンク
+    uot: 筑波大学
+    ccs: 計算科学研究センター
+    ccs_astro: "&nbsp; ↳ 研究室トップページ"
+    pas: 数理物質科学研究科
+    pas_physics: "&nbsp; ↳ 物理専攻"
+    pas_cirfse: "&nbsp; ↳ 数理物質融合科学センター"
+    internal: 研究室内部ページ
+    astro_internal: 研究室内部ページ
+    asj: 日本天文学会
+    scheduler: サイボーズスケジュラー
+    resources: リソース
+    uot_calendar: 筑波大学カレンダー
+    ja: Ja
+    en: En
+    search: 検索
+    readin: Read in English
+    contact: お問い合わせ
+    toggle_nav: ナビゲーション切替
+  en:
+    home: Home
+    home_ja: 日本語
+    home_en: English
+    title_l: Theoretical Astrophysics
+    title_r: Group
+    subtitle: University of Tsukuba, Center for Computational Sciences
+    group: Our Group
+    members: *members_short_en
+    research: Research Topics
+    achievements: *achievements_short_en
+    featured: *featured_short_en
+    news: *news_short_en
+    access: Location and Access
+    information: Information
+    alumni: Alumni
+    schedule: Schedule
+    uchu_forum: *uchu_forum_short_en
+    seminars: *seminars_short_en
+    conferences: *conferences_short_en
+    conferences_past_local: *conferences_pl_en
+    conferences_current_local: *conferences_cl_en
+    conferences_future_local: *conferences_fl_en
+    conferences_abroad: *conferences_ab_en
+    conferences_domestic: *conferences_do_en
+    calendar: Calendar
+    wiki: Internal Wiki
+    projects: Projects
+    first: FIRST Projects
+    observers: Observational Astrophysics Group
+    postgrad: Graduate School
+    admission: Theoretical Astrophysics Group
+    pas_admission: Graduate School of Pure and Applied Sciences
+    uot_admission: University of Tsukuba
+    links: Links
+    uot: University of Tsukuba
+    ccs: Center for Computational Sciences
+    ccs_astro: "&nbsp; ↳ Group Introduction Page"
+    pas: Graduate School of Pure and Applied Sciences
+    pas_physics: "&nbsp; ↳ Physics"
+    pas_cirfse: "&nbsp; ↳ CiRfSE"
+    internal: Internal
+    astro_internal: Astro Internal
+    asj: Astronomical Society of Japan
+    scheduler: CCS Scheduler
+    resources: Resources
+    uot_calendar: University of Tsukuba Calendar
+    ja: 和
+    en: 英
+    search: Search
+    readin: 日本語で読む
+    contact: Contact
+    toggle_nav: Toggle navigation
+
 
