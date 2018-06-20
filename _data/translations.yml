@@ -184,6 +184,7 @@ members:
     m2: M2
     m1: M1
     y4: ４年
+    admin_assistant: 事務補助
   en:
     current: Current Members
     name: <i class="fa fa-user"></i> Name
@@ -210,6 +211,7 @@ members:
     m2: M2
     m1: M1
     y4: Y4
+    admin_assistant: Administrative assistant
 
 # Single member profile page translations
 profile:

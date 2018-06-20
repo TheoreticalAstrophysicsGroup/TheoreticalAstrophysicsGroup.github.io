@@ -25,7 +25,7 @@ layout: default
           </tr>
         </thead>
         <tbody>
-          {% assign positions = 'professor associate_professor lecturer assistant_professor postdoc d4 d3 d2 d1 m3 m2 m1 y4' | split: ' ' %}
+          {% assign positions = 'professor associate_professor lecturer assistant_professor postdoc admin_assistant d4 d3 d2 d1 m3 m2 m1 y4' | split: ' ' %}
           {% for p in positions %}
           {% assign mem = site.members | where: 'lang', page.lang | where: 'position', p | sort: 'order' %}
           {% for m in mem %}
