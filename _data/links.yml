@@ -69,8 +69,8 @@ internal:
   admission: &admission /admission
   resources: &resources /resources
   search: &search /search
-  astro_internal: &astro_internal /astro_internal # previously Astro-Internal
   alumni: &alumni /alumni
+  #astro_internal: &astro_internal /astro_internal # previously Astro-Internal
 
 
 # Internal links
@@ -132,8 +132,8 @@ nav:
     pas_cirfse: external
     observers: external  
     asj: external  
-    internal: header
     resources: *resources
-    astro_internal: *astro_internal # previously Astro-Internal
+    #internal: header
+    #astro_internal: *astro_internal # previously Astro-Internal
 
 
