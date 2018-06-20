@@ -84,7 +84,8 @@
           {% assign lv = l[1] %}
           {% assign pu_array = page.url | split: '/' %}
           {% assign pu = pu_array[1] %}
-          <li class="dropdown {% if lv contains pu %} active {% endif %}">
+          {% assign lv_compare = lv | split: '_' | first %}
+          <li class="dropdown {% if lv_compare contains pu %} active {% endif %}">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ thl[lk] }} <b class="caret"></b></a>
             <ul class="dropdown-menu">
               {% for dl in lv %}
