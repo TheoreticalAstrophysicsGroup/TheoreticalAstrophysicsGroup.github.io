@@ -15,7 +15,7 @@ categories:
 # External links
 external:
   ja:
-    access: https://www.ccs.tsukuba.ac.jp/ccs_introduction/access
+    access: https://www.ccs.tsukuba.ac.jp/access/
     pas_admission: http://www.px.tsukuba.ac.jp/~senkou/admission.php
     uot_admission: http://www.tsukuba.ac.jp/admission/graduate/infomation.html
     uot: http://www.tsukuba.ac.jp/
@@ -30,7 +30,7 @@ external:
     scheduler: https://www2.ccs.tsukuba.ac.jp/cgi-bin/cbag/ag.cgi
     uot_calendar: http://www.tsukuba.ac.jp/campuslife/calendar/
   en: 
-    access: http://www.ccs.tsukuba.ac.jp/eng/about-2/access/
+    access: https://www.ccs.tsukuba.ac.jp/eng/traffic-access/
     pas_admission: http://www.px.tsukuba.ac.jp/~senkou/en/admission.php
     uot_admission: http://www.tsukuba.ac.jp/english/admission/
     uot: http://www.tsukuba.ac.jp/english/
