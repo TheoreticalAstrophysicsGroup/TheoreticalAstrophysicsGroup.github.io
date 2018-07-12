@@ -78,6 +78,24 @@ layout: default
       </ul>
       {% endif %}
 
+      {% if page.poster %}
+      <h3 id="poster"> {{ tcl.poster }} </h3>
+      <ul>
+        {% for pos in page.poster %}
+        <li>{{ pos.name }}{{ open_bra }}{{ pos.affil }}{{ close_bra }}{% if pos.title %}{{ colon }}{{ open_quo}}{{ pos.title }}{{ close_quo }}{% endif %}{% if pos.id %} [{{ pos.id }}]{% endif %}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
+      {% if page.panel %}
+      <h3 id="panel"> {{ tcl.panel }} </h3>
+      <ul>
+        {% for pan in page.panel %}
+        <li>{{ pan.name }}{{ open_bra }}{{ pan.affil }}{{ close_bra }}{% if pan.topic %} {{ open_quo}}{{ pan.topic }}{{ close_quo }}{% endif %}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+
       {% if page.show_all_participants %}
       <div class="panel-group" id="accordion1">
         <div class="panel">
@@ -200,10 +218,18 @@ layout: default
 
       {% if page.other_info %}
       <h3 id="other_info"> {{ tcl.other_info }} </h3>
+      {% for oi in page.other_info %}
+        <p>{{ oi }}</p>
+      {% endfor %}
       {% endif %}
 
       {% if page.events %}
       <h3 id="events"> {{ tcl.events }} </h3>
+      <ul class="fa-ul">
+      {% for ev in page.events %}
+        <li>{{ ev }}</li>
+      {% endfor %}
+      </ul>
       {% endif %}
 
       {% if page.soc %}

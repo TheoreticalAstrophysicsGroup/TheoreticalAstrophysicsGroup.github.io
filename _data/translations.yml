@@ -556,6 +556,8 @@ conferences:
     invited: 招待講演
     contributed: 一般講演
     participants: 参加者
+    poster: ポスター
+    panel: パネル
     soc: Science Organizing Committee
     loc: Local Organizing Committee
     org: 世話人
@@ -596,6 +598,8 @@ conferences:
     invited: Invited Talks
     contributed: Contributed Talks
     participants: Participants
+    poster: Posters
+    panel: Panel
     soc: Science Organizing Committee
     loc: Local Organizing Committee
     org: Organizers
