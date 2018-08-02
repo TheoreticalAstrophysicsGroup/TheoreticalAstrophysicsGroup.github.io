@@ -149,13 +149,17 @@ layout: default
       {% endif %}
       {% endif %}
 
-      {% if page.program %}
+      {% if page.program or page.program_downlaod %}
       {% include lang_surround.html shape=round %}
       <h3 id="program"> {{ tcl.program }} </h3>
+      {% endif %}
+
       {% if page.program_download %}
       {% assign ppd = page.program_download %}
       <p><a href="{{ site.baseurl }}{{ la.doc }}/{{ ppd.link }}">{{ ppd.text }}</a></p>
       {% endif %}
+
+      {% if page.program %}
       {% for pitem in page.program %}
       {% include lang_count.html number=pitem.day %}
       <h4>{{ pitem.day }}{{ lang_count }} {{ tcl.day }}{{ open_surround }}{% include date.html d=pitem.date l='M' %}{{ close_surround }}</h4>
