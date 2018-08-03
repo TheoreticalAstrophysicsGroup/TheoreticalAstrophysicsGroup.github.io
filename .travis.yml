@@ -23,6 +23,7 @@ bundler_args: --retry 3
 
 # Upgrade system library
 # This is to circumvent bug: https://github.com/travis-ci/travis-ci/issues/8978
+# NOTE, this is not needed anymore.
 # before_install:
 #   - gem update --system
 #   - gem install bundler
