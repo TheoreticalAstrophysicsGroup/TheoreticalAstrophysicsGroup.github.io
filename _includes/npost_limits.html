@@ -4,16 +4,20 @@ depending on the type of category page -->
 <!-- If page type is not the standard category page
 e.g. index or archive the limits are much higher.
 See also academic_year_range.html and mixorder.html -->
+
 {% assign page_year = page_url[2] %}
+
 {% if page_year == page.lang %}
-{% assign posts_per_page1 = 8 %}
-{% assign posts_per_page2 = 16 %}
-{% assign posts_per_page3 = 64 %}
-{% assign posts_per_page4 = 9999 %}
+  {% assign posts_per_page1 = 8 %}
+  {% assign posts_per_page2 = 16 %}
+  {% assign posts_per_page3 = 64 %}
+  {% assign posts_per_page4 = 9999 %}
+
 {% else %}
-{% assign posts_per_page1 = 32 %}
-{% assign posts_per_page2 = 32 %}
-{% assign posts_per_page3 = 9999 %}
-{% assign posts_per_page4 = 9999 %}
+  {% assign posts_per_page1 = 32 %}
+  {% assign posts_per_page2 = 32 %}
+  {% assign posts_per_page3 = 9999 %}
+  {% assign posts_per_page4 = 9999 %}
+
 {% endif %}
 
