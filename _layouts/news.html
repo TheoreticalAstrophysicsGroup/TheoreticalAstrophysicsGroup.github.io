@@ -62,10 +62,11 @@ We wish to sort by date and group by tags-->
         {% endif %}
         {% if in_time_interval and nposts < posts_per_page1 %}
 
-        <!-- Calculate delays -->
         {% assign d = post.date | date: "%Y-%m-%d" %}
-        {% assign delay_add = forloop.index | mod: posts_per_page1 | times: 3 %}
-        {% assign delay = 8 | plus: delay_add %}
+
+        <!-- Calculate delays -->
+        {% assign delay_add = forloop.index | times: 2 %}
+        {% assign delay = 2 | plus: delay_add %}
 
         <article class="post animated fadeInLeft animation-delay-{{ delay }}">
 
@@ -103,7 +104,7 @@ We wish to sort by date and group by tags-->
             </div>
           </div>
         </div>
-        </article> <!-- post -->
+        </article> <!-- article post -->
         {% assign nposts = nposts | plus: 1 %}
         {% endif %}
         {% endfor %}
@@ -126,6 +127,11 @@ We wish to sort by date and group by tags-->
         {% if in_time_interval and nposts < posts_per_page1 %}
 
         {% assign posturl = post.url | prepend: site.baseurl %}
+
+        {% assign delay_add = forloop.index | times: 2 %}
+        {% assign delay = 2 | plus: delay_add %}
+
+        <article class="animated fadeInLeft animation-delay-{{ delay }}">
         <a href="{{ posturl }}" class="list-group-item">
           <div class="media">
             {% if post.img_thumb %}<img src="{{ site.baseurl }}{{ la.img }}/{{ post.img_thumb }}" class="pull-left media-object" alt="Image" width="150px" height="150px">{% endif %}
@@ -145,6 +151,7 @@ We wish to sort by date and group by tags-->
             </div>
           </div>
         </a>
+        </article> <!-- article -->
         {% assign nposts = nposts | plus: 1 %}
         {% endif %}
         {% endfor %}
@@ -166,6 +173,11 @@ We wish to sort by date and group by tags-->
         {% if in_time_interval and nposts < posts_per_page3 %}
 
         {% assign posturl = post.url | prepend: site.baseurl %}
+
+        {% assign delay_add = forloop.index | times: 2 %}
+        {% assign delay = 2 | plus: delay_add %}
+
+        <article class="animated fadeInLeft animation-delay-{{ delay }}">
         <a href="{{ posturl }}" class="list-group-item">
           <div class="media">
             <div class="media-body">
@@ -182,6 +194,7 @@ We wish to sort by date and group by tags-->
             </div>
           </div>
         </a>
+        </article> <!-- article -->
         {% assign nposts = nposts | plus: 1 %}
         {% endif %}
         {% endfor %}
@@ -203,9 +216,15 @@ We wish to sort by date and group by tags-->
           {% if in_time_interval and nposts < posts_per_page4 %}
 
           {% assign posturl = post.url | prepend: site.baseurl %}
+
+          {% assign delay_add = forloop.index | times: 1 %}
+          {% assign delay = 1 | plus: delay_add %}
+
+          <article class="animated fadeInLeft animation-delay-{{ delay }}">
           <li><a href="{{ posturl }}">{{ post.title }}</a>
           <i>{% include date.html d=post.date l='t' %}</i>
           </li>
+          </article> <!-- article -->
           {% assign nposts = nposts | plus: 1 %}
           {% endif %}
           {% endfor %}

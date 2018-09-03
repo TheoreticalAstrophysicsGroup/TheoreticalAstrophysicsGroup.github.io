@@ -61,8 +61,8 @@ layout: default
         {% if in_time_interval or page_url[2] == page.lang %}
 
         {% assign d = post.date | date: "%Y-%m-%d" %}
-        {% assign delay_add = forloop.index | mod: posts_per_page | times: 3 %}
-        {% assign delay = 8 | plus: delay_add %}
+        {% assign delay_add = forloop.index | times: 2 %}
+        {% assign delay = 2 | plus: delay_add %}
 
         <article class="post animated fadeInLeft animation-delay-{{ delay }}">
 

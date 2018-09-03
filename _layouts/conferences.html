@@ -69,8 +69,8 @@ layout: default
 
       {% if cfrom < cdate and cto > cdate %}
 
-      {% assign delay_add = forloop.index | mod: posts_per_page | times: 3 %}
-      {% assign delay = 8 | plus: delay_add %}
+      {% assign delay_add = forloop.index | times: 2 %}
+      {% assign delay = 2 | plus: delay_add %}
 
       <article class="post animated fadeInLeft animation-delay-{{ delay }}">
       <div class="panel panel-default">

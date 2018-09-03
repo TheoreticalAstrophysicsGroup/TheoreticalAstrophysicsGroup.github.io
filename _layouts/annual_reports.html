@@ -59,7 +59,6 @@ layout: default
       {% if in_time_interval and nposts < posts_per_page1 %}
 
       {% assign d = post.date | date: "%Y-%m-%d" %}
-      {% assign delay_add = forloop.index | mod: posts_per_page1 | times: 3 %}
       {% assign delay_add = forloop.index | times: 2 %}
       {% assign delay = 2 | plus: delay_add %}
 

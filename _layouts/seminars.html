@@ -44,6 +44,7 @@ layout: default
             depending on the type of page -->
             {% include npost_limits.html %}
 
+
             <!-- Change preferred view according to page type -->
             <!-- Puts mix1, mix2, mix3, and mix4 into namespace -->
             {% include mixorder.html %}
@@ -79,12 +80,12 @@ layout: default
               {% endif %}
               {% if in_time_interval and nposts < posts_per_page1 %}
 
-              <!-- Calculate delays -->
-              {% assign delay_add = forloop.index | mod: posts_per_page1 | times: 3 %}
-              {% assign delay = 8 | plus: delay_add %}
-
               <!-- This creates an lang_count variable into the namespace -->
               {% include lang_count.html number=npost %}
+
+              <!-- Calculate delays -->
+              {% assign delay_add = forloop.index | times: 2 %}
+              {% assign delay = 2 | plus: delay_add %}
 
               <article class="post animated fadeInLeft animation-delay-{{ delay }}">
 
@@ -127,7 +128,7 @@ layout: default
                     </div>
                   </div>
                 </div>
-              </article> <!-- post -->
+              </article> <!-- article post -->
               {% assign nposts = nposts | plus: 1 %}
               {% endif %}
               {% endfor %}
@@ -165,6 +166,12 @@ layout: default
               {% include lang_count.html number=npost %}
 
               {% assign posturl = post.url | prepend: site.baseurl %}
+
+              <!-- Calculate delays -->
+              {% assign delay_add = forloop.index | times: 2 %}
+              {% assign delay = 2 | plus: delay_add %}
+
+              <article class="animated fadeInLeft animation-delay-{{ delay }}">
               <a href="{{ posturl }}" class="list-group-item">
                 <div class="media">
                   <span class="pull-left">
@@ -190,6 +197,7 @@ layout: default
                   </div>
                 </div>
               </a>
+              </article> <!-- article -->
               {% assign nposts = nposts | plus: 1 %}
               {% endif %}
               {% endfor %}
@@ -225,6 +233,12 @@ layout: default
                  {% include lang_count.html number=npost %}
 
                  {% assign posturl = post.url | prepend: site.baseurl %}
+
+                 <!-- Calculate delays -->
+                 {% assign delay_add = forloop.index | times: 2 %}
+                 {% assign delay = 2 | plus: delay_add %}
+
+                 <article class="animated fadeInLeft animation-delay-{{ delay }}">
                  <a href="{{ posturl }}" class="list-group-item">
                    <div class="media">
                      <div class="media-body">
@@ -243,6 +257,7 @@ layout: default
                      </div>
                    </div>
                  </a>
+                 </article> <!-- article -->
                  {% assign nposts = nposts | plus: 1 %}
                  {% endif %}
                  {% endfor %}
@@ -276,6 +291,12 @@ layout: default
                  {% if in_time_interval and nposts < posts_per_page4 %}
 
                  {% assign posturl = post.url | prepend: site.baseurl %}
+
+                 <!-- Calculate delays -->
+                 {% assign delay_add = forloop.index | times: 1 %}
+                 {% assign delay = 1 | plus: delay_add %}
+
+                 <article class="animated fadeInLeft animation-delay-{{ delay }}">
                  <li>
                  {% if post.part == 1 %}<ul><li>{% endif %}
                    <a href="{{ posturl }}">{{ post.title }}</a>,
@@ -283,6 +304,7 @@ layout: default
                    <i>{% include date.html d=post.date l='t' %}</i> &nbsp;
                    {% if post.part == post.parts %}</li></ul>{% endif %}
                  </li>
+                 </article> <!-- article -->
                  {% assign nposts = nposts | plus: 1 %}
                  {% endif %}
                  {% endfor %}
