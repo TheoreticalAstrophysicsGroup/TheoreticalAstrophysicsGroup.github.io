@@ -2,14 +2,18 @@
 categories:
   short:
     ja:
-      achievements: &achievements_short_ja 研究成果
+      publications: &publications_short_ja 発表論文
+      annual_reports: &annual_reports_short_ja 年次報告
+      projects: &projects_short_ja プロジェクト
       news: &news_short_ja ニュース
       seminars: &seminars_short_ja セミナー
       uchu_forum: &uchu_forum_short_ja 宇宙フォーラム
       conferences: &conferences_short_ja 研究会
       featured: &featured_short_ja 特集記事
     en:
-      achievements: &achievements_short_en Achievements
+      publications: &publications_short_en Publications
+      annual_reports: &annual_reports_short_en Annual Reports
+      projects: &projects_short_en Projects
       news: &news_short_en News
       seminars: &seminars_short_en Seminars
       uchu_forum: &uchu_forum_short_en Uchu Forum
@@ -17,14 +21,18 @@ categories:
       featured: &featured_short_en Featured
   long:
     ja:
-      achievements: 研究成果・発表論文
+      publications: 研究成果・発表論文
+      annual_reports: 年次報告
+      projects: プロジェクト
       news: ニュース & 最新情報
       seminars: つくば宇宙理論セミナー
       uchu_forum: つくば宇宙フォーラム
       conferences: 研究会・一般公開
       featured: &featured_long_ja 特集記事
     en:
-      achievements: Achievements & Publications
+      publications: Journal Publications
+      annual_reports: Annual Reports
+      projects: Projects
       news: News & Updates
       seminars: Theoretical Astrophysics Seminars
       uchu_forum: Tsukuba Uchu Forum
@@ -48,8 +56,8 @@ footer:
   ja:
     home: ホーム
     members: メンバー
-    research: 研究内容
-    achievements: *achievements_short_ja
+    research_topics: 研究内容
+    publications: *publications_short_ja
     featured: *featured_short_ja
     news: *news_short_ja
     uchu_forum: *uchu_forum_short_ja
@@ -57,7 +65,7 @@ footer:
     conferences: *conferences_short_ja
     information: 各種情報
     calendar: カレンダー
-    first: FIRST
+    projects: *projects_short_ja
     admission: 大学院入学案内
     contact: お問い合わせ
     alumni: 出身者一覧
@@ -70,8 +78,8 @@ footer:
   en:
     home: Home
     members: Members
-    research: Research
-    achievements: *achievements_short_en
+    research_topics: Research
+    publications: *publications_short_en
     featured: *featured_short_en
     news: *news_short_en
     uchu_forum: *uchu_forum_short_en
@@ -79,7 +87,7 @@ footer:
     conferences: *conferences_short_en
     information: Information
     calendar: Calendar
-    first: FIRST
+    projects: *projects_short_en
     admission: Admission
     contact: Contact
     alumni: Alumni
@@ -112,8 +120,8 @@ home:
     more_info: More Info
     featured: *featured_long_en
 
-# Research page translations
-research:
+# Research topics page translations
+research_topics:
   ja:
     abstract: 概要
     topics: トピック
@@ -123,21 +131,6 @@ research:
     topics: Topics
     read_more: Read more
 
-
-# Achievements page translations
-achievements:
-  ja:
-    nenji: 年次居報告
-    pubs: 論文発表一覧
-    recent: 最近の研究成果
-    old: 2009年（平20年）以前
-    featured: 特集記事
-  en:
-    nenji: Annual Reports
-    pubs: List of publications
-    old: Recent work
-    old: Lists prior to 2009
-    featured: Feature Article
 
 
 # Information page translations
@@ -631,7 +624,36 @@ conferences:
     archive_msg: For a list of earlier conferences see the archives.
     info: Information
 
-achievements:
+## Achievements page translations
+## NOTE: Keeping as reference. Maybe needs some of these 
+## in the publications or annual_reports section
+# achievements:
+#   ja:
+#     nenji: 年次居報告
+#     pubs: 論文発表一覧
+#     recent: 最近の研究成果
+#     old: 2009年（平20年）以前
+#     featured: 特集記事
+#   en:
+#     nenji: Annual Reports
+#     pubs: List of publications
+#     recent: Recent work
+#     old: Lists prior to 2009
+#     featured: Feature Article
+
+annual_reports:
+  ja:
+    info: 情報
+    about_header: 年次報告リストに就いて
+    members: メンバー
+    pdf_download: PDF版ダウンロード
+  en:
+    info: Information
+    about_header: About the publications list
+    members: Members
+    pdf_download: Download PDF
+
+publications:
   ja:
     ads_url: NASA ADS
     doi: DOI
@@ -645,15 +667,12 @@ achievements:
     pub_date: 発表日
     abstract: 要旨
     about_header: 発表論文リストに就いて
-    members: メンバー
     pdf_download: PDF版ダウンロード
-    refs: 参考文献・リンク
-    photos: Figures
   en:
     ads_url: NASA ADS
     doi: DOI
     arxiv: arXiv
-    author: Author(s)
+    author: Author
     journal: Journal
     info: Information
     vol: vol.
@@ -662,10 +681,7 @@ achievements:
     pub_date: Publication date
     abstract: Abstract
     about_header: About the publications list
-    members: Members
     pdf_download: Download PDF
-    refs: References
-    photos: Figures
 
 featured:
   ja:
@@ -698,8 +714,11 @@ header:
     subtitle: 筑波大学 計算科学研究センター
     group: 研究室紹介
     members: *members_short_ja
-    research: 研究内容
-    achievements: *achievements_short_ja
+    research: 研究
+    research_topics: 研究内容
+    publications: *publications_short_ja
+    annual_reports: *annual_reports_short_ja
+    projects: *projects_short_ja
     featured: *featured_short_ja
     news: *news_short_ja
     access: 研究室の場所・アクセス
@@ -716,8 +735,6 @@ header:
     conferences_domestic: *conferences_do_ja
     calendar: カレンダー
     wiki: 内部用ウィキ 
-    projects: プロジェクト
-    first: FIRST プロジェクト
     observers: 宇宙観測研究室
     postgrad: 大学院入学案内
     admission: 宇宙物理理論研究室
@@ -751,8 +768,11 @@ header:
     subtitle: University of Tsukuba, Center for Computational Sciences
     group: Our Group
     members: *members_short_en
-    research: Research Topics
-    achievements: *achievements_short_en
+    research: Research
+    research_topics: Research topics
+    publications: *publications_short_en
+    annual_reports: *annual_reports_short_en
+    projects: *projects_short_en
     featured: *featured_short_en
     news: *news_short_en
     access: Location and Access
@@ -769,8 +789,6 @@ header:
     conferences_domestic: *conferences_do_en
     calendar: Calendar
     wiki: Internal Wiki
-    projects: Projects
-    first: FIRST Projects
     observers: Observational Astrophysics Group
     postgrad: Graduate School
     admission: Theoretical Astrophysics Group

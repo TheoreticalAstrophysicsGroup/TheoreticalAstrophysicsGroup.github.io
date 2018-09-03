@@ -1,0 +1,62 @@
+---
+lang: ja
+abstract: We have developed a numerical software library for collisionless N-body
+  simulations named "Phantom-GRAPE" which highly accelerates force calculations among
+  particles by use of a new SIMD instruction set extension to the x86 architecture,
+  Advanced Vector eXtensions (AVX), an enhanced version of the Streaming SIMD Extensions
+  (SSE). In our library, not only the Newton's forces, but also central forces with
+  an arbitrary shape f(r), which has a finite cutoff radius rcut (i.e. f(r)=0 at r>rcut),
+  can be quickly computed. In computing such central forces with an arbitrary force
+  shape f(r), we refer to a pre-calculated look-up table. We also present a new scheme
+  to create the look-up table whose binning is optimal to keep good accuracy in computing
+  forces and whose size is small enough to avoid cache misses. Using an Intel Core
+  i7-2600 processor, we measure the performance of our library for both of the Newton's
+  forces and the arbitrarily shaped central forces. In the case of Newton's forces,
+  we achieve 2×109 interactions per second with one processor core (or 75 GFLOPS if
+  we count 38 operations per interaction), which is 20 times higher than the performance
+  of an implementation without any explicit use of SIMD instructions, and 2 times
+  than that with the SSE instructions. With four processor cores, we obtain the performance
+  of 8×109 interactions per second (or 300 GFLOPS). In the case of the arbitrarily
+  shaped central forces, we can calculate 1×109 and 4×109 interactions per second
+  with one and four processor cores, respectively. The performance with one processor
+  core is 6 times and 2 times higher than those of the implementations without any
+  use of SIMD instructions and with the SSE instructions. These performances depend
+  only weakly on the number of particles, irrespective of the force shape. It is good
+  contrast with the fact that the performance of force calculations accelerated by
+  graphics processing units (GPUs) depends strongly on the number of particles. Substantially
+  weak dependence of the performance on the number of particles is suitable to collisionless
+  N-body simulations, since these simulations are usually performed with sophisticated
+  N-body solvers such as Tree- and TreePM-methods combined with an individual timestep
+  scheme. We conclude that collisionless N-body simulations accelerated with our library
+  have significant advantage over those accelerated by GPUs, especially on massively
+  parallel environments.
+adsnote: Provided by the SAO/NASA Astrophysics Data System
+adsurl: http://adsabs.harvard.edu/abs/2013NewA...19...74T
+archiveprefix: arXiv
+arxivurl: http://fr.arxiv.org/abs/1203.4037
+author: ['{Tanikawa}, A.', '{Yoshikawa}, K.', '{Nitadori}, K.', '{Okamoto}, T.']
+bdsk-url-1: http://dx.doi.org/10.1016/j.newast.2012.08.009
+bdsk-url-2: http://fr.arxiv.org/abs/1203.4037
+bdsk-url-3: http://adsabs.harvard.edu/abs/2013NewA...19...74T
+date-added: 2014-07-29 10:44:46 +0000
+date-modified: 2014-07-29 10:44:46 +0000
+doi: 10.1016/j.newast.2012.08.009
+eprint: '1203.4037'
+id: tanikawa2013a
+img: [tanikawa2013a-00.png]
+img_thumb: tanikawa2013a-00-thumb.png
+journal: {id: New Astronomy, name: New Astronomy}
+link:
+- {anchor: doi, url: 'http://dx.doi.org/10.1016/j.newast.2012.08.009'}
+month: feb
+pages: 74-88
+primaryclass: astro-ph.IM
+title: 'Phantom-GRAPE: Numerical software library to accelerate collisionless N-body
+  simulation with SIMD instruction set on x86 architecture'
+type: article
+volume: '19'
+year: '2013'
+categories:
+  - publications
+  - ja
+---

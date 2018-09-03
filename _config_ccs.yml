@@ -8,7 +8,7 @@ description: "Theoretical Astrophysics Group, Center for Computational Sciences,
 # but deployment on organization server requires
 # subdirectory "/Astro"
 baseurl: /Astro
-url: http://www.rccp.tsukuba.ac.jp
+url: http://www2.ccs.tsukuba.ac.jp
 
 timezone: Asia/Tokyo
 
@@ -60,9 +60,19 @@ defaults:
       layout: single_news
   -
     scope:
-      path: achievements
+      path: publications
     values:
-      layout: single_achievement
+      layout: single_publication
+  -
+    scope:
+      path: annual_reports
+    values:
+      layout: single_annual_report
+  -
+    scope:
+      path: projects
+    values:
+      layout: single_annual_project
   -
     scope:
       path: uchu_forum

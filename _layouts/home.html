@@ -39,11 +39,11 @@ layout: default
           </div>
           <div class="col-md-6 col-sm-5 hidden-xs carousel-img-wrap">
             <div class="carousel-img">
-              <img src="{{ site.baseurl }}{{ la.img }}/{{ c.img }}" class="img-responsive animated fadeInUp" alt="Image">
+              <img src="{{ site.baseurl }}{{ la.img_carousel }}/{{ c.img }}" class="img-responsive animated fadeInUp" alt="Image">
             </div>
           </div>
           <div class="col-md-6 col-sm-5 hidden-lg hidden-md hidden-sm carousel-img-wrap">
-              <img src="{{ site.baseurl }}{{ la.img }}/{{ page.img_dummy }}" height="100px" alt="Image">
+              <img src="{{ site.baseurl }}{{ la.img_carousel }}/{{ page.img_dummy }}" height="100px" alt="Image">
           </div>
         </div>
       </div>
@@ -83,7 +83,7 @@ layout: default
           <div class="row">
             <div class="col-lg-12">
               {% if last_feature.img %}
-              <a href="{{ posturl }}" class="thumbnail"><img src="{{ site.baseurl }}{{ la.img }}/{{ last_feature.img[0] }}" class="img-responsive" alt="Image"></a>
+              <a href="{{ posturl }}" class="thumbnail"><img src="{{ site.baseurl }}{{ la.img_feature }}/{{ last_feature.img[0] }}" class="img-responsive" alt="Image"></a>
               {% endif %}
               {% assign lastfc = last_feature.content | strip_html %}
               <p>{% include lang_truncate.html text=lastfc %}</p>
@@ -137,7 +137,8 @@ layout: default
       {% assign last_post = site.posts | where: 'lang', page.lang | first %}
       {% assign last_post_url = last_post.url | prepend: site.baseurl %}
       {% if last_post.img %}
-      <a href="{{ last_post_url }}" class="thumbnail"><img src="{{ site.baseurl }}{{ la.img }}/{{ last_post.img[0] }}" class="img-responsive" alt="Image"></a>
+      {% include img_url.html p=last_post %}
+      <a href="{{ last_post_url }}" class="thumbnail"><img src="{{ site.baseurl }}{{ imgurl }}/{{ last_post.img[0] }}" class="img-responsive" alt="Image"></a>
       {% endif %}
       <h2 class="home-post-title"><a href="{{ last_post_url }}">{{ last_post.title }}</a></h2>
       {% if last_post.speaker %}
@@ -172,7 +173,7 @@ layout: default
       <!-- Nav tabs -->
       <ul class="nav nav-tabs">
       {% for cat in tcsl %}
-      {% unless cat[0] == 'achievements' or cat[0] == 'members' or cat[0] == 'featured' %}
+      {% unless cat[0] == 'publications' or cat[0] == 'projects' or cat[0] == 'members' or cat[0] == 'featured' or cat[0] == 'annual_reports' or cat[0] == 'projects' %}
         <li {% if cat[0] == 'news' %} class="active" {% endif %}><a href="#cat{{ forloop.index }}" data-toggle="tab">{{ cat[1] }}</a></li>
       {% endunless %}
       {% endfor %}
@@ -183,14 +184,19 @@ layout: default
         {% for cat in lc %}
         {% assign c = cat[0] %}
         {% assign l = cat[1] %}
-        {% unless c == 'achievements' or c == 'members' or c == 'featured' %}
+        {% unless c == 'publications' or cat[0] == 'projects' or c == 'members' or c == 'featured' or c == 'annual_reports' or c == 'projects' %}
         {% assign posts_lang = site.categories[c] | where: 'lang', page.lang %}
         <div class="tab-pane {% if c == 'news' %} active {% endif %}" id="cat{{ forloop.index }}">
           {% if last_post_cat == c %} {% assign offs = 1 %} {% else %} {% assign offs = 0 %} {% endif %}
           {% for post in posts_lang limit: 4 offset: offs %}
+
           {% assign posturl = post.url | prepend: site.baseurl %}
+
+          <!-- Provides imgurl and imgthb -->
+          {% include img_thumb_url.html p=post %}
+
           <div class="media">
-            <a class="pull-left" href="{{ posturl }}"><img class="media-object" src="{{ site.baseurl }}{{ la.img }}/{% if post.img_thumb %}{{ post.img_thumb }}{% else %}no_img-thumb.png{% endif %}" width="100" height="100" alt="image"></a>
+            <a class="pull-left" href="{{ posturl }}"><img class="media-object" src="{{ site.baseurl }}{{ imgurl }}/{{ imgthb }}" width="100" height="100" alt="image"></a>
             <div class="media-body">
               <h4 class="media-heading"><a href="{{ posturl }}">{{ post.title | truncatewords: 12 }}</a></h4>
               {% assign postcontent = post.content | strip_html %}
@@ -222,13 +228,13 @@ layout: default
     <div class="col-xs-12 hidden-xs">
       <h2 class="section-title text-center">{{ thl.recent_work }}</h2>
     </div>
-    {% assign posts_lang = site.categories['achievements'] | where: "lang", page.lang %}
-    {% if last_post_cat == 'achievements' %} {% assign offs = 1 %} {% else %} {% assign offs = 0 %} {% endif %}
+    {% assign posts_lang = site.categories['publications'] | where: "lang", page.lang %}
+    {% if last_post_cat == 'publications' %} {% assign offs = 1 %} {% else %} {% assign offs = 0 %} {% endif %}
     {% for post in posts_lang limit: 6 offset: offs %}
     {% assign posturl = post.url | prepend: site.baseurl %}
     <div class="col-md-4 col-sm-6">
       <div class="img-caption">
-        <img src="{{ site.baseurl }}{{ la.img_achievements }}/{% if post.img %}{{ post.img[0] | replace: '.png', '-800x533.png' }}{% else %}no_img-800x533.png{% endif %}" class="img-responsive" alt="Image">
+        <img src="{{ site.baseurl }}{{ la.img_publications }}/{% if post.img %}{{ post.img[0] | replace: '.png', '-800x533.png' }}{% else %}no_img-800x533.png{% endif %}" class="img-responsive" alt="Image">
         <div class="caption">
           <div class="caption-content">
             <a href="{{ posturl }}" class="animated fadeInDown"><i class="fa fa-search"></i>{{ thl.more_info }}</a>

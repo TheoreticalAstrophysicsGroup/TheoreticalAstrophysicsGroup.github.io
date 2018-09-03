@@ -1,0 +1,18 @@
+<!-- p is post variable -->
+{% assign p = include.p %}
+
+<!-- Get correct image directory (imgurl) according to directory layout in assets/img -->
+{% if post.img_thumb %}
+
+  <!-- Introduces {{ imgurl }} and {{ la }} variable -->
+  {% include img_url.html p=p %}
+
+  {% assign imgthb = p.img_thumb %}
+
+{% else %}
+
+  {% assign imgthb = 'no_img-thumb.jpg' %}
+  {% assign imgurl = la.img %}
+
+{% endif %}
+

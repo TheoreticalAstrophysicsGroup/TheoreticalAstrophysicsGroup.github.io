@@ -30,6 +30,7 @@
         </ul>
       </div>
 
+     
       <!-- Recent Posts -->
       <div class="col-md-4">
         <div class="footer-widget">
@@ -37,8 +38,13 @@
           {% assign posts_lang = site.posts | where: 'lang', page.lang %}
           {% for post in posts_lang limit: 3 %}
           <div class="media">
+
             {% assign posturl = post.url | prepend: site.baseurl %}
-            <a class="pull-left" href="{{ posturl }}"><img class="media-object" src="{{ site.baseurl }}{{ la.img }}/{% if post.img_thumb %}{{ post.img_thumb }}{% else %}sq-no_img.jpg{% endif %}" width="75" height="75" alt="image"></a>
+
+            <!-- Provides imgurl and imgthb -->
+            {% include img_thumb_url.html p=post %}
+
+            <a class="pull-left" href="{{ posturl }}"><img class="media-object" src="{{ site.baseurl }}{{ imgurl }}/{{ imgthb }}" width="75" height="75" alt="image"></a>
             <div class="media-body">
               <h4 class="media-heading"><a href="{{ posturl }}">{{ post.title | truncatewords: 12 }}</a></h4>
               <small>{% include date.html d=post.date l='s' %}</small>
@@ -53,11 +59,11 @@
         <div class="footer-widget">
           <h3 class="footer-widget-title">{{ tfl.recent_works }}</h3>
           <div class="row">
-            {% assign posts_lang = site.categories['achievements'] | where: 'lang', page.lang %}
+            {% assign posts_lang = site.categories['publications'] | where: 'lang', page.lang %}
             {% for post in posts_lang limit: 4 %}
             {% assign posturl = post.url | prepend: site.baseurl %}
             <div class="col-lg-6 col-md-6 col-sm-3 col-xs-6">
-              <a href="{{ posturl }}" class="thumbnail"><img src="{{ site.baseurl }}{{la.img_achievements}}/{% if post.img %}{{ post.img[0] | replace: '.png', '-360x240.png' }}{% else %}no_img-360x240.png{% endif %}" class="img-responsive" alt="Image"></a>
+              <a href="{{ posturl }}" class="thumbnail"><img src="{{ site.baseurl }}{{la.img_publications}}/{% if post.img %}{{ post.img[0] | replace: '.png', '-360x240.png' }}{% else %}no_img-360x240.png{% endif %}" class="img-responsive" alt="Image"></a>
             </div>
             {% endfor %}
           </div>

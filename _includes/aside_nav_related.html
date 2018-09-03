@@ -10,9 +10,14 @@
       <ul class="media-list">
         {% assign posts_lang = site.related_posts | where: 'lang', page.lang %}
         {% for post in posts_lang limit: 3 %}
+
         {% assign posturl = post.url | prepend: site.baseurl %}
+
+        <!-- Provides imgurl and imgthb -->
+        {% include img_thumb_url.html p=post %}
+
         <li class="media">
-        <a class="pull-left" href="{{ posturl }}"><img class="media-object" src="{{ site.baseurl }}{{ la.img }}/{% if post.img_thumb %}{{ post.img_thumb }}{% else %}no_img-thumb.png{% endif %}" width="80" height="80" alt="image"></a>
+          <a class="pull-left" href="{{ posturl }}"><img class="media-object" src="{{ site.baseurl }}{{ imgurl }}/{{ imgthb }}" width="80" height="80" alt="image"></a>
         <div class="media-body">
           <p class="media-heading"><a href="{{ posturl }} ">{{ post.title | truncatewords: 12 }}</a></p>
           <small>{% include date.html d=post.date l='s' %}</small>

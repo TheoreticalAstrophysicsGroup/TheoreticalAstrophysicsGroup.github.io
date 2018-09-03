@@ -3,7 +3,9 @@
 
 # List categories separately
 categories:
-  achievements: &achievements /achievements 
+  publications: &publications /publications 
+  annual_reports: &annual_reports /annual_reports 
+  projects: &projects /projects 
   news:  &news /news
   seminars: &seminars /seminars 
   uchu_forum: &uchu_forum /uchu_forum 
@@ -25,7 +27,7 @@ external:
     pas_physics: http://www.pas.tsukuba.ac.jp/faculty/physics.html
     pas_cirfse: http://www.pas.tsukuba.ac.jp/~CiRfSE/
     wiki: http://www2.ccs.tsukuba.ac.jp/ccswiki/astro/
-    first: http://www2.ccs.tsukuba.ac.jp/people/umemura/FIRST/index-j.html
+    #first: http://www2.ccs.tsukuba.ac.jp/people/umemura/FIRST/index-j.html
     observers: http://www.px.tsukuba.ac.jp/~nakai/astroobs/index.html
     scheduler: https://www2.ccs.tsukuba.ac.jp/cgi-bin/cbag/ag.cgi
     uot_calendar: http://www.tsukuba.ac.jp/campuslife/calendar/
@@ -40,7 +42,7 @@ external:
     pas_physics: http://www.pas.tsukuba.ac.jp/english/index.html
     pas_cirfse: http://www.pas.tsukuba.ac.jp/~CiRfSE/eng/index.html
     wiki: http://www2.ccs.tsukuba.ac.jp/ccswiki/astro/
-    first: http://www2.ccs.tsukuba.ac.jp/people/umemura/FIRST/index-j.html
+    #first: http://www2.ccs.tsukuba.ac.jp/people/umemura/FIRST/index-j.html
     observers: http://www.px.tsukuba.ac.jp/~nakai/astroobs/index.html
     scheduler: https://www2.ccs.tsukuba.ac.jp/cgi-bin/cbag/ag.cgi
     uot_calendar: https://www.tsukuba.ac.jp/english/campuslife/calendar.html
@@ -51,8 +53,9 @@ external:
 internal:
   home: &home /home
   members: *members
-  research: &research /research
-  achievements: *achievements
+  research_topics: &research_topics /research
+  publications: *publications
+  annual_reports: *annual_reports
   featured: *featured
   news: *news
   contact: &contact /contact
@@ -76,10 +79,15 @@ internal:
 # Internal links
 assets:
   img: /assets/img
-  img_achievements: /assets/img/achievements
+  img_publications: /assets/img/publications
+  img_annual_reports: /assets/img/annual_reports
+  img_conferences: /assets/img/conferences
+  img_featured: /assets/img/featured
+  img_cover_art: /assets/img/cover_art
   img_people: /assets/img/people
   img_events: /assets/img/events
   img_albums: /assets/img/albums
+  img_carousel: /assets/img/carousel
   css: /assets/css
   js: /assets/js
   fonts: /assets/fonts
@@ -95,14 +103,17 @@ nav:
     home_en: *home
   group:
     members: *members
-    research: *research
-    achievements: *achievements
-    featured: *featured
+    research_topics: *research_topics
     news: *news
     access: external
     contact: *contact
     information: *information
     alumni: *alumni
+  research:
+    publications: *publications
+    annual_reports: *annual_reports
+    projects: *projects
+    featured: *featured
   schedule:
     uchu_forum: *uchu_forum
     seminars: *seminars
@@ -117,8 +128,6 @@ nav:
     conferences_past_local: *conferences_pl
     conferences_abroad: *conferences_ab
     conferences_domestic: *conferences_do
-  projects:
-    first: external
   postgrad:
     admission: *admission
     pas_admission: external

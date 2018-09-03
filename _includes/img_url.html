@@ -1,0 +1,8 @@
+<!-- p is post variable -->
+{% assign p = include.p %}
+
+<!-- Get correct image directory (imgurl) according to directory layout in assets/img -->
+{% assign la = site.data.links.assets %}
+{% assign pimcat = 'img_' | append: p.categories[0] %}
+{% assign imgurl = la[pimcat] %}
+

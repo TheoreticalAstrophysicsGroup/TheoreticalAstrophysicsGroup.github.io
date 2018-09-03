@@ -1,0 +1,232 @@
+---
+layout: default
+---
+
+{% assign tal = site.data.translations.publications[page.lang] %}
+{% assign tpl = site.data.translations.post_gen[page.lang] %}
+{% assign tcll = site.data.translations.categories.long[page.lang] %}
+{% assign la = site.data.links.assets %}
+
+{% include page_header.html title=tcll.publications %}
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-4 hidden-md hidden-lg">
+      <aside class="sidebar">
+
+      {% include aside_about.html a=content t=tal.about_header %}
+      {% include aside_nav.html %}
+
+      </aside> <!-- Sidebar -->
+    </div> 
+
+    <div class="col-md-8" id="Grid">
+
+      <!-- Get all posts -->
+      {% assign all_posts = site.categories['publications'] | where: 'lang', page.lang %}
+
+
+      <!-- Academic year range -->
+      <!-- Puts yearbegin and yearend, the begin and end years 
+      of the academic years into namespace -->
+      {% include academic_year_range.html %}
+
+      <!-- Limit number of posts -->
+      <!-- Puts posts_per_page1,2,3,4 into namespace 
+      depending on the type of page -->
+      {% include npost_limits.html %}
+
+      <!-- Change preferred view according to page type -->
+      <!-- Puts mix1, mix2, mix3, and mix4 into namespace -->
+      {% include mixorder.html %}
+
+
+      <!-- Loop over posts -->
+      <div class="mix {{ mix1 }}">
+
+      {% assign nposts = 0 %}
+      {% for post in all_posts %}
+
+      <!-- Test condition that this post is in the page's academic year -->
+      {% assign unixdate = post.date | date: "%s"| times: 1 %}
+      {% if unixdate >= yearbegin and unixdate <= yearend %}
+      {% assign in_time_interval = true %}
+      {% else %}
+      {% assign in_time_interval = false %}
+      {% endif %}
+      {% if in_time_interval and nposts < posts_per_page1 %}
+
+      {% assign d = post.date | date: "%Y-%m-%d" %}
+      {% assign delay_add = forloop.index | mod: posts_per_page1 | times: 3 %}
+      {% assign delay = 8 | plus: delay_add %}
+
+      <article class="post animated fadeInLeft animation-delay-{{ delay }}">
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+          {% assign posturl = post.url | prepend: site.baseurl %}
+          <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a></h3>
+          <div class="row">
+            <div class="col-lg-6">
+              <img src="{{ site.baseurl }}{{ la.img_publications }}/{% if post.img %}{{ post.img[0] }}{% else %}no_img.jpg{% endif %}" class="img-post img-responsive" alt="Image">
+            </div>
+            <div class="col-lg-6">
+              {% assign bro = '{' %}
+              {% assign brc = '}' %}
+              {% assign nauth = post.author | size %}
+              <h4>{% for auth in post.author limit: 6 %} {{ auth | remove: bro | remove: brc }}{% unless forloop.last %}, &nbsp;{% endunless %}{% endfor %} {% if nauth > 6 %} <i class="fa fa-ellipsis-h"></i> {% endif %} </h4>
+              {% assign postabs = post.abstract | strip_html %}
+              <p>{% include lang_truncate.html text=postabs %}</p>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-lg-10 col-md-9 col-sm-8">
+              <i class="fa fa-calendar"></i> {% include date.html d=post.date l='t' %} &nbsp;
+              <i class="fa fa-book"></i> {% if post.journal %} {{ post.journal.name }} {% elsif post.booktitle %} {{ post.booktitle }} {% endif %} <br />
+              <i class="fa fa-space-shuttle"></i> <a href="{{ post.adsurl }}" target="_blank"> NASA ADS</a> &nbsp;
+              {% if post.doi %}<i class="fa fa-file-excel-o"></i> <a href="{{ 'http://fr.arxiv.org/abs/' | append: post.eprint }}" target="_blank">arXiv preprint</a> &nbsp;{% endif %}
+              {% if post.doi %}<i class="fa fa-file-powerpoint-o fa-rotate-180"></i> <a href="{{ 'http://dx.doi.org/' | append: post.doi }}" target="_blank">doi</a>{% endif %}
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-4">
+              <a href="{{ posturl }}" class="pull-right">{{ tpl.read_more }} &raquo;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      </article> <!-- post -->
+      {% assign nposts = nposts | plus: 1 %}
+      {% endif %}
+      {% endfor %}
+      </div>
+
+
+      <!-- Loop over posts -->
+      <div class="list-group mix {{ mix2 }}">
+
+        {% assign nposts = 0 %}
+        {% for post in all_posts %}
+
+        <!-- Test condition that this post is in the page's academic year -->
+        {% assign unixdate = post.date | date: "%s"| times: 1 %}
+        {% if unixdate >= yearbegin and unixdate <= yearend %}
+        {% assign in_time_interval = true %}
+        {% else %}
+        {% assign in_time_interval = false %}
+        {% endif %}
+        {% if in_time_interval and nposts < posts_per_page2 %}
+
+        {% assign posturl = post.url | prepend: site.baseurl %}
+        <a href="{{ posturl }}" class="list-group-item">
+          <div class="media">
+            {% if post.img_thumb %}<img src="{{ site.baseurl }}{{ la.img_publications }}/{{ post.img_thumb }}" class="pull-left media-object" alt="Image" width="150px" height="150px">{% endif %}
+            <div class="media-body">
+              <h3 class="media-heading">{{ post.title }}</h3>
+              {% assign bro = '{' %}
+              {% assign brc = '}' %}
+              {% assign nauth = post.author | size %}
+              <h4>{% for auth in post.author limit: 6 %} {{ auth | remove: bro | remove: brc }}{% unless forloop.last %}, &nbsp;{% endunless %}{% endfor %} {% if nauth > 6 %} <i class="fa fa-ellipsis-h"></i> {% endif %} </h4>
+              {% assign postabs = post.abstract | strip_html %}
+              <p>{% include lang_truncate.html text=postabs %}</p>
+              <i class="fa fa-calendar"></i> {% include date.html d=post.date l='t' %} &nbsp;
+              <i class="fa fa-book"></i> {% if post.journal %} {{ post.journal.name }} {% elsif post.booktitle %} {{ post.booktitle }} {% endif %}
+            </div>
+          </div>
+        </a>
+        {% assign nposts = nposts | plus: 1 %}
+        {% endif %}
+        {% endfor %}
+      </div> <!-- mix -->
+
+      <div class="list-group mix {{ mix3 }}">
+
+        {% assign nposts = 0 %}
+        {% for post in all_posts %}
+
+        <!-- Test condition that this post is in the page's academic year -->
+        {% assign unixdate = post.date | date: "%s"| times: 1 %}
+        {% if unixdate >= yearbegin and unixdate <= yearend %}
+        {% assign in_time_interval = true %}
+        {% else %}
+        {% assign in_time_interval = false %}
+        {% endif %}
+        {% if in_time_interval and nposts < posts_per_page3 %}
+
+        {% assign posturl = post.url | prepend: site.baseurl %}
+        <a href="{{ posturl }}" class="list-group-item">
+          <div class="media">
+            <div class="media-body">
+              <h4 class="media-heading">{{ post.title }}</h4>
+              {% assign bro = '{' %}
+              {% assign brc = '}' %}
+              {% assign nauth = post.author | size %}
+              <h5>{% for auth in post.author limit: 6 %} {{ auth | remove: bro | remove: brc }}{% unless forloop.last %}, &nbsp;{% endunless %}{% endfor %} {% if nauth > 6 %} <i class="fa fa-ellipsis-h"></i> {% endif %} </h5>
+              <i class="fa fa-calendar"></i> {% include date.html d=post.date l='t' %} &nbsp;
+              <i class="fa fa-book"></i> {% if post.journal %} {{ post.journal.name }} {% elsif post.booktitle %} {{ post.booktitle }} {% endif %}
+            </div>
+          </div>
+        </a>
+        {% assign nposts = nposts | plus: 1 %}
+        {% endif %}
+        {% endfor %}
+      </div> <!-- mix -->
+
+      <div class="mix {{ mix4 }}">
+        <ul>
+
+          {% assign nposts = 0 %}
+          {% for post in all_posts %}
+
+          <!-- Test condition that this post is in the page's academic year -->
+          {% assign unixdate = post.date | date: "%s"| times: 1 %}
+          {% if unixdate >= yearbegin and unixdate <= yearend %}
+          {% assign in_time_interval = true %}
+          {% else %}
+          {% assign in_time_interval = false %}
+          {% endif %}
+          {% if in_time_interval and nposts < posts_per_page4 %}
+
+          {% assign posturl = post.url | prepend: site.baseurl %}
+          <li><a href="{{ posturl }}">{{ post.title }}</a>
+          {% assign bro = '{' %}
+          {% assign brc = '}' %}
+          {% assign nauth = post.author | size %}
+          {% for auth in post.author limit: 6 %} {{ auth | remove: bro | remove: brc }}{% unless forloop.last %}, &nbsp;{% endunless %}{% endfor %} {% if nauth > 6 %} ... {% endif %}
+          , <i>{% include date.html d=post.date l='t' %}</i>,
+          {% if post.journal %} {{ post.journal.name }} {% elsif post.booktitle %} {{ post.booktitle }} {% endif %}</li>
+          {% assign nposts = nposts | plus: 1 %}
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </div> <!-- mix -->
+
+
+      {% if nposts == 0 %}
+      {% capture acad_date %}{{ page_url[2]}}-10-10{% endcapture %}
+      {% if page.lang == 'en' %}
+      <p>There are no items for the academic year {% include date.html d=acad_date l='a' %}.</p>
+      {% elsif page.lang == 'ja' %}
+      <p>{% include date.html d=acad_date l='a' %}の投稿はありません。</p>
+      {% endif %}
+      {% endif %}
+
+
+    </div> <!-- col-md-8 -->
+
+    <div class="col-md-4 hidden-xs hidden-sm">
+      <aside class="sidebar">
+
+      {% include aside_about.html a=content t=tal.about_header %}
+      {% include aside_nav.html dup=true %}
+
+      </aside> <!-- Sidebar -->
+    </div> 
+
+  </div> <!-- row -->
+</div> <!-- container  -->
+
+

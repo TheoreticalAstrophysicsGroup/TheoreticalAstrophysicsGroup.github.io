@@ -1,10 +1,10 @@
 #!/bin/bash
 for i in $(find . -iname "*html" ); do
-  if [[ "$(grep '、' $i)" ]]; then 
+  if [[ "$(grep -- '、' $i)" ]]; then 
     cat $i | sed -e "s/、/，/g" > $i-changed; 
     mv $i-changed $i;
   fi;
 done
 
 # One liner:
-#for i in $(find . -iname "*html" ); do if [[ "$(grep '．' $i)" ]]; then cat $i | sed -e "s/．/。/g" > $i-changed; mv $i-changed $i; fi; done 
+#for i in $(find . -iname "*html" ); do if [[ "$(grep -- '、' $i)" ]]; then cat $i | sed -e "s/、/，/g" > $i-changed; mv $i-changed $i; fi; done 

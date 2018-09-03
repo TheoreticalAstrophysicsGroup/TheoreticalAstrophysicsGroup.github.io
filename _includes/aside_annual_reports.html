@@ -1,0 +1,23 @@
+{% assign tal = site.data.translations.annual_reports[page.lang] %}
+{% assign lel = site.data.links.external[page.lang] %}
+{% assign la = site.data.links.assets %}
+{% assign li = site.data.links.internal %}
+
+<div class="panel panel-primary">
+  <div class="panel-heading"><i class="fa fa-info-circle"></i> {{ tal.info }} </div>
+  <div class="panel-body">
+    <ul class="fa-ul">
+      <li class="fali"><i class="fa fa-calendar"></i> &nbsp;{% include date.html d=page.date l='a' %}</li>
+      {% include lang_surround.html shape='round'%}
+      <li class="fali"><i class="fa fa-users"></i> &nbsp;{{ tal.members }}<br/>
+        <table class="table-striped">
+          {% for auth in page.author %}
+            <tr><td>{{ auth.posn }}</td><td>&nbsp;&nbsp;</td><th>{{ auth.name }}{% if auth.note and auth.note != "grouped" %}<br/>{{ open_surround }}{{ auth.note }}{{ close_surround }}{% endif %}<th/></tr>
+          {% endfor %}
+        </table>
+      </li>
+      {% if page.pdf %}<li class="fali"><i class="fa fa-file-pdf-o"></i> &nbsp;<a href="{{ site.baseurl }}{{ la.doc }}/{{ page.pdf }}" target="_blank">{{ tal.pdf_download }}</a>{% endif %}
+    </ul>
+  </div>
+</div>
+

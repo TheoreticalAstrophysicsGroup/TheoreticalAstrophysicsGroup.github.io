@@ -1,0 +1,22 @@
+{% assign tpl = site.data.translations.publications[page.lang] %}
+{% assign lel = site.data.links.external[page.lang] %}
+{% assign la = site.data.links.assets %}
+{% assign li = site.data.links.internal %}
+
+<div class="panel panel-primary">
+  <div class="panel-heading"><i class="fa fa-info-circle"></i> {{ tpl.info }} </div>
+  <div class="panel-body">
+    <ul class="fa-ul">
+      <li class="fali"><i class="fa fa-calendar"></i> &nbsp;{% include date.html d=page.date l='t' %}</li>
+      {% if page.journal %}<li class="fali"><i class="fa fa-book"></i> &nbsp;{% if page.journal %} {{ page.journal.name }} {% elsif page.booktitle %} {{ page.booktitle }} {% endif %}</li>{% endif %}
+      {% if page.volume %}<li class="fali"><i class="fa fa-columns"></i> &nbsp;vol. {{ page.volume }}</li>{% endif %}
+      {% if page.pages %}<li class="fali"><i class="fa fa-files-o"></i> &nbsp;pp. {{ page.pages }}</li>{% endif %}
+      {% if page.adsurl %}<li class="fali"><i class="fa fa-space-shuttle"></i> &nbsp;<a href="{{ page.adsurl }}" target="_blank">NASA ADS</a> </li>{% endif %}
+      {% if page.eprint %}<li class="fali"><i class="fa fa-file-excel-o"></i> &nbsp;<a href="{{ 'http://fr.arxiv.org/abs/' | append: page.eprint }}" target="_blank">arXiv preprint</a> </li>{% endif %}
+      {% if page.doi %}<li class="fali"><i class="fa fa-file-powerpoint-o fa-rotate-180"></i> &nbsp;<a href="{{ 'http://dx.doi.org/' | append: page.doi }}" target="_blank">doi</a> </li>{% endif %}
+      {% if page.keyword %}<li class="fali"><i class="fa fa-tags"></i> &nbsp;{{ page.keyword | array_to_sentence_string }}</li>{% endif %}
+      {% if page.pdf %}<li class="fali"><i class="fa fa-file-pdf-o"></i> &nbsp;<a href="{{ page.pdf }}" target="_blank">{{ tpl.pdf_download }}</a>{% endif %}
+    </ul>
+  </div>
+</div>
+
