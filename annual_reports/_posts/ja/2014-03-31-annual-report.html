@@ -1,0 +1,547 @@
+---
+lang: ja
+title: 2013年度年次報告
+author:
+  -
+    posn: 教授
+    name: 梅村 雅之
+    note:
+  -
+    posn: 准教授
+    name: 森 正夫
+    note:
+  -
+    posn: 講師
+    name: 吉川 耕司
+    note:
+  -
+    posn: 研究員
+    name: Alexander Wagner
+    note: センター
+  -
+    posn: 研究員
+    name: 石山 智明
+    note: HPCI戦略プログラム
+  -
+    posn: 研究員
+    name: 長谷川 賢二
+    note: HPCI戦略プログラム
+  -
+    posn: 研究員
+    name: 行方 大輔
+    note: エクサFS
+  -
+    posn: 研究員
+    name: 澁谷 隆俊
+    note: 基盤Ａ
+  -
+    posn: 大学院生
+    name: 14名
+    note: grouped
+  -
+    posn: 4年生
+    name: 7名
+    note: grouped
+toc:
+  -
+    link: gaiyou
+    name: 研究活動概要
+  -
+    link: seika
+    name: 研究成果
+  -
+    link: kyouiku
+    name: 教育
+  -
+    link: shikin
+    name: 受賞，外部資金，知的財産権等
+  -
+    link: gyouseki
+    name: 研究業績
+  -
+    link: renkei
+    name: 異分野間連携・国際連携・国際活動等
+  -
+    link: kaigi
+    name: シンポジウム，研究会，スクール等の開催実績
+  -
+    link: kanri
+    name: 管理・運営
+  -
+    link: shakai
+    name: 社会貢献・国際貢献
+
+pdf: annual_report-2013.pdf
+img_thumb: annual_report-ja-thumb.png
+img: 
+  - annual_report-ja.png
+categories:
+  - annual_reports
+  - ja
+---
+
+{% assign la = site.data.links.assets %}
+
+<h3 class="post-title" id="gaiyou">概要</h3>
+<p>本年度，当グループは，<strong><span class="underline">数値シミュレーションによる研究</span></strong>として，ダークマタ―ハローのコア―カスプ問題，アンドロメダの涙とさざめきの研究，銀河ハロー中を漂う巨大ブラックホールへのガス降着とその広波長域放射，輻射流体計算による第一世代星形成，原始銀河形成と宇宙再電離，AGNの輻射にさらされた分子雲の進化，一般相対論的N体計算による巨大ブラックホール合体過程，電波銀河Hydra AのRadioモードフィードバック，超新星残骸1987Aの電波放射のモデル化，「京」を用いた宇宙ダークマターシミュレーション，Vlasov-Poisson 方程式を用いた大規模構造形成におけるニュートリノの数値シミュレーション，を推進した。また，GPUを用いた輻射輸送・輻射流体シミュレーションコードの開発を行った。さらに，<strong><span class="underline">観測との共同研究</span></strong>としてハッブル宇宙望遠鏡による高解像画像を用いた LAE の形態研究　LAE のガス速度構造の研究を行った。また，<strong><span class="underline">宇宙・生命分野間連携</span></strong>として，星間空間におけるアミノ酸生成と光不斉化の理論的研究，系外惑星における光合成アンテナ機構の研究を推進した。</p>
+
+<h3 class="post-title" id="seika">研究成果</h3>
+<ol type=1>
+  <h4><li>ダークマタ―ハローの内部構造：コア―カスプ問題</li></h4>
+<p>宇宙の構造形成のパラダイム，コールドダークマター(CDM)シナリオは， N体シミュレーションによるとダークマター(DM)ハロー中心部で質量密度が発散する(カスプ)構造を予言する(Navarro, Frenk &amp; White 1997; Fukushige &amp; Makino 1997)。 しかし，その観測結果によると，矮小銀河の密度は中心部で発散せず，一定となる(コア)ことが報告されている (Swaters et al. 2003; Spekkens et al. 2005; Oh et al. 2010)。この理論と観測の不一致は“コア—カスプ問題”と呼ばれ，CDMシナリオの未解決問題の一つである。今回我々は，“超新星爆発により矮小銀河内のガスが加熱・膨張し，やがて放射冷却・収縮が起こり再び星形成が起こる，という一連の過程の繰り返しの重力場変動によりカスプがコアへと遷移するか”をN体シミュレーションを用いて調べた。ここでバリオンの重力場は周期的に時間変化する外場によって表現した。その結果バリオンの重力場変動の時間スケールに依存してDMハローに形成されるコアの大きさや位置が大きく変化する事がわかった。また，DMハローの粒子群と外場間で起こる共鳴的な現象に対する解析的なモデルを構築した。この共鳴モデルによって，コア半径が重力場の時間変動周期と関係があることを突き止めた。また，銀河の形成時期とコア部分の密度との関係を導き出した。</p>
+    <h4><li>アンドロメダの涙とさざめき</li></h4>
+<p>近年，ハッブル宇宙望遠鏡やすばる望遠鏡に代表される地上大型望遠鏡を最大限活用した近傍の深宇宙探査により，現在も続く銀河進化の過程を垣間見ることができるようになってきた。アンドロメダ銀河周辺においては，おびただしい数の暗い矮小銀河が発見されるとともに，それら矮小銀河の衝突によるものと思われるステラーストリームやステラーシェル等の痕跡が続々と明らかにされてきている。特にアンドロメダの涙（アンドロメダストリーム）に関しては，観測・理論の両面からの研究が進展してきており，銀河衝突の際の軌道運動やその時期，衝突した銀河の質量や化学組成等について理解が進んできている。我々は，N体計算と3次元の流体力学計算を組み合わせたハイブリッドシミュレーションにより，アンドロメダ銀河の円盤ガスと矮小銀河に付随するガスの流体力学的な相互作用の詳細について調べた。銀河円盤ガスと矮小銀河ガスの相互作用により発生する銀河円盤ガスの流体力学的な挙動と，アンドロメダの円盤ガスで観測されているリング状構造の生成過程について詳細な解析を行った。また，矮小銀河の軌道運動の初期条件依存性について大規模パラメータサーベイを行い，観測を再現する軌道要素を求めた。</p>
+      <h4><li>銀河ハロー中を漂う巨大ブラックホールへのガス降着とその広波長域放射</li></h4>
+<p>各銀河はそれぞれの中心に巨大ブラックホールを宿す。また，銀河は周辺の銀河と衝突・合体し，吸収合併する事でその質量を成長させてきたと考えられる。これらの事から，銀河衝突により衛星銀河が壊された後しばらくの間，元衛星銀河の中心巨大ブラックホールが親銀河のハロー中を漂っていると期待される。隣の銀河であるアンドロメダ銀河は，この銀河衝突による銀河とブラックホールの共進化を理論と観測の両面から理解する上で，最上の実験場である。詳細な観測と数値実験の比較により，約10億年昔に衛星銀河が衝突し，今現在，元衛星銀河の破片がアンドロメダ銀河周辺に痕跡として残っている事がわかっている。この元衛星銀河の中心巨大ブラックホールが，ハローの希薄ガスをBondi降着により吸い込む時に形成される降着円盤の広波長域放射を計算した。様々な検出装置の感度と比較したところ，SKAやEVLA，ALMA等の電波領域の既存装置で検出可能である事がわかった。</p>
+        <h4><li>輻射流体計算による第一世代星形成</li></h4>
+<p>京コンピュータを用いて宇宙論的流体計算を実行する事で多数の第一世代ハローを形成し，その後それぞれのハローについて3次元輻射流体計算を実行する事で，初代星の形成過程の解明を試みた。その結果，一つのハロー内でも星周円盤の分裂によって複数の初代星が形成されうる事，初代星の質量は典型的に10-100太陽質量程度となり，数割合は多くないが太陽質量オーダーの初代星や，100太陽質量を超える大質量の初代星も形成される事を明らかにした。また，初代星の質量，分裂頻度は，母ハロー中心部のガスの角運動量と強い相関がある事もわかった。得られた初代星の質量関数を軽い方に0.2dexシフトさせた場合に予想されるレムナントのアバンダンスパターンは，銀河ハロー金属欠乏星のそれとよく一致する。これは，シミュレーション結果は，数値計算分解能の不足などの理由から，初代星初期質量関数上限値となっている事に起因していると予想される(Susa, Hasegawa, Tominaga submitted to ApJ)。</p>
+          <h4><li>原始銀河形成と宇宙再電離</li></h4>
+<p>宇宙は赤方偏移z=1000程度で一度中性化し，その後形成された天体からの輻射によって再び電離が起こり，現在の宇宙はほぼ完全電離状態である事が知られている。しかし，この宇宙再電離が「いつ」「どの天体によって」「どのように」引き起こされたかは未だ明らかにされていない。</p>
+<p>そこで，我々は独自に開発したツリー構造を用いて高速に輻射輸送計算を行えるスキームSTART (SPH with Tree-based Accelerated Radiative Transfer) (Hasegawa &amp; Umemura 2010)を宇宙論的輻射流体計算に対応できるように拡張し，これを用いて宇宙再電離シミュレーションを行った。その結果，宇宙の星形成史は主に光加熱効果によって著しく阻害される事を示した(Hasegawa &amp; Semelin 2013)。また，再電離過程にとって重要な鍵となる電離光子の銀河からの脱出割合は，紫外線のフィードバックで高密度領域がならされる事によって上昇する事も分かった(Umemura et al. 2012)。シミュレーションから得られたUV光度関数は，z=6-8で観測可能なMUV= —18等より明るい銀河の光度関数と矛盾しない。さらに，紫外線による銀河形成過程阻害を受けつつも，未だ見えない暗い銀河が多数存在する事も明らかになり，これら低光度銀河は数が多い事，電離光子脱出確率が高い事から再電離における主要な電離光子源となっている事も明らかにした。</p>
+<h4><li>AGNの輻射にさらされた分子雲の進化</li></h4>
+<p>活動銀河核(AGN)は，宇宙で最も明るい天体の1つであり，その光度は銀河本体に匹敵する。光の大部分は，電離能力を持った紫外光，及び，X線の波長帯で放射されるため，母銀河の進化に大きな影響を与えたと一般に考えられている。しかし，AGNの活動性の詳細がどのように決定されるかは明らかでない。本研究では，AGN現象の持続性の理解を進めることを目的として，ガス供給に重要な役割を果たすと期待される光学的に厚い分子雲の1次元及び3次元輻射流体計算を行った。その結果，電離パラメータと呼応学的厚みに応じて，分子雲の進化は光蒸発駆動型(I)と輻射圧駆動型(II)に大別できることがわかった。与えられた電離パラメータに対し，光学的厚みが小さい場合はI型の進化を示し，光学的厚みが十分に大きい場合はII型の進化を示す。I型の場合，球対称的な光蒸発によって質量を失いながら，その反作用による圧力で，分子雲の一部が重力崩壊に至る。一方，II型の場合，輻射圧が光蒸発流を分子雲表面に閉じ込めながら，質量をほとんど失わずに分子雲を押しつぶし，最終的には分子雲の一部を重力崩壊させることがわかった。分子雲の寿命は被照射面で発生する衝撃波の速度と分子雲のサイズで決定される。我々は1次元輻射流体計算により，広い範囲の電離パラメータと光学的厚みについて，分子雲の寿命を測定した。この結果に基づくと，もしAGNトーラスが非常にvolume filling factorの小さいクランピー構造をしているとすれば，トーラス表層のガスクランプはトーラスの力学的時間に比べて非常に短い時間で破壊されることが予想される。</p>
+<h4><li>一般相対論的N体計算による巨大ブラックホール合体過程</li></h4>
+<p>巨大ブラックホールは銀河中心に観測され，ブラックホール質量は銀河バルジ質量の約1/1000になっているという<strong>“ブラックホール‐バルジ質量関係”</strong>が見出されている（Kormendy &amp; Richstone 1995; Magorrian et al. 1998; Merrifield et al. 2000; Merritt &amp; Ferrarese 2001, Marconi &amp; Hunt 2003）。これは，巨大ブラックホール形成が，銀河バルジ形成史と密接に関係し，ブラックホール質量を決める普遍的な物理メカニズムが存在したことを示唆する。宇宙の<strong>階層的天体形成論</strong>に従えば，大きな銀河は小銀河の集合体として生まれることになり，大きな銀河には多数の巨大ブラックホールが存在することになる。これは，銀河の中心にブラックホール‐バルジ質量関係を満たす巨大ブラックホールが一つあるという観測事実を説明できない。可能性の一つは，銀河が合体した際に，ブラックホールも全て合体して，銀河中心に落ちるというものである。しかし，これまで巨大ブラックホールの合体は極めて難しいとされてきた。我々は，ブラックホールを持つ銀河が合体した後，ブラックホール合体が起こるかという問題を，一般相対論効果を入れた<strong>高精度N体計算</strong>により調べた。銀河バルジの中に10個の巨大ブラックホールを置いて計算した結果，銀河中の星密度が高い場合には，星による力学的摩擦が有効に働き，ブラックホールは銀河中心に落ちることで多重散乱を繰り返し，連ブラックホールが生まれ，連ブラックホールは他のブラックホールとの散乱の結果，重力波を放出して合体することが分かった。そして，赤方偏移z=7のライマンアルファ・エミッターで，ブラックホール合体過程が起こっている可能性を示した（Tanikawa &amp; Umemura 2014）。</p>
+  <h4><li>The Radio Mode Feedback in Hydra A</li></h4>
+  <center><p><img src="{{ site.baseurl }}{{ la.img_annual_reports }}/2013-image1-rm_fb.jpg" style="width:4.11111in;height:3.08333in" /></p></center>
+<p>Together with collaborators at the Australian National University (Mohammad Ali Nawaz, Geoffrey Bicknell) and the University of Waterloo (Brian McNamara) we have begun a detailed study of the famous cool-core radio galaxy Hydra A to understand the heating and mixing processes involved in radio-mode feedback on cluster scales. From existing data, we have made accurate measurements of the hot ICM structure and the jet power using synchrotron minimum energy calculations. We then created realistic 2.5D relativistic hydrodynamic models with the PLUTO code for the inner 30 kpc of the radio source, focusing on the correct reproduction of conical reconfinement shocks and Mach disks. This procedure yields very accurate estimates of jet parameters, especially the jet radius, velocity, pressure, constitution, and amount of entrainment. We have also embarked upon creating. A paper has been submitted, and is under revision, summarizing the results of the first stage of this work. (Fig: Hydrodynamic model of the jet stream, with comparison to observations of the jet radius and reconfinement shock locations.)</p>
+    <h4><li>Modeling the Radio emission of Supernova Remnant 1987A</li></h4>
+<p>In a project led by collaborator Toby Potter (University of Western Australia), we modeled the time-dependent radio emission of supernova remnant 1987A from days 820 to 10,000 since the explosion. Following a thorough examination of the ambient ISM density structure involving a blue supergiant wind, an HII region, and equatorial clouds, a realistic 3-dimensional hydrodynamic model of the supernova expansion was performed with the FLASH code. The synchrotron emission from accelerated cosmic-ray electrons was calculated by incorporating a shock detection algorithm and advecting a non-thermal particle distribution at every shock in a semi-analytic post-process calculation involving diffusive shock acceleration and magnetic field amplification. The resulting synthetic radio data are directly compared with observations and shown to reproduce the global asymmetric structure and the equatorial bright ring of emission. A paper has been submitted and accepted with minor revisions pending. (Fig: Left: Volume render of the equatorial ring-like radio emission after the interaction with dense clouds. Right: Comparison between synthetic and　observed radio data.)　</p>
+<center><p><img src="{{ site.baseurl }}{{ la.img_annual_reports }}/2013-image2-snr1987_1.jpg" style="width:3.50833in;" /><img src="{{ site.baseurl }}{{ la.img_annual_reports }}/2013-image3-snr1987_2.jpg" style="width:3.64722in;height:1.73611in" /></p></center>
+      <h4><li>「京」を用いたダークマターシミュレーション</li></h4>
+<p>平成25年度は，主として2つの質的に異なる世界最大規模のシミュレーションを行った。図1の左パネルは現在の宇宙の大規模構造を，5500億のダークマター粒子を用いてシミュレーションしたものである。右パネルは宇宙初期に形成するダークマター構造を690億粒子でシミュレーションしたものである。いずれも，それぞれのスケールのシミュレーションでは世界最大規模である。</p>
+<center><p><img src="{{ site.baseurl }}{{ la.img_annual_reports }}/2013-image4-kei_1.jpg" style="width:2.95278in;height:2.95278in" /><img src="{{ site.baseurl }}{{ la.img_annual_reports }}/2013-image5-kei_2.jpg" style="width:2.95833in;height:2.95833in" /></p></center>
+<p>両者は似ているが，いくつか大きな違いがあることがわかる。宇宙初期に形成するダークマター構造は，現在に比べ滑らかな構造を示していることがわかる。フィラメント構造の中や，ハロー周囲に存在する小さいハローの数が少ないこともわかる。以下それぞれのシミュレーションについて述べる。</p>
+<h5>(i)　宇宙の大規模構造形成</h5>
+<p>図1の左パネルに対応するシミュレーションについての成果について述べる。5500億ダークマター粒子の重力進化を，一片およそ50億光年の領域で現在の宇宙までシミュレーションした。初期条件はPlanck衛星による，CMBの最新の観測結果に基づいている。小銀河スケールから宇宙の大規模構造まで分解されている。シミュレーションデータは解析中であるが，以下に述べることが研究できるようになる。</p>
+<p>ダークマターハローはそのスケールに対応する様々な天体を宿す。例えば我々の銀河系をはじめとするさまざまな銀河は10<sup>11-12</sup>太陽質量程度のハローの中に含まれていると考えられている。また銀河団は10<sup>14-15</sup>，矮小銀河は10<sup>6-10</sup>，初代星は10<sup>5-7</sup>太陽質量程度のハローに存在していると考えられている。銀河中心には超巨大ブラックホールが存在し，銀河によってはガスをまとい，活動銀河核として明るく輝いている。超巨大ブラックホールの質量は，銀河のバルジの質量と良く相関しており，ブラックホールと銀河の共進化を示唆しているが，その形成，進化過程は謎に包まれている。</p>
+<p>このシミュレーションと，準解析的銀河形成モデルという現象論的なモデルを組み合わせることで，シミュレーションでは直接追っていない，バリオン成分の進化を追うことが可能である。シミュレーション上では，(離散化された)ダークマター粒子の数千～数万ステップの進化を追っている。各シミュレーション時刻においては，数十～数千万粒子で構成されるハローが無数に存在している。シミュレーションのスナップショットを50～100程度の時刻で保存しておき，まずそれぞれのスナップショットでハローを検出する (このシミュレーションでは現在の宇宙でおよそ数億のハローが検出される)。次に時刻間で同じハローを結び付け，宇宙初期から現在までの個々のハローの形成史を構築する。</p>
+<p>ここから先が準解析的銀河形成モデルの出番である。バリオンはおおよそハローの中で進化していくので，各時刻で得られたハローの形成史をもとに，現象論的なモデルを用いて，個々のハローでできる銀河やブラックホールの性質を理論的に予言することができる。特に高赤方偏移における銀河に存在する活動銀河核は非常に稀な天体である。これまで世界で行われてきたシミュレーションでは，活動銀河核を宿す銀河の階層的構造を追うだけの分解能，または稀な天体が形成できるだけのシミュレーション体積のどちらかが不足していた。今回「京」コンピュータを用いることで，はじめて両方の条件を満たすことが可能となった。そしてすばる望遠鏡のHyper-Sprime-Cam によって今後数年間にわたって得られる，高赤方偏移の最新の観測データと直接比較できるような広大な領域にかけて，銀河とブラックホールの分布両方を予測することができるようになり，共進化過程の解明への手がかりなどが得られるようになった。</p>
+<p>平成25年度中にシミュレーション，およびハロー検出は終了した。平成26年度中に，ハロー合体史を構築し，準解析的銀河形成モデルによる銀河+ブラックホールの模擬カタログを構築する予定である。</p>
+<h5>(ii)　最小スケールからはじまるダークマター構造形成</h5>
+<p>最小ハロー(地球質量)は中心の密度構造が，半径の－1.5乗程度のべきに比例する急なカスプ構造をもつことが知られている。一方，銀河スケールや銀河団スケールのような大きいハローでは，－1.0乗程度のべきである。この違いが起因する物理メカニズムははっきりとはわかっていない。</p>
+<p>この問題を明らかにするためには，最小ハローが合体してできるそれより大きいハローがどのような構造であるかを調べることが，手掛かりとなりそうである。最終的な目標は，粒子数5500億，領域800pc程度のシミュレーションを実行し，太陽質量(10<sup>6</sup>地球質量)程度のハローの構造を調べることである。平成25年度は，予備計算として粒子数690億，領域200-400pcの宇宙論的N体シミュレーションを実行し(図１右)，数百地球質量程度のハローまでの構造を調べた。予備計算ではあるが，このスケールのハローの構造を分解するシミュレーションとしては，世界最大のものである。</p>
+<p>今回のシミュレーションで得られた，それらが合体してできるハローはべきが－1.5より浅く，50地球質量程度のハローでは－1.3程度になることがわかった。ハロー質量が大きくなるほど，よりべきが浅くなる傾向にある（図2）。より大きい銀河スケール以上のハロー(1015-21地球質量)では，ハローのスケールによらず，べきが－1程度になることが良く研究されており，地球質量を含むそれ以外のスケールでもそうであろうと考えられていた。今回の結果は100倍地球質量程度のハローまで，従来の説を覆すことを世界ではじめて示すものである (Ishiyama, 2014, ApJ, 788, 27)。</p>
+<p>この成果は今後，銀河系の中のダークマター対消滅シグナルを評価し，ダークマターの素粒子の探査とその詳細な性質を解明するために応用される。対消滅シグナルは局所的ダークマター密度の構造の2乗に比例するため，ハローの微細構造は極めて重要である。ハロー自体の構造自体の他に，ハロー内に無数に存在する局所的位相空間密度の極大，いわゆるサブハローの構造，分布を明らかにする必要がある。そのためにはできるだけ大きいハローをシミュレーションする必要がある。平成26年度に行う予定である，粒子数5500億のシミュレーションは，太陽質量のハローの構造を明らかにできるだけでなく，こういったサブハローとしての最小スケールハローの進化を追うことができる唯一のシミュレーションである。</p>
+<center><p><img src="{{ site.baseurl }}{{ la.img_annual_reports }}/2013-image6-kei_3.jpg" style="width:5.83333in;height:4.11111in" /></p></center>
+<h4><li>Vlasov-Poisson 方程式を用いた大規模構造形成におけるニュートリノの数値シミュレーション</li></h4>
+<p>素粒子実験によるニュートリノ振動の発見によって質量を持つことが明らかとなったニュートリノは，宇宙初期に相対論的な状態で他の成分から脱結合して，光子とほぼ同じ数密度で大量に存在する。また，ニュートリノはその軽い質量の為に現在の宇宙においては銀河の脱出速度に匹敵する速度分散を持ち，宇宙の大規模構造の形成過程において，密度揺らぎの重力的成長を無衝突減衰によって阻害する働きがある。通常，宇宙の大規模構造形成の数値シミュレーションはN体シミュレーションで行われるが，N体シミュレーションでは粒子性によるショットノイズのために無衝突減衰のシミュレーションを精度良く計算するのは難しい。そこで，我々はN体シミュレーションの代わりにVlasov-Poisson方程式を直接数値シミュレーションする手法を用いて，大規模構造形成過程におけるニュートリノのダイナミクスを数値シミュレーションすることを目指している。本年度は，ダークマターをN体シミュレーションでシミュレーションし，ニュートリノの運動をVlasov-Poisson方程式の直接シミュレーションで解くコードを開発した。</p>
+<h4><li>GPUを用いた輻射輸送・輻射流体シミュレーションコードの開発</li></h4>
+<p>輻射輸送シミュレーションやそれを流体力学シミュレーションとカップルさせた輻射流体シミュレーションは，輻射輸送シミュレーションの計算コストが膨大であるため，これまでの天体形成の数値シミュレーションでは無視されるか簡便な手法で近似的にのみ計算される場合がほとんどであった。我々は，輻射輸送計算をGPUやマルチコア・メニーコアアーキテクチャに基づくプロセッサで効率的に実行するアルゴリズムを開発した。このコードは，点源からの輻射輸送を解くARGOT法と再結合放射などの広がった領域からの輻射輸送を解くART法をGPUやマルチコアプロセッサにおいて実装したものであり，MPIによるノード並列化も行い高い並列化効率を達成した。</p>
+<h4><li>ハッブル宇宙望遠鏡の高解像画像を用いた LAE の形態研究《観測との共同研究》</li></h4>
+<p>　独自に構築した 426 個の大規模 z=2.2 LAE サンプルとハッブル宇宙望遠鏡の高解像画像を組み合わせ，LAE の統計的形態研究を行った．特に我々は LAE の「(1) 合体銀河の割合」「(2) Lyα と星成分連続光の空間的ずれ(Lyα spatial offset; δ<sub>Lyα</sub>)」「(3) 楕円率 (~銀河の見込み角の指標)」とそれらの Lyα 等価幅への依存性を調べた．これまでにも LAE の形態研究はいくつかあったが，Lyα光子の出易さ(~Lyα等価幅)との関係に着目し，統計的に調査したのは今回が初めてである．これにより，これまでの小さなサンプル(N～10)を用いた研究によって信じられてきた「銀河合体によって周辺銀河物質が剥ぎ取られ Lyαの脱出を促進する」という予想(Cooke+2010 など)の妥当性や「Lyα光子は銀河円盤と垂直の方向(face-on)から脱出し易い」という理論予想(Zheng &amp; Wallance 2013 など)を統計的に検証することができた．調査の結果，Lyα等価幅が大きな LAE は典型的に (1) 銀河合体の兆候がなく，(2) δ<sub>Lyα</sub> が小さく，(3) 楕円率が小さい (すなわち face-on) であることが分かった．このことから，銀河合体はガスを剥ぎ取る代わりに，主として中心銀河を覆い隠す効果がある可能性を示した．銀河合体に加え，δ<sub>Lyα</sub>/楕円率の議論から，Lyα光子は「周辺銀河物質の柱密度が低い領域から効率的に放射される」ことが観測的に明らかになった (Shibuya et al. 2014a)．</p>
+<h4><li>LAE のガス速度構造の研究　《観測との共同研究》</li></h4>
+<p>　遠方銀河のガスの速度構造は，中性水素ガスに対して光学的に薄い「星雲線」をその銀河の系統的速度(基準)として，Lyα輝線または金属吸収線との速度差 (<em>Δv</em><sub>Lyα,</sub> <em>Δv</em><sub>IS</sub>)を測ることで調べられる．近赤外分光器の技術発展により，明るい銀河種族(LBG)のみならず，典型的に暗い種族である LAE からも星雲線が検出され，それらの速度構造が調べられてきた(Chonis+2013 など)．Hashimoto+2013 は<em>Δv</em><sub>Lyα</sub>とLyα等価幅の間に逆相関があることを示したが，<em>Δv</em><sub>Lyα</sub>は中性水素 柱密度 N<sub>HI</sub> とガス アウトフロー速度の両方に敏感な物理量であるため，この関係の起源が分からない状況にあった．そこで我々は，Keck 望遠鏡/LRIS などの分光器を用いて z=2.2 LAE の可視／近赤外分光観測を行った．その結果，これまでの<em>Δv</em><sub>Lyα</sub>が測定された LAE サンプルを 2 倍に増やすことができ，提案されていた<em>Δv</em><sub>Lyα</sub>-Lyα等価幅 逆相関を高い有意性で確認することができた．さらに，LRIS の長時間分光観測により今までは検出が困難であった暗い紫外線連続光，及び多数の金属吸収線を 4 個の LAE から検出することに成功した．それらの(アウトフロー速度にのみ敏感な)<em>Δv</em><sub>IS</sub> は -200~300 km/s であり，LAE も LBG と同様に強いアウトフローを起こしていることが明らかになった．このことから，小さな<em>Δv</em><sub>Lyα</sub>を持つ LAE は「小さなガス アウトフロー速度を持っている」というよりは寧ろ，「中性水素 柱密度 N<sub>HI</sub> が低く Lyα光子が抜け出し易い環境にある」ことが明らかになった (Shibuya et al. 2014b)．</p>
+<h4><li>星間空間におけるアミノ酸生成と光不斉化の理論的研究《宇宙・生命分野連携》</li></h4>
+<p>生命体の基本分子にアミノ酸があるが，実験室でアミノ酸を作成すると，左巻き（L型）と右巻き（D型）が同量生成されるが，地球上の生命では基本的にL型アミノ酸しか使われていない。これを，鏡像異性体過剰という。1969年，オーストラリアのマーチソン村に隕石が落下し，その隕石からアミノ酸が検出された。そして，わずかではあるが鏡像異性体過剰が発見された。発見された鏡像異性体過剰はわずかなものであるが，実験をすると鏡像異性体過剰は自己触媒反応により急速に増大することが分かってきた。よって，アミノ酸の鏡像異性体過剰が宇宙空間で起こり隕石を通じて地球に運ばれ，それが地上で急速に増幅した可能性がある。また，実験室で円偏光の光を当てると鏡像異性体過剰が引き起こされることが分かってきた。そして，近年になって，オリオン座の星形成領域(OMC-1)や他の星形成領域（NGC 6334-V IRN）で円偏光波が発見された。よって，原始系の近くで大質量星が誕生したとすれば，太陽系内でアミノ酸の鏡像異性体過剰が起こった可能性がある。以上の事実を背景に，宇宙空間で円偏光波からアミノ酸の鏡像異性体過剰を引き起こす過程についての量子多体計算を進めている。我々は，円偏光波吸収とアミノ酸の光励起による崩壊・改変反応の過程を解析した。第一原理計算により，真空中におけるアミノ酸の最安定構造を求め，その光吸収性と円偏光二色性の値を求めた。その結果，アミノ酸の光物性はその種の特徴となる側鎖よりアミノ酸全体に共通する主鎖の構造により強く依存し，波長帯としてライマンα帯の光が重要であることを明らかにした。また，宇宙空間におけるアミノ酸の生成について，アミノ酸前駆体候補であるヒダントインからアミノ酸に至る過程をエネルギー面の量子力学計算によって解析し，アミノニトリルを経てアミノ酸が容易に形成され得ることがを示した。</p>
+  <h4><li>系外惑星における光合成アンテナ機構の研究《宇宙・生命分野連携》</li></h4>
+<p>探査機Keplerによって太陽系外惑星の数は大きく追加されており, 地球型惑星やハビタブルゾーン内に入る惑星も発見されている。光合成は，生命の痕跡であるバイオマーカーの有力な候補になっている。光合成の痕跡の中でも750nm付近の近赤外領域に見られる反射スペクトルの特徴的な勾配（red edge）はバイオマーカーとして重要である。地球の光合成生物の場合は主星である太陽のスペクトル比の光を効率良く捕集するように進化して来たと考えるべきであり, クロロフィルなどの光合成色素からなるアンテナ系は環境によって色素の種類や配置などの形態が異なる。光を受けた色素は電子励起され, 近くの色素に電子状態を移動させるという過程を通じて効率的に光エネルギーを化学エネルギーに変換する。系外惑星においては異なる光捕集の形態を取る場合, それに対応した波長域に光合成の兆候を示す可能性がある。我々は，系外惑星の光のスペクトル比と植物の光捕集の形態との相関について定量的指標を導出することを目的に，光捕集系の量子化学計算を行った。アンテナを構成する色素1つ1つの励起 状態を時間依存密度汎関数法により計算し, 色素間では双極子-双極子相互作用する近似モデル を構築した。また, 入射光としてある振動数の電場を印加して系の量子力学的時間発展を追跡することによってスペクトル強度を算出した。また，エネルギー輸送効率が最大となる主星の黒体輻射温度を求めた。</p>
+</ol>
+
+<h3 class="post-title" id="kyouiku">教育</h3>
+<h4>【学位論文】</h4>
+<h5>　＜博士論文＞</h5>
+<ol>
+  <li>扇谷 豪<br />
+<p>Solving the core-cusp problem of cold dark matter halos and the origin of their observational universalities　</p>
+</li>
+<li>三木 洋平<br />
+<p>Numerical Investigation of Galactic Merger Utilizing High Performance Computing Architectures: Ancient Satellite Galaxy and Wandering Supermassive Black Hole</p>
+</li>
+<li>Mohammad Ali Nawaz (The Australian National University, Research School of Astronomy and Astrophysics)<br />
+  <p>Interaction of Jets with the Intracluster Medium</p> </li>
+<li>Marc White (The Australian National University, Research School of Astronomy and Astrophysics)<br />
+  <p>Outflows from Young Stellar Objects</p></li>
+</ol>
+
+<h5>　＜修士論文＞</h5>
+<ol>
+  <li>桐原 崇亘 <br />
+矮小銀河の衝突シミュレーションで探る銀河とダークマターハローの内部構造</li>
+<li>鈴木 裕行<br />
+内部紫外線と背景紫外線が及ぼす銀河形成への影響</li>
+<li>山井 勇樹<br />
+ガスによる力学的摩擦を考慮した原始銀河ブラックホールの合体過程の研究
+</li>
+</ol>
+
+<h5>　＜学士論文＞</h5>
+<ol>
+<li>小島 匠<br />
+フリードマン方程式の有質量ニュートリノによる補正</li>
+<li>加藤 悠太<br />
+星間物質と超新星爆発の相互作用のシミュレーションに向けて</li>
+<li>木立 佳里<br />
+宇宙ダスト上のアミノ酸前駆体生成過程と光不斉化の研究</li>
+<li>近藤　さらな<br />
+質量変化する連ブラックホールの合体過程の研究</li>
+<li>柴野　祥平<br />
+CIP法による数値流体計算に向けて</li>
+<li>古谷　眸<br />
+磁気圧効果を入れたブラックホール降着円盤の定常解についての研究</li>
+<li>結城　文香<br />
+高精度宇宙流体シミュレーションに向けて</li>
+</ol>
+
+<h4>【集中講義】</h4>
+<ul>
+  <li>梅村 雅之 <br />
+ 「宇宙輻射流体力学の基礎」（2013年10月31日～11月1日，東京大学広域システム科学系，東京都 </li>
+</ul>
+
+
+<h3 class="post-title" id="shikin">受賞，外部資金，知的財産権等</h3>
+
+<h4>【受賞】</h4>
+<p>筑波大学数理物質科学研究科研究科長賞, 扇谷 豪, Solving the core-cusp problem of cold dark matter halos and the origin of their observational universalities, 平成26年3月25日</p>
+
+<h4>【外部資金】</h4>
+
+<h5>　＜代表者＞</h5>
+<ul>
+<li>基盤研究（Ｓ）：梅村 雅之（代表者）（繰越）<br />
+「第一世代天体から原始銀河に至る宇宙暗黒時代の解明」 (500万円)</li>
+<li>基盤研究（Ａ）：森 正夫 （代表者） （繰越）<br />
+「理論と観測の融合による銀河発生学の探求」 (150万円)</li>
+<li>基盤研究（Ｃ）：森 正夫 （代表者） （新規）<br />
+「輻射流体シミュレーションによる銀河系統樹の構築」 (80万円)</li>
+<li>科研費若手研究（Ｂ）：行方 大輔 (代表者), 2013-2015年, 403万円<br />
+「マルチグループ輻射流体計算によるAGNトーラスから降着円盤へのガス供給過程の解明」</li>
+<li>科研費若手研究（Ｂ）:石山 智明（代表者），2013-2015年，350万(3年総額，直接経費)<br />
+「銀河系内のダークマター微細構造の解明およびダークマター検出への応用」</li>
+<li>科研費若手研究（Ｂ）：長谷川 賢二（代表者）, 2012年度採択，350万円<br />
+「宇宙論的輻射シミュレーションで解明する宇宙再電離期の銀河形成史」</li>
+</ul>
+
+<h5>　＜分担者＞</h5>
+<ul>
+  <li>戦略的創造研究推進事業CREST：梅村雅之（分担者）（代表者　朴泰祐）<br />
+「ポストペタスケール時代に向けた演算加速機構・通信機構統合環境の研究開発」（1188万円）</li>
+<li>挑戦的萌芽研究：梅村雅之 (分担者)（代表者：高橋労太）（継続）<br />
+「６次元光子ボルツマン方程式による一般相対論的輻射流体シミュレーション」（10万円）</li>
+<li>基盤研究（Ａ）：梅村雅之 (分担者) （代表者：大内正巳） （継続）<br />
+「次世代大規模探査とシミュレーションで挑む宇宙再電離」 (1万円)</li>
+<li>基盤研究（Ａ）：森 正夫 (分担者) （代表者：大内正巳） （継続）<br />
+「次世代大規模探査とシミュレーションで挑む宇宙再電離」 (400万円)</li>
+</ul>
+
+
+<h3 class="post-title" id="gyouseki">研究業績</h3>
+<ol type="I">
+  <h4><li>研究論文</h4>
+  <ol type="A">
+    <h5><li>査読付き論文</li></h5>
+    <ol type="1">
+      <li>
+        <p>Miki Y., Mori M., Kawaguchi T., Saito Y., 2014, “Hunting a Wandering Supermassive Black Hole in the M31 Halo Hermitage”, The Astrophysical Journal, 783, 87-95</p>
+      </li>
+      <li>
+        <p>Tsuchiya, M., Mori, M., Nitta, S., 2013,“Transonic solutions of isothermal galactic winds in a cold dark matter halo”, MNRAS, 432, 2837-2845</p>
+      </li>
+      <li>
+        <p>Miki Y., Takahashi D., Mori M., 2013, “Highly scalable implementation of an N-body code on a GPU cluster”, Computer Physics Communications, 184, 2159-2168</p>
+      </li>
+      <li>
+        <p>Yuma, S., et al., 2013, “First Systematic Search for Oxygen-line Blobs at High Redshift: Uncovering AGN Feedback and Star Formation Quenching”, The Astrophysical Journal, 779, 53-64</p>
+      </li>
+      <li>
+        <p>扇谷 豪 , 三木 洋平 , 朴 泰祐 , 森 正夫 , 中里 直人, 2013年, 「計算宇宙物理のための GPUクラスタ向け並列Tree Codeの開発と性能評価」, 情報処理学会論文誌コンピューティングシステム（ACS）, 6(3), 58-70</p>
+      </li>
+      <li>
+        <p>Ishiyama, T., et al., 2013, “The Cosmogrid Simulation: Statistical Properties of Small Dark Matter Halos”, The Astrophysical Journal, 767, 146 (14pp)</p>
+      </li>
+      <li>
+        <p>Rieder, S., Ishiyama, T., et al., 2013, “Evolution of star clusters in a cosmological tidal field”, Monthly Notices of the Royal Astronomical Society, 446, 3695</p>
+      </li>
+    </ol>
+    <h5><li>査読無し論文</li></h5>
+    <ol start="8" type="1">
+      <li>
+        <p>Kirihara T., Miki Y., Mori M., 2013, “Resolving the outer density profile of dark matter halo in Andromeda galaxy”, JPhCS, 454, 012012</p>
+      </li>
+      <li>
+        <p>Miki　Y., Mori M., Kawaguchi, T., 2013, “Hunting a wandering black hole in M31 halo using GPU cluster”, JPhCS, 454, 012013</p>
+      </li>
+      <li>
+        <p>Ogiya G., Mori M., Miki Y., Boku T., Nakasato N., 2013,“ Studying the core-cusp problem in cold dark matter halos using N-body simulations on GPU clusters”, JPhCS, 454, 012014</p>
+      </li>
+    </ol>
+  </ol>
+  <h4><li>国際会議発表</li></h4>
+  <ol type="A">
+    <h5><<li>招待講演</li></h5>
+    <ol type="1">
+      <li>
+        <p>Hasegawa K., “The roles of radiative feedback on galaxies and IGM during the epoch of reionization”, Workshop on Photo-Evaporation in Astrophysical Systems(Jun.3-28, 2013, Stockholm, Sweden)</p>
+      </li>
+      <li>
+        <p>Wagner, A., Umemura, M., Bicknell, G. V., Sutherland, R., Silk, J., “Mechanical AGN Feedback - Previous Work and Planned Projects”，AGN and Structure Formation Workshop（Jun.20, 2013，Institut d'Astrophysique de Paris, France）</p>
+      </li>
+      <li><p>Yoshikawa, K., “Vlasov-Poisson Simulations of Astrophysical Self-Gravitating Systems”, CCS-EPCC Workshop (Jul.4-5, 2013, University of Tsukuba, Japan)</p></li>
+      <li><p>Wagner, A., Umemura, M., Bicknell, G. V., Sutherland, R., Silk, J., “Feedback in Galaxy Formation”，Johns Hopkins University Physics Colloquium (Nov.14, 2013,Johns Hopkins University, Baltimore MD, USA)</p></li>
+      <li>
+        <p>Wagner, A., Umemura, M., Bicknell, G. V., Sutherland, R., Silk, J., “Galaxy-scale Feedback by AGN Jets and Winds”，Workshop on AGN and Starburst-driven Outflows (Nov.20, 2013, Johns Hopkins University, Baltimore MD, USA)</p>
+      </li>
+      <li>
+        <p>石山智明, “Supercomputer Simulations of Structure Formation in the Universe”,　 Taiwan-Japan Symposium on Celestial Mechanics and N-Body Dynamics 2013 (2013年12月6日-8日,台湾國立清華大學)</p>
+      </li>
+      <li>
+        <p>Yoshikawa, K. “Phantom-GRAPE : High-Performance Library to Accelerate
+        N-body Calculation with SIMD Instruction Set”, Japan-Korea HPC mini-workshop
+        (Feb. 26-27, 2014, University of Tsukuba, Japan)</p></li>
+      <li><p>Abe M., Umemura M., Hasegawa K., “Star-cluster formation regulated by the interstellar radiation field”, Ludwig Maximilians University Munich (Mar.21, 2014, Munich, Germany)</p></li>
+    </ol>
+    <h5><li>一般講演</li></h5>
+    <ol type="1">
+      <li><p>Komatsu, Y., Umemura, M., Shoji, M., Yabana, K., Shiraishi, K., Kamiya, K., Kayanuma, M., Taguchi, M., Sato, A., “The energy transfer calculation of light harvesting systems for detecting biomarker on extrasolar planets”, Japan Geoscience Union Meeting 2013 (May 19-24, 2013, Chiba, Japan)</p></li>
+      <li><p>Ogiya G., Mori M., “Surfing of dark matter on density waves of galactic gas -Landau resonance and the core-cusp problem in cold dark matter halos-”, (poster), The Physical Link between Galaxies and their Halos, Garching by Munich (Jun.24-28, 2013, Germany)</p></li>
+      <li><p>Igarashi A., Mori M., Nitta S.,“A New Concept of Transonic Galactic Outflows in a Cold Dark Matter Halo with a Central Super-Massive Black Hole”, The 12th Asia Pacific Physics Conference (Jul.14-19, 2013, Makuhari, Japan)</p></li>
+      <li><p>石山智明,“The formation and evolution of earth-mass dark matter microhalos and their impact on indirect probes of dark matter”, Probes of Dark Matter on Galaxy Scales (Jul. 14-19, 2013, Monterey, USA)</p></li>
+      <li><p>Kirihara T., Mori M., Miki Y.,“Andromeda Giant Stream and Outer Density Profile of the Dark Matter Halo in M31”, (poster), The 12th Asia Pacific Physics Conference (Jul.14-19, 2013, Makuhari, Japan)</p></li>
+      <li><p>Hasegawa K., “Radiation hydrodynamics simulations on the formation of galaxies during the epoch of reionization”, (poster), Workshop on Reionization in the Red Center: New windows on the high redshift Universe (Jul.15-19, 2013, Yulara, Australia)</p></li>
+      <li><p>Komatsu, Y., Umemura, M., Shoji, M., Yabana, K., Shiraishi, K., Kamiya, K., Kayanuma, M., Sato, A., “The energy transfer simulation for detecting photosynthetic biosignatures on extrasolar planets”, the 1st Awaji International Workshop on “ Electron Spin Science &amp; Technology ” (Jul.16-18, 2013, Hyogo, Japan)</p></li>
+      <li><p>Wagner, A., Umemura, M., Bicknell, G. V., Sutherland, R., Silk, J., “Hydrodynamical Simulations of AGN Feedback”，2nd East Asia AGN Workshop（Aug.19-23, 2013，Sapporo, Japan）</p></li>
+      <li><p>Shibuya, T.,“A statistical study on galactic outflows of Ly-a emitters probed by velocity offsets between their Ly-a/UV absorption and nebular lines”, Workshop on Lyman-alpha as an astrophysical tool (Sep.9-13, 2013, Nordita, Stockholm, Sweden)</p></li>
+      <li><p>Igarashi A, Mori M. Nitta S.,“Transonic Galactic Outflows and Their Influences to the Chemical Evolutions of Galaxies and Intergalactic Space”,(poster),12th International Symposium on Origin of Matter and Evolution of Galaxies (Nov.18-20, 2013, Tsukuba, Japan)</p></li>
+      <li><p>Komatsu, Y., Umemura, M., Shoji, M., Yabana, K., Shiraishi, K., Kayanuma, M., Sato, A., “Light harvesting and energy transfer in photosystem: implication for biosignatures”, International Astrobiology Workshop 2013 (Nov.28-30, 2013, Kanagawa, Japan)</p></li>
+      <li><p>Shibuya, T., “Demographics of Lyman Alpha Emitter Structures”, Subaru Users' Meeting FY2013, NAOJ (Jan.21-23, 2014, Mitaka, Tokyo, Japan)</p></li>
+      <li><p>Komatsu, Y., Umemura, M., Shoji, M., Shiraishi, K., Kayanuma, M., Yabana, K., Sato, A., “Toward understanding as photosynthetic biosignatures: light harvesting and energy transfer calculation”, The Search for Life Beyond the Solar System: Exoplanets, Biosignatures &amp; Instruments (Mar.16-21, 2014, Tuscon, USA)</p></li>
+    </ol>
+  </ol>
+  <h4><li>国内学会・研究会発表</li></h4>
+  <ol type="A">
+    <h5><li>招待講演</li></h5>
+    <ol type="1">
+      <li>
+        <p>小松勇,「光合成光捕集機構の量子化学計算による系外惑星バイオマーカーのモデル構築」,「宇宙と生命」懇話会（第１３回）（2013年6月21日, 自然科学研究機構新分野創成センター, 東京都）</p>
+      </li>
+      <li>
+        <p>Wagner, A., Umemura, M., Bicknell, G. V., Sutherland「AGN Feedback by Jets」，Semi-analytic　Method with SWANS Meeting（ 2013年9月19日，お茶の水女子大学，東京都）</p>
+      </li>
+      <li>
+        <p>梅村雅之，「古典的円盤形成進化 シナリオと問題点」，円盤銀河の形成と進化研究会（2013年9月26日～ 28日，国立天文台，三鷹市）</p>
+      </li>
+      <li>
+        <p>石山智明，「スーパーコンピュータの中で生まれる宇宙」,日本物理学会 2013年度 大阪支部公開シンポジウム（2013年10月26日, 甲南大学, 神戸市）</p>
+      </li>
+      <li>
+        <p>梅村雅之，「宇宙生命計算科学連携拠点 (CAB) について」，計算惑星科学シンポジウム，（2013年11月23日，石垣港離島ターミナル，石垣市）</p>
+      </li>
+      <li>
+        <p>石山智明，「ペタフロップス級N体シミュレータの開発 ―ダークマターの超大規模シミュレーション―」,「京」における高速化ワークショップ（2013年12月18日, 理化学研究所計算科学研究機構，神戸市）</p>
+      </li>
+      <li><p>吉川耕司，「衝突銀河団における非平衡電離過程と二温度構造」,「銀河団の物理」研究会，（2013年12月28日, 東京理科大学神楽坂キャンパス，東京都）</p></li>
+      <li>
+        <p>長谷川賢二 ，「近年の宇宙再電離に関する理論・観測研究の進展と今後の課題」，初代星・初代銀河研究会（2014年1月22日～24日, 鹿児島大学, 鹿児島市）</p>
+      </li>
+      <li>
+        <p>梅村雅之，「宇宙生命計算科学連携拠点の進め方について」，研究会「地上実験・宇宙実験・観測・計算シナジーによる星間での生体分子・生体機能創生の解明」（2014年2月3日,　筑波大学計算科学研究センター，つくば市）</p>
+      </li>
+      <li>
+        <p>長谷川賢二，「再電離シミュレーション」，「銀河進化と遠方宇宙」研究会（2014年3月24日～25日, 東京大学本郷キャンパス，東京都)</p>
+      </li>
+    </ol>
+    <h5><li>その他の発表</li></h5>
+    <ol type="1">
+      <li>
+        <p>梅村雅之，「宇宙生命計算科学連携拠点について」，「宇宙生命計算科学連携拠点」ワークショップ（2013年6月28日～29日，筑波大学計算科学研究センター，つくば市）</p>
+      </li>
+      <li>
+        <p>五十嵐朱夏, 森正夫, 新田伸也, 「球対称定常銀河風模型によるSombrero銀河のX線強度分布」, 日本天文学会2013年秋季年会（2013年9月10日～12日, 東北大学, 仙台市）</p>
+      </li>
+      <li>
+        <p>五十嵐朱夏, 森正夫, 新田伸也, 「ダークマターハローと銀河中心ブラックホールの重力場における球対称定常銀河風解析」, 日本天文学会2013年秋季年会（2013年9月10日～12日, 東北大学, 仙台市）</p>
+      </li>
+      <li>
+        <p>石山智明,「最小スケールからはじまる階層的ダークマターハロー形成」,日本天文学会2013年秋季年会（2013年9月 10日～12日, 東北大学, 仙台市）</p>
+      </li>
+      <li>
+        <p>扇谷豪，森正夫，石山智明，Andreas Burkert，「ダークマターハローの質量密度構造から探る観測的経験則」，日本天文学会2013年秋季年会（2013年9月10日～12日, 東北大学, 仙台市）</p>
+      </li>
+      <li>
+        <p>小松勇, 梅村雅之, 庄司光男, 矢花一浩, 白石賢二, 神谷克政, 栢沼愛, 佐藤皓允, 「系外惑星における光合成の痕跡の指標構築のための光捕集計算」, 日本天文学会2013年秋季年会, （2013年9月10日〜12日, 東北大学, 仙台市）</p>
+      </li>
+      <li>
+        <p>鈴木裕行，梅村雅之，「内部紫外線・背景紫外線が及ぼす銀河進化への影響」,日本天文学会2013年秋季年会（2013年9月10日～12日, 東北大学, 仙台市）</p>
+      </li>
+      <li>
+        <p>田中賢, 吉川耕司, 岡本崇, 長谷川賢二, 「GPUを用いた輻射輸送シミュレーションの高速化」,日本天文学会2013年秋季年会（2013年9月10日～12日，東北大学，仙台市）</p>
+      </li>
+      <li>
+        <p>長谷川賢二 , 「紫外線フィードバックが再電離期の銀河や銀河間物質に与える影響」, 日本天文学会2013年秋季年会（2013年9月10日～12日，東北大学，仙台市）</p>
+      </li>
+      <li>
+        <p>Wagner, A., Umemura, M., Bicknell, G. V., Sutherland, R., Silk, J.,「Kinetic-mode Feedback: Radio Galaxies and UFOs」，日本天文学会2013年秋季年会（ 2013年9月10日～12日，東北大学，仙台市）</p>
+      </li>
+      <li>
+        <p>五十嵐朱夏, 森正夫, 新田伸也,「銀河中心ブラックホールとコールドダークマターハローの重力場における遷音速銀風解析とその応用」, 流体力学会（2013年9月12日～14日，東京農工大学，府中市）</p>
+      </li>
+      <li>
+        <p>梅村雅之，「超巨大ブラックホール形成：降着vs合体」，超巨大ブラックホール研究推進連絡会・キックオフワークショップ（2013年9月16日～17日，愛媛大学，松山市）</p>
+      </li>
+      <li>
+        <p>三木洋平，森正夫，川口俊宏，濟藤祐理子，「大規模GPUクラスタを駆使したM31ハローを漂う巨大ブラックホール探査」，超巨大ブラックホール研究推進連絡会・キックオフワークショップ（2013年9月16日～17日，愛媛大学，松山市）</p>
+      </li>
+      <li>
+        <p>梅村雅之，「宇宙流体シミュレーションによる天体形成の研究」，第５回「学際計算科学による新たな知の発展・統合・創出」シンポジウム　－T2K-Tsukuba、HA-PACSによる計算科学の発展と、次世代コンピューティングの展望－（2013年11月5日～6日，筑波大学，つくば市）</p>
+      </li>
+      <li>
+        <p>梅村雅之，「宇宙生命計算科学連携について」，自然界における生体分子キラリティ起源－実験・観測・計算シナジーによるアプローチ（2013年11月16日，岡崎コンファレンスセンター）</p>
+      </li>
+      <li>
+        <p>小松勇, 「 系外惑星のバイオマーカー検討に向けて：光合成の光吸収モデル」, ALMAワークショップ「宇宙と生命」（2013年11月23日, 国立天文台，三鷹市）</p>
+      </li>
+      <li>
+        <p>安部牧人，梅村雅之，長谷川賢二，「星間輻射場によって制御される星団形成過程の3次元輻射流体力学による研究」，第26回理論懇シンポジウム（2013年12月25日～27日, 東京大学柏キャンパス, 柏市）</p>
+      </li>
+      <li>
+        <p>五十嵐朱夏, 森正夫, 新田伸也, 「遷音速銀河風が銀河間空間の化学進化に与える影響」, 第26回理論懇シンポジウム（2013年12月25日～27日, 東京大学柏キャンパス, 柏市）</p>
+      </li>
+      <li>
+        <p>扇谷豪，「コールドダークマターハローのコア-カスプ問題の解決とその観測的経験則の起源」，第26回理論懇シンポジウム（2013年12月25日～27日, 東京大学柏キャンパス, 柏市）</p>
+      </li>
+      <li>
+        <p>桐原崇亘, 三木洋平, 川口俊宏, 森正夫, 「アンドロメダストリームと母矮小銀河の内
+        部構造」, (ポスター), 第26回理論懇シンポジウム（2013年12月25日～27日, 東京大学柏キャンパス, 柏市）</p>
+      </li>
+      <li>
+        <p>行方大輔, 梅村雅之, 長谷川健二, 「AGNの輻射にさらされた分子雲の寿命」, (ポスター)，第26回理論懇シンポジウム （2013年12月25日～27日, 東京大学柏キャンパス, 柏市）</p>
+      </li>
+      <li>
+        <p>長谷川賢二, 「宇宙再電離過程における輻射性フィードバックの重要性」, （ポスター），第26回理論懇シンポジウム（2013年12月25日～27日, 東京大学柏キャンパス, 柏市）</p>
+      </li>
+      <li>
+        <p>三木洋平，森正夫，川口俊宏，濟藤祐理子，「Numerical Investigation of Merger Remnants Utilizing High Performance Computing Architectures: Ancient Satellite Galaxy and Wandering Supermassive Black Hole」，第26回理論懇シンポジウム（2013年12月25日～27日, 東京大学柏キャンパス, 柏市）</p>
+      </li>
+      <li>
+        <p>安部牧人, 梅村雅之, 長谷川賢二，「星間輻射場によって制御される星団形成過程の3次元輻射流体力学による研究」，初代星・初代銀河研究会（2014年1月22日〜24日，鹿児島大学，鹿児島市）</p>
+      </li>
+      <li>
+        <p>五十嵐朱夏, 森正夫, 新田伸也, 「ダークマターハローと銀河中心ブラックホールの重力場における球対称定常銀河風解析」, 初代星・初代銀河研究会（2014年1月22日～24日, 鹿児島大学，鹿児島市）</p>
+      </li>
+      <li>
+        <p>石山智明,「最小のダークマターハローからの階層的構造形成」, CfCAユーザーズミーティング（2014年1月28日～29日，国立天文台三鷹キャンパス，三鷹市）</p>
+      </li>
+      <li>
+        <p>行方大輔, 梅村雅之, 長谷川健二, 「AGNの輻射にさらされたガス雲の輻射流体計算」, 初代星・初代銀河研究会 （2014年1月22日～24日, 鹿児島大学, 鹿児島市）</p>
+      </li>
+      <li>
+        <p>鈴木裕行，梅村雅之,「内部及び背景紫外線による銀河の星形成史への影響」, 初代星・初代銀河研究会（2014年1月22日〜24日，鹿児島大学，鹿児島市）</p>
+      </li>
+      <li>
+        <p>梅村雅之,「まとめ」，初代星・初代銀河研究会（2014年1月22日〜24日，鹿児島大学，鹿児島市）</p>
+      </li>
+      <li>
+        <p>山井勇樹, 「ガスによる力学的摩擦を考慮した原始銀河ブラックホールの合体過程の研究」, 初代星・初代銀河研究会（2014年1月22日～24日，鹿児島大学，鹿児島市）</p>
+      </li>
+      <li>
+        <p>行方大輔, 梅村雅之, 長谷川賢二, 「AGNの輻射にさらされた分子雲の寿命」, (ポスター)， 国立天文台CfCAユーザーズミーティング（2014年1月28日～29日，国立天文台三鷹キャンパス，三鷹市）</p>
+      </li>
+      <li>
+        <p>長谷川賢二，「宇宙論的輻射流体計算で解明する再電離期の宇宙進化史」， (ポスター)，国立天文台CfCAユーザーズミーティング（2014年1月28日～29日，国立天文台三鷹キャンパス，三鷹市）</p>
+      </li>
+      <li>
+        <p>吉川耕司,「Vlasovシミュレーションによる宇宙大規模構造形成におけるニュートリノのダイナミクス」, 国立天文台CfCAユーザーズミーティング（2014年1月28日～29日，国立天文台三鷹キャンパス，三鷹市）</p>
+      </li>
+      <li>
+        <p>五十嵐朱夏，森正夫，新田伸也, 「ダークマターハローと銀河中心ブラックホールの重力場における球対称定常銀河風解析」，プラズマセミナー（2014年1月31日，三鷹市）</p>
+      </li>
+      <li>
+        <p>小松勇, 「光合成の光吸収計算：太陽系外惑星のバイオマーカーへの示唆」, 地上実験・宇宙実験・観測・計算シナジーによる星間での生体分子・生体機能創生の解明（2014年2月3日, 筑波大学，つくば市）</p>
+      </li>
+      <li>
+        <p>長谷川賢二，「宇宙初期の銀河形成と宇宙再電離」,HPCI戦略プログラム分野5「物質と宇宙の起源と構造」全体シンポジウム（2014年3月3日～4日，富士ソフトプラザ，東京都）</p>
+      </li>
+      <li>
+        <p>安部牧人，梅村雅之，「星間輻射場によって制御される星団形成過程の3次元輻射流体力学による研究」，日本天文学会春季年会（2014年3月19日〜22日，国際基督教大学，三鷹市）</p>
+      </li>
+      <li>
+        <p>桐原崇亘, 三木洋平, 森正夫, 川口俊宏, 「アンドロメダストリームで探る母矮小銀河の内部構造」, 日本天文学会2014年春季年会（2014年3月19日～22日，国際基督教大学, 三鷹市）</p>
+      </li>
+      <li>
+        <p>澁谷隆俊, 「Lyα 輝線銀河の速度構造研究で探る Lyα の放射機構」,日本天文学会春季年会 （2014年 3月 19 日〜22 日, 国際基督教大学，三鷹市）</p>
+      </li>
+      <li>
+        <p>行方大輔, 梅村雅之, 長谷川賢二, 「AGNの輻射にさらされたガス雲の輻射流体計算 II.」, 日本天文学会春季年会 （2014年3月19日～22日, 国際基督教大学, 三鷹市）</p>
+      </li>
+      <li>
+        <p>三木洋平，森正夫，川口俊宏，「大規模GPUクラスタを用いて探るM31ハローを漂う超巨大ブラックホールの現在位置」，日本天文学会2014年春季年会（2014年3月19日～22日，国際基督教大学, 三鷹市）</p>
+      </li>
+      <li>
+        <p>Wagner, A., Umemura, M., Bicknell, G. V., Sutherland, R., Silk, J.「Positive vs Negative AGN Feedback in Galaxy Formation」Semi-analytic Method with SWANS Workshop（2014年3月27日～28日，理化学研究所計算科学研究機構，神戸市）</p>
+      </li>
+    </ol>
+  </ol>
+  <h4><li>著書，解説記事等</li></h4>
+  <p>梅村雅之<br />
+  シリーズ＜宇宙物理学の基礎＞①「宇宙流体力学の基礎」，福江純，和田桂一，梅村雅之著
+  （日本評論社 ，2014年2月）</p>
+</ol>
+
+
+<h3 class="post-title" id="renkei">異分野間連携・国際連携・国際活動等</h3>
+<h4>【異分野間連携】</h4>
+<ol type="1">
+  <li><p>星間アミノ酸L型過剰の研究（梅村，木立）</p>
+  <p>宇宙・生命分野間連携により，アミノ酸前駆体からのアミノ酸生成，および円偏光波照射によるアミノ酸鏡像異性体過剰についての量子力学計算を進めた。</p></li>
+  <li><p>系外惑星における光合成アンテナ機構の研究（小松，梅村）</p>
+<p>宇宙・生命分野間連携により，系外惑星系の主星光スペクトルと光合成光捕集の相関について量子化学計算を進めた。</p></li>
+</ol>
+
+<h4>【国際連携】</h4>
+<ul>
+<li>Alex Wagner</li>
+<p>Collaboration with Prof. Joseph Silk (IAP) and Prof. Colin Norman on &quot;Positive Feedback　through AGN-pressure Induced Star Formation in Disk Galaxies.&quot; Visiting researcher to the Institut d'Astrophysique de Paris, France, and Johns Hopkins University, Baltimore MD.</p>
+</ul>
+
+<h3 class="post-title" id="kaigi">シンポジウム，研究会，スクール等の開催実績</h3>
+<ol>
+  <li>「宇宙生命計算科学連携拠点」ワークショップ<br >
+  　2013年6月28日～29日，筑波大学計算科学研究センター，つくば市</li>
+  <li>超巨大ブラックホール研究推進連絡会・キックオフワークショップ<br />
+  2013年9月16日～17日，愛媛大学理学部，松山市</li>
+  <li>円盤銀河の形成と進化研究会<br />
+  　2013年9月26日～28日，国立天文台，三鷹市</li>
+  <li>天体形成研究会<br />
+  　2013年10月4日～5日，筑波大学計算科学研究センター，つくば市</li>
+  <li>「観測と理論で探る宇宙再電離と遠方銀河形成」ワークショップ<br />
+  2013年11月27日～29日，神戸大学，神戸市</li>
+  <li>国際会議「2nd East Asian AGN Workshop in Sapporo」<br />
+    2013年8月19日～23日，ブルーウェーブイン札幌市<br />
+    （<a href="http://www.kusastro.kyoto-u.ac.jp/~matsuoka/20130312agnw">http://www.kusastro.kyoto-u.ac.jp/~matsuoka/20130312agnw</a>）</li>
+  <li>初代星・初代銀河研究会2014<br/>
+2014年1月22日～24日，鹿児島大学理学部，鹿児島市</li>
+</ol>
+
+<h3 class="post-title" id="kanri">管理・運営</h3>
+<ul>
+  <li><p>梅村雅之</p></li>
+  <ul>
+    <li>計算科学研究センター　センター長</li>
+    <li>計算科学研究センター　運営委員会委員長</li>
+    <li>計算科学研究センター　人事委員会委員長</li>
+    <li>計算科学研究センター　宇宙・原子核物理研究部門主任</li>
+    <li>計算科学研究センター　運営協議会委員</li>
+    <li>計算科学研究センター　研究企画室委員</li>
+    <li>物理学域　運営委員会委員</li>
+    <li>物理学域　宇宙物理理論グループ長</li>
+    <li>物理学類　学務委員，カリキュラム委員会委員長</li>
+    <li>東京工業大学「GCOE地球から地球たちへ」外部評価委員</li>
+  </ul>
+  <li>吉川耕司</li>
+  <ul>
+    <li>計算科学研究センター・計算機運用委員</li>
+    <li>計算科学研究センター・メニーコア型大規模スーパーコンピュータシステム仕様策定委員会・委員</li>
+    <li>計算科学研究センター・大規模メニーコア実験システム仕様策定委員会・委員</li>
+    <li>計算科学研究センター・密結合並列演算加速機構実験システム仕様策定委員会・委員</li>
+  </ul>
+</ul>
+
+<h3 class="post-title" id="shakai">社会貢献・国際貢献</h3>
+<ul>
+  <li><p>吉川耕司</p></li>
+<p>「宇宙大規模構造 －宇宙は素粒子の夢を見るか－」，全国同時七夕講演会2013（2013年7月6日，つくば国際会議場，つくば市）</p>
+<li><p>Alex Wagner</p></li>
+<p>Publication of a free, open-source code to create initial conditions representative of a fractal, log-normal, inter-stellar medium density field for hydrodynamic simulations, &quot;pyFC&quot; (<a href="http://www.ccs.tsukuba.ac.jp/Astro/Members/ayw/code/pyFC/index.html">http://www.ccs.tsukuba.ac.jp/Astro/Members/ayw/code/pyFC/index.html</a>).</p>
+</ul>
+
