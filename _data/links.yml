@@ -92,6 +92,8 @@ assets:
   js: /assets/js
   fonts: /assets/fonts
   doc: /assets/doc
+  doc_annual_reports: /assets/doc/annual_reports
+  doc_conferences: /assets/doc/conferences
   tipuesearch: /assets/tipuesearch
 
 
