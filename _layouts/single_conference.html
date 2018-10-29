@@ -158,9 +158,17 @@ layout: default
       <p><a href="{{ site.baseurl }}{{ la.doc }}/{{ ppd.link }}">{{ ppd.text }}</a></p>
       {% endif %}
 
+
       {% if page.program %}
       {% for pitem in page.program %}
+
       {% include lang_count.html number=pitem.day %}
+
+      {% assign pdf_loc_base = site.baseurl | append: la.doc %}
+      {% if page.pdf_loc %}
+        {% assign pdf_loc_base = pdf_loc_base | append: '/' | append: page.pdf_loc %}
+      {% endif %}
+
       <h4>{{ pitem.day }}{{ lang_count }} {{ tcl.day }}{{ open_surround }}{% include date.html d=pitem.date l='M' %}{{ close_surround }}</h4>
       {% for session in pitem.sessions %}
       <table class="table table-striped">
@@ -175,15 +183,17 @@ layout: default
       {% for contrib in session.contributions %}
         <tr>
           <td>{% if contrib.from %}{{ contrib.from }}{% endif %}{% if contrib.to %} ~ {{ contrib.to }}{% endif %}</td>
-          <td>{{ contrib.title }}{% if contrib.pdf %}<span class="pull-right">&nbsp;<a href="{{ site.baseurl }}{{ la.doc }}/{{ contrib.pdf }}"><i class="fa fa-file-pdf-o"></i></a></span>{% endif %}</td>
+          <td>{{ contrib.title }}{% if contrib.pdf %}<span class="pull-right">&nbsp;<a href="{{ pdf_loc_base }}/{{ contrib.pdf }}"><i class="fa fa-file-pdf-o"></i></a></span>{% endif %}</td>
           <td>{% if contrib.speaker %}{{ contrib.speaker }}{% endif %}{% if contrib.affil %}{{ open_surround }}{{ contrib.affil }}{{ close_surround }}{% endif %}</td>
         </tr>
       {% endfor %}
       </tbody>
       </table>
       {% endfor %}
+
       {% endfor %}
       {% endif %}
+
 
       {% if page.upload %}
       <h3 id="upload"> {{ tcl.upload }} </h3>
