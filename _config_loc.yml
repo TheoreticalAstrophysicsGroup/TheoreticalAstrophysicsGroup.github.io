@@ -31,6 +31,8 @@ exclude:
   - README.md
   - Rakefile
   - summat.sh
+  - conferences/_posts/en/yml2tex_output/
+  - conferences/_posts/ja/yml2tex_output/
 
 # Include
 include:
