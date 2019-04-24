@@ -1,5 +1,0 @@
-AuthType Basic
-AuthName "Twenty Years Download Documents"
-AuthUserFile /home/www/html/people/Research/Astro/assets/doc/twenty_years/.htpasswd
-require valid-user
-

@@ -4,3 +4,5 @@ __plugins
 vendor
 .sitemaps.xml
 assets/tipuesearch/tipuesearch_content.js
+_scripts/pdf
+_scripts/bib
