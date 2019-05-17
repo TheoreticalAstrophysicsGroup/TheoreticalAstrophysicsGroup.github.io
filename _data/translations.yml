@@ -176,6 +176,7 @@ members:
     lecturer: 講師
     assistant_professor: 助教
     postdoc: 研究員
+    d5: D5
     d4: D4
     d3: D3
     d2: D2
@@ -185,6 +186,14 @@ members:
     m1: M1
     y4: ４年
     admin_assistant: 事務補助
+    input_last_name: 姓
+    input_first_name: 名
+    input_last_name_romaji: 姓（ローマ字）
+    input_first_name_romaji: 名（ローマ字）
+    input_email: メール
+    input_tel: 電話番号
+    input_address: 住所
+
   en:
     current: Current Members
     name: <i class="fa fa-user"></i> Name
@@ -203,6 +212,7 @@ members:
     lecturer: Lecturer
     assistant_professor: Assistant Professor
     postdoc: Postdoc
+    d5: D5
     d4: D4
     d3: D3
     d2: D2
@@ -212,6 +222,13 @@ members:
     m1: M1
     y4: Y4
     admin_assistant: Administrative assistant
+    input_last_name: Last name (Kanji, Kana)
+    input_first_name: First name (Kanji, Kana)
+    input_last_name_romaji: Last name (Romaji)
+    input_first_name_romaji: First name (Romaji) 
+    input_email: Email
+    input_tel: Telephone number
+    input_address: Address of residence
 
 # Single member profile page translations
 profile:
