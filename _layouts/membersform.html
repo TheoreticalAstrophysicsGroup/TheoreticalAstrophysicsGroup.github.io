@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+{% include page_header.html title=page.title %}
+{% assign tam = site.data.translations.members[page.lang] %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <h3 class="section-title"> {{ page.subtitle }} </h3>
+      <p> {{ page.text }} </p>
+
+          <form name="memberinfo" role="form" action="../membersform.php" method="get">
+
+            <div class="form-group">
+              <label for="InputLastName"> {{ tam.input_last_name }} </label>
+              <input type="text" class="form-control" id="InputLastName">
+            </div>
+
+            <div class="form-group">
+              <label for="InputFirstName"> {{ tam.input_first_name }} </label>
+              <input type="text" class="form-control" id="InputFirstName">
+            </div>
+
+            <div class="form-group">
+              <label for="InputLastNameRomaji"> {{ tam.input_last_name_romaji }} </label>
+              <input type="text" class="form-control" id="InputLastNameRomaji">
+            </div>
+
+            <div class="form-group">
+              <label for="InputFirstNameRomaji"> {{ tam.input_first_name_romaji }} </label>
+              <input type="text" class="form-control" id="InputFirstNameRomaji">
+            </div>
+
+            <div class="form-group">
+              <label for="InputEmail">{{ tam.input_email }}</label>
+              <input type="email" class="form-control" id="InputEmail">
+            </div>
+
+            <div class="form-group">
+              <label for="InputTel">{{ tam.input_tel }}</label>
+              <input type="tel" class="form-control" id="InputTel">
+            </div>
+
+            <div class="form-group">
+              <label for="InputAddress">{{ tam.input_address }}</label>
+              <input type="text" class="form-control" id="InputAddress">
+            </div>
+
+            <button type="submit" class="btn btn-primary pull-right">Submit</button>
+            <div class="clearfix"></div>
+
+          </form>
+
+    </div>
+  </div>
+</div>
+

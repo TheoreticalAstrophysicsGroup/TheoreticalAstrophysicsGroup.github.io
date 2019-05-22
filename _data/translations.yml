@@ -176,6 +176,7 @@ members:
     lecturer: 講師
     assistant_professor: 助教
     postdoc: 研究員
+    d5: D5
     d4: D4
     d3: D3
     d2: D2
@@ -185,6 +186,14 @@ members:
     m1: M1
     y4: ４年
     admin_assistant: 事務補助
+    input_last_name: 姓
+    input_first_name: 名
+    input_last_name_romaji: 姓（ローマ字）
+    input_first_name_romaji: 名（ローマ字）
+    input_email: メール
+    input_tel: 電話番号
+    input_address: 住所
+
   en:
     current: Current Members
     name: <i class="fa fa-user"></i> Name
@@ -203,6 +212,7 @@ members:
     lecturer: Lecturer
     assistant_professor: Assistant Professor
     postdoc: Postdoc
+    d5: D5
     d4: D4
     d3: D3
     d2: D2
@@ -212,6 +222,13 @@ members:
     m1: M1
     y4: Y4
     admin_assistant: Administrative assistant
+    input_last_name: Last name (Kanji, Kana)
+    input_first_name: First name (Kanji, Kana)
+    input_last_name_romaji: Last name (Romaji)
+    input_first_name_romaji: First name (Romaji) 
+    input_email: Email
+    input_tel: Telephone number
+    input_address: Address of residence
 
 # Single member profile page translations
 profile:
@@ -350,6 +367,7 @@ tags:
   coronagraphs: コロナグラフ
   cosmic magnetic fields: 宇宙論的磁場
   cosmic rays: 宇宙線
+  cosmological simulations: 宇宙論シミュレーション 
   cosmology: 宇宙論
   dark matter: 暗黒物質
   DLA: DLA
@@ -389,6 +407,7 @@ tags:
   inflation: インフレーション
   intergalactic magnetic fields: 銀河間磁場
   IR: 赤外線
+  James Webb telescope: ジェームスウェッブ宇宙望遠鏡
   JSPS: 日本学術振興会
   LAE: ライマン・アルファ輝線天体
   leisure: 余暇活動
@@ -423,6 +442,7 @@ tags:
   quasars: クエーサー
   radiative feedback: 輻射によるフィードバック
   radiative transfer: 輻射輸送
+  radiation hydrodynamics: 輻射流体シミュレーション
   radio galaxies: 電波銀河
   radio observations: 電波観測
   reionization: 再電離
@@ -447,6 +467,7 @@ tags:
   supernova remnants: 超新星残骸
   supernovae: 超新星
   TDDFT: 時間依存密度汎関数理論
+  TMT: TMT
   transients: 突発天体
   turbulence: 乱流
   UHECR: 超高エネルギー宇宙線
