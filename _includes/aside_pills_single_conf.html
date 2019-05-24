@@ -8,7 +8,8 @@
         {% if page.contributed %}<li><a href="#contributed" class="smooth">{{ tcl.contributed }}</a></li>{% endif %}
         {% if page.participants %}<li><a href="#participants" class="smooth">{{ tcl.participants }}</a></li>{% endif %}
         {% if page.important_dates %}<li><a href="#important_dates" class="smooth">{{ tcl.important_dates }}</a></li>{% endif %}
-        {% if page.program %}<li><a href="#program" class="smooth">{{ tcl.program }}</a></li>{% endif %}
+        {% if page.registration_message %}<li><a href="#registration" class="smooth">{{ tcl.registration }}</a></li>{% endif %}
+        {% if page.program or page.program_download %}<li><a href="#program" class="smooth">{{ tcl.program }}</a></li>{% endif %}
         {% if page.upload %}<li><a href="#upload" class="smooth">{{ tcl.upload }}</a></li>{% endif %}
         {% if page.dinner %}<li><a href="#dinner" class="smooth">{{ tcl.dinner }}</a></li>{% endif %}
         {% if page.lunch %}<li><a href="#lunch" class="smooth">{{ tcl.lunch }}</a></li>{% endif %}

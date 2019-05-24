@@ -58,7 +58,7 @@ namespace :site do
 
   desc "Generate the site and serve locally"
   task :serve do
-    sh "bundle exec jekyll serve --trace --future --drafts --limit_posts #{POSTLIMIT} --incremental --config _config_loc.yml"
+    sh "bundle exec jekyll serve --trace --future --drafts --limit_posts #{POSTLIMIT} --config _config_loc.yml"
   end
 
   desc "Generate the site, serve locally and watch for changes"

@@ -143,6 +143,7 @@ layout: default
         <li>{% include date.html d=impd.date l='m' %}{{ colon }}{{ impd.note }}</li>
         {% endfor %}
       </ol>
+      {% endif %}
 
       {% assign files_loc_base = site.baseurl | append: la.doc %}
       {% if page.files_loc %}
@@ -153,6 +154,11 @@ layout: default
       {% assign pid = page.info_download %}
       <p><a href="{{ files_loc_base }}/{{ pid.link }}">{{ pid.text }}</a></p>
       {% endif %}
+
+      {% if page.registration_message %}
+      <h3 id="registration"> {{ tcl.registration }} </h3>
+      <p><a href="{{ page.registration_link }}">{{ tcl.registration_link_text }} </a></p>
+      <p>{{ page.registration_message }}</p>
       {% endif %}
 
       {% if page.program or page.program_download %}

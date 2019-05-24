@@ -587,6 +587,8 @@ conferences:
     org: 世話人
     access: アクセス
     important_dates: 重要な日付
+    registration: 参加登録
+    registration_link_text: 参加登録ウェブページへ
     other_info: その他の情報
     webpage: 研究会ウェブページ
     top: トップ
@@ -629,6 +631,8 @@ conferences:
     org: Organizers
     access: Access
     important_dates: Important Dates
+    registration: Registration
+    registration_link_text: Registration page
     other_info: Other Information
     webpage: Conference Webpage
     top: Top
