@@ -591,6 +591,7 @@ conferences:
     registration_link_text: 参加登録ウェブページへ
     other_info: その他の情報
     webpage: 研究会ウェブページ
+    wikipage: 研究会ウィキ
     top: トップ
     full_part: 全参加者一覧
     program: プログラム
@@ -635,6 +636,7 @@ conferences:
     registration_link_text: Registration page
     other_info: Other Information
     webpage: Conference Webpage
+    wikipage: Conference Wiki
     top: Top
     full_part: Full list of participants
     program: Program

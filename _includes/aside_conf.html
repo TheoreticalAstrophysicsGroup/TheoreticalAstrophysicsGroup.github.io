@@ -13,6 +13,7 @@
       {% if page.open_to %}<li class="fali"> <i class="fa-li fa fa-university"></i>{{ tcl.open_to }}: {{ page.open_to }}</li>{% endif %}
       {% if page.price %}<li class="fali"> <i class="fa-li fa fa-yen"></i>{{ page.price }}</li>{% endif %}
       {% if page.web %}<li class="fali"> <i class="fa-li fa fa-globe"></i><a href="{{ page.web }}" target="_blank">{{ tcl.webpage }}</a> <font size="1"><i class="fa fa-external-link"></i></font></li>{% endif %}
+      {% if page.wiki %}<li class="fali"> <i class="fa-li fa fa-globe"></i><a href="{{ page.wiki }}" target="_blank">{{ tcl.wikipage }}</a> <font size="1"><i class="fa fa-external-link"></i></font></li>{% endif %}
     {% if page.categories contains 'ccs' %}
     <li class="fali"> <i class="fa-li fa fa-location-arrow"></i> <a {% if page.access %}href="{{ page.access }}"{% else %}href="{{ lel.access }}"{% endif %} target="_blank">{{ tcl.access }}</a> <font size="1"><i class="fa fa-external-link"></i></font></li>
     {% if page.contact %}<li class="fali"> <i class="fa-li fa fa-envelope-o"></i> <a href="mailto:{{ page.contact.email }}">{{ page.contact.name }}</a>{% if page.contact.message %}. {{ page.contact.message }}{% endif %}</li>{% endif %}
