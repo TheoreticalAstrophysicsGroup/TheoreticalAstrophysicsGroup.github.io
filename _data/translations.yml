@@ -770,6 +770,8 @@ header:
     scheduler: サイボーズスケジュラー
     resources: リソース
     uot_calendar: 筑波大学カレンダー
+    ccs_internal_pages: CCS 内部ページ
+    uot_fair: FAIR 財務会計システム
     ja: Ja
     en: En
     search: 検索
@@ -823,6 +825,8 @@ header:
     scheduler: CCS Scheduler
     resources: Resources
     uot_calendar: University of Tsukuba Calendar
+    ccs_internal_pages: CCS internal pages
+    uot_fair: FAIR accounting system
     ja: 和
     en: 英
     search: Search
