@@ -38,7 +38,7 @@ import yaml
 if len(sys.argv) > 0:
     fbase = re.sub('\.html', '', sys.argv[1])
 else:
-    fbase = '2018-11-02-tentaikeisei'
+    fbase = '2019-10-08-tentaikeisei'
 
 # IO files
 fh = open(fbase + '.html', 'r')
