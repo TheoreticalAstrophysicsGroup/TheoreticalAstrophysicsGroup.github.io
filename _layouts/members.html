@@ -25,18 +25,39 @@ layout: default
           </tr>
         </thead>
         <tbody>
+
           {% assign positions = 'professor associate_professor lecturer assistant_professor postdoc admin_assistant d5 d4 d3 d2 d1 m3 m2 m1 y4' | split: ' ' %}
+
+          <!-- Create array of footnotes -->
+          {% capture footnotes %}
+            {% for p in positions %}
+
+            {% assign mem = site.members | where: 'lang', page.lang | where: 'position', p | sort: 'order' %}
+
+            {% for m in mem %}
+                {% if m.footnote %} {{ m.footnote }} {% if forloop.last == false %}::{% endif %} {% endif %}
+            {% endfor %}
+
+            {% endfor %}
+          {% endcapture %}
+          {% assign footnotes_array = footnotes | split: '::'%}	
+
+          <!-- Footnote counter -->
+          {% assign ifn = 0 %}
+
+          <!-- Main loop for table rows -->
           {% for p in positions %}
+
           {% assign mem = site.members | where: 'lang', page.lang | where: 'position', p | sort: 'order' %}
           {% for m in mem %}
-          <!-- TODO: have a map in data somewhere and automate this so that we don't have to hack this layout every time -->
-          <!-- {% if m.loc == 'paris' %} {% assign ext_symb = '†' %} -->
-          <!-- {% else %} {% assign ext_symb = '' %} -->
-          <!-- {% endif %} -->
+
+          <!-- Increment footnote counter -->
+          {% if m.footnote %} {% assign ifn = ifn | plus: 1 %} {% endif %}
+
           {% assign fname = m.path | split: '/' | last | remove: '.html' %}
           {% if fname != "einstein_albert" %}
           <tr>
-            <td>{% if m.homepage %}<a href='{{ m.homepage }}' target='_blank'>{% elsif m.layout == 'profile' %}<a href='./{{ fname }}/' target='_blank'>{% endif %}{{ m.name }}{% if m.homepage or m.layout == 'profile' %}</a>{% endif %}<sup>{{ ext_symb }}</sup></td>
+            <td>{% if m.homepage %}<a href='{{ m.homepage }}' target='_blank'>{% elsif m.layout == 'profile' %}<a href='./{{ fname }}/' target='_blank'>{% endif %}{{ m.name }}{% if m.homepage or m.layout == 'profile' %}</a>{% endif %}{% if m.footnote %}<sup>{{ ifn }}</sup>{% endif %}</td>
             <td>{{ tml[p] }}</td>
             <td>{{ m.tel }}</td>
             <td>{{ m.email }}</td>
@@ -47,7 +68,14 @@ layout: default
           {% endfor %}
         </tbody>
       </table>
-      <!-- <p><sup>†</sup>{{ tml.loc_paris }}</p> -->
+
+      <!-- Footnotes -->
+      {% assign ifn = 0 %}
+      {% for footnote in footnotes_array %}
+        {% assign ifn = ifn | plus: 1 %}
+        <p><sup>{{ ifn }}</sup> {{ footnote }}</p>
+      {% endfor %}
+
       <br/>
 
       {{ content }}

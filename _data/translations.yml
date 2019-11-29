@@ -165,11 +165,6 @@ members:
     tel: <i class="fa fa-phone"></i> 029-853-<i class="fa fa-tablet"></i><i class="fa fa-tablet"></i><i class="fa fa-tablet"></i><i class="fa fa-tablet"></i>
     email: <i class="fa fa-envelope-o"></i> <i class="fa fa-at"></i> ccs.tsukuba.ac.jp
     research: <i class="fa fa-rocket"></i> 主な研究テーマ
-    loc: 勤務
-    loc_kobe: 筑波大学 計算科学研究センター 神戸分室
-    loc_icrr: 東京大学 宇宙線研究所
-    loc_munich: ドイツ ミュンヘン大学
-    loc_paris: パリ，IAP
     alumni: 出身者一覧
     professor: 教授
     associate_professor: 准教授
@@ -201,11 +196,6 @@ members:
     tel: <i class="fa fa-phone"></i> 029-853-<i class="fa fa-tablet"></i><i class="fa fa-tablet"></i><i class="fa fa-tablet"></i><i class="fa fa-tablet"></i>
     email: <i class="fa fa-envelope-o"></i> @ccs.tsukuba.ac.jp
     research: <i class="fa fa-rocket"></i> Research Interests
-    loc: Located at
-    loc_kobe: Riken, Kobe
-    loc_icrr: University of Tokyo Institute for Cosmic Ray Research
-    loc_munich: University of Munich
-    loc_paris: Paris, IAP
     alumni: Past Members (Alumni)
     professor: Professor
     associate_professor: Associate Professor
