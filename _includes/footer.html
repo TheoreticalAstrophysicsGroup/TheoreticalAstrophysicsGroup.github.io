@@ -38,7 +38,12 @@
           {% for post in posts_lang limit: 3 %}
           <div class="media">
             {% assign posturl = post.url | prepend: site.baseurl %}
-            <a class="pull-left" href="{{ posturl }}"><img class="media-object" src="{{ site.baseurl }}{{ la.img }}/{% if post.img_thumb %}{{ post.img_thumb }}{% else %}sq-no_img.jpg{% endif %}" width="75" height="75" alt="image"></a>
+            {% if post.categories contains "achievements" %}
+              {% assign imdir = la.img_achievements %}
+            {% else %}
+              {% assign imdir = la.img %}
+            {% endif %}
+            <a class="pull-left" href="{{ posturl }}"><img class="media-object" src="{{ site.baseurl }}{{ imdir }}/{% if post.img_thumb %}{{ post.img_thumb }}{% else %}sq-no_img.jpg{% endif %}" width="75" height="75" alt="image"></a>
             <div class="media-body">
               <h4 class="media-heading"><a href="{{ posturl }}">{{ post.title | truncatewords: 12 }}</a></h4>
               <small>{% include date.html d=post.date l='s' %}</small>

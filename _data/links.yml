@@ -10,6 +10,7 @@ categories:
   conferences: &conferences /conferences 
   featured: &featured /featured 
   members: &members /members 
+  projects: &projects /projects 
 
 
 # External links
@@ -61,6 +62,7 @@ internal:
   members: *members
   research: &research /research
   achievements: *achievements
+  projects: *projects
   featured: *featured
   news: *news
   contact: &contact /contact
@@ -92,6 +94,7 @@ assets:
   js: /assets/js
   fonts: /assets/fonts
   doc: /assets/doc
+  doc_achievements: /assets/doc/achievements
   tipuesearch: /assets/tipuesearch
 
 

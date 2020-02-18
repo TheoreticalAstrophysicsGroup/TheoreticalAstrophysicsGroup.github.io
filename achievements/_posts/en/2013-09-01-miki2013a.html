@@ -1,0 +1,52 @@
+---
+lang: en
+ENTRYTYPE: article
+ID: 2013CoPhC.184.2159M
+abstract: We have developed a highly optimized code for collisionless N-body calculations
+  based on direct summation. Our new optimization hides the global memory access latency,
+  and the resulting CUDA code has a peak performance of 1006.7 GFlop/s in single precision
+  (assuming 26 floating-point operations per interaction) with a single NVIDIA Tesla
+  M2090 board. To improve the scalability of the OpenMP/MPI hybrid parallelized code,
+  we have reduced the number of communications among multiple GPUs and have overlapped
+  communications with computations to hide communication time. The code's performance
+  was measured on the HA-PACS (Highly Accelerated Parallel Advanced system for Computational
+  Sciences), a recently installed GPGPU cluster at University of Tsukuba. The results
+  show excellent scalability with superlinear scaling when the number of N-body particles
+  per GPU is less than 10$^4$ and parallel efficiency approaching unity when the number
+  of N-body particles per GPU is greater than 10$^4$. The CUDA/OpenMP/MPI code has
+  a peak performance of 255.5 TFlop/s when 256 NVIDIA Tesla M2090 boards are used,
+  which is 75.0% of the theoretical peak performance. <P />
+adsnote: Provided by the SAO/NASA Astrophysics Data System
+adsurl: https://ui.adsabs.harvard.edu/abs/2013CoPhC.184.2159M
+author:
+- Miki, Yohei
+- Takahashi, Daisuke
+- Mori, Masao
+doi: 10.1016/j.cpc.2013.04.011
+img:
+- yuma2013a-00.png
+- yuma2013a-01.png
+- yuma2013a-02.png
+- yuma2013a-03.png
+- yuma2013a-04.png
+- yuma2013a-05.png
+- yuma2013a-06.png
+- yuma2013a-07.png
+- yuma2013a-08.png
+img_thumb: yuma2013a-00-thumb.png
+journal:
+  ID: null
+  name: null
+link:
+- anchor: doi
+  url: http://dx.doi.org/10.1016/j.cpc.2013.04.011
+month: Sep
+number: '9'
+pages: 2159-2168
+title: Highly scalable implementation of an N-body code on a GPU cluster
+volume: '184'
+year: '2013'
+categories:
+  - achievements
+  - en
+---

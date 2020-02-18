@@ -1,0 +1,62 @@
+---
+lang: en
+ENTRYTYPE: article
+ID: 2012MNRAS.419.2855O
+abstract: We present two types of numerical prescriptions that accelerate the radiative
+  transfer calculation around point sources within a three-dimensional Cartesian grid
+  by using the oct-tree structure for the distribution of radiation sources. In one
+  prescription, distant radiation sources are grouped as a bright extended source
+  when the group's angular size, \ensuremathþeta$_s$, is smaller than a critical value,
+  \ensuremathþeta$_crit$, and radiative transfer is solved on supermeshes whose angular
+  size is similar to that of the group of sources. The supermesh structure is constructed
+  by coarse-graining the mesh structure. With this method, the computational time
+  scales with N$_m$log (N$_m$)log (N$_s$), where N$_m$ and N$_s$ are the number of
+  meshes and that of radiation sources, respectively. While this method is very efficient,
+  it inevitably overestimates the optical depth when a group of sources acts as an
+  extended powerful radiation source and affects distant meshes. In the other prescription,
+  a distant group of sources is treated as a bright point source ignoring the spatial
+  extent of the group, and the radiative transfer is solved on the meshes rather than
+  the supermeshes. This prescription is simply a grid-based version of START by Hasegawa
+  &amp; Umemura and yields better results in general with slightly more computational
+  cost [?] than the supermesh prescription. Our methods can easily be implemented
+  to any grid- based hydrodynamic codes and are well suited to adaptive mesh refinement
+  methods.
+adsnote: Provided by the SAO/NASA Astrophysics Data System
+adsurl: https://ui.adsabs.harvard.edu/abs/2012MNRAS.419.2855O
+archiveprefix: arXiv
+author:
+- Okamoto, Takashi
+- Yoshikawa, Kohji
+- Umemura, Masayuki
+doi: 10.1111/j.1365-2966.2011.19927.x
+eprint: '1105.3269'
+img:
+- okamoto2012a-00.png
+- okamoto2012a-01.png
+- okamoto2012a-02.png
+- okamoto2012a-03.png
+- okamoto2012a-04.png
+- okamoto2012a-05.png
+- okamoto2012a-06.png
+- okamoto2012a-07.png
+- okamoto2012a-08.png
+img_thumb: okamoto2012a-00-thumb.png
+journal:
+  ID: Monthly Notices of the Royal Astronomical Society
+  name: Monthly Notices of the Royal Astronomical Society
+keywords: 'radiative transfer, methods: numerical, Astrophysics - Cosmology and Nongalactic
+  Astrophysics, Astrophysics - Astrophysics of Galaxies'
+link:
+- anchor: doi
+  url: http://dx.doi.org/10.1111/j.1365-2966.2011.19927.x
+month: Feb
+number: '4'
+pages: 2855-2866
+primaryclass: astro-ph.CO
+title: 'ARGOT: accelerated radiative transfer on grids using oct-tree'
+volume: '419'
+year: '2012'
+categories:
+  - achievements
+  - en
+---

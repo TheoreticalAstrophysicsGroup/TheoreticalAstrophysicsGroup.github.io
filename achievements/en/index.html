@@ -2,9 +2,36 @@
 layout: achievements
 lang: en
 title: List of Publications
+annual_reports:
+  - 2018-2019-annual-report.pdf
+  - 2017-2018-annual-report.pdf
+  - 2016-2017-annual-report.pdf
+  - 2015-2016-annual-report.pdf
+  - 2014-2015-annual-report.pdf
+  - 2013-2014-annual-report.pdf
+  - 2012-2013-annual-report.pdf
+  - 2011-2012-annual-report.pdf
+  - 2010-2011-annual-report.pdf
+  - 2009-2010-annual-report.pdf
+  - 2008-2009-annual-report.pdf
+
 ---
 
 {% assign li = site.data.links.internal %}
+{% assign la = site.data.links.assets %}
 
-<p>This is a list of a selection of publications by members of the Theoretical Astrophysics Group. Further down this page, there is a collection of annual reports, which also contain paper listings, as well as descriptions of research achievements, talks given, and other services and activities that we engaged in. For more information follow the links on this page, or have a look at the <a href="{{ site.baseurl }}{{ li.research }}/{{ page.lang }}">research topics page</a> and the <a href="{{ site.baseurl }}{{ li.featured }}/{{ page.lang }}">featured articles</a>.</p>
+<p>This is a list of a selection of publications by members of the Theoretical Astrophysics Group. </p>
+<p>The following is a list of annual reports (pdf), which also contain a full list of publications, talks given, as well as descriptions of research projects and other services and activities that we engaged in.</p>
+<ul>
+{% for ar in page.annual_reports %}
+<li><a href="{{ site.baseurl }}{{ la.doc }}/{{ ar }}" target="_blank">{{ ar | replace_first: "-", " ~ " | remove: "-annual-report.pdf" }} <i class="fa fa-file-pdf-o"></i></a></li>
+{% endfor %}
+</ul>
+
+<p>For more information follow the links on this page, or have a look at the:</p>
+<ul>
+<li><a href="{{ site.baseurl }}{{ li.research }}/{{ page.lang }}">Research topics page</a></li>
+<li><a href="{{ site.baseurl }}{{ li.projects }}/{{ page.lang }}">Projects page</a></li>
+<li><a href="{{ site.baseurl }}{{ li.featured }}/{{ page.lang }}">Featured articles</a></li>
+</ul>
 
