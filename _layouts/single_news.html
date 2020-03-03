@@ -46,7 +46,7 @@ layout: default
 
         {% for c in content_array %}
 
-        <!-- <p> May need after all --> {{ c }}
+        <p>{{ c }}
           
           {% if ncpni < 1  %}
 
@@ -102,8 +102,8 @@ layout: default
       <h4>{{ tpl.refs }}</h4>
       <ol>
         {% for ref in page.refs %}
-        {% assign targ = ref.link | truncate: 4, '' %}
-        {% assign chr1 = targ | truncate: 1, '' %}
+        {% assign targ = ref.link | truncate: 4, "" %}
+        {% assign chr1 = targ | truncate: 1, "" %}
         <li id="ref{{ forloop.index }}"><a href="{% unless targ == "http" %}{{ site.baseurl }}{{ la.doc }}/{% endunless %}{{ ref.link }}" {% if targ == "http" %} target="_blank" {% endif %}>{{ ref.name }}</a> {% if targ == "http" %}{% unless chr1 == "/" %} <i class="fa fa-external-link"></i>{% endunless%}{% endif %}</li>
         {% endfor %}
       </ol>

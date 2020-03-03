@@ -1,0 +1,163 @@
+---
+layout: default
+---
+
+{% assign tprl = site.data.translations.conferences[page.lang] %}
+{% assign tprll = site.data.translations.categories.long[page.lang] %}
+{% assign tpl = site.data.translations.post_gen[page.lang] %}
+{% assign la = site.data.links.assets %}
+{% assign li = site.data.links.internal %}
+
+{% include page_header.html title=tprll.projects %}
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-4 hidden-md hidden-lg">
+      <aside class="sidebar">
+
+      {% include aside_proj.html %}
+
+      <br/>
+
+      {% include aside_pills_single_proj.html %}
+
+      </aside>
+    </div> <!-- col -->
+
+
+    <div class="col-md-8">
+      <section>
+
+      <!-- Language dependent surrounds -->
+      <!-- This creates open_surround and close_surround variables into the namespace -->
+      {% include lang_surround.html shape='round' %}
+
+      <h2 class="post-title">{{ page.title }}</h2>
+        <!-- AYW 2014-06-23 13:30 JST Some tips for content
+             - Use <strong></strong> for emphasis,
+             - <p></p>, <p class="lead"></p> for leading text, 
+             - and <h3> for sub-titles
+             - Put all images in img and use: <img src="img/7.jpg" class="img-responsive imageborder" alt="Image"> 
+        -->
+
+        <br/>
+
+        {% assign content_array = content | split: '<p>' %}
+        {% assign nc = content_array | size %}
+        {% assign ni = page.img | size %}
+
+        {% if ni > 0 %} {% assign ncpni = nc | divided_by: ni %}
+        {% else %} {% assign ncpni = nc %}
+        {% endif %}
+
+        <img src="{{ site.baseurl }}{{ la.img }}/{{ page.img[0] }}" class="img-responsive" alt="Image" />
+
+        {% assign iimg = 1 %}
+
+        {% for c in content_array %}
+
+        <p>{{ c }}
+          
+          {% if ncpni < 1  %}
+
+            {% assign ncpni = ncpni | times: 2 %}
+
+            {% assign iimg1 = forloop.index | times: 2 | minus: 1 %}
+            {% assign iimg2 = forloop.index | times: 2 %}
+            {% assign img1 = page.img[iimg1] %}
+            {% assign img2 = page.img[iimg2] %}
+
+            {% if img1 %} <img src="{{ site.baseurl }}{{ la.img }}/{{ img1 }}" class="im-responsive alignleft" alt="Image" style="max-width: 25em" /> {% endif %}
+            {% if img2 %} <img src="{{ site.baseurl }}{{ la.img }}/{{ img2 }}" class="im-responsive alignright" alt="Image" style="max-width: 25em" /> {% endif %}
+
+          {% else %}
+
+            {% assign mfi = iimg | modulo: 2 %}
+            {% if mfi == 1 %}
+              {% assign imgclass = 'img-responsive alignright' %}
+              {% assign imgstyle = 'max-width: 30em; ' %}
+            {% else %} 
+              {% assign imgclass = 'img-responsive alignleft' %}
+              {% assign imgstyle = 'max-width: 30em; ' %}
+            {% endif %}
+
+            {% assign fimodiimg = forloop.index | modulo: ncpni %}
+            {% if fimodiimg == 0 and page.img[iimg] %}
+            <img src="{{ site.baseurl }}{{ la.img }}/{{ page.img[iimg] }}" class="{{ imgclass }}" alt="Image" style="{{ imgstyle }}"/>
+            {% assign iimg = iimg | plus: 1 %}
+            {% endif %}
+
+          {% endif %}
+
+        {% endfor %}
+
+      <br/>
+
+      <!-- {% raw %}
+      {% if page.photos %}
+      <h4 id="photos"> {{ tnl.photos }} </h4>
+      <div id="Grid" class="row">
+        {% for photo in page.photos %}
+        <div class="col-sm-6 col-lg-3 col-md-4">
+          <a href="{{ site.baseurl }}{{ la.img }}/{{ photo.img }}" class="thumbnail margin-bottom-20" data-lightbox="w1" title="{{ photo.caption }}">
+            <img src="{{ site.baseurl }}{{ la.img }}/{{ photo.img }}" class="img-responsive" alt="Image">
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% endraw %} -->
+
+      <br/>
+
+      {% if page.refs %}
+      <h4>{{ tpl.refs }}</h4>
+      <ol>
+        {% for ref in page.refs %}
+        {% assign targ = ref.link | truncate: 4, "" %}
+        {% assign chr1 = targ | truncate: 1, "" %}
+        <li id="ref{{ forloop.index }}"><a href="{% unless targ == "http" %}{{ site.baseurl }}{{ la.doc }}/{% endunless %}{{ ref.link }}" {% if targ == "http" %} target="_blank" {% endif %}>{{ ref.name }}</a> {% if targ == "http" %}{% unless chr1 == "/" %} <i class="fa fa-external-link"></i>{% endunless%}{% endif %}</li>
+        {% endfor %}
+      </ol>
+      {% endif %}
+
+      </section>
+
+    </div>
+
+    <div class="col-md-4 hidden-sm hidden-xs">
+      <aside class="sidebar">
+
+        <!-- AYW 2014-06-22 13:26 JST Not yet programmed -->
+        <!-- {% raw %} {% include aside_search.html %} {% endraw %} -->
+
+        {% include aside_proj.html %}
+
+        <br/>
+
+        {% unless page.web %}
+          {% include aside_pills_single_proj.html %}
+        {% endunless %}
+
+        <br/>
+        <br/>
+
+      </aside>
+    </div> <!-- col -->
+
+    <div class="col-md-4">
+      <aside class="sidebar">
+
+        <!-- AYW 2014-06-22 13:26 JST Not yet programmed -->
+        <!-- {% raw %} {% include aside_search.html %} {% endraw %} -->
+
+        {% include aside_nav_single.html dup=true%}
+
+      </aside>
+    </div> <!-- col -->
+
+  </div> <!-- row -->
+</div> <!-- container  -->
+
+
