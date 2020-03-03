@@ -63,6 +63,12 @@ internal:
   research: &research /research
   achievements: *achievements
   projects: *projects
+  projects_astro: &projects_a /projects/#astro
+  projects_hpc: &projects_h /projects/#hpc
+  projects_dev: &projects_d /projects/#dev
+  projects_cab: &projects_c /projects/#cab
+  projects_med: &projects_m /projects/#med
+  projects_past: &projects_p /projects/#past
   featured: *featured
   news: *news
   contact: &contact /contact
@@ -132,7 +138,12 @@ nav:
     conferences_abroad: *conferences_ab
     conferences_domestic: *conferences_do
   projects:
-    first: external
+    projects_astro: *projects_a
+    projects_hpc: *projects_h
+    projects_dev: *projects_d
+    projects_cab: *projects_c
+    projects_med: *projects_m
+    projects_past: *projects_p
   postgrad:
     admission: *admission
     pas_admission: external

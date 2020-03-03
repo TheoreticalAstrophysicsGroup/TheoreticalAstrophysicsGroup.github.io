@@ -7,6 +7,7 @@ categories:
       seminars: &seminars_short_ja セミナー
       uchu_forum: &uchu_forum_short_ja 宇宙フォーラム
       conferences: &conferences_short_ja 研究会
+      projects: &projects_short_ja プロジェクト
       featured: &featured_short_ja 特集記事
     en:
       achievements: &achievements_short_en Achievements
@@ -14,6 +15,7 @@ categories:
       seminars: &seminars_short_en Seminars
       uchu_forum: &uchu_forum_short_en Uchu Forum
       conferences: &conferences_short_en Conferences
+      projects: &projects_short_en Projects
       featured: &featured_short_en Featured
   long:
     ja:
@@ -21,7 +23,8 @@ categories:
       news: ニュース & 最新情報
       seminars: つくば宇宙理論セミナー
       uchu_forum: つくば宇宙フォーラム
-      conferences: 研究会・一般公開
+      conferences: 研究会・ワークショップ
+      projects: 研究プロジェクト
       featured: &featured_long_ja 特集記事
     en:
       achievements: Achievements & Publications
@@ -29,6 +32,7 @@ categories:
       seminars: Theoretical Astrophysics Seminars
       uchu_forum: Tsukuba Uchu Forum
       conferences: Conferences & Workshops
+      projects: Research Projects
       featured: &featured_long_en Featured Articles
 
 collections:
@@ -55,9 +59,9 @@ footer:
     uchu_forum: *uchu_forum_short_ja
     seminars: *seminars_short_ja
     conferences: *conferences_short_ja
+    projects: *projects_short_ja
     information: 各種情報
     calendar: カレンダー
-    first: FIRST
     admission: 大学院入学案内
     contact: お問い合わせ
     alumni: 出身者一覧
@@ -77,9 +81,9 @@ footer:
     uchu_forum: *uchu_forum_short_en
     seminars: *seminars_short_en
     conferences: *conferences_short_en
+    projects: *projects_short_en
     information: Information
     calendar: Calendar
-    first: FIRST
     admission: Admission
     contact: Contact
     alumni: Alumni
@@ -760,6 +764,45 @@ conferences:
     archive_msg: For a list of earlier conferences see the archives.
     info: Information
 
+
+projects:
+  ja:
+    motivation: 概要
+    pi: 代表者
+    ci: 共同研究者
+    org: 支援
+    astro: &projects_a_ja 宇宙物理研究
+    hpc: &projects_h_ja HPC プロジェクト
+    dev: &projects_d_ja コード開発
+    cab: &projects_c_ja 宇宙生命計算科学
+    med: &projects_m_ja 計算メディカルサイエンス
+    past: &projects_p_ja
+    no_astro: 現在データーにアクセスができません
+    no_hpc: 現在データーにアクセスができません
+    no_dev: 現在進行中のコード開発プロジェクトはありません
+    no_cab: 現在進行中の宇宙生命計算科学プロジェクトはありません
+    no_med: 現在進行中の計算メディカルサイエンスプロジェクトはありません
+    no_past: 現在データーにアクセスができません
+
+  en:
+    motivation: Science &amp; Motivation
+    pi: Principle investigator
+    ci: Co-investigator
+    org: Supporting organization
+    astro: &projects_a_en Astrophysics Projects
+    hpc: &projects_h_en HPC projects
+    dev: &projects_d_en Code Development Projects
+    cab: &projects_c_en Computational Astrobiology
+    med: &projects_m_en Computational Medical Science
+    past: &projects_p_en Past Projects
+    no_astro: Information unavailable at present
+    no_hpc: Information unavailable at present
+    no_dev: There are currently no ongoing code-development projects
+    no_cab: There are currently no ongoing computational astrobiology projects
+    no_med: There are currently no ongoing computational medical science projects
+    no_past: Information unavailable at present
+
+
 achievements:
   ja:
     ads_url: NASA ADS
@@ -838,15 +881,20 @@ header:
     uchu_forum: *uchu_forum_short_ja
     seminars: *seminars_short_ja
     conferences: *conferences_short_ja
-    conferences_past_local: *conferences_pl_ja
-    conferences_current_local: *conferences_cl_ja
     conferences_future_local: *conferences_fl_ja
+    conferences_current_local: *conferences_cl_ja
+    conferences_past_local: *conferences_pl_ja
     conferences_abroad: *conferences_ab_ja
     conferences_domestic: *conferences_do_ja
+    projects: *projects_short_ja
+    projects_astro: *projects_a_ja
+    projects_hpc: *projects_h_ja
+    projects_dev: *projects_d_ja
+    projects_cab: *projects_c_ja
+    projects_med: *projects_m_ja
+    projects_past: *projects_p_ja
     calendar: カレンダー
     wiki: 内部用ウィキ 
-    projects: プロジェクト
-    first: FIRST プロジェクト
     observers: 宇宙観測研究室
     postgrad: 大学院入学案内
     admission: 宇宙物理理論研究室
@@ -898,10 +946,15 @@ header:
     conferences_future_local: *conferences_fl_en
     conferences_abroad: *conferences_ab_en
     conferences_domestic: *conferences_do_en
+    projects: *projects_short_en
+    projects_astro: *projects_a_en
+    projects_hpc: *projects_h_en
+    projects_dev: *projects_d_en
+    projects_cab: *projects_c_en
+    projects_med: *projects_m_en
+    projects_past: *projects_p_en
     calendar: Calendar
     wiki: Internal Wiki
-    projects: Projects
-    first: FIRST Projects
     observers: Observational Astrophysics Group
     postgrad: Graduate School
     admission: Theoretical Astrophysics Group

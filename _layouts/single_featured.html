@@ -3,6 +3,7 @@ layout: default
 ---
 
 {% assign tcll = site.data.translations.categories.long[page.lang] %}
+{% assign tpl = site.data.translations.post_gen[page.lang] %}
 {% assign tfl = site.data.translations.featured[page.lang] %}
 {% assign la = site.data.links.assets %}
 
@@ -80,8 +81,10 @@ layout: default
 
         {% endfor %}
 
+      <br/>
+
       {% if page.photos %}
-      <h3 id="photos"> {{ tfl.photos }} </h3>
+      <h4 id="photos"> {{ tfl.photos }} </h4>
       <div id="Grid" class="row">
         {% for photo in page.photos %}
         <div class="col-sm-6 col-lg-3 col-md-4">
@@ -93,12 +96,14 @@ layout: default
       </div>
       {% endif %}
 
+      <br/>
+
       {% if page.refs %}
-      <h3 id="refs">{{ tfl.refs }}</h3>
+      <h4 id="refs">{{ tpl.refs }}</h4>
       <ol>
         {% for ref in page.refs %}
-        {% assign targ = ref.link | truncate: 4,'' %}
-        {% assign chr1 = targ | truncate: 1,'' %}
+        {% assign targ = ref.link | truncate: 4, "" %}
+        {% assign chr1 = targ | truncate: 1, "" %}
         <li id="ref{{ forloop.index }}"><a href="{% unless targ == "http" %}{{ site.baseurl }}{{ la.doc }}/{% endunless %}{{ ref.link }}" {% if targ == "http" %} target="_blank" {% endif %}>{{ ref.name }}</a> {% if targ == "http" %}{% unless chr1 == "/" %} <i class="fa fa-external-link"></i>{% endunless%}{% endif %}</li>
         {% endfor %}
       </ol>

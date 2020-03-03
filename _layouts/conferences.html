@@ -12,7 +12,7 @@ layout: default
 {% include page_header.html title=tcll.conferences %}
 
 <!-- AYW 2014-07-04 13:32 JST
-     We wish to sort by date and group by tags-->
+     We wish to sort by date -->
 
 
 <div class="container">
@@ -27,6 +27,11 @@ layout: default
       {% include aside_nav.html %}
 
     </div> <!-- col -->
+
+
+    <!-- TODO: Pages by year not programmed yet. -->
+    <!-- TODO: Fix bug in breadcrumbs link. -->
+    <!-- TODO: add info and link in aside to get to archive -->
 
  
     <!-- academic year range -->
@@ -48,10 +53,11 @@ layout: default
       {% assign posts_per_page = 1024 %}
     {% endif %}
 
+      <!-- Leaving here in case we differentiate between archive and non-archive pages at some point -->
+      <!-- {% if page_year == page.lang %} -->
 
     <div class="col-md-8">
 
-      {% if page_year == page.lang %}
       <h3 id="current" class="section-title">{{ tcl.current }}</h3>
       {% assign at_least_one = false %}
 
@@ -171,8 +177,6 @@ layout: default
 
       <br />
       <br />
-
-      {% endif %}
 
       <h3 id="past" class="section-title">{{ tcl.past }}</h3>
       {% assign at_least_one = false %}
