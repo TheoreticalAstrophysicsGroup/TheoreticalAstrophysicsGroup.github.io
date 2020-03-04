@@ -2,12 +2,12 @@
 <nav id="sidebar-menu">
   <ul class="nav nav-pills nav-stacked menu animated fadeIn" id="menu">
   <!--<ul class="nav nav-pills nav-stacked affix menu animated fadeIn" id="menu" data-spy="affix" data-offset-top="400" data-offset-bottom="450">-->
-    <li><a href="{{ li.projects_astro }}" class="smooth">{{ tprl.astro }}</a></li>
-    <li><a href="{{ li.projects_hpc }}" class="smooth">{{ tprl.hpc }}</a></li>
-    <li><a href="{{ li.projects_dev }}" class="smooth">{{ tprl.dev }}</a></li>
-    <li><a href="{{ li.projects_cab }}" class="smooth">{{ tprl.cab }}</a></li>
-    <li><a href="{{ li.projects_med }}" class="smooth">{{ tprl.med }}</a></li>
-    <li><a href="{{ li.projects_past }}" class="smooth">{{ tprl.past }}</a></li>
+    <li><a href="{{ site.baseurl }}{{ li.projects_astro | truncate: 12, page.lang }}/#astro">{{ tprl.astro }}</a></li>
+    <li><a href="{{ site.baseurl }}{{ li.projects_hpc | truncate: 12, page.lang }}/#hpc">{{ tprl.hpc }}</a></li>
+    <li><a href="{{ site.baseurl }}{{ li.projects_dev | truncate: 12, page.lang }}/#dev">{{ tprl.dev }}</a></li>
+    <li><a href="{{ site.baseurl }}{{ li.projects_cab | truncate: 12, page.lang }}/#cab">{{ tprl.cab }}</a></li>
+    <li><a href="{{ site.baseurl }}{{ li.projects_med | truncate: 12, page.lang }}/#med">{{ tprl.med }}</a></li>
+    <li><a href="{{ site.baseurl }}{{ li.projects_past | truncate: 12, page.lang }}/#past">{{ tprl.past }}</a></li>
   </ul>
 </nav>
 

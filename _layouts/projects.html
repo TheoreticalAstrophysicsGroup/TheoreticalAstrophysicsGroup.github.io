@@ -22,36 +22,36 @@ layout: default
 
       {% include aside_pills_proj.html %}
 
-      <br/>
+      <br />
 
       {% include aside_nav.html %}
 
     </div> <!-- col -->
 
- 
+
     <!-- academic year range -->
     {% assign page_url = page.url | split: '/' %}
     {% assign pageyear = page_url[2] %}
     {% if pageyear == page.lang %}
-      {% assign pageyear = site.time | date: "%Y" %}
+    {% assign pageyear = site.time | date: "%Y" %}
     {% endif %}
     {% assign yearbegin = pageyear | append: '-04-01' %}
     {% assign yearend = pageyear | plus: 1 | append: '-03-31' %}
-    {% assign yearbegin = yearbegin | date: "%s" | times: 1 %} 
-    {% assign yearend = yearend | date: "%s" | times: 1 %} 
+    {% assign yearbegin = yearbegin | date: "%s" | times: 1 %}
+    {% assign yearend = yearend | date: "%s" | times: 1 %}
 
     <!-- Limit number of posts on non-archive pages -->
     <!-- posts_per_page only used for deleay -->
     {% assign page_year = page_url[2] %}
     {% if page_year == page.lang %}
-      {% assign posts_per_page = 8 %}
+    {% assign posts_per_page = 8 %}
     {% else %}
-      {% assign posts_per_page = 1024 %}
+    {% assign posts_per_page = 1024 %}
     {% endif %}
 
 
-      <!-- Leaving here in case we differentiate between archive and non-archive pages at some point -->
-      <!-- {% if page_year == page.lang %} -->
+    <!-- Leaving here in case we differentiate between archive and non-archive pages at some point -->
+    <!-- {% raw %} {% if page_year == page.lang %} {% endraw %} -->
 
     <div class="col-md-8">
 
@@ -59,7 +59,8 @@ layout: default
       {% assign at_least_one = false %}
 
       <!-- Items shown if they are within from and to -->
-      {% assign age_1day = 86400 %} <!-- a day in unix time -->
+      {% assign age_1day = 86400 %}
+      <!-- a day in unix time -->
 
       {% assign projects = site.categories['astro']  | where: 'lang', page.lang %}
       {% for post in projects %}
@@ -76,37 +77,35 @@ layout: default
       {% assign delay = 8 | plus: delay_add %}
 
       <article class="post animated fadeInLeft animation-delay-{{ delay }}">
-      <div class="panel panel-default">
-        <div class="panel-body">
+        <div class="panel panel-default">
+          <div class="panel-body">
 
-          {% if post.web %} {% assign posturl = post.web | prepend: site.baseurl %}
-          {% else %} {% assign posturl = post.url | prepend: site.baseurl %} {% endif %}
-          <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a></h3>
-          <div class="row">
-            <div class="col-lg-6">
-              {% if post.img %}
-              <img src="{{ site.baseurl }}{{ la.img }}/{{ post.img[0] }}" class="img-post img-responsive" alt="Image">{% endif %}
-            </div>
-            <div class="col-lg-6">
-              {% assign postcontent = post.content | strip_html %}
-              <p>{% include lang_truncate.html text=postcontent %}</p>
+            {% if post.web %} {% assign posturl = post.web | prepend: site.baseurl %}
+            {% else %} {% assign posturl = post.url | prepend: site.baseurl %} {% endif %}
+            <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a></h3>
+            <div class="row">
+              <div class="col-lg-6">
+                {% if post.img %}
+                <img src="{{ site.baseurl }}{{ la.img }}/{{ post.img[0] }}" class="img-post img-responsive"
+                  alt="Image">{% endif %}
+              </div>
+              <div class="col-lg-6">
+                {% assign postcontent = post.content | strip_html %}
+                <p>{% include lang_truncate.html text=postcontent %}</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="panel-footer">
-          <div class="row">
-            <div class="col-lg-10 col-md-9 col-sm-8">
-              <i class="fa fa-calendar fa-fw"></i> <a href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br />
-                  <ul class="fa-ul">
-                    <li>
-                      <i class="fa fa-graduation-cap"></i> {{ post.pi }}
-                    </li>
-                    {% for auth in post.ci %}
-                    <li>
-                      {% if forloop.first %} <i class="fa fa-user"></i> {{ auth.name }}, &nbsp; {% elsif forloop.last %} {{ auth.name }}, &nbsp; {% else %} {{ auth.name }} {% endif %}
-                    </li>
-                    {% endfor %}
-                  </ul>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-lg-10 col-md-9 col-sm-8">
+                <i class="fa fa-calendar fa-fw"></i> <a
+                  href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i
+                    class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br />
+                <i class="fa fa-graduation-cap"></i> {{ post.pi }}
+                {% for auth in post.ci %}
+                  {% if forloop.first %} <i class="fa fa-user"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
+                  {{ auth.name }} {% else %} {{ auth.name }}, {% endif %}
+                {% endfor %}
               </div>
               <div class="col-lg-2 col-md-3 col-sm-4">
                 <a href="{{ posturl }}" class="pull-right">{{ tpl.read_more }} &raquo;</a>
@@ -114,9 +113,10 @@ layout: default
             </div>
           </div>
         </div>
-        </article> <!-- post -->
+      </article> <!-- post -->
       {% assign at_least_one = true %}
-      {% endif %} <!-- Date conditions -->
+      {% endif %}
+      <!-- Date conditions -->
       {% endfor %}
       {% unless at_least_one %}
       <p>{{ tprl.no_astro }}</p>
@@ -144,37 +144,35 @@ layout: default
       {% assign delay = 8 | plus: delay_add %}
 
       <article class="post animated fadeInLeft animation-delay-{{ delay }}">
-      <div class="panel panel-default">
-        <div class="panel-body">
+        <div class="panel panel-default">
+          <div class="panel-body">
 
-          {% if post.web %} {% assign posturl = post.web | prepend: site.baseurl %}
-          {% else %} {% assign posturl = post.url | prepend: site.baseurl %} {% endif %}
-          <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a></h3>
-          <div class="row">
-            <div class="col-lg-6">
-              {% if post.img %}
-              <img src="{{ site.baseurl }}{{ la.img }}/{{ post.img[0] }}" class="img-post img-responsive" alt="Image">{% endif %}
-            </div>
-            <div class="col-lg-6">
-              {% assign postcontent = post.content | strip_html %}
-              <p>{% include lang_truncate.html text=postcontent %}</p>
+            {% if post.web %} {% assign posturl = post.web | prepend: site.baseurl %}
+            {% else %} {% assign posturl = post.url | prepend: site.baseurl %} {% endif %}
+            <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a></h3>
+            <div class="row">
+              <div class="col-lg-6">
+                {% if post.img %}
+                <img src="{{ site.baseurl }}{{ la.img }}/{{ post.img[0] }}" class="img-post img-responsive"
+                  alt="Image">{% endif %}
+              </div>
+              <div class="col-lg-6">
+                {% assign postcontent = post.content | strip_html %}
+                <p>{% include lang_truncate.html text=postcontent %}</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="panel-footer">
-          <div class="row">
-            <div class="col-lg-10 col-md-9 col-sm-8">
-              <i class="fa fa-calendar fa-fw"></i> <a href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br />
-                  <ul class="fa-ul">
-                    <li>
-                      <i class="fa fa-graduation-cap"></i> {{ post.pi }}
-                    </li>
-                    {% for auth in post.ci %}
-                    <li>
-                      {% if forloop.first %} <i class="fa fa-user"></i> {{ auth.name }}, &nbsp; {% elsif forloop.last %} {{ auth.name }}, &nbsp; {% else %} {{ auth.name }} {% endif %}
-                    </li>
-                    {% endfor %}
-                  </ul>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-lg-10 col-md-9 col-sm-8">
+                <i class="fa fa-calendar fa-fw"></i> <a
+                  href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i
+                    class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br />
+                <i class="fa fa-graduation-cap"></i> {{ post.pi }}
+                {% for auth in post.ci %}
+                  {% if forloop.first %} <i class="fa fa-user"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
+                  {{ auth.name }} {% else %} {{ auth.name }}, {% endif %}
+                {% endfor %}
               </div>
               <div class="col-lg-2 col-md-3 col-sm-4">
                 <a href="{{ posturl }}" class="pull-right">{{ tpl.read_more }} &raquo;</a>
@@ -182,9 +180,10 @@ layout: default
             </div>
           </div>
         </div>
-        </article> <!-- post -->
+      </article> <!-- post -->
       {% assign at_least_one = true %}
-      {% endif %} <!-- Date conditions -->
+      {% endif %}
+      <!-- Date conditions -->
       {% endfor %}
       {% unless at_least_one %}
       <p>{{ tprl.no_hpc }}</p>
@@ -196,7 +195,8 @@ layout: default
       <h3 id="dev" class="section-title">{{ tprl.dev }}</h3>
       {% assign at_least_one = false %}
 
-      {% assign age_1day = 86400 %} <!-- a day in unix time -->
+      {% assign age_1day = 86400 %}
+      <!-- a day in unix time -->
 
       {% assign projects = site.categories['dev']  | where: 'lang', page.lang %}
       {% for post in projects %}
@@ -212,37 +212,35 @@ layout: default
       {% assign delay = 8 | plus: delay_add %}
 
       <article class="post animated fadeInLeft animation-delay-{{ delay }}">
-      <div class="panel panel-default">
-        <div class="panel-body">
+        <div class="panel panel-default">
+          <div class="panel-body">
 
-          {% if post.web %} {% assign posturl = post.web | prepend: site.baseurl %}
-          {% else %} {% assign posturl = post.url | prepend: site.baseurl %} {% endif %}
-          <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a></h3>
-          <div class="row">
-            <div class="col-lg-6">
-              {% if post.img %}
-              <img src="{{ site.baseurl }}{{ la.img }}/{{ post.img[0] }}" class="img-post img-responsive" alt="Image">{% endif %}
-            </div>
-            <div class="col-lg-6">
-              {% assign postcontent = post.content | strip_html %}
-              <p>{% include lang_truncate.html text=postcontent %}</p>
+            {% if post.web %} {% assign posturl = post.web | prepend: site.baseurl %}
+            {% else %} {% assign posturl = post.url | prepend: site.baseurl %} {% endif %}
+            <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a></h3>
+            <div class="row">
+              <div class="col-lg-6">
+                {% if post.img %}
+                <img src="{{ site.baseurl }}{{ la.img }}/{{ post.img[0] }}" class="img-post img-responsive"
+                  alt="Image">{% endif %}
+              </div>
+              <div class="col-lg-6">
+                {% assign postcontent = post.content | strip_html %}
+                <p>{% include lang_truncate.html text=postcontent %}</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="panel-footer">
-          <div class="row">
-            <div class="col-lg-10 col-md-9 col-sm-8">
-              <i class="fa fa-calendar fa-fw"></i> <a href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br />
-                  <ul class="fa-ul">
-                    <li>
-                      <i class="fa fa-graduation-cap"></i> {{ post.pi }}
-                    </li>
-                    {% for auth in post.ci %}
-                    <li>
-                      {% if forloop.first %} <i class="fa fa-user"></i> {{ auth.name }}, &nbsp; {% elsif forloop.last %} {{ auth.name }}, &nbsp; {% else %} {{ auth.name }} {% endif %}
-                    </li>
-                    {% endfor %}
-                  </ul>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-lg-10 col-md-9 col-sm-8">
+                <i class="fa fa-calendar fa-fw"></i> <a
+                  href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i
+                    class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br />
+                <i class="fa fa-graduation-cap"></i> {{ post.pi }}
+                {% for auth in post.ci %}
+                  {% if forloop.first %} <i class="fa fa-user"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
+                  {{ auth.name }} {% else %} {{ auth.name }}, {% endif %}
+                {% endfor %}
               </div>
               <div class="col-lg-2 col-md-3 col-sm-4">
                 <a href="{{ posturl }}" class="pull-right">{{ tpl.read_more }} &raquo;</a>
@@ -250,9 +248,10 @@ layout: default
             </div>
           </div>
         </div>
-        </article> <!-- post -->
+      </article> <!-- post -->
       {% assign at_least_one = true %}
-      {% endif %} <!-- Date conditions -->
+      {% endif %}
+      <!-- Date conditions -->
       {% endfor %}
       {% unless at_least_one %}
       <p>{{ tprl.no_dev }}</p>
@@ -266,8 +265,10 @@ layout: default
       {% assign at_least_one = false %}
 
       <!-- Items shown if they are less than one year and three months old -->
-      {% assign age_15mo = 39312000 %} <!-- 15 months in unix time-->
-      {% assign age_1day = 86400 %} <!-- a day in unix time -->
+      {% assign age_15mo = 39312000 %}
+      <!-- 15 months in unix time-->
+      {% assign age_1day = 86400 %}
+      <!-- a day in unix time -->
 
       {% assign projects = site.categories['cab']  | where: 'lang', page.lang %}
       {% for post in projects %}
@@ -283,38 +284,35 @@ layout: default
       {% assign delay = 8 | plus: delay_add %}
 
       <article class="post animated fadeInLeft animation-delay-{{ delay }}">
-      <div class="panel panel-default">
-        <div class="panel-body">
+        <div class="panel panel-default">
+          <div class="panel-body">
 
-          {% if post.web %} {% assign posturl = post.web | prepend: site.baseurl %}
-          {% else %} {% assign posturl = post.url | prepend: site.baseurl %} {% endif %}
-          <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a>
-            {% if page.web %}<font size="1"><i class="fa fa-external-link"></i></font>{% endif %}</h3>
-          <div class="row">
-            <div class="col-lg-6">
-              {% if post.img %}
-              <img src="{{ site.baseurl }}{{ la.img }}/{{ post.img[0] }}" class="img-post img-responsive" alt="Image">{% endif %}
-            </div>
-            <div class="col-lg-6">
-              {% assign postcontent = post.content | strip_html %}
-              <p>{% include lang_truncate.html text=postcontent %}</p>
+            {% if post.web %} {% assign posturl = post.web | prepend: site.baseurl %}
+            {% else %} {% assign posturl = post.url | prepend: site.baseurl %} {% endif %}
+            <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a>
+              {% if page.web %}<font size="1"><i class="fa fa-external-link"></i></font>{% endif %}</h3>
+            <div class="row">
+              <div class="col-lg-6">
+                {% if post.img %}<img src="{{ site.baseurl }}{{ la.img }}/{{ post.img[0] }}"
+                  class="img-post img-responsive" alt="Image">{% endif %}
+              </div>
+              <div class="col-lg-6">
+                {% assign postcontent = post.content | strip_html %}
+                <p>{% include lang_truncate.html text=postcontent %}</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="panel-footer">
-          <div class="row">
-            <div class="col-lg-10 col-md-9 col-sm-8">
-              <i class="fa fa-calendar fa-fw"></i> <a href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br />
-                  <ul class="fa-ul">
-                    <li>
-                      <i class="fa fa-graduation-cap"></i> {{ post.pi }}
-                    </li>
-                    {% for auth in post.ci %}
-                    <li>
-                      {% if forloop.first %} <i class="fa fa-user"></i> {{ auth.name }}, &nbsp; {% elsif forloop.last %} {{ auth.name }}, &nbsp; {% else %} {{ auth.name }} {% endif %}
-                    </li>
-                    {% endfor %}
-                  </ul>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-lg-10 col-md-9 col-sm-8">
+                <i class="fa fa-calendar fa-fw"></i> <a
+                  href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i
+                    class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br />
+                <i class="fa fa-graduation-cap"></i> {{ post.pi }}
+                {% for auth in post.ci %}
+                  {% if forloop.first %} <i class="fa fa-user"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
+                  {{ auth.name }} {% else %} {{ auth.name }}, {% endif %}
+                {% endfor %}
               </div>
               <div class="col-lg-2 col-md-3 col-sm-4">
                 {% if page.web %}<font size="1"><i class="fa fa-external-link"></i></font>{% endif %}
@@ -323,10 +321,10 @@ layout: default
             </div>
           </div>
         </div>
-        </article> <!-- post -->
+      </article> <!-- post -->
       {% assign at_least_one = true %}
       {% endif %}
-      {% endif %} <!-- Date conditions -->
+      <!-- Date conditions -->
       {% endfor %}
       {% unless at_least_one %}
       <p>{{ tprl.no_cab }}</p>
@@ -340,8 +338,10 @@ layout: default
       {% assign at_least_one = false %}
 
       <!-- Items shown if they are less than one year and three months old -->
-      {% assign age_15mo = 39312000 %} <!-- 15 months in unix time-->
-      {% assign age_1day = 86400 %} <!-- a day in unix time -->
+      {% assign age_15mo = 39312000 %}
+      <!-- 15 months in unix time-->
+      {% assign age_1day = 86400 %}
+      <!-- a day in unix time -->
 
       {% assign projects = site.categories['med']  | where: 'lang', page.lang %}
       {% for post in projects %}
@@ -357,38 +357,36 @@ layout: default
       {% assign delay = 8 | plus: delay_add %}
 
       <article class="post animated fadeInLeft animation-delay-{{ delay }}">
-      <div class="panel panel-default">
-        <div class="panel-body">
+        <div class="panel panel-default">
+          <div class="panel-body">
 
-          {% if post.web %} {% assign posturl = post.web | prepend: site.baseurl %}
-          {% else %} {% assign posturl = post.url | prepend: site.baseurl %} {% endif %}
-          <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a>
-            {% if page.web %}<font size="1"><i class="fa fa-external-link"></i></font>{% endif %}</h3>
-          <div class="row">
-            <div class="col-lg-6">
-              {% if post.img %}
-              <img src="{{ site.baseurl }}{{ la.img }}/{{ post.img[0] }}" class="img-post img-responsive" alt="Image">{% endif %}
-            </div>
-            <div class="col-lg-6">
-              {% assign postcontent = post.content | strip_html %}
-              <p>{% include lang_truncate.html text=postcontent %}</p>
+            {% if post.web %} {% assign posturl = post.web | prepend: site.baseurl %}
+            {% else %} {% assign posturl = post.url | prepend: site.baseurl %} {% endif %}
+            <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a>
+              {% if page.web %}<font size="1"><i class="fa fa-external-link"></i></font>{% endif %}</h3>
+            <div class="row">
+              <div class="col-lg-6">
+                {% if post.img %}
+                <img src="{{ site.baseurl }}{{ la.img }}/{{ post.img[0] }}" class="img-post img-responsive"
+                  alt="Image">{% endif %}
+              </div>
+              <div class="col-lg-6">
+                {% assign postcontent = post.content | strip_html %}
+                <p>{% include lang_truncate.html text=postcontent %}</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="panel-footer">
-          <div class="row">
-            <div class="col-lg-10 col-md-9 col-sm-8">
-              <i class="fa fa-calendar fa-fw"></i> <a href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br />
-                  <ul class="fa-ul">
-                    <li>
-                      <i class="fa fa-graduation-cap"></i> {{ post.pi }}
-                    </li>
-                    {% for auth in post.ci %}
-                    <li>
-                      {% if forloop.first %} <i class="fa fa-user"></i> {{ auth.name }}, &nbsp; {% elsif forloop.last %} {{ auth.name }}, &nbsp; {% else %} {{ auth.name }} {% endif %}
-                    </li>
-                    {% endfor %}
-                  </ul>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-lg-10 col-md-9 col-sm-8">
+                <i class="fa fa-calendar fa-fw"></i> <a
+                  href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i
+                    class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br />
+                <i class="fa fa-graduation-cap"></i> {{ post.pi }}
+                {% for auth in post.ci %}
+                  {% if forloop.first %} <i class="fa fa-user"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
+                  {{ auth.name }} {% else %} {{ auth.name }}, {% endif %}
+                {% endfor %}
               </div>
               <div class="col-lg-2 col-md-3 col-sm-4">
                 {% if page.web %}<font size="1"><i class="fa fa-external-link"></i></font>{% endif %}
@@ -397,10 +395,10 @@ layout: default
             </div>
           </div>
         </div>
-        </article> <!-- post -->
+      </article> <!-- post -->
       {% assign at_least_one = true %}
       {% endif %}
-      {% endif %} <!-- Date conditions -->
+      <!-- Date conditions -->
       {% endfor %}
       {% unless at_least_one %}
       <p>{{ tprl.no_med }}</p>
@@ -413,8 +411,10 @@ layout: default
       {% assign at_least_one = false %}
 
       <!-- Items shown if they are less than one year and three months old -->
-      {% assign age_15mo = 39312000 %} <!-- 15 months in unix time-->
-      {% assign age_1day = 86400 %} <!-- a day in unix time -->
+      {% assign age_15mo = 39312000 %}
+      <!-- 15 months in unix time-->
+      {% assign age_1day = 86400 %}
+      <!-- a day in unix time -->
 
       {% assign projects = site.categories['projects']  | where: 'lang', page.lang %}
       {% for post in projects %}
@@ -430,38 +430,36 @@ layout: default
       {% assign delay = 8 | plus: delay_add %}
 
       <article class="post animated fadeInLeft animation-delay-{{ delay }}">
-      <div class="panel panel-default">
-        <div class="panel-body">
+        <div class="panel panel-default">
+          <div class="panel-body">
 
-          {% if post.web %} {% assign posturl = post.web | prepend: site.baseurl %}
-          {% else %} {% assign posturl = post.url | prepend: site.baseurl %} {% endif %}
-          <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a>
-            {% if page.web %}<font size="1"><i class="fa fa-external-link"></i></font>{% endif %}</h3>
-          <div class="row">
-            <div class="col-lg-6">
-              {% if post.img %}
-              <img src="{{ site.baseurl }}{{ la.img }}/{{ post.img[0] }}" class="img-post img-responsive" alt="Image">{% endif %}
-            </div>
-            <div class="col-lg-6">
-              {% assign postcontent = post.content | strip_html %}
-              <p>{% include lang_truncate.html text=postcontent %}</p>
+            {% if post.web %} {% assign posturl = post.web | prepend: site.baseurl %}
+            {% else %} {% assign posturl = post.url | prepend: site.baseurl %} {% endif %}
+            <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a>
+              {% if page.web %}<font size="1"><i class="fa fa-external-link"></i></font>{% endif %}</h3>
+            <div class="row">
+              <div class="col-lg-6">
+                {% if post.img %}
+                <img src="{{ site.baseurl }}{{ la.img }}/{{ post.img[0] }}" class="img-post img-responsive"
+                  alt="Image">{% endif %}
+              </div>
+              <div class="col-lg-6">
+                {% assign postcontent = post.content | strip_html %}
+                <p>{% include lang_truncate.html text=postcontent %}</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="panel-footer">
-          <div class="row">
-            <div class="col-lg-10 col-md-9 col-sm-8">
-              <i class="fa fa-calendar fa-fw"></i> <a href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br />
-                  <ul class="fa-ul">
-                    <li>
-                      <i class="fa fa-graduation-cap"></i> {{ post.pi }}
-                    </li>
-                    {% for auth in post.ci %}
-                    <li>
-                      {% if forloop.first %} <i class="fa fa-user"></i> {{ auth.name }}, &nbsp; {% elsif forloop.last %} {{ auth.name }}, &nbsp; {% else %} {{ auth.name }} {% endif %}
-                    </li>
-                    {% endfor %}
-                  </ul>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-lg-10 col-md-9 col-sm-8">
+                <i class="fa fa-calendar fa-fw"></i> <a
+                  href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i
+                    class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br />
+                <i class="fa fa-graduation-cap"></i> {{ post.pi }}
+                {% for auth in post.ci %}
+                  {% if forloop.first %} <i class="fa fa-user"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
+                  {{ auth.name }} {% else %} {{ auth.name }}, {% endif %}
+                {% endfor %}
               </div>
               <div class="col-lg-2 col-md-3 col-sm-4">
                 {% if page.web %}<font size="1"><i class="fa fa-external-link"></i></font>{% endif %}
@@ -470,10 +468,10 @@ layout: default
             </div>
           </div>
         </div>
-        </article> <!-- post -->
+      </article> <!-- post -->
       {% assign at_least_one = true %}
       {% endif %}
-      {% endif %} <!-- Date conditions -->
+      <!-- Date conditions -->
       {% endfor %}
       {% unless at_least_one %}
       <p>{{ tprl.no_past }}</p>
@@ -488,15 +486,14 @@ layout: default
     <div class="col-md-4 hidden-xs hidden-sm">
       <aside class="sidebar">
 
-      {% include aside_pills_proj.html %}
+        {% include aside_pills_proj.html %}
 
-      <br/>
+        <br />
 
-      {% include aside_nav.html dup=true %}
+        {% include aside_nav.html dup=true %}
 
       </aside> <!-- Sidebar -->
-    </div> 
+    </div>
 
   </div> <!-- row -->
 </div> <!-- container  -->
-
