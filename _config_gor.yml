@@ -77,6 +77,11 @@ defaults:
       layout: single_conference
   -
     scope:
+      path: projects
+    values:
+      layout: single_project
+  -
+    scope:
       path: featured
     values:
       layout: single_featured

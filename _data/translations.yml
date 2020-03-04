@@ -744,13 +744,14 @@ projects:
     dev: &projects_d_ja コード開発
     cab: &projects_c_ja 宇宙生命計算科学
     med: &projects_m_ja 計算メディカルサイエンス
-    past: &projects_p_ja
+    past: &projects_p_ja 過去のプロジェクト
     no_astro: 現在データーにアクセスができません
     no_hpc: 現在データーにアクセスができません
     no_dev: 現在進行中のコード開発プロジェクトはありません
     no_cab: 現在進行中の宇宙生命計算科学プロジェクトはありません
     no_med: 現在進行中の計算メディカルサイエンスプロジェクトはありません
     no_past: 現在データーにアクセスができません
+    info: 情報
 
   en:
     pi: Principle investigator
@@ -768,6 +769,7 @@ projects:
     no_cab: There are currently no ongoing computational astrobiology projects
     no_med: There are currently no ongoing computational medical science projects
     no_past: Information unavailable at present
+    info: Information
 
 
 achievements:
