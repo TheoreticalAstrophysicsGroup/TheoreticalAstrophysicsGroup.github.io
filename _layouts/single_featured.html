@@ -27,7 +27,7 @@ layout: default
              - Put all images in img and use: <img src="img/7.jpg" class="img-responsive imageborder" alt="Image"> 
         -->
         {% for auth in page.authors %}
-        <h4>{{ auth.name }}{{ open_surround }}{{ auth.affil }}{{ close_surround }}</h4>
+        <h4>{{ auth.name }}{% if auth.affil %}{{ open_surround }}{{ auth.affil }}{{ close_surround }}{% endif %}</h4>
         {% endfor %}
 
         <br/>

@@ -767,7 +767,6 @@ conferences:
 
 projects:
   ja:
-    motivation: 概要
     pi: 代表者
     ci: 共同研究者
     org: 支援
@@ -785,7 +784,6 @@ projects:
     no_past: 現在データーにアクセスができません
 
   en:
-    motivation: Science &amp; Motivation
     pi: Principle investigator
     ci: Co-investigator
     org: Supporting organization
