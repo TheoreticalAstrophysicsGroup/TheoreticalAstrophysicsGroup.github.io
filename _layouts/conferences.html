@@ -54,7 +54,7 @@ layout: default
     {% endif %}
 
       <!-- Leaving here in case we differentiate between archive and non-archive pages at some point -->
-      <!-- {% if page_year == page.lang %} -->
+      <!-- {% raw %} {% if page_year == page.lang %} {% endraw %} -->
 
     <div class="col-md-8">
 
@@ -87,8 +87,7 @@ layout: default
           <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a></h3>
           <div class="row">
             <div class="col-lg-6">
-              {% if post.img %}
-              <img src="{{ site.baseurl }}{{ la.img }}/{{ post.img[0] }}" class="img-post img-responsive" alt="Image">{% endif %}
+              {% if post.img %}<img src="{{ site.baseurl }}{{ la.img }}/{{ post.img[0] }}" class="img-post img-responsive" alt="Image">{% endif %}
             </div>
             <div class="col-lg-6">
               {% assign postcontent = post.content | strip_html %}
@@ -147,8 +146,7 @@ layout: default
           <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a></h3>
           <div class="row">
             <div class="col-lg-6">
-              {% if post.img %}
-              <img src="{{ site.baseurl }}{{ la.img }}/{{ post.img[0] }}" class="img-post img-responsive" alt="Image">{% endif %}
+              {% if post.img %}<img src="{{ site.baseurl }}{{ la.img }}/{{ post.img[0] }}" class="img-post img-responsive" alt="Image">{% endif %}
             </div>
             <div class="col-lg-6">
               {% assign postcontent = post.content | strip_html %}

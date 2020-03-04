@@ -1,30 +1,36 @@
-
-{% assign tprl = site.data.translations.conferences[page.lang] %}
+{% assign tprl = site.data.translations.projects[page.lang] %}
 {% assign lel = site.data.links.external[page.lang] %}
 {% assign li = site.data.links.internal %}
 
+<!-- Language dependent surrounds -->
+<!-- This creates open_surround and close_surround variables into the namespace -->
+{% include lang_surround.html shape='round' %}
+
 <div class="panel panel-primary">
-  <div class="panel-heading"><i class="fa fa-info-circle"></i> {{tprl.info}} </div>
-  <div class="panel-body">
-    <ul class="fa-ul">
-            <ul class="fa-ul">
-                <li>
-                    <i class="fa fa-graduation-cap"></i> {{ post.pi }}
-                </li>
-                {% for auth in post.ci %}
-                <li>
-                    {% if forloop.first %} <i class="fa fa-user"></i> {{ auth.name }}, &nbsp; {% elsif forloop.last %}
-                    {{ auth.name }}, &nbsp; {% else %} {{ auth.name }} {% endif %}
-                </li>
-                {% endfor %}
-            </ul>
-      <li class="fali"> <i class="fa-li fa fa-calendar"></i> <a href="{{ site.baseurl }}{{ li.calendar}}/{{ page.lang }}">{% include date.html d=page.from l="l" %}</a> </li>
-      <li class="fali"> <i class="fa-li fa fa-ellipsis-v"></i> <a href="{{ site.baseurl }}{{ li.calendar}}/{{ page.lang }}">{% include date.html d=page.to l="l" %}</a> </li>
-      {% if page.org %}<li class="fali"> <i class="fa-li fa fa-globe"></i>{% if page.org_link %}<a href="{{ page.org_link }}" target="_blank">{{ page.org }}</a><font size="1"><i class="fa fa-external-link"></i></font>{% else %}{{ page.org }}{% endif %}</li>{% endif %}
+    <div class="panel-heading"><i class="fa fa-info-circle"></i> {{tprl.info}} </div>
+    <div class="panel-body">
+        <ul class="fa-ul">
+            <li class="fali">
+                <i class="fa fa-graduation-cap"></i> {{ post.pi }}
+            </li>
+            {% for auth in post.ci %}
+            <li class="fali">
+                {% if forloop.first %} <i class="fa fa-user"></i> {{ auth.name }}, &nbsp; {% elsif forloop.last %}
+                {{ auth.name }}, &nbsp; {% else %} {{ auth.name }} {% endif %}
+                {% if auth.affil %}{{ open_surround }}{{ auth.affil }}{{ close_surround }}{% endif %}
+            </li>
+            {% endfor %}
+            <li class="fali"> <i class="fa-li fa fa-calendar"></i> <a
+                    href="{{ site.baseurl }}{{ li.calendar}}/{{ page.lang }}">{% include date.html d=page.from l="l" %}</a>
+            </li>
+            <li class="fali"> <i class="fa-li fa fa-ellipsis-v"></i> <a
+                    href="{{ site.baseurl }}{{ li.calendar}}/{{ page.lang }}">{% include date.html d=page.to l="l" %}</a>
+            </li>
+            {% if page.org %}<li class="fali"> <i class="fa-li fa fa-globe"></i>{% if page.org_link %}<a
+                    href="{{ page.org_link }}" target="_blank">{{ page.org }}</a>
+                <font size="1"><i class="fa fa-external-link"></i></font>{% else %}{{ page.org }}{% endif %}
+            </li>{% endif %}
 
-    </ul>
-  </div>
+        </ul>
+    </div>
 </div>
-
-
-      
