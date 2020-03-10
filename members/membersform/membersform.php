@@ -1,5 +1,21 @@
 <?php
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
+
+    # Build POST request:
+    $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
+    $recaptcha_secret = '6LfRF-AUAAAAACJtYdtqAUpr3MUSz4NGNGvTfAdP';
+    $recaptcha_response = $_POST['recaptcha_response'];
+
+    # Make and decode POST request:
+    $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
+    $recaptcha = json_decode($recaptcha);
+
+    # Take action based on the score returned:
+    if ($recaptcha->score >= 0.5) {
+
+    # Verified
+
     # Form variables
     $iry = $_POST['InputRankYear'];
     $iln = $_POST['InputLastName'];
@@ -64,5 +80,16 @@
     echo "<p>　</p>";
     echo "<p>　</p>";
     echo '<h4 class="pull-left">ご協力ありがとうございました。　</h4>';
-    echo '<a href="."><button type="submit" class="btn btn-primary pull-right">再入力</button></a>'
-?>
+    echo '<a href="."><button type="submit" class="btn btn-primary pull-right">再入力</button></a>';
+
+    } else {
+
+    # Not verified
+
+    echo "<p>　</p>";
+    echo "<p>　</p>";
+    echo '<h4 class="pull-left">You have failed the recaptcha test. Please try again.　</h4>';
+    echo '<a href="."><button type="submit" class="btn btn-primary pull-right">再入力</button></a>';
+
+    }
+} ?>
