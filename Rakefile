@@ -51,9 +51,14 @@ end
 #############################################################################
 
 namespace :site do
-  desc "Generate the site"
+  desc "Generate the site locally"
   task :build do
     sh "bundle exec jekyll build --future --drafts --limit_posts #{POSTLIMIT} --profile --config _config_loc.yml"
+  end
+
+  desc "Generate the site to be served in xampp"
+  task :xampp do
+    sh "bundle exec jekyll build --future --drafts --limit_posts #{POSTLIMIT} --profile --config _config_xampp.yml"
   end
 
   desc "Generate the site and serve locally"
@@ -138,7 +143,7 @@ namespace :site do
 
   end
 
-  desc "Commit and push to github and rsync to charon"
+  desc "Commit and push to github"
   task :push_ccs do
 
     # CCS
@@ -152,7 +157,7 @@ namespace :site do
 
   end
 
-  desc "Commit and push to github and rsync to charon"
+  desc "Commit and push to github"
   task :push_gh do
 
     # Github

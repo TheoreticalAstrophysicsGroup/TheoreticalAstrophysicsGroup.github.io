@@ -1,6 +1,7 @@
 # Travis CI-github-CCS build and deployment
 relative_source:  TheoreticalAstrophysicsGroup.github.io
 destination_loc: ../loc_version
+destination_xampp: /Users/ayw/.bitnami/stackman/machines/xampp/volumes/root/htdocs/TAG
 destination_gh: ../gh_version
 destination_ccs: ../ccs_version
 orgname: TheoreticalAstrophysicsGroup

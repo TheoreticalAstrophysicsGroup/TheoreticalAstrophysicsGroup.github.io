@@ -7,15 +7,15 @@ description: "Theoretical Astrophysics Group, Center for Computational Sciences,
 # No need for user/organization github pages, and localhost,
 # but deployment on organization server requires
 # subdirectory "/Astro"
-baseurl: /Astro
-url: http://www2.ccs.tsukuba.ac.jp
+baseurl: /TAG
+url: http://192.168.64.2/
 
 timezone: Asia/Tokyo
 
 # Build settings
 markdown: kramdown
 permalink: pretty
-destination: ../ccs_version
+destination: /Users/ayw/.bitnami/stackman/machines/xampp/volumes/root/htdocs/TAG
 
 # Exclude
 # See https://jekyllrb.com/docs/troubleshooting/#configuration-problems
@@ -86,7 +86,5 @@ defaults:
     values:
       layout: redirect_back
 
-compress_html:
-  clippings: all
-  comments: ["<!-- ", " -->"]
+
 

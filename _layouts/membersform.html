@@ -6,55 +6,139 @@ layout: default
 {% assign tam = site.data.translations.members[page.lang] %}
 
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
 
-      <h3 class="section-title"> {{ page.subtitle }} </h3>
-      <p> {{ page.text }} </p>
+  {% if page.form_active %}
 
-          <form name="memberinfo" role="form" action="../membersform.php" method="get">
+  <h3 class="section-title"> {{ page.subtitle }} </h3>
 
-            <div class="form-group">
-              <label for="InputLastName"> {{ tam.input_last_name }} </label>
-              <input type="text" class="form-control" id="InputLastName">
-            </div>
+  <div class="membersform">
 
-            <div class="form-group">
-              <label for="InputFirstName"> {{ tam.input_first_name }} </label>
-              <input type="text" class="form-control" id="InputFirstName">
-            </div>
+    <p> {{ content }} </p>
 
-            <div class="form-group">
-              <label for="InputLastNameRomaji"> {{ tam.input_last_name_romaji }} </label>
-              <input type="text" class="form-control" id="InputLastNameRomaji">
-            </div>
+    <form name="memberinfo" role="form" action="../membersform.php" method="post" id="membersform" autocomplete="on">
 
-            <div class="form-group">
-              <label for="InputFirstNameRomaji"> {{ tam.input_first_name_romaji }} </label>
-              <input type="text" class="form-control" id="InputFirstNameRomaji">
-            </div>
+      <br />
 
-            <div class="form-group">
-              <label for="InputEmail">{{ tam.input_email }}</label>
-              <input type="email" class="form-control" id="InputEmail">
-            </div>
+      <fieldset>
+        <legend>{{ tam.legend_displayed_data }}</legend>
 
-            <div class="form-group">
-              <label for="InputTel">{{ tam.input_tel }}</label>
-              <input type="tel" class="form-control" id="InputTel">
-            </div>
+        <div class="row">
+          <div class="form-group col-sm-4">
+            <label for="InputRankYear"> {{ tam.input_rank_year }} </label>
+            <input list="rank" class="form-control" name="InputRankYear" id="InputRankYear" autofocus required>
+            <datalist id="rank">
+              {% for rank in tam.input_ranks %}
+              <option value="{{ rank }}">
+                {% endfor %}
+            </datalist>
+          </div>
+        </div>
 
-            <div class="form-group">
-              <label for="InputAddress">{{ tam.input_address }}</label>
-              <input type="text" class="form-control" id="InputAddress">
-            </div>
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <label for="InputLastName"> {{ tam.input_last_name }} </label>
+            <input type="text" class="form-control" name="InputLastName" id="InputLastName"
+              placeholder="{{ tam.ph_last_name }}" required>
+          </div>
 
-            <button type="submit" class="btn btn-primary pull-right">Submit</button>
-            <div class="clearfix"></div>
+          <div class="form-group col-sm-6">
+            <label for="InputFirstName"> {{ tam.input_first_name }} </label>
+            <input type="text" class="form-control" name="InputFirstName" id="InputFirstName"
+              placeholder="{{ tam.ph_first_name }}" required>
+          </div>
+        </div>
 
-          </form>
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <label for="InputLastNameRomaji"> {{ tam.input_last_name_romaji }} </label>
+            <input type="text" class="form-control" name="InputLastNameRomaji" id="InputLastNameRomaji"
+              placeholder="{{ tam.ph_last_name_romaji }}" required>
+          </div>
 
-    </div>
+          <div class="form-group col-sm-6">
+            <label for="InputFirstNameRomaji"> {{ tam.input_first_name_romaji }} </label>
+            <input type="text" class="form-control" name="InputFirstNameRomaji" id="InputFirstNameRomaji"
+              placeholder="{{ tam.ph_first_name_romaji }}" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-sm-6 col-md-4">
+            <label for="InputEmail1">{{ tam.input_email_1 }}</label>
+            <input type="email" class="form-control" name="InputEmail1" id="InputEmail1"
+              placeholder="{{ tam.ph_email_1 }}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z.]{2,}$" required>
+          </div>
+
+          <div class="form-group col-sm-6 col-md-4">
+            <label for="InputTel3">{{ tam.input_tel_3 }}</label>
+            <input type="tel" class="form-control" name="InputTel3" id="InputTel3" placeholder="{{ tam.ph_tel_3 }}"
+              pattern="[0-9]{4}">
+          </div>
+
+          <div class="form-group col-sm-6 col-md-4">
+            <label for="InputHomepage">{{ tam.input_homepage }}</label>
+            <input type="url" class="form-control" name="InputHomepage" id="InputHomepage"
+              placeholder="{{ tam.ph_homepage }}" pattern="https?://.+">
+          </div>
+
+          <div class="form-group col-sm-6 col-md-12">
+            <label for="InputResearch">{{ tam.input_research }}</label>
+            <input type="text" class="form-control" name="InputResearch" id="InputResearch"
+              placeholder="{{ tam.ph_research }}">
+          </div>
+        </div>
+
+      </fieldset>
+
+      <br />
+
+      <fieldset>
+        <legend>{{ tam.legend_meibo }}</legend>
+
+        <div class="row">
+          <div class="form-group col-sm-6 col-md-4">
+            <label for="InputTel1">{{ tam.input_tel_1 }}</label>
+            <input type="tel" class="form-control" name="InputTel1" id="InputTel1" placeholder="{{ tam.ph_tel_1 }}"
+              pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{4}" required>
+          </div>
+
+          <div class="form-group col-sm-6 col-md-4">
+            <label for="InputTel2">{{ tam.input_tel_2 }}</label>
+            <input type="tel" class="form-control" name="InputTel2" id="InputTel2" placeholder="{{ tam.ph_tel_2 }}"
+              pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{4}">
+          </div>
+
+          <div class="form-group col-sm-6 col-md-4">
+            <label for="InputEmail2">{{ tam.input_email_2 }}</label>
+            <input type="email" class="form-control" name="InputEmail2" id="InputEmail2"
+              placeholder="{{ tam.ph_email_2 }}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z.]{2,}$">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-sm-3">
+            <label for="InputPostal">{{ tam.input_postal }}</label>
+            <input type="text" class="form-control" name="InputPostal" id="InputPostal"
+              placeholder="{{ tam.ph_postal }}" pattern="[0-9]{3}-[0-9]{4}" required>
+          </div>
+
+          <div class="form-group col-sm-9">
+            <label for="InputAddress">{{ tam.input_address }}</label>
+            <input type="text" class="form-control" name="InputAddress" id="InputAddress"
+              placeholder="{{ tam.ph_address }}" required>
+          </div>
+        </div>
+
+      </fieldset>
+
+      <br />
+
+      <button type="submit" class="btn btn-primary pull-right">{{ tam.submit }}</button>
+      <div class="clearfix"></div>
+
+    </form>
   </div>
-</div>
 
+  {% endif %}
+
+</div>

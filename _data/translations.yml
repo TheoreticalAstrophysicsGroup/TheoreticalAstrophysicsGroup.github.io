@@ -176,18 +176,60 @@ members:
     d3: D3
     d2: D2
     d1: D1
+    research_student: 研究生
     m3: M3
     m2: M2
     m1: M1
-    y4: ４年
+    y4: Y4
     admin_assistant: 事務補助
-    input_last_name: 姓
-    input_first_name: 名
-    input_last_name_romaji: 姓（ローマ字）
-    input_first_name_romaji: 名（ローマ字）
-    input_email: メール
-    input_tel: 電話番号
-    input_address: 住所
+    input_last_name: 姓 ＊
+    input_first_name: 名 ＊
+    input_last_name_romaji: 姓（半角ローマ字） ＊
+    input_first_name_romaji: 名（半角ローマ字） ＊
+    input_email_1: CCS / 大学メール（半角） ＊
+    input_email_2: 代替メール（半角）
+    input_tel_1: 自宅 / 携帯電話（半角数字） ＊
+    input_tel_2: 帰省先電話番号（半角数字） 
+    input_tel_3: CCS 内線番号
+    input_postal: 自宅郵便番号（半角数字） ＊
+    input_address: 自宅住所（半角数字） ＊
+    input_rank_year: 職名 / 学年 ＊
+    input_ranks:
+      - 教授
+      - 准教授
+      - 講師
+      - 助教
+      - 研究員
+      - D5
+      - D4
+      - D3
+      - D2
+      - D1
+      - 研究生
+      - M3
+      - M2
+      - M1
+      - Y4
+      - 事務補助
+    input_research: 主な研究テーマ
+    input_homepage: ホームページ（URL）
+    ph_last_name: 鈴木
+    ph_first_name: 一郎
+    ph_last_name_romaji: Suzuki
+    ph_first_name_romaji: Ichiro
+    ph_email_1: uname@ccs.tsukuba.ac.jp
+    ph_email_2: another@email.com
+    ph_tel_1: 010-2345-6789
+    ph_tel_2: 010-2345-6789
+    ph_tel_3: 1234
+    ph_postal: 305-8577
+    ph_address: 茨城県つくば市天王台1-1-1
+    ph_research: 一般相対論，ブラックホール，銀河形成，輻射輸送，高性能コンピューティング
+    ph_homepage: https://www.your.homepage.jp
+    legend_displayed_data: 公開データ（ウェブページ）
+    legend_meibo: 非公開データ（名簿）
+    submit: 送信
+
 
   en:
     current: Current Members
@@ -207,18 +249,59 @@ members:
     d3: D3
     d2: D2
     d1: D1
+    research_student: Research Student
     m3: M3
     m2: M2
     m1: M1
     y4: Y4
     admin_assistant: Administrative assistant
-    input_last_name: Last name (Kanji, Kana)
-    input_first_name: First name (Kanji, Kana)
-    input_last_name_romaji: Last name (Romaji)
-    input_first_name_romaji: First name (Romaji) 
-    input_email: Email
-    input_tel: Telephone number
-    input_address: Address of residence
+    input_last_name: Last name (Kanji, Kana) ＊
+    input_first_name: First name (Kanji, Kana) ＊
+    input_last_name_romaji: Last name (Alphabet) ＊
+    input_first_name_romaji: First name (Alphabet) ＊ 
+    input_email_1: CCS or University Email ＊
+    input_email_2: Secondary Email
+    input_tel_1: Mobile number ＊
+    input_tel_2: Home number
+    input_tel_3: CCS extension number
+    input_postal: Postal number ＊
+    input_address: Address of residence ＊
+    input_rank_year: Level / Year ＊
+    input_ranks:
+      - Professor
+      - Associate Professor
+      - Lecturer
+      - Assistant Professor
+      - Postdoc
+      - D5
+      - D4
+      - D3
+      - D2
+      - D1
+      - Research Student
+      - M3
+      - M2
+      - M1
+      - Y4
+    input_research: Research interests
+    input_homepage: Homepage URL
+    ph_last_name: アインシュタイン
+    ph_first_name: アルバート
+    ph_last_name_romaji: Einstein
+    ph_first_name_romaji: Albert
+    ph_email_1: uname@ccs.tsukuba.ac.jp
+    ph_email_2: another@email.com
+    ph_tel_1: 010-2345-6789
+    ph_tel_2: 010-2345-6789
+    ph_tel_3: 1234
+    ph_postal: 305-8577
+    ph_address: Ibaraki, Tsukuba, Tennodai 1-1-1
+    ph_research: General relativity, black holes, galaxy formation, radiative transfer, HPC 
+    ph_homepage: https://www.your.homepage.jp
+    legend_displayed_data: Public data (for webpage)
+    legend_meibo: Private data (for members register)
+    submit: Submit
+
 
 # Single member profile page translations
 profile:
