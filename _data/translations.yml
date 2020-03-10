@@ -191,7 +191,7 @@ members:
     input_tel_1: 自宅 / 携帯電話（半角数字） ＊
     input_tel_2: 帰省先電話番号（半角数字） 
     input_tel_3: CCS 内線番号
-    input_postal: 自宅郵便番号（半角数字） ＊
+    input_postal: 自宅住所郵便番号（半角数字） ＊
     input_address: 自宅住所（半角数字） ＊
     input_rank_year: 職名 / 学年 ＊
     input_ranks:
@@ -264,7 +264,7 @@ members:
     input_tel_1: Mobile number ＊
     input_tel_2: Home number
     input_tel_3: CCS extension number
-    input_postal: Postal number ＊
+    input_postal: Residence postal number ＊
     input_address: Address of residence ＊
     input_rank_year: Level / Year ＊
     input_ranks:

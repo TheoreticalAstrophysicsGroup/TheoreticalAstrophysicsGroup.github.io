@@ -46,6 +46,17 @@ MathJax.Hub.Config({
   </script>
   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
+  <!-- reCaptcha3 -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LfRF-AUAAAAADpA_lY9pJJ-EuCDy3h5uATjC8ep"></script>
+  <script>
+      grecaptcha.ready(function () {
+          grecaptcha.execute('6LfRF-AUAAAAADpA_lY9pJJ-EuCDy3h5uATjC8ep', { action: 'contact' }).then(function (token) {
+              var recaptchaResponse = document.getElementById('recaptchaResponse');
+              recaptchaResponse.value = token;
+          });
+      });
+  </script>
+
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
     <script src="{{ site.baseurl }}{{ la.js }}/html5shiv.js"></script>

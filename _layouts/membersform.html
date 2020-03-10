@@ -23,7 +23,7 @@ layout: default
         <legend>{{ tam.legend_displayed_data }}</legend>
 
         <div class="row">
-          <div class="form-group col-sm-4">
+          <div class="form-group col-sm-3">
             <label for="InputRankYear"> {{ tam.input_rank_year }} </label>
             <input list="rank" class="form-control" name="InputRankYear" id="InputRankYear" autofocus required>
             <datalist id="rank">
@@ -118,7 +118,7 @@ layout: default
         <div class="row">
           <div class="form-group col-sm-3">
             <label for="InputPostal">{{ tam.input_postal }}</label>
-            <input type="text" class="form-control" name="InputPostal" id="InputPostal"
+            <input type="tel" class="form-control" name="InputPostal" id="InputPostal"
               placeholder="{{ tam.ph_postal }}" pattern="[0-9]{3}-[0-9]{4}" required>
           </div>
 
@@ -132,6 +132,8 @@ layout: default
       </fieldset>
 
       <br />
+
+      <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
 
       <button type="submit" class="btn btn-primary pull-right">{{ tam.submit }}</button>
       <div class="clearfix"></div>
