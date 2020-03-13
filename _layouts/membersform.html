@@ -124,8 +124,8 @@ layout: default
         <div class="row">
           <div class="form-group col-sm-3">
             <label for="InputPostal">{{ tam.input_postal }}</label>
-            <input type="tel" class="form-control" name="InputPostal" id="InputPostal"
-              placeholder="{{ tam.ph_postal }}" pattern="[0-9]{3}-[0-9]{4}" required>
+            <input type="tel" class="form-control" name="InputPostal" id="InputPostal" placeholder="{{ tam.ph_postal }}"
+              pattern="[0-9]{3}-[0-9]{4}" required>
           </div>
 
           <div class="form-group col-sm-9">
@@ -141,6 +141,9 @@ layout: default
 
       <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
 
+      <p class="grecaptcha-message">This site is protected by reCAPTCHA and the Google
+        <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+        <a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
       <button type="submit" class="btn btn-primary pull-right">{{ tam.submit }}</button>
       <div class="clearfix"></div>
 
