@@ -7,6 +7,7 @@ description: "Theoretical Astrophysics Group, Center for Computational Sciences,
 # No need for user/organization github pages, and localhost,
 # but deployment on organization server requires
 # subdirectory "/Astro"
+# See https://christianspecht.de/2017/10/04/running-a-combined-jekyll-php-site-on-xampp/ for running xampp and php on your machine
 baseurl: /TAG
 url: http://192.168.64.2/
 
