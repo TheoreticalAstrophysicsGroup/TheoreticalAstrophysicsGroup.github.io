@@ -13,7 +13,7 @@ layout: default
 
   <div class="membersform">
 
-    <p> {{ content }} </p>
+    {{ content }}
 
     <form name="memberinfo" role="form" action="../membersform.php" method="post" id="membersform" autocomplete="on">
 
@@ -96,19 +96,25 @@ layout: default
         <legend>{{ tam.legend_meibo }}</legend>
 
         <div class="row">
-          <div class="form-group col-sm-6 col-md-4">
+          <div class="form-group col-sm-6 col-md-3">
             <label for="InputTel1">{{ tam.input_tel_1 }}</label>
             <input type="tel" class="form-control" name="InputTel1" id="InputTel1" placeholder="{{ tam.ph_tel_1 }}"
-              pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{4}" required>
+              pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required>
           </div>
 
-          <div class="form-group col-sm-6 col-md-4">
+          <div class="form-group col-sm-6 col-md-3">
+            <label for="InputTel4">{{ tam.input_tel_4 }}</label>
+            <input type="tel" class="form-control" name="InputTel4" id="InputTel4" placeholder="{{ tam.ph_tel_4 }}"
+              pattern="[0-9]{3,4}-[0-9]{2,3,4}-[0-9]{4}">
+          </div>
+
+          <div class="form-group col-sm-6 col-md-3">
             <label for="InputTel2">{{ tam.input_tel_2 }}</label>
             <input type="tel" class="form-control" name="InputTel2" id="InputTel2" placeholder="{{ tam.ph_tel_2 }}"
-              pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{4}">
+              pattern="[0-9]{3,4}-[0-9]{2,3,4}-[0-9]{4}">
           </div>
 
-          <div class="form-group col-sm-6 col-md-4">
+          <div class="form-group col-sm-6 col-md-3">
             <label for="InputEmail2">{{ tam.input_email_2 }}</label>
             <input type="email" class="form-control" name="InputEmail2" id="InputEmail2"
               placeholder="{{ tam.ph_email_2 }}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z.]{2,}$">

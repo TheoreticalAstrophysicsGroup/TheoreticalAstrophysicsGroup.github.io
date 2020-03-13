@@ -182,15 +182,19 @@ members:
     m1: M1
     y4: Y4
     admin_assistant: 事務補助
+    membersform_header: 研究室メンバー情報収取
+    membersform_info: 現在研究室メンバー情報登録受け付け中です。
+    goto_form: フォームへ
     input_last_name: 姓 ＊
     input_first_name: 名 ＊
     input_last_name_romaji: 姓（半角ローマ字） ＊
     input_first_name_romaji: 名（半角ローマ字） ＊
     input_email_1: CCS / 大学メール（半角） ＊
     input_email_2: 代替メール（半角）
-    input_tel_1: 自宅 / 携帯電話（半角数字） ＊
+    input_tel_1: 携帯電話（半角数字） ＊
     input_tel_2: 帰省先電話番号（半角数字） 
     input_tel_3: CCS 内線番号
+    input_tel_4: 自宅電話（半角数字）
     input_postal: 自宅住所郵便番号（半角数字） ＊
     input_address: 自宅住所（半角数字） ＊
     input_rank_year: 職名 / 学年 ＊
@@ -222,6 +226,7 @@ members:
     ph_tel_1: 010-2345-6789
     ph_tel_2: 010-2345-6789
     ph_tel_3: 1234
+    ph_tel_4: 010-2345-6789
     ph_postal: 305-8577
     ph_address: 茨城県つくば市天王台1-1-1
     ph_research: 一般相対論，ブラックホール，銀河形成，輻射輸送，高性能コンピューティング
@@ -255,6 +260,9 @@ members:
     m1: M1
     y4: Y4
     admin_assistant: Administrative assistant
+    membersform_header: Members information request
+    membersform_info: Members information input form is currently open.
+    goto_form: Go to form
     input_last_name: Last name (Kanji, Kana) ＊
     input_first_name: First name (Kanji, Kana) ＊
     input_last_name_romaji: Last name (Alphabet) ＊
@@ -262,8 +270,9 @@ members:
     input_email_1: CCS or University Email ＊
     input_email_2: Secondary Email
     input_tel_1: Mobile number ＊
-    input_tel_2: Home number
+    input_tel_2: Home number 2
     input_tel_3: CCS extension number
+    input_tel_4: Home number
     input_postal: Residence postal number ＊
     input_address: Address of residence ＊
     input_rank_year: Level / Year ＊
@@ -294,6 +303,7 @@ members:
     ph_tel_1: 010-2345-6789
     ph_tel_2: 010-2345-6789
     ph_tel_3: 1234
+    ph_tel_4: 010-2345-6789
     ph_postal: 305-8577
     ph_address: Ibaraki, Tsukuba, Tennodai 1-1-1
     ph_research: General relativity, black holes, galaxy formation, radiative transfer, HPC 

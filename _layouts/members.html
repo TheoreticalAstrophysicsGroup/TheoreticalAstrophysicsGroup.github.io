@@ -9,6 +9,25 @@ layout: default
 {% include page_header.html title=page.title %}
 
 <div class="container">
+
+
+  {% if page.form_active %}
+  <div class="row">
+    <div class="col-xs-12">
+
+      <h3 class="post-title">{{ tml.membersform_header }}</h3>
+
+      <p class="pull-left">{{ tml.membersform_info }}</p>
+
+      <a href="{{ site.baseurl }}{{ li.membersform }}/{{ page.lang }}"> <button class="btn btn-primary pull-right">{{ tml.goto_form }}</button></a>
+
+      <br />
+
+      </div>
+  </div>
+
+  {% endif %}
+
   <div class="row">
     <div class="col-xs-12">
 

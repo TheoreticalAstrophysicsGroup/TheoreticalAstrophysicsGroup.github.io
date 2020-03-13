@@ -79,6 +79,7 @@ internal:
   admission: &admission /admission
   resources: &resources /resources
   search: &search /search
+  membersform: &membersform /members/membersform
   alumni: &alumni /alumni
   #astro_internal: &astro_internal /astro_internal # previously Astro-Internal
 

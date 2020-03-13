@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 
     # Build POST request:
     $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
-    $recaptcha_secret = '6LfRF-AUAAAAACJtYdtqAUpr3MUSz4NGNGvTfAdP';
+    $recaptcha_secret = '';
     $recaptcha_response = $_POST['recaptcha_response'];
 
     # Make and decode POST request:
@@ -27,21 +27,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $it1 = $_POST['InputTel1'];
     $it2 = $_POST['InputTel2'];
     $it3 = $_POST['InputTel3'];
+    $it4 = $_POST['InputTel4'];
     $ip = $_POST['InputPostal'];
     $ia = $_POST['InputAddress'];
     $ir = $_POST['InputResearch'];
     $ih = $_POST['InputHomepage'];
 
-    # Create filename
+    # Email username
     $email = explode('@', $ie1);
     $uname = $email[0];
-    $fbase = '/Users/ayw/membersform_data/';
-    $fname_tex = $fbase . $uname . '.tex';
-    $fname_yml = $fbase . $uname . '.yml';
+
+    # Create filenames
+    $fbase = '../../membersform_data/';
+    // $fbase = '/Users/ayw/.bitnami/stackman/machines/xampp/volumes/root/htdocs/membersform_data/';
+    $fname_tex = $fbase . strtolower($ilnr) . "_" . strtolower($ilfr) . '.tex';
+    $fname_yml = $fbase . strtolower($ilnr) . "_" . strtolower($ilfr) . '.html';
 
     # Construct latex lines and yaml lines
-    $latexlines = "$iln $ifn & 〒$ip $ia & $it1 \\\\\r\n$ilnr $ifnr & $ie1 / $ie2 & $it2 \\\\";
-    $yamllines = "name: $iln $ifn\r\nname: $ifnr $ilnr\r\nemail: $uname\r\ntel: $it3\r\nposition: $iry\r\nhomepage: $ih\r\nresearch: $ir";
+    $latexlines = "$iln $ifn & 〒$ip $ia & $it1 / $it4 \\\\\r\n$ilnr $ifnr & \\texttt{$ie1} / \\texttt{$ie2} & $it2 \\\\";
+    $yamllines = "---\r\nname: $iln $ifn\r\nname: $ifnr $ilnr\r\nemail: $uname\r\ntel: $it3\r\nposition: $iry\r\nhomepage: \"$ih\"\r\nresearch: $ir\r\n---";
 
     # Replace all zenkaku spaces with hankaku spaces 
     $latexlines = str_replace("　", " ", $latexlines);
@@ -63,12 +67,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $latexlines = str_replace("〒〒", "〒", $latexlines);
 
     # Write files
-    // $fcon = fopen($fname_tex, 'w');
-    // fwrite($fcon, $latexlines);
-    // fclose($fcon);
-    // $fcon = fopen($fname_yml, 'w');
-    // fwrite($fcon, $yamllines);
-    // fclose($fcon);
+    $fcon = fopen($fname_tex, 'w');
+    fwrite($fcon, $latexlines);
+    fclose($fcon);
+    $fcon = fopen($fname_yml, 'w');
+    fwrite($fcon, $yamllines);
+    fclose($fcon);
 
     # Email 
     $formcontent = "$latexlines\r\n\r\n$yamllines";
@@ -89,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     echo "<p>　</p>";
     echo "<p>　</p>";
     echo '<h4 class="pull-left">You have failed the recaptcha test. Please try again.　</h4>';
-    echo '<a href="."><button type="submit" class="btn btn-primary pull-right">再入力</button></a>';
+    echo '<a href="."><button class="btn btn-primary pull-right">再入力</button></a>';
 
     }
 } ?>
