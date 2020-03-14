@@ -40,31 +40,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     # Create filenames
     $fbase = '../../membersform_data/';
     // $fbase = '/Users/ayw/.bitnami/stackman/machines/xampp/volumes/root/htdocs/membersform_data/';
-    $fname_tex = $fbase . strtolower($ilnr) . "_" . strtolower($ilfr) . '.tex';
-    $fname_yml = $fbase . strtolower($ilnr) . "_" . strtolower($ilfr) . '.html';
+    $fname_tex = $fbase . strtolower($ilnr) . "_" . strtolower($ifnr) . '.tex';
+    $fname_yml = $fbase . strtolower($ilnr) . "_" . strtolower($ifnr) . '.html';
+
+    # No forward slashes if strings empty
+    $fse2 = empty($ie2) ? "" : "/";
+    $fst4 = empty($it4) ? "" : "/";
 
     # Construct latex lines and yaml lines
-    $latexlines = "$iln $ifn & 〒$ip $ia & $it1 / $it4 \\\\\r\n$ilnr $ifnr & \\texttt{$ie1} / \\texttt{$ie2} & $it2 \\\\";
+    $latexlines = "$iln $ifn & 〒$ip $ia & $it1 $fst4 $it4 \\\\\r\n$ilnr $ifnr & \\texttt\{$ie1\} $fse2 \\texttt\{$ie2\} & $it2 \\\\";
     $yamllines = "---\r\nname: $iln $ifn\r\nname: $ifnr $ilnr\r\nemail: $uname\r\ntel: $it3\r\nposition: $iry\r\nhomepage: \"$ih\"\r\nresearch: $ir\r\n---";
 
-    # Replace all zenkaku spaces with hankaku spaces 
-    $latexlines = str_replace("　", " ", $latexlines);
-    $yamllines = str_replace("　", " ", $yamllines);
-
-    # Remove double spaces
-    $latexlines = str_replace("  ", " ", $latexlines);
-    $yamllines = str_replace("  ", " ", $yamllines);
+    # Replace all zenkaku spaces and repeating spaces with one hankaku space
+    $latexlines = preg_replace('/[ 　]+/', ' ', $latexlines);
+    $yamllines = preg_replace('/[ 　]+/', ' ', $yamllines);
 
     # Unify commas
     $latexlines = str_replace("、", "，", $latexlines);
     $yamllines = str_replace("、", "，", $yamllines);
-
-    # Replace all long bars with minuses
-    $latexlines = str_replace("ー", "-", $latexlines);
-    $yamllines = str_replace("ー", "-", $yamllines);
-
-    # Remove duplicate 〒
-    $latexlines = str_replace("〒〒", "〒", $latexlines);
 
     # Write files
     $fcon = fopen($fname_tex, 'w');
