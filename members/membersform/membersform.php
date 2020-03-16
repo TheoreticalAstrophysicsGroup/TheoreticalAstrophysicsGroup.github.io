@@ -51,6 +51,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $latexlines = "$iln $ifn & 〒$ip $ia & $it1 $fst4 $it4 \\\\\r\n$ilnr $ifnr & \\texttt{ $ie1 } $fse2 \\texttt{ $ie2 } & $it2 \\\\";
     $yamllines = "---\r\nname: $iln $ifn\r\nname: $ifnr $ilnr\r\nemail: $uname\r\ntel: $it3\r\nposition: $iry\r\nhomepage: \"$ih\"\r\nresearch: $ir\r\n---";
 
+    # Fix spaces in curly braces
+    $latexlines = str_replace("{ ", "{", $latexlines);
+
     # Replace all zenkaku spaces and repeating spaces with one hankaku space
     # Unicode u is crucial here, otherwise character set is changed.
     $latexlines = preg_replace('/[ 　]+/u', ' ', $latexlines);
