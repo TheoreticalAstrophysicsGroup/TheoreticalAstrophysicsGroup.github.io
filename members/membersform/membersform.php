@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $recaptcha = json_decode($recaptcha);
 
     # Take action based on the score returned:
-    if ($recaptcha->score >= 0.5) {
+    if ($recaptcha->score >= 0.0) {
 
     # Verified
 
@@ -38,8 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $uname = $email[0];
 
     # Create filenames
-    $fbase = '../../membersform_data/';
-    // $fbase = '/Users/ayw/.bitnami/stackman/machines/xampp/volumes/root/htdocs/membersform_data/';
+    $fbase = '../../membersform_data/';  // For site on charon
+    // $fbase = '../../../membersform_data/';  // For my LAMPP setup
     $fname_tex = $fbase . strtolower($ilnr) . "_" . strtolower($ifnr) . '.tex';
     $fname_yml = $fbase . strtolower($ilnr) . "_" . strtolower($ifnr) . '.html';
 
@@ -48,12 +48,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $fst4 = empty($it4) ? "" : "/";
 
     # Construct latex lines and yaml lines
-    $latexlines = "$iln $ifn & 〒$ip $ia & $it1 $fst4 $it4 \\\\\r\n$ilnr $ifnr & \\texttt\{$ie1\} $fse2 \\texttt\{$ie2\} & $it2 \\\\";
+    $latexlines = "$iln $ifn & 〒$ip $ia & $it1 $fst4 $it4 \\\\\r\n$ilnr $ifnr & \\texttt{ $ie1 } $fse2 \\texttt{ $ie2 } & $it2 \\\\";
     $yamllines = "---\r\nname: $iln $ifn\r\nname: $ifnr $ilnr\r\nemail: $uname\r\ntel: $it3\r\nposition: $iry\r\nhomepage: \"$ih\"\r\nresearch: $ir\r\n---";
 
     # Replace all zenkaku spaces and repeating spaces with one hankaku space
-    $latexlines = preg_replace('/[ 　]+/', ' ', $latexlines);
-    $yamllines = preg_replace('/[ 　]+/', ' ', $yamllines);
+    # Unicode u is crucial here, otherwise character set is changed.
+    $latexlines = preg_replace('/[ 　]+/u', ' ', $latexlines);
+    $yamllines = preg_replace('/[ 　]+/u', ' ', $yamllines);
 
     # Unify commas
     $latexlines = str_replace("、", "，", $latexlines);
@@ -72,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $recipient = 'astro.ccs.tsukuba@gmail.com';
     $subject = "TAG member $iln $ifn ($ilnr $ifnr) info";
     $mailheader = "From: $ie1 \r\n";
-    mail($recipient, $subject, $formcontent, $mailheader) or die("エラーが発生しました。");
+    mail($recipient, $subject, $formcontent, $mailheader);
 
     echo "<p>　</p>";
     echo "<p>　</p>";
