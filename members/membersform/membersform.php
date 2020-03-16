@@ -53,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 
     # Fix spaces in curly braces
     $latexlines = str_replace("{ ", "{", $latexlines);
+    $latexlines = str_replace(" }", "}", $latexlines);
 
     # Replace all zenkaku spaces and repeating spaces with one hankaku space
     # Unicode u is crucial here, otherwise character set is changed.
