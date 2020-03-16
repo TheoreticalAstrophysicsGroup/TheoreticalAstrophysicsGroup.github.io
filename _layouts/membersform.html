@@ -39,16 +39,18 @@ layout: default
             <label for="InputLastName"> {{ tam.input_last_name }} </label>
             <input type="text" class="form-control" name="InputLastName" id="InputLastName"
               placeholder="{{ tam.ph_last_name }}" 
-              pattern="[\x{3400}-\x{4DB5}\x{4E00}-\x{9FCB}\x{F900}-\x{FA6A}\x{3041}-\x{3096}\x{30A0}-\x{30FF}]{2,}"
               required>
+              <!-- These Japanese pattern checks don't work. Neither do unicode points regex. -->
+              <!-- pattern="[\p{Han}\p{Hiragana}\p{Katakana}]+" -->
           </div>
 
           <div class="form-group col-sm-6">
             <label for="InputFirstName"> {{ tam.input_first_name }} </label>
             <input type="text" class="form-control" name="InputFirstName" id="InputFirstName"
               placeholder="{{ tam.ph_first_name }}" 
-              pattern="[\x{3400}-\x{4DB5}\x{4E00}-\x{9FCB}\x{F900}-\x{FA6A}\x{3041}-\x{3096}\x{30A0}-\x{30FF}]{2,}"
               required>
+              <!-- These Japanese pattern checks don't work. Neither do unicode points regex. -->
+              <!-- pattern="[\p{Han}\p{Hiragana}\p{Katakana}]+" -->
           </div>
         </div>
 

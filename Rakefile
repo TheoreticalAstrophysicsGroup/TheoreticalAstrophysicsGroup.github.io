@@ -58,7 +58,7 @@ namespace :site do
 
   desc "Generate the site to be served in xampp"
   task :xampp do
-    sh "bundle exec jekyll build --future --drafts --limit_posts #{POSTLIMIT} --profile --config _config_xampp.yml"
+    sh "bundle exec jekyll build --future --drafts --limit_posts #{POSTLIMIT} --incremental --profile --config _config_xampp.yml"
   end
 
   desc "Generate the site and serve locally"
