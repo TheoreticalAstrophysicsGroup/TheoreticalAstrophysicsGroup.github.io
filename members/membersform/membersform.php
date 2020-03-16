@@ -47,18 +47,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $fse2 = empty($ie2) ? "" : "/";
     $fst4 = empty($it4) ? "" : "/";
 
+    # Create position string for students
+    $pos = preg_match('/^[DMY][0-5]/', $iry) ? $iry : "";
+    $pos = preg_match('/研究生/u', $iry) ? "研究生" : $pos;
+
     # Construct latex lines and yaml lines
-    $latexlines = "$iln $ifn & 〒$ip $ia & $it1 $fst4 $it4 \\\\\r\n$ilnr $ifnr & \\texttt{ $ie1 } $fse2 \\texttt{ $ie2 } & $it2 \\\\";
+    $latexlines = "$iln $ifn \small{ $pos } & 〒$ip $ia & $it1 $fst4 $it4 \\\\\r\n$ilnr $ifnr & \\texttt{ $ie1 } $fse2 \\texttt{ $ie2 } & $it2 \\\\";
     $yamllines = "---\r\nname: $iln $ifn\r\nname: $ifnr $ilnr\r\nemail: $uname\r\ntel: $it3\r\nposition: $iry\r\nhomepage: \"$ih\"\r\nresearch: $ir\r\n---";
 
     # Fix spaces in curly braces
     $latexlines = str_replace("{ ", "{", $latexlines);
     $latexlines = str_replace(" }", "}", $latexlines);
 
+    # Fix zenkaku hyphen to hankaku hyphen
+    $latexlines = str_replace("‐", "-", $latexlines);
+    $yamllines = str_replace("‐", "-", $yamllines);
+
     # Replace all zenkaku spaces and repeating spaces with one hankaku space
     # Unicode u is crucial here, otherwise character set is changed.
     $latexlines = preg_replace('/[ 　]+/u', ' ', $latexlines);
     $yamllines = preg_replace('/[ 　]+/u', ' ', $yamllines);
+
+    # Fix html http -> https
+    $yamllines = str_replace("http:", "https:", $yamllines);
 
     # Unify commas
     $latexlines = str_replace("、", "，", $latexlines);
