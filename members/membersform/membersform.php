@@ -1,10 +1,22 @@
 <?php
 
+#from https://stackoverflow.com/a/46872528/1550243
+function encrypt($plaintext, $password) {
+    $method = "AES-256-CBC";
+    $key = hash('sha256', $password, true);
+    $iv = openssl_random_pseudo_bytes(16);
+
+    $ciphertext = openssl_encrypt($plaintext, $method, $key, OPENSSL_RAW_DATA, $iv);
+    $hash = hash_hmac('sha256', $ciphertext . $iv, $key, true);
+
+    return $iv . $hash . $ciphertext;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
 
     # Build POST request:
     $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
-    $recaptcha_secret = '';
+    $recaptcha_secret = 
     $recaptcha_response = $_POST['recaptcha_response'];
 
     # Make and decode POST request:
@@ -75,20 +87,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $latexlines = str_replace("、", "，", $latexlines);
     $yamllines = str_replace("、", "，", $yamllines);
 
-    # Write files
-    $fcon = fopen($fname_tex, 'w');
-    fwrite($fcon, $latexlines);
-    fclose($fcon);
-    $fcon = fopen($fname_yml, 'w');
-    fwrite($fcon, $yamllines);
-    fclose($fcon);
-
     # Email 
     $formcontent = "$latexlines\r\n\r\n$yamllines";
     $recipient = 'astro.ccs.tsukuba@gmail.com';
     $subject = "TAG member $iln $ifn ($ilnr $ifnr) info";
     $mailheader = "From: $ie1 \r\n";
     mail($recipient, $subject, $formcontent, $mailheader);
+
+    # Encrypt the private data with OpenSSL
+    $ssl_password = 
+    $latexlines_encrypted = encrypt($latexlines, $ssl_password);
+
+    # Encrypt the private data with GnuPG
+    #putenv("GNUPGHOME=/home/ASTRO/fellow/ayw/.gnupg/");
+    #$gpg = new gnupg();
+    #$gpg->seterrormode(gnupg::ERROR_EXCEPTION);
+
+    # Check key ring for recipient public key, otherwise import it
+    #$keyInfo = $gpg->keyinfo('8C6B5F8216ACDB72AAD97051BD2858483660AF1A');
+    #if (empty($keyInfo)) {
+    #    $gpg->import('membersform_data.asc');
+    #}
+    #$gpg->addencryptkey('8C6B5F8216ACDB72AAD97051BD2858483660AF1A');
+
+    #$latexlines_e = $gpg->encrypt($latexlines);
+
+    # Write files
+    $fcon = fopen($fname_tex . ".enc", 'w');
+    fwrite($fcon, $latexlines_encrypted);
+    fclose($fcon);
+    $fcon = fopen($fname_yml, 'w');
+    fwrite($fcon, $yamllines);
+    fclose($fcon);
 
     echo "<p>　</p>";
     echo "<p>　</p>";
