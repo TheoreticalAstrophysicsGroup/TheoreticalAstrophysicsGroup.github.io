@@ -45,6 +45,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $ir = $_POST['InputResearch'];
     $ih = $_POST['InputHomepage'];
 
+    # Translating inputted ranks to the rank ids used in the webpage
+    $rank_ids = array(
+      '教授' => 'professor', 
+      '准教授' => 'associate_professor', 
+      '講師' => 'lecturer', 
+      '助教' => 'assistant_professor', 
+      '研究員' => 'postdoc', 
+      'D5' => 'd5', 
+      'D4' => 'd4', 
+      'D3' => 'd3', 
+      'D2' => 'd2', 
+      'D1' => 'd1', 
+      '研究生' => 'research_student', 
+      'M3' => 'm3', 
+      'M2' => 'm2', 
+      'M1' => 'm1', 
+      'Y4' => 'y4', 
+      '事務補助' => 'admin_assistant', 
+    );
+
     # Email username
     $email = explode('@', $ie1);
     $uname = $email[0];
@@ -65,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 
     # Construct latex lines and yaml lines
     $latexlines = "$iln $ifn \small{ $pos } & 〒$ip $ia & $it1 $fst4 $it4 \\\\\r\n$ilnr $ifnr & \\texttt{ $ie1 } $fse2 \\texttt{ $ie2 } & $it2 \\\\";
-    $yamllines = "---\r\nname: $iln $ifn\r\nname: $ifnr $ilnr\r\nemail: $uname\r\ntel: $it3\r\nposition: $iry\r\nhomepage: \"$ih\"\r\nresearch: $ir\r\n---";
+    $yamllines = "---\r\nname: $iln $ifn\r\nname: $ifnr $ilnr\r\nemail: $uname\r\ntel: $it3\r\nposition: $rank_ids[$iry]\r\nhomepage: \"$ih\"\r\nresearch: $ir\r\n---";
 
     # Fix spaces in curly braces
     $latexlines = str_replace("{ ", "{", $latexlines);
