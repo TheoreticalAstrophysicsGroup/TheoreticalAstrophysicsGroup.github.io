@@ -59,7 +59,7 @@ layout: default
             <label for="InputLastNameRomaji"> {{ tam.input_last_name_romaji }} </label>
             <input type="text" class="form-control" name="InputLastNameRomaji" id="InputLastNameRomaji"
               placeholder="{{ tam.ph_last_name_romaji }}" 
-              pattern="[-'a-zA-Zà-ÿÀ-Ÿ]{2,}"
+              pattern="[A-ZÀ-Ÿ][-'A-ZÀ-Ÿ]{1,}"
               required>
           </div>
 
@@ -67,7 +67,7 @@ layout: default
             <label for="InputFirstNameRomaji"> {{ tam.input_first_name_romaji }} </label>
             <input type="text" class="form-control" name="InputFirstNameRomaji" id="InputFirstNameRomaji"
               placeholder="{{ tam.ph_first_name_romaji }}" 
-              pattern="[-'a-zA-Zà-ÿÀ-Ÿ]{2,}"
+              pattern="[A-ZÀ-Ÿ][-'A-ZÀ-Ÿ]{1,}"
               required>
           </div>
         </div>

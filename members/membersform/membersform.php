@@ -52,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
       '講師' => 'lecturer', 
       '助教' => 'assistant_professor', 
       '研究員' => 'postdoc', 
+      'D6' => 'd6', 
       'D5' => 'd5', 
       'D4' => 'd4', 
       'D3' => 'd3', 
