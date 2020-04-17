@@ -66,10 +66,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     # Translating inputted ranks to the rank ids used in the webpage
     $rank_ids = array(
       '教授' => 'professor', 
+      'Professor' => 'professor', 
       '准教授' => 'associate_professor', 
+      'Associate Professor' => 'associate_professor', 
       '講師' => 'lecturer', 
+      'Lecturer' => 'lecturer', 
       '助教' => 'assistant_professor', 
+      'Assistant Professor' => 'assistant_professor', 
       '研究員' => 'postdoc', 
+      'Postdoc' => 'postdoc', 
+      '博士課程研究生' => 'postdoc_student', 
+      'Postdoctoral Student' => 'postdoc_student', 
       'D6' => 'd6', 
       'D5' => 'd5', 
       'D4' => 'd4', 
@@ -77,11 +84,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
       'D2' => 'd2', 
       'D1' => 'd1', 
       '研究生' => 'research_student', 
+      'Research Student' => 'research_student', 
       'M3' => 'm3', 
       'M2' => 'm2', 
       'M1' => 'm1', 
       'Y4' => 'y4', 
       '事務補助' => 'admin_assistant', 
+      'Administrative Assistant' => 'admin_assistant', 
     );
 
     # Email username

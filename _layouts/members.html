@@ -45,7 +45,7 @@ layout: default
         </thead>
         <tbody>
 
-          {% assign positions = 'professor associate_professor lecturer assistant_professor postdoc admin_assistant d6 d5 d4 d3 d2 d1 research_student m3 m2 m1 y4' | split: ' ' %}
+          {% assign positions = 'professor associate_professor lecturer assistant_professor postdoc postdoc_student admin_assistant d6 d5 d4 d3 d2 d1 research_student m3 m2 m1 y4' | split: ' ' %}
 
           <!-- Create array of footnotes -->
           {% capture footnotes %}
@@ -89,11 +89,13 @@ layout: default
       </table>
 
       <!-- Footnotes -->
-      {% assign ifn = 0 %}
-      {% for footnote in footnotes_array %}
-        {% assign ifn = ifn | plus: 1 %}
-        <p><sup>{{ ifn }}</sup> {{ footnote }}</p>
-      {% endfor %}
+      {% if ifn > 0 %}
+        {% assign ifn = 0 %}
+        {% for footnote in footnotes_array %}
+          {% assign ifn = ifn | plus: 1 %}
+          <p><sup>{{ ifn }}</sup> {{ footnote }}</p>
+        {% endfor %}
+      {% endif %}
 
       <br/>
 

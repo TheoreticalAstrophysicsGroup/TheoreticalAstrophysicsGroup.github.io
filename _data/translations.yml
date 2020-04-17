@@ -171,6 +171,7 @@ members:
     lecturer: 講師
     assistant_professor: 助教
     postdoc: 研究員
+    postdoc_student: 博士課程研究生
     d6: D6
     d5: D5
     d4: D4
@@ -205,6 +206,7 @@ members:
       - 講師
       - 助教
       - 研究員
+      - 博士課程研究生
       - D6
       - D5
       - D4
@@ -251,6 +253,7 @@ members:
     lecturer: Lecturer
     assistant_professor: Assistant Professor
     postdoc: Postdoc
+    postdoc_student: Postdoctoral Student
     d6: D6
     d5: D5
     d4: D4
@@ -262,7 +265,7 @@ members:
     m2: M2
     m1: M1
     y4: Y4
-    admin_assistant: Administrative assistant
+    admin_assistant: Administrative Assistant
     membersform_header: Members information request
     membersform_info: Members information input form is currently open.
     goto_form: Go to form
@@ -285,6 +288,7 @@ members:
       - Lecturer
       - Assistant Professor
       - Postdoc
+      - Postdoctoral Student
       - D6
       - D5
       - D4
@@ -296,6 +300,7 @@ members:
       - M2
       - M1
       - Y4
+      - Administrative Assistant
     input_research: Research interests
     input_homepage: Homepage URL
     ph_last_name: アインシュタイン

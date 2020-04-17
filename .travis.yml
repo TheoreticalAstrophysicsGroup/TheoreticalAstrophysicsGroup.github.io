@@ -7,10 +7,10 @@ sudo: false
 # create the build matrix.
 matrix:
   include:
-    - rvm: 2.5.1
+    - rvm: 2.7.1
       gemfile: Gemfile
       env: PREP_TARGET=prep_ccs DEPLOY_TARGET=deploy_ccs PUSH_TARGET=push_ccs 
-    - rvm: 2.5.1
+    - rvm: 2.7.1
       gemfile: Gemfile
       env: PREP_TARGET=prep_gh  DEPLOY_TARGET=deploy_gh  PUSH_TARGET=push_gh 
 
