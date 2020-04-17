@@ -11,8 +11,8 @@ do_backups = True
 
 # Use ruamel.yaml
 yaml = YAML()
-yaml.preserve_quotes = True
-yaml.allow_duplicate_keys = True
+yaml.preserve_quotes = False
+yaml.allow_duplicate_keys = False
 
 # Entries and defaults
 entries = {
@@ -21,7 +21,7 @@ entries = {
     'position': None,
     'order': None,
     'email': None,
-    'tel': '3370',
+    'tel': 3370,
     'homepage': None,
     'research': None,
     'profile_pic': None,
@@ -42,7 +42,10 @@ for file in files:
 
         # Use entries in existing data if present
         # Else set the default
-        out_dict[entry] = data[entry] if entry in data else entries[entry]
+        if entry in data and data[entry]:
+            out_dict[entry] = data[entry]
+        else:
+            out_dict[entry] = entries[entry]
 
     # Backup file
     if do_backups:
