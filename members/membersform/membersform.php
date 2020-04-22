@@ -12,6 +12,24 @@ function encrypt($plaintext, $password) {
     return $iv . $hash . $ciphertext;
 }
 
+function escape_all_latex_special_chars($string) {
+
+    # Escape some special latex characters
+    $string = str_replace("_", "\\_{}", $string);
+    $string = str_replace("#", "\\#{}", $string);
+    $string = str_replace("%", "\\%{}", $string);
+    $string = str_replace("$", "\\\${}", $string);
+    $string = str_replace("&", "\\&{}", $string);
+    $string = str_replace("{", "\\{", $string);
+    $string = str_replace("}", "\\}", $string);
+    $string = str_replace("^", "\\textasciicircum{}", $string);
+    $string = str_replace("~", "\\textasciitilde{}", $string);
+    $string = str_replace("\\", "\\textbackslash{}", $string);
+
+    return $string;
+
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
 
     # Build POST request:
@@ -48,10 +66,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     # Translating inputted ranks to the rank ids used in the webpage
     $rank_ids = array(
       '教授' => 'professor', 
+      'Professor' => 'professor', 
       '准教授' => 'associate_professor', 
+      'Associate Professor' => 'associate_professor', 
       '講師' => 'lecturer', 
+      'Lecturer' => 'lecturer', 
       '助教' => 'assistant_professor', 
+      'Assistant Professor' => 'assistant_professor', 
       '研究員' => 'postdoc', 
+      'Postdoc' => 'postdoc', 
+      '博士課程研究生' => 'postdoc_student', 
+      'Postdoctoral Student' => 'postdoc_student', 
       'D6' => 'd6', 
       'D5' => 'd5', 
       'D4' => 'd4', 
@@ -59,11 +84,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
       'D2' => 'd2', 
       'D1' => 'd1', 
       '研究生' => 'research_student', 
+      'Research Student' => 'research_student', 
       'M3' => 'm3', 
       'M2' => 'm2', 
       'M1' => 'm1', 
       'Y4' => 'y4', 
       '事務補助' => 'admin_assistant', 
+      'Administrative Assistant' => 'admin_assistant', 
     );
 
     # Email username
@@ -84,8 +111,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $pos = preg_match('/^[DMY][0-5]/', $iry) ? $iry : "";
     $pos = preg_match('/研究生/u', $iry) ? "研究生" : $pos;
 
+    # Replace underscores in emails (assume this is the only special character in email addresses)
+    $ie1 = str_replace("_", "\\_", $ie1);
+    $ie2 = str_replace("_", "\\_", $ie2);
+
+    # TODO: Test whether replacements are working
+    # Replace latex characters that need escaping in address
+    $ia = escape_all_latex_special_chars($ia);
+
+    # TODO: make English and Japanese yamllines. 
+    # TODO: Add - lang: ja  and - lang: en to the yamllines. 
+
     # Construct latex lines and yaml lines
-    $latexlines = "$iln $ifn \small{ $pos } & 〒$ip $ia & $it1 $fst4 $it4 \\\\\r\n$ilnr $ifnr & \\texttt{ $ie1 } $fse2 \\texttt{ $ie2 } & $it2 \\\\";
+    $latexlines = "$iln $ifn \\small{ $pos } & 〒$ip $ia & $it1 $fst4 $it4 \\\\\r\n$ilnr $ifnr & \\texttt{ $ie1 } $fse2 \\texttt{ $ie2 } & $it2 \\\\";
     $yamllines = "---\r\nname: $iln $ifn\r\nname: $ifnr $ilnr\r\nemail: $uname\r\ntel: $it3\r\nposition: $rank_ids[$iry]\r\nhomepage: \"$ih\"\r\nresearch: $ir\r\n---";
 
     # Fix spaces in curly braces
