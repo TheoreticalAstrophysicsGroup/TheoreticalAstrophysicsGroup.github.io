@@ -77,7 +77,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
       'Postdoc' => 'postdoc', 
       '博士課程研究生' => 'postdoc_student', 
       'Postdoctoral Student' => 'postdoc_student', 
-      'D6' => 'd6', 
       'D5' => 'd5', 
       'D4' => 'd4', 
       'D3' => 'd3', 
