@@ -6,7 +6,7 @@ This is the Jekyll-powered webpage repo for the Theoretical Astrophysics Group (
 
 The webpage is meant to give an overview of the members, research, and activities of the group.
 
-The site is almost entirely bilingual (English and Japanese), and the language can be switched (top right menu, or collapsible menu for portable devices) whilst staying on the same page (that is, the corresponding change in the other language is loaded).
+The site is almost entirely bilingual (English and Japanese), and the language can be switched (top right menu, or collapsible menu for portable devices) whilst staying on the same page (that is, the corresponding page in the other language is loaded).
 
 The design of the site is based on the [OpenMind](https://wrapbootstrap.com/theme/open-mind-customizable-template-WB0410L74) Bootstrap 4 template by AGM studio.
 
@@ -37,7 +37,7 @@ Member information are stored as Jekyll `collections`. Information of members ca
 
 ## Contact form
 
-The contact form sends an email to `astro.ccs.tsukuba@gmail.com`, to which the webadmin has access to.
+The contact form sends an email to `astro.ccs.tsukuba@gmail.com`, to which the webadmin has access.
 
 ## Calendar
 
