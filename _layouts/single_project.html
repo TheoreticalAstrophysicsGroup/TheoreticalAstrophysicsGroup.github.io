@@ -16,11 +16,11 @@ layout: default
     <div class="col-md-4 hidden-md hidden-lg">
       <aside class="sidebar">
 
-      {% include aside_proj.html %}
+        {% include aside_proj.html %}
 
-      <br/>
+        <br />
 
-      {% include aside_pills_single_proj.html %}
+        {% include aside_pills_single_proj.html %}
 
       </aside>
     </div> <!-- col -->
@@ -29,11 +29,11 @@ layout: default
     <div class="col-md-8">
       <section>
 
-      <!-- Language dependent surrounds -->
-      <!-- This creates open_surround and close_surround variables into the namespace -->
-      {% include lang_surround.html shape='round' %}
+        <!-- Language dependent surrounds -->
+        <!-- This creates open_surround and close_surround variables into the namespace -->
+        {% include lang_surround.html shape='round' %}
 
-      <h2 class="post-title">{{ page.title }}</h2>
+        <h2 class="post-title">{{ page.title }}</h2>
         <!-- AYW 2014-06-23 13:30 JST Some tips for content
              - Use <strong></strong> for emphasis,
              - <p></p>, <p class="lead"></p> for leading text, 
@@ -41,8 +41,15 @@ layout: default
              - Put all images in img and use: <img src="img/7.jpg" class="img-responsive imageborder" alt="Image"> 
         -->
 
-        <br/>
+        {% if page.img_banner %}
+          <img src="{{ site.baseurl }}{{ la.img_projects }}/{{ page.img_banner }}" class="img-responsive" alt="Image" />
+        <br />
+        {% endif %}
 
+        <!-- 
+        # TODO: !! This needs to be changed if markdown is used !!
+        #   See: https://stackoverflow.com/questions/27694610/how-can-i-split-a-string-by-newline-in-shopify
+        -->
         {% assign content_array = content | split: '<p>' %}
         {% assign nc = content_array | size %}
         {% assign ni = page.img | size %}
@@ -51,57 +58,103 @@ layout: default
         {% else %} {% assign ncpni = nc %}
         {% endif %}
 
-        <img src="{{ site.baseurl }}{{ la.img }}/{{ page.img[0] }}" class="img-responsive" alt="Image" />
-
-        {% assign iimg = 1 %}
+        {% assign iimg = 0 %}
 
         {% for c in content_array %}
 
-        <p>{{ c }}
-          
-          {% if ncpni < 1  %}
+        <!-- When things are in markdown, might need closing </p> -->
+          <p>{{ c }}
 
-            {% assign ncpni = ncpni | times: 2 %}
+            {% if ncpni < 1  %}
 
-            {% assign iimg1 = forloop.index | times: 2 | minus: 1 %}
-            {% assign iimg2 = forloop.index | times: 2 %}
-            {% assign img1 = page.img[iimg1] %}
-            {% assign img2 = page.img[iimg2] %}
+              {% assign iimg1 = forloop.index | times: 2 | minus: 2 %}
+              {% assign iimg2 = forloop.index | times: 2 | minus: 1 %}
 
-            {% if img1 %} <img src="{{ site.baseurl }}{{ la.img }}/{{ img1 }}" class="im-responsive alignleft" alt="Image" style="max-width: 25em" /> {% endif %}
-            {% if img2 %} <img src="{{ site.baseurl }}{{ la.img }}/{{ img2 }}" class="im-responsive alignright" alt="Image" style="max-width: 25em" /> {% endif %}
+              {% assign iimgs = {{ iimg1 }}::{{ iimg2 }} | split: '::' %}
+              {% for iimg in (iimg1..iimg2) %}
 
-          {% else %}
+                {% assign img = page.img[iimg] %} 
+                {% if img %} 
 
-            {% assign mfi = iimg | modulo: 2 %}
-            {% if mfi == 1 %}
-              {% assign imgclass = 'img-responsive alignright' %}
-              {% assign imgstyle = 'max-width: 30em; ' %}
-            {% else %} 
-              {% assign imgclass = 'img-responsive alignleft' %}
-              {% assign imgstyle = 'max-width: 30em; ' %}
-            {% endif %}
+              <!--
+                # TODO: Refactor some of this for use in all posts
+                # TODO: Standardize the use of terms images (img) and photos. Photos should be in a gallery and images should flow with text.
+                # TODO: Standardize the way refs are presented. Probably already similar everywhere, but check.
+                -->
 
-            {% assign fimodiimg = forloop.index | modulo: ncpni %}
-            {% if fimodiimg == 0 and page.img[iimg] %}
-            <img src="{{ site.baseurl }}{{ la.img }}/{{ page.img[iimg] }}" class="{{ imgclass }}" alt="Image" style="{{ imgstyle }}"/>
-            {% assign iimg = iimg | plus: 1 %}
-            {% endif %}
+                  {% if img.width %} {% assign imw = img.width %} {% else %} {% assign imw = 6 %} {% endif %}
+                  <div class="col-sm-{{ imw }}">
+                  {% if img.caption %}
+                    <div class="panel panel-default">
+                      <div class="panel-body">
+                        {% endif %}
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <img src="{{ site.baseurl }}{{ la.img_projects }}/{{ img.file }}" class="img-responsive" alt="Image" /> 
+                            {% if img.caption %} <p><b>{{ tpl.fig }} {{ iimg | plus: 1 }}</b> &nbsp;{{ img.caption }}</p> {% endif %}
+                          </div>
+                        </div>
+                        {% if img.caption %}
+                      </div>
+                    </div>
+                  {% endif %}
+                  </div>
 
-          {% endif %}
+                {% endif %}
 
-        {% endfor %}
+              {% endfor %}
 
-      <br/>
+              {% assign iimg = iimg | plus: 2 %}
 
-      <!-- {% raw %}
+            {% else %}
+
+              {% assign img = page.img[iimg] %} 
+
+              {% assign mfi = iimg | modulo: 2 %}
+              {% if mfi == 1 %} {% assign align = 'alignright' %}
+              {% else %} {% assign align = 'alignleft' %}
+              {% endif %}
+
+              {% assign fimodiimg = forloop.index | modulo: ncpni %}
+              {% if fimodiimg == 0 and img %}
+
+                {% if img.width %} {% assign imw = img.width %} {% else %} {% assign imw = 6 %} {% endif %}
+                <div class="col-sm-{{ imw }} {{ align }}">
+                  {% if img.caption %}
+                  <div class="panel panel-default">
+                    <div class="panel-body">
+                      {% endif %}
+                      <div class="row">
+                        <div class="col-lg-12">
+                          <img src="{{ site.baseurl }}{{ la.img_projects }}/{{ img.file }}" class="img-responsive"
+                            alt="Image" />
+                          {% if img.caption %} <p><b>{{ tpl.fig }} {{ iimg | plus: 1 }}</b> &nbsp;{{ img.caption }}</p> {% endif %}
+                        </div>
+                      </div>
+                      {% if img.caption %}
+                    </div>
+                  </div>
+                  {% endif %}
+                </div>
+
+              {% assign iimg = iimg | plus: 1 %}
+
+              {% endif %}
+
+            {% endif %} 
+
+          {% endfor %}
+
+          <br />
+
+          <!-- {% raw %}
       {% if page.photos %}
       <h4 id="photos"> {{ tnl.photos }} </h4>
       <div id="Grid" class="row">
         {% for photo in page.photos %}
         <div class="col-sm-6 col-lg-3 col-md-4">
-          <a href="{{ site.baseurl }}{{ la.img }}/{{ photo.img }}" class="thumbnail margin-bottom-20" data-lightbox="w1" title="{{ photo.caption }}">
-            <img src="{{ site.baseurl }}{{ la.img }}/{{ photo.img }}" class="img-responsive" alt="Image">
+          <a href="{{ site.baseurl }}{{ la.img_projects }}/{{ photo.img }}" class="thumbnail margin-bottom-20" data-lightbox="w1" title="{{ photo.caption }}">
+            <img src="{{ site.baseurl }}{{ la.img_projects }}/{{ photo.img }}" class="img-responsive" alt="Image">
           </a>
         </div>
         {% endfor %}
@@ -109,18 +162,22 @@ layout: default
       {% endif %}
       {% endraw %} -->
 
-      <br/>
+          <br />
 
-      {% if page.refs %}
-      <h4>{{ tpl.refs }}</h4>
-      <ol>
-        {% for ref in page.refs %}
-        {% assign targ = ref.link | truncate: 4, "" %}
-        {% assign chr1 = targ | truncate: 1, "" %}
-        <li id="ref{{ forloop.index }}"><a href="{% unless targ == "http" %}{{ site.baseurl }}{{ la.doc }}/{% endunless %}{{ ref.link }}" {% if targ == "http" %} target="_blank" {% endif %}>{{ ref.name }}</a> {% if targ == "http" %}{% unless chr1 == "/" %} <i class="fa fa-external-link"></i>{% endunless%}{% endif %}</li>
-        {% endfor %}
-      </ol>
-      {% endif %}
+          {% if page.refs %}
+          <h4>{{ tpl.refs }}</h4>
+          <ol>
+            {% for ref in page.refs %}
+            {% assign targ = ref.link | truncate: 4, "" %}
+            {% assign chr1 = targ | truncate: 1, "" %}
+            <li id="ref{{ forloop.index }}"><a
+                href="{% unless targ == "http" %}{{ site.baseurl }}{{ la.doc_projects }}/{% endunless %}{{ ref.link }}"
+                {% if targ == "http" %} target="_blank" {% endif %}>{{ ref.name }}</a>
+              {% if targ == "http" %}{% unless chr1 == "/" %} <i
+                class="fa fa-external-link"></i>{% endunless%}{% endif %}</li>
+            {% endfor %}
+          </ol>
+          {% endif %}
 
       </section>
 
@@ -134,14 +191,14 @@ layout: default
 
         {% include aside_proj.html %}
 
-        <br/>
+        <br />
 
         {% unless page.web %}
-          {% include aside_pills_single_proj.html %}
+        {% include aside_pills_single_proj.html %}
         {% endunless %}
 
-        <br/>
-        <br/>
+        <br />
+        <br />
 
       </aside>
     </div> <!-- col -->
@@ -159,5 +216,3 @@ layout: default
 
   </div> <!-- row -->
 </div> <!-- container  -->
-
-

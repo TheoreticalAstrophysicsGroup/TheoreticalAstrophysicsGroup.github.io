@@ -373,6 +373,9 @@ blockquote.pull-right {
 .panel-default .panel-title {
   color: #000;
 }
+.panel-default img:first-of-type {
+  border: solid 1px #ddd;
+}
 .panel-primary {
   border-color: #00708c;
 }

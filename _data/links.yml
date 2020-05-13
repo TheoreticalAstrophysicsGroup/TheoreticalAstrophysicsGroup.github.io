@@ -94,10 +94,12 @@ assets:
   img_people: /assets/img/people
   img_events: /assets/img/events
   img_albums: /assets/img/albums
+  img_projects: /assets/img/projects
   css: /assets/css
   js: /assets/js
   fonts: /assets/fonts
   doc: /assets/doc
+  doc_projects: /assets/doc/projects
   doc_achievements: /assets/doc/achievements
   tipuesearch: /assets/tipuesearch
 
