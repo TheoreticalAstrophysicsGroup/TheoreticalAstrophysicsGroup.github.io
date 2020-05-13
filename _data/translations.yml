@@ -590,6 +590,7 @@ post_gen:
     full_index: 全投稿一覧
     refs: 参考文献・リンク
     pdf_download: PDF版ダウンロード
+    fig: 図
   en:
     categories: Categories
     archive: Archives
@@ -605,6 +606,7 @@ post_gen:
     full_index: Full Index
     refs: References
     pdf_download: Download PDF
+    fig: Fig.
 
 
 # Post specific translations
