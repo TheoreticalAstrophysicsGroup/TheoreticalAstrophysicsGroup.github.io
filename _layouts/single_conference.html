@@ -150,24 +150,26 @@ layout: default
         {% assign files_loc_base = files_loc_base | append: '/' | append: page.files_loc %}
       {% endif %}
 
-      {% if page.info_download %}
-      {% assign pid = page.info_download %}
-      <p><a href="{{ files_loc_base }}/{{ pid.link }}">{{ pid.text }}</a></p>
-      {% endif %}
-
       {% if page.registration_message %}
       <h3 id="registration"> {{ tcl.registration }} </h3>
+      {% if page.registration_link %}
       <p><a href="{{ page.registration_link }}">{{ tcl.registration_link_text }} </a></p>
+      {% endif %}
       <p>{{ page.registration_message }}</p>
       {% endif %}
 
-      {% if page.program or page.program_download %}
+      {% if page.program or page.program_download or page.info_download %}
       <h3 id="program"> {{ tcl.program }} </h3>
       {% endif %}
 
       {% if page.program_download %}
       {% assign ppd = page.program_download %}
       <p><a href="{{ files_loc_base }}/{{ ppd.link }}">{{ ppd.text }}</a></p>
+      {% endif %}
+
+      {% if page.info_download %}
+      {% assign pid = page.info_download %}
+      <p><a href="{{ files_loc_base }}/{{ pid.link }}">{{ pid.text }}</a></p>
       {% endif %}
 
 
@@ -206,9 +208,9 @@ layout: default
       <h3 id="upload"> {{ tcl.upload }} </h3>
       {% assign pu = page.upload %}
       <p>{{ pu.text }}</p>
-      {% if pu.type == "dbinbox" %}
-      <a href="https://dbinbox.com/{{ pu.link }}" class="dbinbox">Upload Files through dbinbox.com</a>
-      <script type="text/javascript" src="https://dbinbox.com/embed.js"></script>
+      {% if pu.type == "fileinbox" %}
+      <a href="https://fileinbox.com/{{ pu.link }}" class="fileinbox">Upload Files through dbinbox.com</a>
+      <script type="text/javascript" src="https://fileinbox.com/embed.js"></script>
       {% endif %}
       {% endif %}
 
