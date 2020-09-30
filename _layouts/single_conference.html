@@ -158,8 +158,16 @@ layout: default
       <p>{{ page.registration_message }}</p>
       {% endif %}
 
-      {% if page.program or page.program_download or page.info_download %}
+      {% if page.program or page.program_download or page.info_download or page.contribution_types %}
       <h3 id="program"> {{ tcl.program }} </h3>
+      {% endif %}
+
+      {% if page.contribution_types %}
+      <ul>
+      {% for type in page.contribution_types %}
+      <li>{{type.type}}{{colon}}{{type.talk}} {{tcl.min}} + {{type.disc}} {{tcl.min}}</li>
+      {% endfor %}
+      </ul>
       {% endif %}
 
       {% if page.program_download %}

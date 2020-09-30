@@ -683,6 +683,7 @@ conferences:
     wikipage: 研究会ウィキ
     top: トップ
     full_part: 全参加者一覧
+    min: 分
     program: プログラム
     dinner: 懇親会
     lunch: 昼食
@@ -728,6 +729,7 @@ conferences:
     wikipage: Conference Wiki
     top: Top
     full_part: Full list of participants
+    min: min
     program: Program
     dinner: Conference Dinner
     lunch: Lunch
