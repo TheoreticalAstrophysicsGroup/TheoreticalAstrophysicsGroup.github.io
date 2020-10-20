@@ -140,7 +140,7 @@ layout: default
       <h3 id="important_dates"> {{ tcl.important_dates }} </h3>
       <ol>
         {% for impd in page.important_dates %}
-        <li>{% include date.html d=impd.date l='m' %}{{ colon }}{{ impd.note }}</li>
+        <li>{% include date.html d=impd.date l='m' %}{% if impd.time %}{{ impd.time | remove: "!" }}{% endif %}{{ colon }}{{ impd.note }}</li>
         {% endfor %}
       </ol>
       {% endif %}
@@ -186,22 +186,41 @@ layout: default
 
       {% include lang_count.html number=pitem.day %}
 
-      <h4>{{ pitem.day }}{{ lang_count }} {{ tcl.day }}{{ open_surround }}{% include date.html d=pitem.date l='M' %}{{ close_surround }}</h4>
+      <h4>{{ pitem.day }}{{ lang_count }} {{ tcl.day }}{{ open_bra }}{% include date.html d=pitem.date l='M' %}{{ close_bra }}</h4>
       {% for session in pitem.sessions %}
+      {% if session.chair %}
+        {% assign nsessions = session.chair | size %}
+        {% if nsessions > 1 %}
+          {% assign chairs = "" %}
+          {% for chair in session.chair %}
+            {% capture chairs %}{{ chairs | append: chair | append: "|" }}{% endcapture %}
+          {% endfor %}
+        {% else %}
+          {% assign chairs = session.chair[0] %}
+        {% endif %}
+      {% endif %}
       <table class="table table-striped">
       <thead>
         <tr>
-          <th>{% if session.from %}{{ session.from }}{% endif %}{% if session.to %} ~ {{ session.to }}{% endif %}</th>
+          <th>{% if session.from %}{{ session.from | remove: "!" }}{% endif %}{% if session.to %} ~ {{ session.to | remove: "!" }}{% endif %}</th>
           <th>{% if session.title %}{{ session.title }}{% endif %}</th>
-          <th>{% if session.chair %}{{ tcl.chair }}: {{ session.chair }}{% elsif session.emcee %}{{ tcl.emcee }}: {{ session.emcee }}{% endif %}{% if session.affil %}{{ open_surround }}{{ session.affil }}{{ close_surround }}{% endif %}</th>
+          <th>{% if session.chair %}{{ tcl.chair }}: {{ chairs | split: "|" | join: ", " }}{% elsif session.emcee %}{{ tcl.emcee }}: {{ session.emcee }}{% endif %}{% if session.affil %}{{ open_bra }}{{ session.affil }}{{ close_bra }}{% endif %}</th>
         </tr>
       </thead>
       <tbody>
       {% for contrib in session.contributions %}
+      {% if page.show_positions and contrib.position %}
+          {% assign first_letter = contrib.position | slice: 0 %}
+          {% if first_letter == "M" or first_letter == "B" or first_letter == "D" %} 
+            {% assign position = contrib.position %}
+          {% else %}
+            {% assign position = false %}
+          {% endif %}
+      {% endif %}
         <tr>
-          <td>{% if contrib.from %}{{ contrib.from }}{% endif %}{% if contrib.to %} ~ {{ contrib.to }}{% endif %}</td>
+          <td>{% if contrib.from %}{{ contrib.from | remove: "!" }}{% endif %}{% if contrib.to %} ~ {{ contrib.to | remove: "!" }}{% endif %}</td>
           <td>{{ contrib.title }}{% if contrib.pdf %}<span class="pull-right">&nbsp;<a href="{{ files_loc_base }}/{{ contrib.pdf }}"><i class="fa fa-file-pdf-o"></i></a></span>{% endif %}</td>
-          <td>{% if contrib.speaker %}{{ contrib.speaker }}{% endif %}{% if contrib.affil %}{{ open_surround }}{{ contrib.affil }}{{ close_surround }}{% endif %}</td>
+          <td>{% if contrib.speaker %}{{ contrib.speaker }}{% endif %}{% if contrib.affil or contrib.position %}{{ open_bra }}{{ contrib.affil }}{% if page.show_positions and position %}, {{ position }}{% endif %}{{ close_bra }}{% endif %}</td>
         </tr>
       {% endfor %}
       </tbody>
