@@ -1,0 +1,24 @@
+---
+title: Extracting information from emission line intensity maps using deep learning
+speaker: Moriwaki Kana
+affil: University of Tokyo
+webpage: "https://sites.google.com/view/kanamoriwaki/"
+date: 2020-12-09
+time: "13:30" # Must use quotes
+place: Online
+host: 久野 成男
+lang: en
+tags: [cosmology, large scale structure, machine learning]
+#pdf: 
+img_thumb: Moriwaki.jpg
+img:
+  - uchu-forum-2020-12-09.jpg
+categories:
+  - uchu_forum
+  - en
+---
+
+Observations of large-scale structures in the universe can place constraints on the theories of cosmology, galaxy formation, and reionization. A relatively new observation method called emission line intensity mapping can reveal the three-dimensional distribution of galaxies and intergalactic gas over a wide area by analyzing the spatial fluctuations in emission lines and absorption line intensities. For example, NASA's SPHEREx telescope, which is scheduled to be launched in 2023, observes the distribution of emission line galaxies at z = 0-6 over 200 square degrees. However, in such observations, there is the problem of emission lines crowding in certain wavelength ranges, and separation of these is complicated. Statistical separation methods such as the use of cross-correlation have been considered, but a map-based method for separating signals has not yet been constructed.
+
+To solve this problem, we propose a method of information separation using machine learning. In particular, among the convolutional neural networks suitable for image analysis, the generative adversarial network (GAN) proposed in 2016 is used. It is generally known that GAN can deal with more complicated images than conventional neural networks because learning proceeds with the image generation network and the discriminator network are competing against each other. In this study, we generated a simulated observation map for SPHEREx using a halo catalog generation algorithm based on the quadratic Lagrangian perturbation theory. As a result, it was found that our network can properly reconstruct the peak position and power spectrum of a specific emission line map.
+
