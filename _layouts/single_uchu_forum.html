@@ -34,7 +34,12 @@ layout: default
       <p class="lead">{{ tul.count_pre }}{{ npost }}<sup>{{ lang_count }}</sup>{{ tul.count_aft }}{% if page.part %}{{ open_surround }}{{ tul.part }}{{ page.part }}{{ close_surround }}{% endif %}</p>
 
       {% if page.img_thumb %}
-      {% unless page.img_thumb contains 'no_thumb' %}
+      <!-- Only show an image here if it is a profile picture 
+           This assumes that the thumbnail pics have same file base name as main image 
+           Also assumes that if a thumbnail exists, then a main image also exists.
+      -->
+      {% assign page_img_fname = page.img[0] | remove: '.png' | remove: '.jpg' %}
+      {% unless page.img_thumb contains page_img_fname %}
       <img src="{{ site.baseurl }}{{ la.img }}/{{ page.img_thumb }}" width="170px" style="margin-left:20px;" class="img-responsive pull-right" alt="Image">
       {% endunless %}
       {% endif %}
