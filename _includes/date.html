@@ -13,14 +13,16 @@
 
 {% assign jyr = cyr | minus: 1988 %}
 
+<!-- If academic year -->
 {% if l == 'a' %}
   {% if mon_num < 4 %}
     {% assign jyr = jyr | minus: 1 %}
   {% endif %}
 {% endif %}
 
+<!-- Japanese gengou: Heisei, Reiwa. -->
 {% assign gengou = '平成' %}
-{% if jyr > 30 and mon_num > 4 %}
+{% if jyr > 30 and mon_num > 4 or jyr > 31 %}
   {% assign gengou = '令和' %}
   {% assign jyr = jyr | minus: 30 %}
 {% endif %}
