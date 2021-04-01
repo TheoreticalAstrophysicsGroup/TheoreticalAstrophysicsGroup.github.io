@@ -153,7 +153,7 @@ layout: default
       {% if page.registration_message %}
       <h3 id="registration"> {{ tcl.registration }} </h3>
       {% if page.registration_link %}
-      <p><a href="{{ page.registration_link }}">{{ tcl.registration_link_text }} </a></p>
+      <p><a href="{{ page.registration_link }}" target="_blank">{{ tcl.registration_link_text }} </a></p>
       {% endif %}
       <p>{{ page.registration_message }}</p>
       {% endif %}
@@ -172,12 +172,12 @@ layout: default
 
       {% if page.program_download %}
       {% assign ppd = page.program_download %}
-      <p><a href="{{ files_loc_base }}/{{ ppd.link }}">{{ ppd.text }}</a></p>
+      <p><a href="{{ files_loc_base }}/{{ ppd.link }}" target="_blank">{{ ppd.text }}</a></p>
       {% endif %}
 
       {% if page.info_download %}
       {% assign pid = page.info_download %}
-      <p><a href="{{ files_loc_base }}/{{ pid.link }}">{{ pid.text }}</a></p>
+      <p><a href="{{ files_loc_base }}/{{ pid.link }}" target="_blank">{{ pid.text }}</a></p>
       {% endif %}
 
 
@@ -219,7 +219,7 @@ layout: default
       {% endif %}
         <tr>
           <td>{% if contrib.from %}{{ contrib.from | remove: "!" }}{% endif %}{% if contrib.to %} ~ {{ contrib.to | remove: "!" }}{% endif %}</td>
-          <td>{{ contrib.title }}{% if contrib.pdf %}<span class="pull-right">&nbsp;<a href="{{ files_loc_base }}/{{ contrib.pdf }}"><i class="fa fa-file-pdf-o"></i></a></span>{% endif %}</td>
+          <td>{{ contrib.title }}{% if contrib.pdf %}<span class="pull-right">&nbsp;<a href="{{ files_loc_base }}/{{ contrib.pdf }}" target="_blank"><i class="fa fa-file-pdf-o"></i></a></span>{% endif %}</td>
           <td>{% if contrib.speaker %}{{ contrib.speaker }}{% endif %}{% if contrib.affil or contrib.position %}{{ open_bra }}{{ contrib.affil }}{% if page.show_positions and position %}, {{ position }}{% endif %}{{ close_bra }}{% endif %}</td>
         </tr>
       {% endfor %}

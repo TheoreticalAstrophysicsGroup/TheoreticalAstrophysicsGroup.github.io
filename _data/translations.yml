@@ -683,6 +683,7 @@ conferences:
     other_info: その他の情報
     webpage: 研究会ウェブページ
     wikipage: 研究会ウィキ
+    open_to: 参加
     top: トップ
     full_part: 全参加者一覧
     min: 分
@@ -729,6 +730,7 @@ conferences:
     other_info: Other Information
     webpage: Conference Webpage
     wikipage: Conference Wiki
+    open_to: Open to
     top: Top
     full_part: Full list of participants
     min: min
