@@ -135,19 +135,12 @@ layout: default
           {% assign last_post = site.posts | where: 'lang', page.lang | first %}
           {% assign last_post_url = last_post.url | prepend: site.baseurl %}
           {% if last_post.img %}
-          <!-- Sometimes image file entries are lists, e.g., projects -->
-          {% if last_post.img[0].file %}
-          {% assign imfile = last_post.img[0].file %}
-          {% else %}
-          {% assign imfile = last_post.img[0] %}
-          {% endif %}
-          <!-- -->
           {% if last_post.categories[0] == 'achievements' %}
-          {% assign imdir = 'achievements/' %}
-          {% else %}  
-          {% assign imdir = '' %}
+          {% assign subdir = 'achievements/' %}
+          {% else %
+          {% assign subdir = '' %}
           {% endif %}
-          <a href="{{ last_post_url }}" class="thumbnail"><img src="{{ site.baseurl }}{{ la.img }}/{{ imdir }}{{ last_post.img[0] }}" class="img-responsive" alt="Image"></a>
+          <a href="{{ last_post_url }}" class="thumbnail"><img src="{{ site.baseurl }}{{ la.img }}/{{ subdir }}{{ last_post.img[0] }}" class="img-responsive" alt="Image"></a>
           {% endif %}
           <h2 class="home-post-title"><a href="{{ last_post_url }}">{{ last_post.title }}</a></h2>
           {% if last_post.speaker %}

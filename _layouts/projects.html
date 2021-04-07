@@ -58,16 +58,14 @@ layout: default
       <h3 id="astro" class="section-title">{{ tprl.astro }}</h3>
       {% assign at_least_one = false %}
 
-      <!-- Items shown if they are within from and to -->
-      {% assign age_1day = 86400 %}
       <!-- a day in unix time -->
+      {% assign age_1day = 86400 %}
 
       {% assign projects = site.categories['astro']  | where: 'lang', page.lang %}
       {% for post in projects %}
 
       <!-- Compare using unix time -->
       <!-- Add a day to the to date because unix time starts at 9:00 -->
-      {% assign cfrom = post.from | date: "%s"| times: 1 %}
       {% assign cto = post.to | date: "%s" | plus: age_1day %}
       {% assign cdate = site.time | date: "%s" | times: 1 %}
 
@@ -134,7 +132,6 @@ layout: default
 
       <!-- Compare using unix time -->
       <!-- Add a day to the to date because unix time starts at 9:00 -->
-      {% assign cfrom = post.from | date: "%s"| times: 1 %}
       {% assign cto = post.to | date: "%s" | plus: age_1day %}
       {% assign cdate = site.time | date: "%s" | times: 1 %}
 
@@ -195,14 +192,13 @@ layout: default
       <h3 id="dev" class="section-title">{{ tprl.dev }}</h3>
       {% assign at_least_one = false %}
 
-      {% assign age_1day = 86400 %}
       <!-- a day in unix time -->
+      {% assign age_1day = 86400 %}
 
       {% assign projects = site.categories['dev']  | where: 'lang', page.lang %}
       {% for post in projects %}
 
       <!-- Compare using unix time -->
-      {% assign cfrom = post.from | date: "%s"| times: 1 %}
       {% assign cto = post.to | date: "%s" | plus: age_1day %}
       {% assign cdate = site.time | date: "%s" | times: 1 %}
 
@@ -264,19 +260,15 @@ layout: default
       <h3 id="cab" class="section-title">{{ tprl.cab }}</h3>
       {% assign at_least_one = false %}
 
-      <!-- Items shown if they are less than one year and three months old -->
-      {% assign age_15mo = 39312000 %}
-      <!-- 15 months in unix time-->
-      {% assign age_1day = 86400 %}
       <!-- a day in unix time -->
+      {% assign age_1day = 86400 %}
 
       {% assign projects = site.categories['cab']  | where: 'lang', page.lang %}
       {% for post in projects %}
 
       <!-- Compare using unix time -->
-      {% assign cfrom = post.from | date: "%s"| times: 1 %}
       {% assign cto = post.to | date: "%s" | plus: age_1day %}
-      {% assign cdate = site.time | date: "%s" | minus: age_15mo %}
+      {% assign cdate = site.time | date: "%s" | times: 1 %}
 
       {% if cto > cdate %}
 
@@ -337,19 +329,15 @@ layout: default
       <h3 id="med" class="section-title">{{ tprl.med }}</h3>
       {% assign at_least_one = false %}
 
-      <!-- Items shown if they are less than one year and three months old -->
-      {% assign age_15mo = 39312000 %}
-      <!-- 15 months in unix time-->
-      {% assign age_1day = 86400 %}
       <!-- a day in unix time -->
+      {% assign age_1day = 86400 %}
 
       {% assign projects = site.categories['med']  | where: 'lang', page.lang %}
       {% for post in projects %}
 
       <!-- Compare using unix time -->
-      {% assign cfrom = post.from | date: "%s"| times: 1 %}
       {% assign cto = post.to | date: "%s" | plus: age_1day %}
-      {% assign cdate = site.time | date: "%s" | minus: age_15mo %}
+      {% assign cdate = site.time | date: "%s" | times: 1 %}
 
       {% if cto > cdate %}
 
@@ -411,20 +399,21 @@ layout: default
       {% assign at_least_one = false %}
 
       <!-- Items shown if they are less than one year and three months old -->
-      {% assign age_15mo = 39312000 %}
+
       <!-- 15 months in unix time-->
-      {% assign age_1day = 86400 %}
+      {% assign age_15mo = 39312000 %}
+
       <!-- a day in unix time -->
+      {% assign age_1day = 86400 %}
 
       {% assign projects = site.categories['projects']  | where: 'lang', page.lang %}
       {% for post in projects %}
 
       <!-- Compare using unix time -->
-      {% assign cfrom = post.from | date: "%s"| times: 1 %}
       {% assign cto = post.to | date: "%s" | plus: age_1day %}
       {% assign cdate = site.time | date: "%s" | minus: age_15mo %}
 
-      {% if cto < cdate %}
+      {% if cto > cdate %}
 
       {% assign delay_add = forloop.index | mod: posts_per_page | times: 3 %}
       {% assign delay = 8 | plus: delay_add %}

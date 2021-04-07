@@ -96,7 +96,7 @@ layout: default
             <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a></h3>
             <div class="row">
               <div class="col-lg-6">
-                <img src="{{ site.baseurl }}{{ la.img }}/{% if post.img %}{{ post.img[0] }}{% else %}no_img.jpg{% endif %}" class="img-post img-responsive" alt="Image">
+                <img src="{{ site.baseurl }}{{ la.img }}/{{ post.categories[0] }}/{% if post.img %}{{ post.img[0] }}{% else %}no_img.jpg{% endif %}" class="img-post img-responsive" alt="Image">
               </div>
               <div class="col-lg-6">
                 <h4>{{ post.speaker }}</h4>
@@ -169,7 +169,7 @@ layout: default
           <div class="media">
             <span class="pull-left">
               <span class="badge">{{ tul.count_pre }}{{ npost }}<sup>{{ lang_count }}</sup>{{ tul.count_aft }}{% if post.part %}{{ open_surround }}{{ tul.part }}{{ post.part }}{{ close_surround }}{% endif %}</span><br /><br />
-            {% if post.img_thumb %}<img src="{{ site.baseurl }}{{ la.img }}/{{ post.img_thumb }}" class="pull-left media-object" alt="Image" width="150px" height="150px">{% endif %}</span>
+              {% if post.img_thumb %}<img src="{{ site.baseurl }}{{ la.img }}/{{ post.cagetories[0] }}/{{ post.img_thumb }}" class="pull-left media-object" alt="Image" width="150px" height="150px">{% endif %}</span>
             <div class="media-body">
               <h3 class="media-heading">{{ post.title }}</h3>
               <h4 class="media-heading">{{ post.speaker }}</h4>
