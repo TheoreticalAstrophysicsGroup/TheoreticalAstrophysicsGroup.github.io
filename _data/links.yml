@@ -90,6 +90,7 @@ internal:
   #astro_internal: &astro_internal /astro_internal # previously Astro-Internal
 
 
+# TODO: category assets links should be automatic.
 # Internal links
 assets:
   img: /assets/img

@@ -136,8 +136,16 @@ layout: default
       <section class="home-post">
       {% assign last_post = site.posts | where: 'lang', page.lang | first %}
       {% assign last_post_url = last_post.url | prepend: site.baseurl %}
+      {% assign imdir = last_post.categories[0] %}
       {% if last_post.img %}
-      <a href="{{ last_post_url }}" class="thumbnail"><img src="{{ site.baseurl }}{{ la.img }}/{{ last_post.img[0] }}" class="img-responsive" alt="Image"></a>
+      <!-- Sometimes image file entries are lists, e.g., projects -->
+      {% if last_post.img[0].file %}
+      {% assign imfile = last_post.img[0].file %}
+      {% else %}
+      {% assign imfile = last_post.img[0] %}
+      {% endif %}
+      <!-- -->
+      <a href="{{ last_post_url }}" class="thumbnail"><img src="{{ site.baseurl }}{{ la.img }}/{{ imdir }}/{{ last_post.img[0].file }}" class="img-responsive" alt="Image"></a>
       {% endif %}
       <h2 class="home-post-title"><a href="{{ last_post_url }}">{{ last_post.title }}</a></h2>
       {% if last_post.speaker %}
