@@ -39,7 +39,7 @@ layout: default
             <th>{{ tml.name }}</th>
             <th>{{ tml.position }}</th>
             <th>{{ tml.tel }}</th>
-            <th>{{ tml.email }}</th>
+            <th>{{ tml.email }}<sup>†</sup></th>
             <th>{{ tml.research }}</th>
           </tr>
         </thead>
@@ -89,6 +89,7 @@ layout: default
       </table>
 
       <!-- Footnotes -->
+      <p><sup>†</sup> {{ tml.email_footer }} </p>
       {% if ifn > 0 %}
         {% assign ifn = 0 %}
         {% for footnote in footnotes_array %}

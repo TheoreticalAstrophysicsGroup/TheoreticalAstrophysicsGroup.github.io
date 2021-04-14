@@ -164,6 +164,7 @@ members:
     position: <i class="fa fa-graduation-cap"></i> 職/学年
     tel: <i class="fa fa-phone"></i> 029-853-<i class="fa fa-tablet"></i><i class="fa fa-tablet"></i><i class="fa fa-tablet"></i><i class="fa fa-tablet"></i>
     email: <i class="fa fa-envelope-o"></i> <i class="fa fa-at"></i> ccs.tsukuba.ac.jp
+    email_footer: Y4の場合は @s.tsukuba.ac.jp
     research: <i class="fa fa-rocket"></i> 主な研究テーマ
     alumni: 出身者一覧
     professor: 教授
@@ -244,6 +245,7 @@ members:
     position: <i class="fa fa-graduation-cap"></i> Position
     tel: <i class="fa fa-phone"></i> 029-853-<i class="fa fa-tablet"></i><i class="fa fa-tablet"></i><i class="fa fa-tablet"></i><i class="fa fa-tablet"></i>
     email: <i class="fa fa-envelope-o"></i> @ccs.tsukuba.ac.jp
+    email_footer: For Y4 students, append @s.tsukuba.ac.jp
     research: <i class="fa fa-rocket"></i> Research Interests
     alumni: Past Members (Alumni)
     professor: Professor
