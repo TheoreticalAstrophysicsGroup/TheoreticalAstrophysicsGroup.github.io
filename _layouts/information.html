@@ -11,24 +11,22 @@ layout: default
   <div class="row">
     <div class="col-xs-12">
 
-      <h3 class="post-title">{{ til.current }}</h3>
+      <h3 class="post-title">{{ til.activities }}</h3>
 
       <table class="table table-striped">
         <thead>
           <tr>
-            <th></th>
             <th>{{ til.name }}</th>
-            <th>{{ til.level }}</th>
+            <th>{{ til.participants }}</th>
             <th>{{ til.time }}</th>
             <th>{{ til.about }}</th>
           </tr>
         </thead>
         <tbody>
-          {% for s in page.seminars %}
+          {% for s in page.activities %}
           <tr>
-            <td>{{ forloop.index }}</td>
             <td>{{ s.name }}</td>
-            <td>{{ s.level }}</td>
+            <td>{{ s.participants }}</td>
             <td>{{ s.time }}</td>
             <td>{{ s.about }}</td>
           </tr>
@@ -37,16 +35,40 @@ layout: default
       </table>
       <br/>
 
+      <h3 class="post-title">{{ til.seminars }}</h3>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>{{ til.name }}</th>
+            <th>{{ til.advisor }}</th>
+            <th>{{ til.time }}</th>
+            <th>{{ til.text }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for s in page.seminars %}
+          <tr>
+            <td>{{ forloop.index }}</td>
+            <td>{{ s.name }}</td>
+            <td>{{ s.advisor }}</td>
+            <td>{{ s.time }}</td>
+            <td>{% for t in s.text %}{{ t }}{% if forloop.last == false %}<br />{% endif %}{% endfor %}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <br/>
+
     </div>
   </div>
+
   <div class="row">
     <div class="col-md-7">
       {{ content }}
     </div>
 
-    <div class="col-md-5">
-      <img src="{{ site.baseurl }}{{ la.img }}/{{ page.img[0] }}" alt="" class="imageborder alignright">
-    </div>
     <!-- AYW 2014-07-02 22:56 JST Just kept for reference -->
     <!-- <img src="js/holder.js/200x170" alt="" class="imageborder alignleft"> -->
     <!-- <img src="js/holder.js/200x180/social" alt="" class="imageborder alignright"> -->
