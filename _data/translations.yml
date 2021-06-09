@@ -452,6 +452,7 @@ tags:
   awards: 受賞
   B-mode polarization: Bモード偏光
   black holes: ブラックホール
+  CGM: CGM
   chemodynamics: ケモダイナミックス
   computational fluid dynamics: 計算流体力学
   CIB: 宇宙赤外線背景放射
@@ -499,15 +500,18 @@ tags:
   HST: ハッブル望遠鏡
   Hydra A: Hydra A
   hydrodynamics: 流体力学
+  IGM: 銀河間物質
   inflation: インフレーション
   intergalactic magnetic fields: 銀河間磁場
   IR: 赤外線
+  ISM: 星間物質
   James Webb telescope: ジェームスウェッブ宇宙望遠鏡
   JSPS: 日本学術振興会
   LAE: ライマン・アルファ輝線天体
   large scale structure: 大規模構造
   leisure: 余暇活動
-  Lyman Alpha Blobs: ライマン・アルファブロブ
+  Lyman Alpha Blobs: ライマン・アルファ・ブロブ
+  Lyman Alpha Forest: ライマン・アルファ・フォレスト
   LOFAR: LOFAR
   M-sigma relation: M-σ関係
   M33: M33
