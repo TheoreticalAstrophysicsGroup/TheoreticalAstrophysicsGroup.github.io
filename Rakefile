@@ -56,6 +56,11 @@ namespace :site do
     sh "bundle exec jekyll build --future --drafts --limit_posts #{POSTLIMIT} --profile --config _config_loc.yml"
   end
 
+  desc "Generate the site locally"
+  task :build_ccs do
+    sh "bundle exec jekyll build --future --drafts --limit_posts #{POSTLIMIT} --profile --config _config_ccs.yml"
+  end
+
   desc "Generate the site to be served in xampp"
   task :xampp do
     sh "bundle exec jekyll build --future --drafts --limit_posts #{POSTLIMIT} --incremental --profile --config _config_xampp.yml"
@@ -64,6 +69,11 @@ namespace :site do
   desc "Generate the site and serve locally"
   task :serve do
     sh "bundle exec jekyll serve --trace --future --drafts --limit_posts #{POSTLIMIT} --config _config_loc.yml"
+  end
+
+  desc "Generate the site and serve locally"
+  task :serve_ccs do
+    sh "bundle exec jekyll serve --trace --future --drafts --limit_posts #{POSTLIMIT} --config _config_ccs.yml"
   end
 
   desc "Generate the site, serve locally and watch for changes"
