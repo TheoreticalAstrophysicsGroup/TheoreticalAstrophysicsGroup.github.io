@@ -31,8 +31,10 @@ import re
 import subprocess as sp
 import sys
 import os.path as osp
-import yaml
+from ruamel.yaml import YAML
 
+
+yaml = YAML()
 
 # File basename
 if len(sys.argv) > 0:
@@ -99,7 +101,8 @@ for day in yd['program']:
         fl.writelines([
             '\\subsection*{',  
             session['title'],
-            ' $\quad$ ' + session['from'], ' -- ' + session['to'] if 'to' in session else '',
+            ' $\quad$ ' + session['from'] if 'from' in session else '',
+            ' -- ' + session['to'] if 'to' in session else '',
             ' \\hspace{\\stretch{1}}\\small Chair: ' + session['chair'] if 'chair' in session else '',
             ' \\hspace{\\stretch{1}}\\small MC: ' + session['emcee'] if 'emcee' in session else '',
             '}\n'
@@ -108,7 +111,8 @@ for day in yd['program']:
         for contrib in session['contributions']:
             fl.writelines([
                 '\\item[',
-                contrib['from'], ' -- ' + contrib['to'] if 'to' in contrib else '',
+                contrib['from'] if 'from' in contrib else '',
+                ' -- ' + contrib['to'] if 'to' in contrib else '',
                 ']',
                 ' {\\color{MidnightBlue}' + contrib['speaker'] + '}' if 'speaker' in contrib else '',
                 ' {\\color{MidnightBlue}({\\footnotesize ' + contrib['affil'] + '})}' if 'affil' in contrib else '',
