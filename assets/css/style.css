@@ -17,31 +17,31 @@ Tags: bootsrap, whithe, blue
   font-family: 'Abel';
   font-style: normal;
   font-weight: 400;
-  src: local('Abel Regular'), local('Abel-Regular'), url(http://fonts.gstatic.com/s/abel/v10/MwQ5bhbm2POE2V9BOA.ttf) format('truetype');
+  src: url(http://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BOA.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Lato';
   font-style: italic;
   font-weight: 400;
-  src: local('Lato Italic'), local('Lato-Italic'), url(http://fonts.gstatic.com/s/lato/v16/S6u8w4BMUTPHjxsAXC-v.ttf) format('truetype');
+  src: url(http://fonts.gstatic.com/s/lato/v20/S6u8w4BMUTPHjxsAXC-v.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Lato';
   font-style: normal;
   font-weight: 300;
-  src: local('Lato Light'), local('Lato-Light'), url(http://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh7USSwiPHA.ttf) format('truetype');
+  src: url(http://fonts.gstatic.com/s/lato/v20/S6u9w4BMUTPHh7USSwiPHA.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
-  src: local('Lato Regular'), local('Lato-Regular'), url(http://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wWw.ttf) format('truetype');
+  src: url(http://fonts.gstatic.com/s/lato/v20/S6uyw4BMUTPHjx4wWw.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Lato';
   font-style: normal;
   font-weight: 700;
-  src: local('Lato Bold'), local('Lato-Bold'), url(http://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh6UVSwiPHA.ttf) format('truetype');
+  src: url(http://fonts.gstatic.com/s/lato/v20/S6u9w4BMUTPHh6UVSwiPHA.ttf) format('truetype');
 }
 body {
   /* AYW 2014-06-18 15:45 JST */
@@ -139,11 +139,11 @@ textarea {
   margin-bottom: 40px;
 }
 .menu {
-  -webkit-animation-delay: 0.3s;
-  -moz-animation-delay: 0.3s;
-  -ms-animation-delay: 0.3s;
-  -o-animation-delay: 0.3s;
-  animation-delay: 0.3s;
+  -webkit-animation-delay: .3s;
+  -moz-animation-delay: .3s;
+  -ms-animation-delay: .3s;
+  -o-animation-delay: .3s;
+  animation-delay: .3s;
 }
 @media (max-width: 991px) {
   .menu {
@@ -450,7 +450,7 @@ blockquote.pull-right {
   padding: 10px 15px;
   text-decoration: none;
   font-weight: 400;
-  font-size: 0.9em;
+  font-size: .9em;
 }
 .panel-group .panel > .panel-heading a.collapsed:before {
   font-family: 'FontAwesome';
@@ -461,7 +461,7 @@ blockquote.pull-right {
   font-weight: normal;
   font-style: normal;
   text-decoration: inherit;
-  *margin-right: 0.3em;
+  *margin-right: .3em;
 }
 .panel-group .panel > .panel-heading a:before {
   font-family: 'FontAwesome';
@@ -472,7 +472,7 @@ blockquote.pull-right {
   font-weight: normal;
   font-style: normal;
   text-decoration: inherit;
-  *margin-right: 0.3em;
+  *margin-right: .3em;
 }
 /* navs-tabs */
 .nav-pills > li > a {
@@ -508,9 +508,9 @@ blockquote.pull-right {
   border-radius: 0;
   border-top: solid 3px #ddd;
   color: #555;
-  transition: all 0.2s;
-  -moz-transition: all 0.2s;
-  -webkit-transition: all 0.2s;
+  transition: all .2s;
+  -moz-transition: all .2s;
+  -webkit-transition: all .2s;
   padding-right: 5px;
   padding-left: 5px;
 }
@@ -564,11 +564,11 @@ a.list-group-item.active:focus {
 /* btn */
 .btn {
   border-radius: 0;
-  -webkit-transition: all 0.25s ease;
-  -moz-transition: all 0.25s ease;
-  -ms-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
 }
 .btn-primary {
   background-color: #00708c;
@@ -661,7 +661,7 @@ a.thumbnail.active {
 }
 /* label */
 .label {
-  border-radius: 0em;
+  border-radius: .0em;
 }
 .label-default {
   background-color: #999999;
@@ -905,11 +905,11 @@ img.alignright + p {
   right: 0;
   background-color: rgba(0, 0, 0, 0);
   opacity: 0;
-  -webkit-transition: all 0.25s ease;
-  -moz-transition: all 0.25s ease;
-  -ms-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
 }
 .caption .caption-content {
   width: 80%;
@@ -920,11 +920,11 @@ img.alignright + p {
   position: absolute;
   text-align: center;
   visibility: hidden;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  -webkit-transition: all .50s ease;
+  -moz-transition: all .50s ease;
+  -ms-transition: all .50s ease;
+  -o-transition: all .50s ease;
+  transition: all .50s ease;
   -webkit-transform: translateY(-100%);
   -moz-transform: translateY(-100%);
   -ms-transform: translateY(-100%);
@@ -951,11 +951,11 @@ img.alignright + p {
   text-decoration: none;
   margin-bottom: 10px !important;
   display: inline-block;
-  -webkit-transition: all 0.25s ease;
-  -moz-transition: all 0.25s ease;
-  -ms-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
 }
 .caption .caption-content a:hover {
   background-color: rgba(200, 200, 200, 0.5);
@@ -981,67 +981,67 @@ img.alignright + p {
 }
 /* Animations */
 .animation-delay-1 {
-  -webkit-animation-delay: 0.1s !important;
-  -moz-animation-delay: 0.1s !important;
-  -ms-animation-delay: 0.1s !important;
-  -o-animation-delay: 0.1s !important;
-  animation-delay: 0.1s !important;
+  -webkit-animation-delay: .1s !important;
+  -moz-animation-delay: .1s !important;
+  -ms-animation-delay: .1s !important;
+  -o-animation-delay: .1s !important;
+  animation-delay: .1s !important;
 }
 .animation-delay-2 {
-  -webkit-animation-delay: 0.2s !important;
-  -moz-animation-delay: 0.2s !important;
-  -ms-animation-delay: 0.2s !important;
-  -o-animation-delay: 0.2s !important;
-  animation-delay: 0.2s !important;
+  -webkit-animation-delay: .2s !important;
+  -moz-animation-delay: .2s !important;
+  -ms-animation-delay: .2s !important;
+  -o-animation-delay: .2s !important;
+  animation-delay: .2s !important;
 }
 .animation-delay-3 {
-  -webkit-animation-delay: 0.3s !important;
-  -moz-animation-delay: 0.3s !important;
-  -ms-animation-delay: 0.3s !important;
-  -o-animation-delay: 0.3s !important;
-  animation-delay: 0.3s !important;
+  -webkit-animation-delay: .3s !important;
+  -moz-animation-delay: .3s !important;
+  -ms-animation-delay: .3s !important;
+  -o-animation-delay: .3s !important;
+  animation-delay: .3s !important;
 }
 .animation-delay-4 {
-  -webkit-animation-delay: 0.4s !important;
-  -moz-animation-delay: 0.4s !important;
-  -ms-animation-delay: 0.4s !important;
-  -o-animation-delay: 0.4s !important;
-  animation-delay: 0.4s !important;
+  -webkit-animation-delay: .4s !important;
+  -moz-animation-delay: .4s !important;
+  -ms-animation-delay: .4s !important;
+  -o-animation-delay: .4s !important;
+  animation-delay: .4s !important;
 }
 .animation-delay-5 {
-  -webkit-animation-delay: 0.5s !important;
-  -moz-animation-delay: 0.5s !important;
-  -ms-animation-delay: 0.5s !important;
-  -o-animation-delay: 0.5s !important;
-  animation-delay: 0.5s !important;
+  -webkit-animation-delay: .5s !important;
+  -moz-animation-delay: .5s !important;
+  -ms-animation-delay: .5s !important;
+  -o-animation-delay: .5s !important;
+  animation-delay: .5s !important;
 }
 .animation-delay-6 {
-  -webkit-animation-delay: 0.6s !important;
-  -moz-animation-delay: 0.6s !important;
-  -ms-animation-delay: 0.6s !important;
-  -o-animation-delay: 0.6s !important;
-  animation-delay: 0.6s !important;
+  -webkit-animation-delay: .6s !important;
+  -moz-animation-delay: .6s !important;
+  -ms-animation-delay: .6s !important;
+  -o-animation-delay: .6s !important;
+  animation-delay: .6s !important;
 }
 .animation-delay-7 {
-  -webkit-animation-delay: 0.7s !important;
-  -moz-animation-delay: 0.7s !important;
-  -ms-animation-delay: 0.7s !important;
-  -o-animation-delay: 0.7s !important;
-  animation-delay: 0.7s !important;
+  -webkit-animation-delay: .7s !important;
+  -moz-animation-delay: .7s !important;
+  -ms-animation-delay: .7s !important;
+  -o-animation-delay: .7s !important;
+  animation-delay: .7s !important;
 }
 .animation-delay-8 {
-  -webkit-animation-delay: 0.8s !important;
-  -moz-animation-delay: 0.8s !important;
-  -ms-animation-delay: 0.8s !important;
-  -o-animation-delay: 0.8s !important;
-  animation-delay: 0.8s !important;
+  -webkit-animation-delay: .8s !important;
+  -moz-animation-delay: .8s !important;
+  -ms-animation-delay: .8s !important;
+  -o-animation-delay: .8s !important;
+  animation-delay: .8s !important;
 }
 .animation-delay-9 {
-  -webkit-animation-delay: 0.9s !important;
-  -moz-animation-delay: 0.9s !important;
-  -ms-animation-delay: 0.9s !important;
-  -o-animation-delay: 0.9s !important;
-  animation-delay: 0.9s !important;
+  -webkit-animation-delay: .9s !important;
+  -moz-animation-delay: .9s !important;
+  -ms-animation-delay: .9s !important;
+  -o-animation-delay: .9s !important;
+  animation-delay: .9s !important;
 }
 .animation-delay-10 {
   -webkit-animation-delay: 1s !important;
@@ -1110,8 +1110,6 @@ img.alignright + p {
 /* Header */
 /*-------------------------------------------------------------------*/
 #header {
-  background-color: #28364f;
-  background-image: url(../img/whirl1920x1180-bar.jpg);
   color: #fff;
   height: 140px;
 }
@@ -1198,7 +1196,7 @@ img.alignright + p {
   -webkit-background-origin: padding-box;
   -webkit-background-size: auto;
   -webkit-transition-delay: 0s;
-  -webkit-transition-duration: 0.5s;
+  -webkit-transition-duration: .5s;
   -webkit-transition-property: background;
   -webkit-transition-timing-function: ease;
   background-clip: border-box;
@@ -1213,7 +1211,7 @@ img.alignright + p {
   text-align: center;
   text-decoration: none;
   transition-delay: 0s;
-  transition-duration: 0.5s;
+  transition-duration: .5s;
   transition-property: background;
   transition-timing-function: ease;
   vertical-align: baseline;
@@ -1422,11 +1420,11 @@ a.social-icon:hover {
 }
 .carousel-mind .carousel-img img {
   width: 100%;
-  -webkit-animation-delay: 0.7s;
-  -moz-animation-delay: 0.7s;
-  -ms-animation-delay: 0.7s;
-  -o-animation-delay: 0.7s;
-  animation-delay: 0.7s;
+  -webkit-animation-delay: .7s;
+  -moz-animation-delay: .7s;
+  -ms-animation-delay: .7s;
+  -o-animation-delay: .7s;
+  animation-delay: .7s;
 }
 .carousel-mind .carousel-indicators {
   bottom: 0px !important;
@@ -1459,25 +1457,25 @@ a.social-icon:hover {
   text-transform: uppercase;
 }
 .carousel-list li:nth-child(1) {
-  -webkit-animation-delay: 0.3s;
-  -moz-animation-delay: 0.3s;
-  -ms-animation-delay: 0.3s;
-  -o-animation-delay: 0.3s;
-  animation-delay: 0.3s;
+  -webkit-animation-delay: .3s;
+  -moz-animation-delay: .3s;
+  -ms-animation-delay: .3s;
+  -o-animation-delay: .3s;
+  animation-delay: .3s;
 }
 .carousel-list li:nth-child(2) {
-  -webkit-animation-delay: 0.5s;
-  -moz-animation-delay: 0.5s;
-  -ms-animation-delay: 0.5s;
-  -o-animation-delay: 0.5s;
-  animation-delay: 0.5s;
+  -webkit-animation-delay: .5s;
+  -moz-animation-delay: .5s;
+  -ms-animation-delay: .5s;
+  -o-animation-delay: .5s;
+  animation-delay: .5s;
 }
 .carousel-list li:nth-child(3) {
-  -webkit-animation-delay: 0.7s;
-  -moz-animation-delay: 0.7s;
-  -ms-animation-delay: 0.7s;
-  -o-animation-delay: 0.7s;
-  animation-delay: 0.7s;
+  -webkit-animation-delay: .7s;
+  -moz-animation-delay: .7s;
+  -ms-animation-delay: .7s;
+  -o-animation-delay: .7s;
+  animation-delay: .7s;
 }
 .carousel-list li span {
   background-color: rgba(0, 0, 0, 0.4);
@@ -1551,11 +1549,11 @@ a.social-icon:hover {
   z-index: 10;
   top: 175px;
   left: 0;
-  -webkit-transition: all 0.4s linear;
-  -moz-transition: all 0.4s linear;
-  -ms-transition: all 0.4s linear;
-  -o-transition: all 0.4s linear;
-  transition: all 0.4s linear;
+  -webkit-transition: all .4s linear;
+  -moz-transition: all .4s linear;
+  -ms-transition: all .4s linear;
+  -o-transition: all .4s linear;
+  transition: all .4s linear;
 }
 .mind-features-item:hover .item-content,
 .mind-features-item.cs-hover .item-content {
@@ -1581,7 +1579,7 @@ a.social-icon:hover {
 }
 @media (min-width: 992px) {
   .mind-features-item .item-content {
-    font-size: 0.9em;
+    font-size: .9em;
     line-height: 1.6em;
   }
   .mind-features-item i {
@@ -1656,7 +1654,7 @@ a.social-icon:hover {
   color: #fff;
 }
 .pricing-box-header > p {
-  font-size: 0.9em;
+  font-size: .9em;
   font-weight: 300;
   text-align: center;
   margin: 0;
@@ -1675,7 +1673,7 @@ a.social-icon:hover {
   text-align: center;
 }
 .pricing-box-price h3 > sub {
-  font-size: 0.6em;
+  font-size: .6em;
 }
 .pricing-box-content > ul {
   padding: 0;
@@ -1999,7 +1997,7 @@ hr {
   padding: 3px 5px;
   margin: 2px;
   display: inline-block;
-  font-size: 0.9em;
+  font-size: .9em;
   color: #00708c;
   text-decoration: none;
 }
@@ -2076,11 +2074,11 @@ li.fali {
   top: 5%;
   right: -180px;
   z-index: 10000;
-  -webkit-transition: all 0.25s ease;
-  -moz-transition: all 0.25s ease;
-  -ms-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
 }
 #color-switcher:hover {
   right: 0;
@@ -2170,11 +2168,11 @@ li.fali {
   right: 30px;
   color: #eee;
   background-color: rgba(0, 0, 0, 0.3);
-  -webkit-transition: all 0.25s ease;
-  -moz-transition: all 0.25s ease;
-  -ms-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
   padding: 10px;
   border-radius: 5px;
   text-align: center;
@@ -2366,11 +2364,11 @@ li.fali {
   padding: 20px;
   margin-bottom: 20px;
   text-align: center;
-  -webkit-transition: all 0.25s ease;
-  -moz-transition: all 0.25s ease;
-  -ms-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
 }
 .mind-box:hover {
   background-color: #005c73;
@@ -2483,21 +2481,21 @@ li.fali {
   display: table;
   margin-bottom: 20px;
   padding: 20px;
-  -webkit-transition: all 0.25s ease;
-  -moz-transition: all 0.25s ease;
-  -ms-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease;
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
 }
 .icon-item:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 .icon-item i {
-  -webkit-transition: all 0.55s ease;
-  -moz-transition: all 0.55s ease;
-  -ms-transition: all 0.55s ease;
-  -o-transition: all 0.55s ease;
-  transition: all 0.55s ease;
+  -webkit-transition: all .55s ease;
+  -moz-transition: all .55s ease;
+  -ms-transition: all .55s ease;
+  -o-transition: all .55s ease;
+  transition: all .55s ease;
 }
 .icon-item:hover i {
   color: #6aceeb;
@@ -2682,4 +2680,7 @@ li.fali {
 .grecaptcha-badge {
   opacity: 0;
   visibility: hidden;
+}
+.grecaptcha-message {
+  opacity: 0.5;
 }
