@@ -148,7 +148,7 @@ layout: default
       <div class="row home-post-footer">
         <div class="col-md-8">
           <div class="home-post-meta">
-            <i class="fa fa-clock-o"></i> <a href="{{ site.baseurl }}{{ ln.calendar }}/{{ page.lang }}">{% include date.html d=last_post.date l="s" %}</a>
+            <i class="fa fa-clock-o"></i> <a href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=last_post.date l="s" %}</a>
             {% assign last_post_cat = last_post.categories[0] %}
             <i class="fa fa-folder-open"></i> <a href="{{ site.baseurl }}{{ lc[last_post_cat] }}/{{ page.lang }}">{{ tcsl[last_post_cat] }}</a>
             <i class="fa fa-tags"></i>
