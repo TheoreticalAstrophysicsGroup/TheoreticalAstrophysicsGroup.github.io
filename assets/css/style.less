@@ -1377,17 +1377,35 @@ img.alignright + p {
 /* Header */
 /*-------------------------------------------------------------------*/
 
-#header {
-    // Note, colour is set is in color-default
-    //background-color: @dark-color;
-    //background-image: url(../img/topbar-sb.png);
-    //background-image: url(../img/whirl1920x1180-bar.jpg);
-    color: #fff;
-
-    height: 140px;
+@media (min-width: 992px) { 
+    #header {
+        color: #fff;
+        height: 140px;
+    }
 }
 
+@media (min-width: 768px) and (max-width: 991px) { 
+    #header {
+        color: #fff;
+        height: 120px;
+    }
+}
+
+@media (max-width: 767px) { 
+    #header {
+        color: #fff;
+        height: 90px;
+    }
+}
+
+
 #header a {
+    text-decoration: none;
+    color: #737373;
+}
+
+
+#social-header a {
     text-decoration: none;
     color: #fff;
 }
@@ -1410,16 +1428,72 @@ img.alignright + p {
     word-spacing: -10px;
     margin: 20px 0 10px 0;
     font-size: 3.2em;
-    color: #fff;
+    color: #737373;
 }
 
 #header-title h1 span {
-    color: @light-color;
+    color: @primary-color;
+    /* AYW -- */
+    /* color: @light-color; */
+    /* -- AYW */
 }
 
 #header-title p {
     font-size: 1.2em;
+    color: #737373;
 }
+
+
+@media (max-width: 767px) { 
+
+  #header-title h1 {
+    word-spacing: -6px;
+    font-size: 2.0em;
+  }
+
+  #header-title p {
+      font-size: 1.0em;
+      color: #737373;
+  }
+
+}
+
+
+#header-s {
+    color: #fff;
+    height: 90px;
+}
+
+#header-s a {
+    text-decoration: none;
+    color: #737373;
+}
+
+
+#header-s-title {
+    font-family: @jff-abel;
+    display: inline-block;
+}
+
+#header-s-title h1 {
+
+    font-family: @jff-abel;
+    font-size: 2.0em;
+    word-spacing: -5px;
+    color: #737373;
+}
+
+#header-s-title h1 span {
+    color: @primary-color;
+    font-size: 2.0em;
+}
+
+#header-s-title p {
+    color: #737373;
+    font-size: 1.0em;
+}
+
+
 
 #search-header {
     display: inline-block;

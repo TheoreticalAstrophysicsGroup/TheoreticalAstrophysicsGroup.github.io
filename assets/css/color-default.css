@@ -138,7 +138,10 @@ dt {
   background-color: #ffffff;
 }
 #header-title h1 span {
-  color: #6aceeb;
+  color: #00708c;
+  /* AYW -- */
+  /* color: @light-color; */
+  /* -- AYW */
 }
 #search-header input {
   background-color: #4a6493;

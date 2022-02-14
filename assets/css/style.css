@@ -23,25 +23,25 @@ Tags: bootsrap, whithe, blue
   font-family: 'Lato';
   font-style: italic;
   font-weight: 400;
-  src: url(http://fonts.gstatic.com/s/lato/v20/S6u8w4BMUTPHjxsAXC-v.ttf) format('truetype');
+  src: url(http://fonts.gstatic.com/s/lato/v22/S6u8w4BMUTPHjxsAXC-v.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Lato';
   font-style: normal;
   font-weight: 300;
-  src: url(http://fonts.gstatic.com/s/lato/v20/S6u9w4BMUTPHh7USSwiPHA.ttf) format('truetype');
+  src: url(http://fonts.gstatic.com/s/lato/v22/S6u9w4BMUTPHh7USSwiPHA.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
-  src: url(http://fonts.gstatic.com/s/lato/v20/S6uyw4BMUTPHjx4wWw.ttf) format('truetype');
+  src: url(http://fonts.gstatic.com/s/lato/v22/S6uyw4BMUTPHjx4wWw.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Lato';
   font-style: normal;
   font-weight: 700;
-  src: url(http://fonts.gstatic.com/s/lato/v20/S6u9w4BMUTPHh6UVSwiPHA.ttf) format('truetype');
+  src: url(http://fonts.gstatic.com/s/lato/v22/S6u9w4BMUTPHh6UVSwiPHA.ttf) format('truetype');
 }
 body {
   /* AYW 2014-06-18 15:45 JST */
@@ -1109,11 +1109,29 @@ img.alignright + p {
 /*-------------------------------------------------------------------*/
 /* Header */
 /*-------------------------------------------------------------------*/
-#header {
-  color: #fff;
-  height: 140px;
+@media (min-width: 992px) {
+  #header {
+    color: #fff;
+    height: 140px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  #header {
+    color: #fff;
+    height: 120px;
+  }
+}
+@media (max-width: 767px) {
+  #header {
+    color: #fff;
+    height: 90px;
+  }
 }
 #header a {
+  text-decoration: none;
+  color: #737373;
+}
+#social-header a {
   text-decoration: none;
   color: #fff;
 }
@@ -1132,13 +1150,53 @@ img.alignright + p {
   word-spacing: -10px;
   margin: 20px 0 10px 0;
   font-size: 3.2em;
-  color: #fff;
+  color: #737373;
 }
 #header-title h1 span {
-  color: #6aceeb;
+  color: #00708c;
+  /* AYW -- */
+  /* color: @light-color; */
+  /* -- AYW */
 }
 #header-title p {
   font-size: 1.2em;
+  color: #737373;
+}
+@media (max-width: 767px) {
+  #header-title h1 {
+    word-spacing: -6px;
+    font-size: 2.0em;
+  }
+  #header-title p {
+    font-size: 1.0em;
+    color: #737373;
+  }
+}
+#header-s {
+  color: #fff;
+  height: 90px;
+}
+#header-s a {
+  text-decoration: none;
+  color: #737373;
+}
+#header-s-title {
+  font-family: Abel, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", sans-serif;
+  display: inline-block;
+}
+#header-s-title h1 {
+  font-family: Abel, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", sans-serif;
+  font-size: 2.0em;
+  word-spacing: -5px;
+  color: #737373;
+}
+#header-s-title h1 span {
+  color: #00708c;
+  font-size: 2.0em;
+}
+#header-s-title p {
+  color: #737373;
+  font-size: 1.0em;
 }
 #search-header {
   display: inline-block;
