@@ -131,8 +131,8 @@ nav:
     conferences_past_local: *conferences_pl
     conferences_abroad: *conferences_ab
     conferences_domestic: *conferences_do
-  projects:
-    first: external
+# projects:
+#   first: external
   postgrad:
     admission: *admission
     pas_admission: external
