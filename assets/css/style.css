@@ -1305,16 +1305,16 @@ a.social-icon:hover {
   background-color: #32B6B6;
 }
 .soc-contact {
-  background-color: #cb2229;
+  background-color: #28364f;
 }
 .soc-access {
-  background-color: #6aceeb;
+  background-color: #28364f;
 }
 .soc-language {
-  background-color: #000;
+  background-color: #28364f;
 }
 .soc-lang-sel {
-  background-color: #000;
+  background-color: #28364f;
 }
 .soc-lang-sel.active {
   background-color: #00708c;
@@ -1450,17 +1450,12 @@ a.social-icon:hover {
 /*-------------------------------------------------------------------*/
 .carousel-mind {
   /* AYW 2014-06-18 13:12 JST */
-  /*background-image: url(../img/virgo_3360-carousel-back.jpg);*/
+  background-image: url(../img/virgo_3360-carousel-back.jpg);
   /*background-image: url(../img/400Mpc_2048_z0_3277-carousel-back.png);*/
   /*background-image: url(../img/400Mpc_2048_z0_2086-carousel-back.png);*/
-  background-image: url(../img/400Mpc_2048_z0_1034-carousel-back.png);
-  background-size: cover;
-}
-.carousel-mind-back-2 {
-  /* AYW 2014-06-18 13:12 JST */
-  /*background-image: url(../img/back.jpg);*/
-  background-image: url(../img/400Mpc_2048_z0_3277-carousel-back.png);
-  background-size: cover;
+  /*background-image: url(../img/400Mpc_2048_z0_1034-carousel-back.png);*/
+  background-size: 500%;
+  background-position: top;
 }
 .carousel-mind .carousel-caption {
   position: static;
