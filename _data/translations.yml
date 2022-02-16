@@ -43,72 +43,24 @@ collections:
     en:
       members: Members
 
-# Footer translations
-footer:
-  ja:
-    home: ホーム
-    members: メンバー
-    research: 研究内容
-    achievements: *achievements_short_ja
-    featured: *featured_short_ja
-    news: *news_short_ja
-    uchu_forum: *uchu_forum_short_ja
-    seminars: *seminars_short_ja
-    conferences: *conferences_short_ja
-    information: 各種情報
-    calendar: カレンダー
-    first: FIRST
-    admission: 大学院入学案内
-    contact: お問い合わせ
-    alumni: 出身者一覧
-    sitemap: サイトマップ
-    recent_posts: 最新の投稿
-    recent_works: 最新の研究成果
-    title: 宇宙物理理論研究室
-    subtitle: 計算科学研究センター
-    uni: 筑波大学
-  en:
-    home: Home
-    members: Members
-    research: Research
-    achievements: *achievements_short_en
-    featured: *featured_short_en
-    news: *news_short_en
-    uchu_forum: *uchu_forum_short_en
-    seminars: *seminars_short_en
-    conferences: *conferences_short_en
-    information: Information
-    calendar: Calendar
-    first: FIRST
-    admission: Admission
-    contact: Contact
-    alumni: Alumni
-    sitemap: Sitemap
-    recent_posts: Recent Posts
-    recent_works: Recent Works
-    title: Theoretical Astrophysics Group
-    subtitle: Center for Computational Sciences
-    uni: University of Tsukuba
-
-
 # Home page translations
 home:
   ja:
     important: 重要なお知らせ！
     mission_title: ミッション
-    recent_posts: 最新の投稿
+    recent_posts: &recent_posts_ja 最新の投稿
     read_more: 続きを読む
     more_articles: 全ての記事
-    recent_work: 最新の研究成果
+    recent_work: &recent_work_ja 最新の研究成果
     more_info: 詳しく読む
     featured: *featured_long_ja
   en:
     important: Important
     mission_title: Our mission
-    recent_posts: Recent Posts
+    recent_posts: &recent_posts_en Recent Posts
     read_more: Read more
     more_articles: Read more articles
-    recent_work: Recent Work
+    recent_work: &recent_work_en Recent Work
     more_info: More Info
     featured: *featured_long_en
 
@@ -838,13 +790,13 @@ header:
     subtitle: 筑波大学 計算科学研究センター
     group: 研究室紹介
     members: *members_short_ja
-    research: 研究内容
+    research: &research_topics_ja 研究内容
     achievements: *achievements_short_ja
     featured: *featured_short_ja
     news: *news_short_ja
     access: 研究室の場所・アクセス
-    information: 各種情報
-    alumni: 出身者一覧
+    information: &information_ja 各種情報
+    alumni: &alumni_ja 出身者一覧
     schedule: スケジュール
     uchu_forum: *uchu_forum_short_ja
     seminars: *seminars_short_ja
@@ -854,12 +806,11 @@ header:
     conferences_future_local: *conferences_fl_ja
     conferences_abroad: *conferences_ab_ja
     conferences_domestic: *conferences_do_ja
-    calendar: カレンダー
+    calendar: &calendar_ja カレンダー
     wiki: 内部用ウィキ 
-    projects: プロジェクト
-    first: FIRST プロジェクト
+    projects: &projects_ja プロジェクト
     observers: 宇宙観測研究室
-    postgrad: 大学院入学案内
+    postgrad: &postgrad_ja 大学院入学案内
     admission: 宇宙物理理論研究室
     pas_admission: 数理物質科学研究科
     uot_admission: 筑波大学
@@ -874,7 +825,7 @@ header:
     astro_internal: 研究室内部ページ
     asj: 日本天文学会
     scheduler: R1スケジュラー
-    resources: リソース
+    resources: &resources_ja リソース
     uot_calendar: 筑波大学カレンダー
     ccs_internal_pages: CCS 内部ページ
     uot_fair: FAIR 財務会計システム
@@ -882,7 +833,7 @@ header:
     en: En
     search: 検索
     readin: Read in English
-    contact: お問い合わせ
+    contact: &contact_ja お問い合わせ
     toggle_nav: ナビゲーション切替
   en:
     home: Home
@@ -893,13 +844,13 @@ header:
     subtitle: University of Tsukuba, Center for Computational Sciences
     group: Our Group
     members: *members_short_en
-    research: Research Topics
+    research: &research_topics_en Research Topics
     achievements: *achievements_short_en
     featured: *featured_short_en
     news: *news_short_en
     access: Location and Access
-    information: Information
-    alumni: Alumni
+    information: &information_en Information
+    alumni: &alumni_en Alumni
     schedule: Schedule
     uchu_forum: *uchu_forum_short_en
     seminars: *seminars_short_en
@@ -909,12 +860,11 @@ header:
     conferences_future_local: *conferences_fl_en
     conferences_abroad: *conferences_ab_en
     conferences_domestic: *conferences_do_en
-    calendar: Calendar
+    calendar: &calendar_en Calendar
     wiki: Internal Wiki
-    projects: Projects
-    first: FIRST Projects
+    projects: &projects_en Projects
     observers: Observational Astrophysics Group
-    postgrad: Graduate School
+    postgrad: &postgrad_en Graduate School
     admission: Theoretical Astrophysics Group
     pas_admission: Graduate School of Pure and Applied Sciences
     uot_admission: University of Tsukuba
@@ -929,7 +879,7 @@ header:
     astro_internal: Astro Internal
     asj: Astronomical Society of Japan
     scheduler: CCS R1 Scheduler
-    resources: Resources
+    resources: &resources_en Resources
     uot_calendar: University of Tsukuba Calendar
     ccs_internal_pages: CCS internal pages
     uot_fair: FAIR accounting system
@@ -937,7 +887,53 @@ header:
     en: 英
     search: Search
     readin: 日本語で読む
-    contact: Contact
+    contact: &contact_en Contact
     toggle_nav: Toggle navigation
+
+
+# Footer translations
+footer:
+  ja:
+    members: *members_short_ja
+    research: *research_topics_ja
+    achievements: *achievements_short_ja
+    featured: *featured_short_ja
+    news: *news_short_ja
+    uchu_forum: *uchu_forum_short_ja
+    seminars: *seminars_short_ja
+    conferences_future_local: *conferences_short_ja
+    information: *information_ja
+    calendar: *calendar_ja
+    admission: *postgrad_ja
+    contact: *contact_ja
+    alumni: *alumni_ja
+    resources: *resources_ja
+    sitemap: サイトマップ
+    recent_posts: *recent_posts_ja
+    recent_work: *recent_work_ja
+    title: 宇宙物理理論研究室
+    subtitle: 計算科学研究センター
+    uni: 筑波大学
+  en:
+    members: *members_short_en
+    research: *research_topics_en
+    achievements: *achievements_short_en
+    featured: *featured_short_en
+    news: *news_short_en
+    uchu_forum: *uchu_forum_short_en
+    seminars: *seminars_short_en
+    conferences_future_local: *conferences_short_en
+    information: *information_en
+    calendar: *calendar_en
+    admission: *postgrad_en
+    contact: *contact_en
+    alumni: *alumni_en
+    resources: *resources_en
+    sitemap: Sitemap
+    recent_posts: *recent_posts_en
+    recent_work: *recent_work_en
+    title: Theoretical Astrophysics Group
+    subtitle: Center for Computational Sciences
+    uni: University of Tsukuba
 
 

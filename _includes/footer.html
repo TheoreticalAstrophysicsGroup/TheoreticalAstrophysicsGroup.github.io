@@ -20,11 +20,25 @@
           {% for dl in lv %}
           {% assign dlk = dl[0] %}
           {% assign dlv = dl[1] %}
+
+          <!-- Just one for conferences -->
+          {% unless dlk == 'conferences_current_local' %}
+          {% unless dlk == 'conferences_past_local' %}
+          {% unless dlk == 'conferences_abroad' %}
+          {% unless dlk == 'conferences_domestic' %}
+
           {% if dlv contains '/' %}
           {% assign link =  dlv | prepend: site.baseurl | append: '/' | append: page.lang %}
           <li><a href="{{ link }}">{{ tfl[dlk] }}</a></li>
           {% endif %}
+
+          {% endunless %}
+          {% endunless %}
+          {% endunless %}
+          {% endunless %}
+
           {% endfor %}
+
           {% endunless %}
           {% endfor %}
         </ul>
@@ -56,7 +70,7 @@
       <!-- Recent Achievements -->
       <div class="col-md-4">
         <div class="footer-widget">
-          <h3 class="footer-widget-title">{{ tfl.recent_works }}</h3>
+          <h3 class="footer-widget-title">{{ tfl.recent_work }}</h3>
           <div class="row">
             {% assign posts_lang = site.categories['achievements'] | where: 'lang', page.lang %}
             {% for post in posts_lang limit: 4 %}
