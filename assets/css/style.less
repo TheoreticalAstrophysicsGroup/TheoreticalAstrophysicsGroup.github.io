@@ -1805,11 +1805,12 @@ a.social-icon:hover {
 
 .carousel-mind {
     /* AYW 2014-06-18 13:12 JST */
-    background-image: url(../img/virgo_3360-carousel-back.jpg);
+    background-image: url(../img/cosmic-web.jpg);
+    /*background-image: url(../img/virgo_3360-carousel-back.jpg);*/
     /*background-image: url(../img/400Mpc_2048_z0_3277-carousel-back.png);*/
     /*background-image: url(../img/400Mpc_2048_z0_2086-carousel-back.png);*/
     /*background-image: url(../img/400Mpc_2048_z0_1034-carousel-back.png);*/
-    background-size: 500%;
+    background-size: cover;
     background-position: top;
 }
 
@@ -1824,12 +1825,31 @@ a.social-icon:hover {
 }
 
 .carousel-mind .carousel-img {
-    height: 400px;
     display: table-cell;
     vertical-align: middle;
     overflow: hidden;
     display: static;
 }
+
+
+@media (max-width: 767px) { 
+  .carousel-mind {
+    height: 100px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) { 
+  .carousel-mind .carousel-img {
+    height: 300px;
+  }
+}
+
+@media (min-width: 992px) { 
+  .carousel-mind .carousel-img {
+    height: 400px;
+  }
+}
+
 
 .carousel-mind .carousel-img img {
     width: 100%;
