@@ -74,25 +74,24 @@ layout: default
       <br />
       <br />
 
-      <!-- Should use a photo album grid here, but requires relabelling of all 
-      yaml in achievements. Must use a sed script for that. File issue in github.
-      Other issues: 
-        * Index page of everything except for achievements
-        * Breadcrumbs don't show year crumb in some categories
-        * Members should be collections, with a file per member.
-        * Search 
-        * Tags
-      -->
+      <!-- Should use a photo album grid here, but requires relabelling of all yaml in achievements.  -->
       {% unless page.categories contains "annual_report" or page.categories contains "publications" %}
+      {% assign iimg = 0 %}
+      {% for img in page.img  %}
+      {% assign miing = iimg | modulo: 2 %}
+      {% if miing == 0 %}
       <div class="row">
-        {% for img in page.img  %}
+      {% endif %}
         <div class="col-sm-6">
           <div class="img-caption">
             <img src="{{ site.baseurl }}{{ la.img_achievements }}/{{ img }}" class="img-responsive" alt="Image">
           </div>
         </div>
-        {% endfor %}
+      {% if miing == 1 %}
       </div>
+      {% endif %}
+      {% assign iimg = iimg | plus: 1 %}
+      {% endfor %}
       {% endunless %}
 
 

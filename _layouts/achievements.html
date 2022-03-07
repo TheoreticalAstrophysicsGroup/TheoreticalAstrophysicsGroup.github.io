@@ -84,7 +84,7 @@ layout: default
               {% assign brc = '}' %}
               {% assign nauth = post.author | size %}
               <h4>{% for auth in post.author limit: 6 %} {{ auth | remove: bro | remove: brc }}{% unless forloop.last %}, &nbsp;{% endunless %}{% endfor %} {% if nauth > 6 %} <i class="fa fa-ellipsis-h"></i> {% endif %} </h4>
-              {% assign postabs = post.abstract | strip_html %}
+              {% assign postabs = post.content | strip_html %}
               <p>{% include lang_truncate.html text=postabs %}</p>
               {% endif %}
             </div>
@@ -143,7 +143,7 @@ layout: default
               {% assign brc = '}' %}
               {% assign nauth = post.author | size %}
               <h4>{% for auth in post.author limit: 6 %} {{ auth | remove: bro | remove: brc }}{% unless forloop.last %}, &nbsp;{% endunless %}{% endfor %} {% if nauth > 6 %} <i class="fa fa-ellipsis-h"></i> {% endif %} </h4>
-              {% assign postabs = post.abstract | strip_html %}
+              {% assign postabs = post.content | strip_html %}
               <p>{% include lang_truncate.html text=postabs %}</p>
               {% endif %}
               <i class="fa fa-calendar"></i> {% include date.html d=post.date l='t' %} &nbsp;
