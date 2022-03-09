@@ -4,12 +4,12 @@ title: Postgraduate Studies Admission
 lang: en
 img: etc.jpg
 caption: A selection of figures from research in our group
-contact: Masayuki Umemura
-email: umemura@ccs.tsukuba.ac.jp
 ---
 
 {% assign li = site.data.links.internal %}
 {% assign lel = site.data.links.external[page.lang] %}
+
+{% assign positions = 'professor associate_professor lecturer assistant_professor' | split: ' ' %}
 
 <h4>Overview</h4>
 
@@ -29,7 +29,15 @@ email: umemura@ccs.tsukuba.ac.jp
       1-1-1 Tennodai, Tsukuba, Ibaraki <br />
       Japan 305-8577 <br /></li>
       <li class="fali"><i class="fa-li fa fa-phone"></i> 029-853-6485</li>
-      <li class="fali"><i class="fa-li fa fa-envelope"></i> <a href="mailto:{{ page.email }}">{{ page.contact }}</a></li>
+      {% for p in positions %}
+      {% assign mem = site.members | where: 'lang', page.lang | where: 'position', p | sort: 'order' %}
+      {% for m in mem %}
+      {% assign fname = m.path | split: '/' | last | remove: '.html' %}
+      {% unless fname == "einstein_albert" %}
+      <li class="fali"><a href="mailto:{{ m.email }}"><i class="fa-li fa fa-envelope"></i></a> <a href="{{ m.homepage }}">{{ m.name }}</a><br/>{% if m.roles %}{{ m.roles }}, {% endif %}{{ m.research }}</li>
+      {% endunless %}
+      {% endfor %}
+      {% endfor %}
     </ul>
   </div>
   </li>

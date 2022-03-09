@@ -4,12 +4,12 @@ title: 筑波大学大学院入学案内
 lang: ja
 img: etc.jpg
 caption:  図）本研究室で研究された成果の一部
-contact: 梅村 雅之
-email: umemura@ccs.tsukuba.ac.jp
 ---
 
 {% assign li = site.data.links.internal %}
 {% assign lel = site.data.links.external[page.lang] %}
+
+{% assign positions = 'professor associate_professor lecturer assistant_professor' | split: ' ' %}
 
 <h4>概要</h4>
 
@@ -29,7 +29,15 @@ email: umemura@ccs.tsukuba.ac.jp
       <li class="fali"><i class="fa-li fa fa-building fa-fw"></i>〒305-8577 茨城県つくば市天王台1-1-1<br />
     筑波大学計算科学研究センター<br />
       <li class="fali"><i class="fa-li fa fa-phone"></i> 029-853-6485</li>
-      <li class="fali"><i class="fa-li fa fa-envelope"></i> <a href="mailto:{{ page.email }}">{{ page.contact }}</a></li>
+      {% for p in positions %}
+      {% assign mem = site.members | where: 'lang', page.lang | where: 'position', p | sort: 'order' %}
+      {% for m in mem %}
+      {% assign fname = m.path | split: '/' | last | remove: '.html' %}
+      {% unless fname == "einstein_albert" %}
+      <li class="fali"><a href="mailto:{{ m.email }}"><i class="fa-li fa fa-envelope"></i></a> <a href="{{ m.homepage }}">{{ m.name }}</a><br/>{% if m.roles %}{{ m.roles }}，{% endif %}{{ m.research }}</li>
+      {% endunless %}
+      {% endfor %}
+      {% endfor %}
     </ul>
   </div>
   </li>
