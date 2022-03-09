@@ -112,7 +112,6 @@ nav:
     access: external
     contact: *contact
     information: *information
-    alumni: *alumni
   schedule:
     uchu_forum: *uchu_forum
     seminars: *seminars
@@ -135,6 +134,7 @@ nav:
     admission: *admission
     pas_admission: external
     uot_admission: external
+    alumni: *alumni
   links:
     uot: external
     ccs: external

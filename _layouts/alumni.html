@@ -12,32 +12,6 @@ layout: default
   <div class="row">
     <div class="col-xs-12">
 
-      <h3 class="post-title">{{ tal.staff }}</h3>
-
-      <table class="table">
-        <thead>
-          <tr>
-            <th>{{ tal.name }}</th>
-            <th>{{ tal.position }}</th>
-            <th>{{ tal.lastyr }}</th>
-            <th>{{ tal.degree }}</th>
-            <th>{{ tal.thereafter }}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for m in page.staff %}
-          <tr>
-            <td>{{ m.name }}</td>
-            <td>{{ m.position }}</td>
-            <td>{{ m.lastyr }}</td>
-            <td>{{ m.degree }}</td>
-            <td>{{ m.thereafter }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-      <br/>
-
       <h3 class="post-title">{{ tal.postgrads }}</h3>
 
       <table class="table">

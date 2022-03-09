@@ -323,7 +323,6 @@ profile:
 alumni:
   ja:
     name: <i class="fa fa-user"></i> 氏名
-    staff: スタッフ及び研究員
     position: <i class="fa fa-child"></i> 在籍時の身分 
     lastyr: <i class="fa fa-history"></i> 最終在籍年度 
     degree: <i class="fa fa-graduation-cap"></i> 取得学位
@@ -333,7 +332,6 @@ alumni:
     students: 学類生
   en:
     name: <i class="fa fa-user"></i> Name
-    staff: Staff and Postdocs
     position: <i class="fa fa-child"></i> Position at the time
     lastyr: <i class="fa fa-history"></i> Final year
     degree: <i class="fa fa-graduation-cap"></i> Degree
