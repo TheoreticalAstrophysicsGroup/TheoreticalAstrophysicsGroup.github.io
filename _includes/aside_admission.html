@@ -1,0 +1,36 @@
+{% assign tal = site.data.translations.admission[page.lang] %}
+{% assign lel = site.data.links.external[page.lang] %}
+{% assign li = site.data.links.internal %}
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading"><i class="fa fa-info-circle"></i> {{tal.info}} </div>
+  <div class="panel-body">
+
+    {% for info in page.info %} {{ info }} {% endfor %}
+  </div>
+</div>
+
+
+<div class="well well-sm">
+  {{ tal.contact }}{% include lang_surround.html shape='colon' %}{{ open_surround }}
+  <ul class="fa-ul">
+    <li class="fali"><i class="fa-li fa fa-building fa-fw"></i>{% for line in tal.address %}{{ line }}<br />{% endfor %}
+      <a href="{{ lel.access }}" target="_blank"><i class="fa fa-location-arrow"></i> {{ tal.access }}</a> <font size="1"><i class="fa fa-external-link"></i></font>
+    </li>
+    <li class="fali"><i class="fa-li fa fa-phone"></i> 029-853-6485</li>
+
+    {% assign positions = 'professor associate_professor lecturer assistant_professor' | split: ' ' %}
+    {% for p in positions %}
+    {% assign mem = site.members | where: 'lang', page.lang | where: 'position', p | sort: 'order' %}
+    {% for m in mem %}
+    {% assign fname = m.path | split: '/' | last | remove: '.html' %}
+    {% unless fname == "einstein_albert" %}
+    <li class="fali"><a href="mailto:{{ m.email }}"><i class="fa-li fa fa-envelope"></i></a> <a href="{{ m.homepage }}">{{ m.name }}</a><br/>{% if m.roles %}{{ m.roles }}，{% endif %}{{ m.research }}</li>
+    {% endunless %}
+    {% endfor %}
+    {% endfor %}
+  </ul>
+</div>
+

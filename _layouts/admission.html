@@ -11,22 +11,49 @@ layout: default
 
 <div class="container">
   <div class="row">
-    <div class="col-md-7">
+
+    <div class="col-md-4 hidden-md hidden-lg">
+      <aside class="sidebar">
+
+      {% include aside_pills_admission.html %}
+
+      <br/>
+
+      {% include aside_admission.html %}
+
+      </aside>
+    </div> <!-- col -->
+
+
+
+    <div class="col-md-8">
 
       <h3 class="post-title">{{ tal.admission }}</h3>
 
-      <img src="{{ site.baseurl }}{{ la.img }}/{{ page.img }}" class="alignleft img-responsive"/>
-
-      <p>{{ page.caption }}</p>
-
-      <br />
-      <br />
-
-    </div>
-
-    <div class="col-md-5">
-
       {{ content }}
+
+
+      <br />
+      <h3 class="post-title" id="faq">{{ tal.faq }}</h3>
+
+      {% for q in page.faq %}
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ forloop.index }}">
+                {{ q.q }}
+              </a>
+            </h4>
+          </div>
+          <div id="collapse{{ forloop.index }}" class="panel-collapse collapse">
+            <div class="panel-body">
+              {{ q.a }}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
 
     </div>
     <!-- AYW 2014-07-02 22:56 JST Just kept for reference -->
@@ -34,7 +61,24 @@ layout: default
     <!-- <img src="js/holder.js/200x170" alt="" class="imageborder alignleft"> -->
     <!-- <img src="js/holder.js/200x180/social" alt="" class="imageborder alignright"> -->
 
+    <div class="col-md-4 hidden-sm hidden-xs">
+      <aside class="sidebar">
 
-  </div>
+        <!-- AYW 2014-06-22 13:26 JST Not yet programmed -->
+        <!-- {% raw %} {% include aside_search.html %} {% endraw %} -->
+
+        {% include aside_pills_admission.html %}
+
+        <br/>
+
+        {% include aside_admission.html %}
+
+        <br/>
+        <br/>
+
+      </aside>
+    </div> <!-- col -->
+
+  </div> <!-- row -->
 </div> <!-- container  -->
 

@@ -352,8 +352,29 @@ calendar:
 admission:
   ja:
     admission: 宇宙物理理論研究室 入学案内
+    environment: 研究環境
+    science: サイエンス
+    life: 学生生活
+    career: キャリア
+    faq: よくある質問
+    address: 
+      - 〒305-8577 茨城県つくば市天王台1-1-1
+      - 筑波大学計算科学研究センター
+    contact: お問い合わせ
+    access: アクセス
   en:
     admission: Theoretical Astrophysics Group Admission Information
+    environment: Research environment
+    science: Science
+    life: Graduate research program
+    career: Career paths
+    faq: FAQ
+    address: 
+      - Center for Computational Sciences
+      - 1-1-1 Tennodai, Tsukuba, Ibaraki
+      - Japan 305-8577
+    contact: Contact
+    access: Access
 
 # Contact page translations
 contact:

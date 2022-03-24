@@ -2,44 +2,63 @@
 layout: admission
 title: Postgraduate Studies Admission
 lang: en
-img: etc.jpg
-caption: A selection of figures from research in our group
+info:
+  - <p>The Theoretical Astrophysics Group was established in 1993 as a new research group of the physics department.  The <a href="{{ lel.pas_physics }}" target="_blank">Graduate School of Pure and Applied Sciences (Department of Physics)</a> follows the split 2+3 year system. </p>
+  - <p>The general postgraduate admissions examination is held every year in late August, while the admissions examinations upon commendation are held in early July. For more information on graduate school examinations please refer to the guidelines described in the pages of the <a href="{{ lel.pas_admission }}" target="_blank">Graduate School of Pure and Applied Sciences (Department of Physics)</a>.</p>
+img:
+  - adm_img1.png
+  - adm_img2.png
+faq:
+  - q: Can I become a member of your group even though I have no progamming experience?
+    a: Yes, it is possible. Programming experience is preferred, but some people only start programming after entering graduate school.
+  - q: I am from another university, will you accept me?
+    a: Our group accepts students from other universities. If you are a motivated student, we welcome you regardless of your current university.
+  - q: I am a fourth-year student at the University of Tsukuba, but the group in which I am completing my undergraduate research thesis is different. Would you still accept me?
+    a: Yes. The graduate school entrance examination will be the same for all applicants no matter what university or group they belong to.
+  - q: Is it possible to have a part-time job during graduate school?
+    a: Yes. However, you need to make sure that your research at the graduate school is not neglected. Research for a Master's thesis or doctoral dissertation requires making new discoveries in science. That is not a simple feat. To do so, you need to focus on your research for most of your day to day life.
+  - q: What should I study to prepare for  research in the Theoretical     a:trophysics Group?
+    a: You should review the basic physics you learnt in your undergraduate years. In addition, we recommend that you study fluid mechanics and basic programming (C/C++, Fortran, Python language), as they are necessary knowledge no matter what research theme you choose to pursue.
+  - q: Can I get financial support?
+    a: The university offers teaching assistantships and research assistantships to support graduate students. For doctoral students, there are JSPS Postdoctoral Fellowships (DC1, DC2) and University of Tsukuba Fellowships, which provide assistance equivalent to living expenses if you apply and are accepted. For details, please contact a faculty member in our group.
 ---
 
-{% assign li = site.data.links.internal %}
-{% assign lel = site.data.links.external[page.lang] %}
+<p>To all students interested in joining the Theoretical Astrophysics Group, welcome to the Theoretical Astrophysics Group. </p>
 
-{% assign positions = 'professor associate_professor lecturer assistant_professor' | split: ' ' %}
+<br />
+<h4 id="environment">Research environment</h4>
 
-<h4>Overview</h4>
+<p>The Theoretical Astrophysics Group at the Center for Computational Sciences currently has seven staff members, who are engaged in research encompassing a broad range of topics including the large-scale structure of the universe, galaxies, black holes, stars, and planets. The group is 50 members strong, including researchers and students, making it Japan's largest theoretical astrophysics group. In recent years, we have been pioneering cross-disciplinary research on themes such as the origin of life and computational medicine. </p>
 
-<p>The Theoretical Astrophysics Group was established in 1993 as a new research group of the physics department. In 2004, the <a href="{{ lel.pas_physics }}" target="_blank">Graduate School of Pure and Applied Sciences (Department of Physics)</a> moved from a 5-year PhD course system to a new split 2+3 system. The <a href="{{ site.baseurl }}{{ li.research }}/{{ page.lang }}">research topics</a> are mainly in theoretical astrophysics.</p>
+<p>Our research group provides a unique environment for students who want to experience the excitement of interacting with experts on a variety of research topics and delving into a research topic in depth with the guidance of an advisor.</p>
 
-<p>The general postgraduate admissions examination is held every year in late August, while the admissions examinations upon commendation are held in early July. For more information on graduate school examinations please refer to the guidelines described in the pages of the <a href="{{ lel.pas_admission }}" target="_blank">Graduate School of Pure and Applied Sciences (Department of Physics)</a>.</p>
 
-<br/>
-<h4>About the Theoretical Astrophysics Group</h4>
+<br />
+<h4 id="science">Supercomputers and astrophysics, medical and biological sciences</h4>
 
-<ul>
-  <li>Please have a look at the "<a href="{{ site.baseurl }}{{ li.information }}/{{ page.lang }}">Information</a>" page</li>
-  <li>Contact
-  <div class="well well-sm">
-    <ul class="fa-ul">
-      <li class="fali"><i class="fa-li fa fa-building"></i>Center for Computational Sciences<br />
-      1-1-1 Tennodai, Tsukuba, Ibaraki <br />
-      Japan 305-8577 <br /></li>
-      <li class="fali"><i class="fa-li fa fa-phone"></i> 029-853-6485</li>
-      {% for p in positions %}
-      {% assign mem = site.members | where: 'lang', page.lang | where: 'position', p | sort: 'order' %}
-      {% for m in mem %}
-      {% assign fname = m.path | split: '/' | last | remove: '.html' %}
-      {% unless fname == "einstein_albert" %}
-      <li class="fali"><a href="mailto:{{ m.email }}"><i class="fa-li fa fa-envelope"></i></a> <a href="{{ m.homepage }}">{{ m.name }}</a><br/>{% if m.roles %}{{ m.roles }}, {% endif %}{{ m.research }}</li>
-      {% endunless %}
-      {% endfor %}
-      {% endfor %}
-    </ul>
-  </div>
-  </li>
-</ul>
+<p>The unique feature of our group is that our research focuses on large-scale simulations using state-of-the-art supercomputers. In some cases, we develop novel computational codes to perform simulations no one has ever done before. One of the major strengths and advantages of our group is being part of the Center for Computational Science, which is constantly developing new supercomputers that we can use for our research.</p>
+
+<p>We therefore welcome students who are interested in astrophysics, who want to apply the physics they have studied to the behaviour and evolution of astrophysical objects, or who want to perform large-scale numerical simulations, and who are enthusiastic about their research, no matter what their motivation. We challenge you to take part in performing the world's best computer simulations together!</p>
+
+<p>The group is always open for visits and questions. Feel free to directly contact the faculty member whose research interests you.</p>
+
+
+<br />
+<h4 id="career">Career paths</h4>
+
+<p>Career opportunities are diverse after obtaining a Master's or doctoral degree: students may begin working in companies from large corporations to smaller start ups, or as a public servant. If you wish to enter a doctoral program with us, you must take and pass the entrance examination. The job descriptions in companies vary widely, including system engineer, satellite development, automobile development, IT consultant, etc. If you want to become a researcher, you will need to apply for a fixed-term post such as a research fellow of the Japan Society for the Promotion of Science, a research fellow of a Grant-in-Aid for Scientific Research, or a research fellow of a research institute.</p>
+
+
+<br />
+<h4 id="life">Graduate research program</h4>
+
+<p>1st year of Master's degree: Research begins. At first, you will read papers and study physics related to your project. You will gradually start numerical simulations and analysis towards original research. In parallel, you will attend graduate school classes, 1-2 weekly rotating seminars, and regular group colloquiums.</p>
+
+<p>Second year of master's program: While participating in seminars and regular group colloquiums, students concentrate on their research toward the completion of their Master's thesis. They will also present the results of their research at conferences and workshops in Japan and abroad.</p>
+
+<p>Doctoral Program: Research, research, research. Frequent presentations at conferences and research meetings, and discussions with researchers in Japan and abroad will help you develop your research. You will also submit papers to peer-reviewed journals as the first author. In order to become independent researchers, students will develop the ability to explore research themes, develop research plans, and organize their research.</p>
+
+<p>In addition to the above, various events for social gatherings are planned in the group, such as a newcomer's barbecue, camp-style research meetings, year-end parties, and farewell parties.</p>
+
+<p>Finally, after entering our graduate school, students will be assigned a faculty advisor during April and begin their research. Graduate students are not expected to assist with research, but to take the initiative in conducting research on their own original research topics. The faculty advisor is essentially meant to be a co-researcher. It will be tough at the beginning, but if you are enthusiastic and committed, you will get to experience a very exciting research life. You may get stuck at times, but when the going gets tough, the faculty members, researchers, and the other students in the group will do their best to support you.</p>
 
