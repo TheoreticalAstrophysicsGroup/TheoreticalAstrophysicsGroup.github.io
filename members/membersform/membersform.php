@@ -156,20 +156,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $ssl_password = 
     $latexlines_encrypted = encrypt($latexlines, $ssl_password);
 
-    # Encrypt the private data with GnuPG
-    #putenv("GNUPGHOME=/home/ASTRO/fellow/ayw/.gnupg/");
-    #$gpg = new gnupg();
-    #$gpg->seterrormode(gnupg::ERROR_EXCEPTION);
-
-    # Check key ring for recipient public key, otherwise import it
-    #$keyInfo = $gpg->keyinfo('8C6B5F8216ACDB72AAD97051BD2858483660AF1A');
-    #if (empty($keyInfo)) {
-    #    $gpg->import('membersform_data.asc');
-    #}
-    #$gpg->addencryptkey('8C6B5F8216ACDB72AAD97051BD2858483660AF1A');
-
-    #$latexlines_e = $gpg->encrypt($latexlines);
-
     # Write files
     $fcon = fopen($fname_tex . ".enc", 'w');
     fwrite($fcon, $latexlines_encrypted);
