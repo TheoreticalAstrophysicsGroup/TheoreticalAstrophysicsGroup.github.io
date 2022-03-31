@@ -27,7 +27,8 @@
     {% for m in mem %}
     {% assign fname = m.path | split: '/' | last | remove: '.html' %}
     {% unless fname == "einstein_albert" %}
-    <li class="fali"><a href="mailto:{{ m.email }}"><i class="fa-li fa fa-envelope"></i></a> <a href="{{ m.homepage }}">{{ m.name }}</a><br/>{% if m.roles %}{{ m.roles }}，{% endif %}{{ m.research }}</li>
+    {% include lang_surround.html shape='round' %}
+    <li class="fali"><a href="mailto:{{ m.email }}"><i class="fa-li fa fa-envelope"></i></a> <a href="{{ m.homepage }}">{{ m.name }}</a>{% if m.roles %}{{ open_surround }}{{ m.roles }}{{ close_surround }}{% endif %}<br/>{{ m.research }}</li>
     {% endunless %}
     {% endfor %}
     {% endfor %}
