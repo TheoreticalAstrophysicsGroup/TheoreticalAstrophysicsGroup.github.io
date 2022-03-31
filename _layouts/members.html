@@ -73,11 +73,18 @@ layout: default
           <!-- Increment footnote counter -->
           {% if m.footnote %} {% assign ifn = ifn | plus: 1 %} {% endif %}
 
+          <!-- roles -->
+          {% assign role = '' %}
+          {% if m.roles %}
+          {% include lang_surround.html shape='round' %}
+          {% capture role %}{{ open_surround }}{{ m.roles }}{{ close_surround }}{% endcapture %}
+          {% endif %}
+
           {% assign fname = m.path | split: '/' | last | remove: '.html' %}
           {% if fname != "einstein_albert" %}
           <tr>
             <td>{% if m.homepage %}<a href='{{ m.homepage }}' target='_blank'>{% elsif m.layout == 'profile' %}<a href='./{{ fname }}/' target='_blank'>{% endif %}{{ m.name }}{% if m.homepage or m.layout == 'profile' %}</a>{% endif %}{% if m.footnote %}<sup>{{ ifn }}</sup>{% endif %}</td>
-            <td>{{ tml[p] }}</td>
+            <td>{{ tml[p] }}<br/>{{ role }}</td>
             <td>{{ m.tel }}</td>
             <td>{{ m.email }}</td>
             <td>{{ m.research }}</td>
