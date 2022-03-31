@@ -2,6 +2,10 @@
 {% assign lel = site.data.links.external[page.lang] %}
 {% assign li = site.data.links.internal %}
 
+<!-- Get the language dependent colon -->
+{% include lang_surround.html shape='colon' %}
+{% assign colon = open_surround %}
+
 <!-- Language dependent surrounds -->
 <!-- This creates open_surround and close_surround variables into the namespace -->
 {% include lang_surround.html shape='round' %}
@@ -11,24 +15,39 @@
     <div class="panel-body">
         <ul class="fa-ul">
             <li class="fali">
-                <i class="fa-li fa fa-graduation-cap"></i> {{ page.pi }}
+              <i class="fa-li fa fa-graduation-cap"></i> {{ tprl.pi }}{{ colon }}{{ page.pi }}
             </li>
+            {% if page.ci %}
+            <li class="fali"> <i class="fa-li fa fa-users"></i> {{ tprl.ci }}{{ colon }}<br />
             {% for auth in page.ci %}
-            <li class="fali">
-                {% if forloop.first %} <i class="fa-li fa fa-user"></i>{% endif %} {{ auth.name }} 
-                {% if auth.affil %}{{ open_surround }}{{ auth.affil }}{{ close_surround }}{% endif %}
-            </li>
+            {{ auth.name }} {% if auth.affil %}{{ open_surround }}{{ auth.affil }}{{ close_surround }}{% endif %} <br />
             {% endfor %}
-            <li class="fali"> <i class="fa-li fa fa-calendar"></i> <a
-                    href="{{ site.baseurl }}{{ li.calendar}}/{{ page.lang }}">{% include date.html d=page.from l="l" %}</a>
             </li>
+            {% endif %}
+            {% if page.collaborators %}
+            <li class="fali"> <i class="fa-li fa fa-users"></i> {{ tprl.collaborators }}{{ colon }}<br />
+            {% for auth in page.collaborators %}
+            {{ auth.name }} {% if auth.affil %}{{ open_surround }}{{ auth.affil }}{{ close_surround }}{% endif %} <br />
+            {% endfor %}
+            </li>
+            {% endif %}
+            {% if page.from %}
+            <li class="fali"> <i class="fa-li fa fa-calendar"></i> <a
+                    href="{{ site.baseurl }}{{ li.calendar}}/{{ page.lang }}">{% include date.html d=page.from l="l" %}
+              {% unless page.to %} <i class="fa fa-ellipsis-h"></i> {% endunless %}</a>
+            </li>
+            {% endif %}
+            {% if page.to %}
             <li class="fali"> <i class="fa-li fa fa-ellipsis-v"></i> <a
                     href="{{ site.baseurl }}{{ li.calendar}}/{{ page.lang }}">{% include date.html d=page.to l="l" %}</a>
             </li>
-            {% if page.org %}<li class="fali"> <i class="fa-li fa fa-university"></i>{% if page.org_link %}<a
+            {% endif %}
+            {% if page.org %}
+            <li class="fali"> <i class="fa-li fa fa-university"></i>{% if page.org_link %}<a
                     href="{{ page.org_link }}" target="_blank">{{ page.org }}</a>
                 <font size="1"><i class="fa fa-external-link"></i></font>{% else %}{{ page.org }}{% endif %}
-            </li>{% endif %}
+            </li>
+            {% endif %}
 
         </ul>
     </div>

@@ -739,7 +739,8 @@ conferences:
 projects:
   ja:
     pi: 代表者
-    ci: 共同研究者
+    ci: 分担者
+    collaborators: 共同研究者
     org: 支援
     astro: &projects_a_ja 宇宙物理研究
     hpc: &projects_h_ja HPC プロジェクト
@@ -756,8 +757,9 @@ projects:
     info: 情報
 
   en:
-    pi: Principle investigator
-    ci: Co-investigator
+    pi: PI
+    ci: Co-investigators
+    collaborators: Collaborators
     org: Supporting organization
     astro: &projects_a_en Astrophysics Projects
     hpc: &projects_h_en HPC projects

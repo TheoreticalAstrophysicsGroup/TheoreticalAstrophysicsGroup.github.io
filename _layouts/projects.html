@@ -66,7 +66,12 @@ layout: default
 
       <!-- Compare using unix time -->
       <!-- Add a day to the to date because unix time starts at 9:00 -->
+      <!-- TODO: Refactor this definition of cto -->
+      {% if post.to %}
       {% assign cto = post.to | date: "%s" | plus: age_1day %}
+      {% else %}
+      {% assign cto = '2099-12-31' | date: "%s" | plus: age_1day %}
+      {% endif %}
       {% assign cdate = site.time | date: "%s" | times: 1 %}
 
       {% if cto > cdate %}
@@ -97,13 +102,20 @@ layout: default
             <div class="row">
               <div class="col-lg-10 col-md-9 col-sm-8">
                 <i class="fa fa-calendar fa-fw"></i> <a
-                  href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i
-                    class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br />
+                  href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i class="fa fa-ellipsis-h"></i> {% if post.to %}{% include date.html d=post.to l='s' %}{% endif %}</a><br />
                 <i class="fa fa-graduation-cap"></i> {{ post.pi }}
+                {% if post.ci %}
                 {% for auth in post.ci %}
-                  {% if forloop.first %} <i class="fa fa-user"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
+                  {% if forloop.first %} <i class="fa fa-users"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
                   {{ auth.name }} {% else %} {{ auth.name }}, {% endif %}
                 {% endfor %}
+                {% elsif post.collaborators %}
+                {% for auth in post.collaborators %}
+                  {% if forloop.first %} <i class="fa fa-users"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
+                  {{ auth.name }} {% else %} {{ auth.name }}, {% endif %}
+                {% endfor %}
+                {% endif %}
+
               </div>
               <div class="col-lg-2 col-md-3 col-sm-4">
                 <a href="{{ posturl }}" class="pull-right">{{ tpl.read_more }} &raquo;</a>
@@ -132,7 +144,11 @@ layout: default
 
       <!-- Compare using unix time -->
       <!-- Add a day to the to date because unix time starts at 9:00 -->
+      {% if post.to %}
       {% assign cto = post.to | date: "%s" | plus: age_1day %}
+      {% else %}
+      {% assign cto = '2099-12-31' | date: "%s" | plus: age_1day %}
+      {% endif %}
       {% assign cdate = site.time | date: "%s" | times: 1 %}
 
       {% if cto > cdate %}
@@ -163,13 +179,19 @@ layout: default
             <div class="row">
               <div class="col-lg-10 col-md-9 col-sm-8">
                 <i class="fa fa-calendar fa-fw"></i> <a
-                  href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i
-                    class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br />
+                  href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i class="fa fa-ellipsis-h"></i> {% if post.to %}{% include date.html d=post.to l='s' %}{% endif %}</a><br />
                 <i class="fa fa-graduation-cap"></i> {{ post.pi }}
+                {% if post.ci %}
                 {% for auth in post.ci %}
-                  {% if forloop.first %} <i class="fa fa-user"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
+                  {% if forloop.first %} <i class="fa fa-users"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
                   {{ auth.name }} {% else %} {{ auth.name }}, {% endif %}
                 {% endfor %}
+                {% elsif post.collaborators %}
+                {% for auth in post.collaborators %}
+                  {% if forloop.first %} <i class="fa fa-users"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
+                  {{ auth.name }} {% else %} {{ auth.name }}, {% endif %}
+                {% endfor %}
+                {% endif %}
               </div>
               <div class="col-lg-2 col-md-3 col-sm-4">
                 <a href="{{ posturl }}" class="pull-right">{{ tpl.read_more }} &raquo;</a>
@@ -189,6 +211,7 @@ layout: default
       <br />
       <br />
 
+
       <h3 id="dev" class="section-title">{{ tprl.dev }}</h3>
       {% assign at_least_one = false %}
 
@@ -199,7 +222,11 @@ layout: default
       {% for post in projects %}
 
       <!-- Compare using unix time -->
+      {% if post.to %}
       {% assign cto = post.to | date: "%s" | plus: age_1day %}
+      {% else %}
+      {% assign cto = '2099-12-31' | date: "%s" | plus: age_1day %}
+      {% endif %}
       {% assign cdate = site.time | date: "%s" | times: 1 %}
 
       {% if cto > cdate %}
@@ -230,13 +257,19 @@ layout: default
             <div class="row">
               <div class="col-lg-10 col-md-9 col-sm-8">
                 <i class="fa fa-calendar fa-fw"></i> <a
-                  href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i
-                    class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br />
+                  href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i class="fa fa-ellipsis-h"></i> {% if post.to %}{% include date.html d=post.to l='s' %}{% endif %}</a><br />
                 <i class="fa fa-graduation-cap"></i> {{ post.pi }}
+                {% if post.ci %}
                 {% for auth in post.ci %}
-                  {% if forloop.first %} <i class="fa fa-user"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
+                  {% if forloop.first %} <i class="fa fa-users"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
                   {{ auth.name }} {% else %} {{ auth.name }}, {% endif %}
                 {% endfor %}
+                {% elsif post.collaborators %}
+                {% for auth in post.collaborators %}
+                  {% if forloop.first %} <i class="fa fa-users"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
+                  {{ auth.name }} {% else %} {{ auth.name }}, {% endif %}
+                {% endfor %}
+                {% endif %}
               </div>
               <div class="col-lg-2 col-md-3 col-sm-4">
                 <a href="{{ posturl }}" class="pull-right">{{ tpl.read_more }} &raquo;</a>
@@ -267,7 +300,11 @@ layout: default
       {% for post in projects %}
 
       <!-- Compare using unix time -->
+      {% if post.to %}
       {% assign cto = post.to | date: "%s" | plus: age_1day %}
+      {% else %}
+      {% assign cto = '2099-12-31' | date: "%s" | plus: age_1day %}
+      {% endif %}
       {% assign cdate = site.time | date: "%s" | times: 1 %}
 
       {% if cto > cdate %}
@@ -298,13 +335,19 @@ layout: default
             <div class="row">
               <div class="col-lg-10 col-md-9 col-sm-8">
                 <i class="fa fa-calendar fa-fw"></i> <a
-                  href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i
-                    class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br />
+                  href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i class="fa fa-ellipsis-h"></i> {% if post.to %}{% include date.html d=post.to l='s' %}{% endif %}</a><br />
                 <i class="fa fa-graduation-cap"></i> {{ post.pi }}
+                {% if post.ci %}
                 {% for auth in post.ci %}
-                  {% if forloop.first %} <i class="fa fa-user"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
+                  {% if forloop.first %} <i class="fa fa-users"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
                   {{ auth.name }} {% else %} {{ auth.name }}, {% endif %}
                 {% endfor %}
+                {% elsif post.collaborators %}
+                {% for auth in post.collaborators %}
+                  {% if forloop.first %} <i class="fa fa-users"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
+                  {{ auth.name }} {% else %} {{ auth.name }}, {% endif %}
+                {% endfor %}
+                {% endif %}
               </div>
               <div class="col-lg-2 col-md-3 col-sm-4">
                 {% if page.web %}<font size="1"><i class="fa fa-external-link"></i></font>{% endif %}
@@ -336,7 +379,11 @@ layout: default
       {% for post in projects %}
 
       <!-- Compare using unix time -->
+      {% if post.to %}
       {% assign cto = post.to | date: "%s" | plus: age_1day %}
+      {% else %}
+      {% assign cto = '2099-12-31' | date: "%s" | plus: age_1day %}
+      {% endif %}
       {% assign cdate = site.time | date: "%s" | times: 1 %}
 
       {% if cto > cdate %}
@@ -368,13 +415,19 @@ layout: default
             <div class="row">
               <div class="col-lg-10 col-md-9 col-sm-8">
                 <i class="fa fa-calendar fa-fw"></i> <a
-                  href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i
-                    class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br />
+                  href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i class="fa fa-ellipsis-h"></i> {% if post.to %}{% include date.html d=post.to l='s' %}{% endif %}</a><br />
                 <i class="fa fa-graduation-cap"></i> {{ post.pi }}
+                {% if post.ci %}
                 {% for auth in post.ci %}
-                  {% if forloop.first %} <i class="fa fa-user"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
+                  {% if forloop.first %} <i class="fa fa-users"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
                   {{ auth.name }} {% else %} {{ auth.name }}, {% endif %}
                 {% endfor %}
+                {% elsif post.collaborators %}
+                {% for auth in post.collaborators %}
+                  {% if forloop.first %} <i class="fa fa-users"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
+                  {{ auth.name }} {% else %} {{ auth.name }}, {% endif %}
+                {% endfor %}
+                {% endif %}
               </div>
               <div class="col-lg-2 col-md-3 col-sm-4">
                 {% if page.web %}<font size="1"><i class="fa fa-external-link"></i></font>{% endif %}
@@ -395,6 +448,7 @@ layout: default
       <br />
       <br />
 
+
       <h3 id="past" class="section-title">{{ tprl.past }}</h3>
       {% assign at_least_one = false %}
 
@@ -410,10 +464,14 @@ layout: default
       {% for post in projects %}
 
       <!-- Compare using unix time -->
+      {% if post.to %}
       {% assign cto = post.to | date: "%s" | plus: age_1day %}
-      {% assign cdate = site.time | date: "%s" | minus: age_15mo %}
+      {% else %}
+      {% assign cto = '2099-12-31' | date: "%s" | plus: age_1day | plus: age_1day %}
+      {% endif %}
+      {% assign cdate = site.time | date: "%s" | plus: age_1day %}
 
-      {% if cto > cdate %}
+      {% if cto < cdate %}
 
       {% assign delay_add = forloop.index | mod: posts_per_page | times: 3 %}
       {% assign delay = 8 | plus: delay_add %}
@@ -442,13 +500,19 @@ layout: default
             <div class="row">
               <div class="col-lg-10 col-md-9 col-sm-8">
                 <i class="fa fa-calendar fa-fw"></i> <a
-                  href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i
-                    class="fa fa-ellipsis-h"></i> {% include date.html d=post.to l='s' %}</a><br />
+                  href="{{ site.baseurl }}{{ li.calendar }}/{{ page.lang }}">{% include date.html d=post.from l='s' %}<i class="fa fa-ellipsis-h"></i> {% if post.to %}{% include date.html d=post.to l='s' %}{% endif %}</a><br />
                 <i class="fa fa-graduation-cap"></i> {{ post.pi }}
+                {% if post.ci %}
                 {% for auth in post.ci %}
-                  {% if forloop.first %} <i class="fa fa-user"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
+                  {% if forloop.first %} <i class="fa fa-users"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
                   {{ auth.name }} {% else %} {{ auth.name }}, {% endif %}
                 {% endfor %}
+                {% elsif post.collaborators %}
+                {% for auth in post.collaborators %}
+                  {% if forloop.first %} <i class="fa fa-users"></i> {{ auth.name }}{% if forloop.last == false %},{% endif %} {% elsif forloop.last %}
+                  {{ auth.name }} {% else %} {{ auth.name }}, {% endif %}
+                {% endfor %}
+                {% endif %}
               </div>
               <div class="col-lg-2 col-md-3 col-sm-4">
                 {% if page.web %}<font size="1"><i class="fa fa-external-link"></i></font>{% endif %}

@@ -70,7 +70,6 @@ layout: default
               {% assign iimg1 = forloop.index | times: 2 | minus: 2 %}
               {% assign iimg2 = forloop.index | times: 2 | minus: 1 %}
 
-              {% assign iimgs = {{ iimg1 }}::{{ iimg2 }} | split: '::' %}
               {% for iimg in (iimg1..iimg2) %}
 
                 {% assign img = page.img[iimg] %} 
