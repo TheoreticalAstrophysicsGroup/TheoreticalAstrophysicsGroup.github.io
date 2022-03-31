@@ -58,7 +58,6 @@ external:
 internal:
   home: &home /home
   members: *members
-  research: &research /research
   achievements: *achievements
   projects: *projects
   featured: *featured
@@ -105,7 +104,6 @@ nav:
     home_en: *home
   group:
     members: *members
-    research: *research
     achievements: *achievements
     featured: *featured
     news: *news

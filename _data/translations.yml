@@ -64,17 +64,6 @@ home:
     more_info: More Info
     featured: *featured_long_en
 
-# Research page translations
-research:
-  ja:
-    abstract: 概要
-    topics: トピック
-    read_more: 続きを読む
-  en:
-    abstract: Summary
-    topics: Topics
-    read_more: Read more
-
 
 # Achievements page translations
 achievements:
@@ -809,7 +798,6 @@ header:
     subtitle: 筑波大学 計算科学研究センター
     group: 研究室紹介
     members: *members_short_ja
-    research: &research_topics_ja 研究内容
     achievements: *achievements_short_ja
     featured: *featured_short_ja
     news: *news_short_ja
@@ -863,7 +851,6 @@ header:
     subtitle: University of Tsukuba, Center for Computational Sciences
     group: Our Group
     members: *members_short_en
-    research: &research_topics_en Research Topics
     achievements: *achievements_short_en
     featured: *featured_short_en
     news: *news_short_en
@@ -914,7 +901,6 @@ header:
 footer:
   ja:
     members: *members_short_ja
-    research: *research_topics_ja
     achievements: *achievements_short_ja
     featured: *featured_short_ja
     news: *news_short_ja
@@ -935,7 +921,6 @@ footer:
     uni: 筑波大学
   en:
     members: *members_short_en
-    research: *research_topics_en
     achievements: *achievements_short_en
     featured: *featured_short_en
     news: *news_short_en
