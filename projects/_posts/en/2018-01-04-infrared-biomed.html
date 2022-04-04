@@ -1,0 +1,45 @@
+---
+title: Development of a fast radiative transfer code for infrared biomedical diagnosis
+lang: en
+pi: Hidenobu Yajima
+#ci:
+#  - name:
+#    affil:
+collaborators:
+  - name: Masayuki Umemura
+    affil: University of Tsukuba, Center for Computational Sciences
+  - name: Makito Abe
+    affil: University of Tsukuba, Center for Computational Sciences
+  - name: Yuichi Takamizu
+    affil: University of Tsukuba, Center for Computational Sciences
+  - name: Yoko Hoshi
+    affil: Hamamatsu University School of Medicine
+from: 2018-04-01
+#to:
+#org: 
+#org_link:
+img_thumb: bio-imaging-en-thumb.jpg
+img_banner:
+img:
+  - file: bio-imaging-en.jpg
+    caption: "Schematic diagram of medical diagnosis using near-infrared diffuse optical tomography. In vivo diagnosis is possible by combining light irradiation and measurements taken of a living target with radiative transfer calculations (forward problem analysis), and by an inverse problem analysis using applied mathematics and machine learning."
+
+#refs:
+#  - name: 
+#  - name: 
+#    link: 
+
+categories:
+  - projects
+  - med
+  - en
+---
+
+<p>In this project, we are developing a fast and accurate radiative transfer code for biomedical diagnosis using near-infrared radiation, based on our experience in radiative transfer calculation in astrophysics. Currently, medical diagnostic imaging is performed in various ways in the medical applications, including X-ray, MRI, and PET. However, these methods are known to involve risks such as radiation exposure and side effects due to contrast agents. As a new medical diagnostic technique that does not involve any of these risks, a diagnostic method called diffuse optical tomography using near-infrared light with a wavelength of about 800-1100 nanometers has been proposed. This wavelength band is called the window of the living body, and because scattering is much greater than absorption by blood and water, some of the light propagates deep into the body upon irradiation, while some of the light is scattered. Using the data from the propagation and spread in infrared light, it is possible to infer structural information inside of the living body. However, due to the complexity and computational cost of the calculation involved in the radiative transfer of infrared light, this method has, until now, not been realizeable for practical purposes.</p>
+
+<p>We have begun taking on this difficult problem by making full use of the radiative transfer techniques we have developed in our research of astrophysics. Using an algorithm called the Authentic Radiative Transfer (ART) method developed by our group, we have developed a radiative transfer code for the propagation of infrared light in tissue that can handle time-resolved measurements on the nanosecond order or smaller. We are now able to calculate the radiation transport process in vivo with high accuracy using large-scale parallel computing on a supercomputer, which has been difficult until now.</p>
+
+<p>Currently, in collaboration with Hamamatsu University School of Medicine, we are conducting a comparison study with an optical pulse experiment on polyurethane, which has absorption and scattering characteristics similar to those of biological tissue. In these studies, we are obtaining simulation results that are in excellent agreement with the experimental waveforms. In the near future, we will enhance these calculations and conduct simulations tailored to the brain and and thyroid gland.</p>
+
+<p>In parallel to the above studies, we are also experimenting with the construction and analysis methods of big data from numerical simulations and machine learning using simulated data for the clinical application of diffuse optical tomography.</p>
+
