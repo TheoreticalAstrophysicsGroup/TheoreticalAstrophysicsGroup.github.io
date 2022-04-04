@@ -33,13 +33,13 @@
             {% endif %}
             {% if page.from %}
             <li class="fali"> <i class="fa-li fa fa-calendar"></i> <a
-                    href="{{ site.baseurl }}{{ li.calendar}}/{{ page.lang }}">{% include date.html d=page.from l="l" %}
+                    href="{{ site.baseurl }}{{ li.calendar}}/{{ page.lang }}">{% include date.html d=page.from l="s" %}
               {% unless page.to %} <i class="fa fa-ellipsis-h"></i> {% endunless %}</a>
             </li>
             {% endif %}
             {% if page.to %}
             <li class="fali"> <i class="fa-li fa fa-ellipsis-v"></i> <a
-                    href="{{ site.baseurl }}{{ li.calendar}}/{{ page.lang }}">{% include date.html d=page.to l="l" %}</a>
+                    href="{{ site.baseurl }}{{ li.calendar}}/{{ page.lang }}">{% include date.html d=page.to l="s" %}</a>
             </li>
             {% endif %}
             {% if page.org %}

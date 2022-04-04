@@ -51,13 +51,15 @@
           {% assign posts_lang = site.posts | where: 'lang', page.lang %}
           {% for post in posts_lang limit: 3 %}
           <div class="media">
-            <!--{% assign posturl = post.url | prepend: site.baseurl %}
-            {% if post.categories contains "achievements" %}
-              {% assign imdir = la.img_achievements %}
-            {% else %}
-              {% assign imdir = la.img %}
-            {% endif %} -->
-              {% assign imdir = post.categories[0] %}
+
+          <!-- location of image files is sometimes in subdirectories. Eventually they all will be. -->
+          {% if post.categories[0] == 'achievements' %}
+          {% assign imdir = 'achievements/' %}
+          {% elsif post.categories[0] == 'projects' %}
+          {% assign imdir = 'projects/' %}
+          {% else %}  
+          {% assign imdir = '' %}
+          {% endif %}
               <a class="pull-left" href="{{ posturl }}"><img class="media-object" src="{{ site.baseurl }}{{ la.img }}/{{ imdir }}/{% if post.img_thumb %}{{ post.img_thumb }}{% else %}sq-no_img.jpg{% endif %}" width="75" height="75" alt="image"></a>
             <div class="media-body">
               <h4 class="media-heading"><a href="{{ posturl }}">{{ post.title | truncatewords: 12 }}</a></h4>
