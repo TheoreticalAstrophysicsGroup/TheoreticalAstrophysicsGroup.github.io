@@ -343,6 +343,7 @@ calendar:
 admission:
   ja:
     admission: 宇宙物理理論研究室 入学案内
+    greeting: 研究室を志望する学生の皆さんへ
     environment: 研究環境
     science: サイエンス
     life: 学生生活
@@ -355,6 +356,7 @@ admission:
     access: アクセス
   en:
     admission: Theoretical Astrophysics Group Admission Information
+    greeting: To all students interested in joining the Theoretical Astrophysics Group
     environment: Research environment
     science: Science
     life: Graduate research program
