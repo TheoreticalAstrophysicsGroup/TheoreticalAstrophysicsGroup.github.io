@@ -122,6 +122,7 @@ nav:
   schedule:
     uchu_forum: *uchu_forum
     seminars: *seminars
+    conferences: *conferences
     calendar: *calendar
     uot_calendar: external
     internal: header
@@ -129,12 +130,6 @@ nav:
     scheduler: external
     ccs_internal_pages: external
     uot_fair: external
-  conferences:
-    conferences_future_local: *conferences_fl
-    conferences_current_local: *conferences_cl
-    conferences_past_local: *conferences_pl
-    conferences_abroad: *conferences_ab
-    conferences_domestic: *conferences_do
   projects:
     projects_astro: *projects_a
     projects_hpc: *projects_h
