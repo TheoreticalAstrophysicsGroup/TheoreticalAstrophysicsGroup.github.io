@@ -150,6 +150,8 @@ layout: default
           {% assign imdir = 'seminars/' %}
           {% elsif last_post.categories[0] == 'uchu_forum' %}
           {% assign imdir = 'uchu_forum/' %}
+          {% elsif last_post.categories[0] == 'news' %}
+          {% assign imdir = 'news/' %}
           {% else %}  
           {% assign imdir = '' %}
           {% endif %}
@@ -215,6 +217,8 @@ layout: default
           {% assign imdir = 'seminars/' %}
           {% elsif post.categories[0] == 'uchu_forum' %}
           {% assign imdir = 'uchu_forum/' %}
+          {% elsif post.categories[0] == 'news' %}
+          {% assign imdir = 'news/' %}
           {% else %}  
           {% assign imdir = '' %}
           {% endif %}
