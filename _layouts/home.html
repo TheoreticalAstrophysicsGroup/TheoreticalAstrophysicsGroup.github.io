@@ -146,6 +146,10 @@ layout: default
           {% assign imdir = 'achievements/' %}
           {% elsif last_post.categories[0] == 'projects' %}
           {% assign imdir = 'projects/' %}
+          {% elsif last_post.categories[0] == 'seminars' %}
+          {% assign imdir = 'seminars/' %}
+          {% elsif last_post.categories[0] == 'uchu_forum' %}
+          {% assign imdir = 'uchu_forum/' %}
           {% else %}  
           {% assign imdir = '' %}
           {% endif %}
@@ -207,6 +211,10 @@ layout: default
           {% assign imdir = 'achievements/' %}
           {% elsif post.categories[0] == 'projects' %}
           {% assign imdir = 'projects/' %}
+          {% elsif post.categories[0] == 'seminars' %}
+          {% assign imdir = 'seminars/' %}
+          {% elsif post.categories[0] == 'uchu_forum' %}
+          {% assign imdir = 'uchu_forum/' %}
           {% else %}  
           {% assign imdir = '' %}
           {% endif %}
