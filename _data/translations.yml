@@ -90,6 +90,7 @@ information:
   ja:
     activities: 活動・アクティビティ
     seminars: 開催中のセミナー
+    other: その他
     name: 
     participants: 参加者
     advisor: 担当者
@@ -99,6 +100,7 @@ information:
   en:
     activities: Activities
     seminars: Seminars
+    other: Other meetings
     name: Name
     participants: Participants
     advisor: Advisor(s)

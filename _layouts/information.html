@@ -13,6 +13,10 @@ layout: default
 
       <h3 class="post-title">{{ til.activities }}</h3>
 
+      {% for m in page.activities_message %}
+      <p>{{ m }}</p>
+      {% endfor %}
+
       <table class="table table-striped">
         <thead>
           <tr>
@@ -37,6 +41,14 @@ layout: default
 
       <h3 class="post-title">{{ til.seminars }}</h3>
 
+      {% for m in page.seminars_message %}
+      {% if forloop.index == 1 %}
+      <p>{{ m }}</p>
+      {% else %}
+      <div class="alert alert-info">{{ m }} </div>
+      {% endif %}
+      {% endfor %}
+
       <table class="table table-striped">
         <thead>
           <tr>
@@ -49,6 +61,36 @@ layout: default
         </thead>
         <tbody>
           {% for s in page.seminars %}
+          <tr>
+            <td>{{ forloop.index }}</td>
+            <td>{{ s.name }}</td>
+            <td>{{ s.advisor }}</td>
+            <td>{{ s.time }}</td>
+            <td>{% for t in s.text %}{{ t }}{% if forloop.last == false %}<br />{% endif %}{% endfor %}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <br/>
+
+      <h3 class="post-title">{{ til.other }}</h3>
+
+      {% for m in page.other_message %}
+      <p>{{ m }}</p>
+      {% endfor %}
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th>{{ til.name }}</th>
+            <th>{{ til.advisor }}</th>
+            <th>{{ til.time }}</th>
+            <th>{{ til.text }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for s in page.other %}
           <tr>
             <td>{{ forloop.index }}</td>
             <td>{{ s.name }}</td>
