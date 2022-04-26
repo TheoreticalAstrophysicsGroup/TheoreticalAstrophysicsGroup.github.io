@@ -108,6 +108,80 @@ information:
     about: About
     text: Textbook, notes
 
+# Uchu-forum form
+uchu_forum_form:
+  ja:
+    uchu_forum_form_header: 宇宙フォーラム情報収取
+    input_last_name: 姓 ＊
+    input_first_name: 名 ＊
+    input_last_name_romaji: 姓（半角ローマ字） ＊
+    input_first_name_romaji: 名（半角ローマ字） ＊
+    input_affil_ja: 所属 ＊ 
+    input_affil_en: 所属 （半角ローマ字） ＊
+    input_email: メール（半角） ＊
+    input_speaker_host: 世話人 ＊
+    input_talk_type: 発表の場 ＊
+    input_ttypes:
+      - 宇宙フォーラム
+      - コロキウム
+    input_homepage: ホームページ（URL）
+    input_talk_title: 発表タイトル ＊
+    input_talk_abstract: 発表概要 ＊
+    input_talk_date: 発表日 ＊
+    input_talk_time: 発表開始時刻 ＊
+    input_talk_kw1: 発表内容キーワード1 ＊
+    input_talk_kw2: 発表内容キーワード2
+    input_talk_kw3: 発表内容キーワード3
+    ph_last_name: 鈴木
+    ph_first_name: 一郎
+    ph_last_name_romaji: Suzuki
+    ph_first_name_romaji: Ichiro
+    ph_affil_ja: ナルニア大学
+    ph_affil_en: University of Narnia
+    ph_homepage: https://www.your.homepage.jp
+    ph_email: your@email.ac.jp
+    ph_talk_title: 発表のタイトル
+    ph_talk_abstract: 発表のタイトル（インライン数式TeX可&#36;10^{-23}&#36;）
+    legend_about_talk: 発表について
+    legend_about_speaker: 発表者について
+    submit: 送信
+  en:
+    uchu_forum_form_header: Uchu-forum information request
+    input_last_name: Last name (Kanji, Kana) 
+    input_first_name: First name (Kanji, Kana) 
+    input_last_name_romaji: Last name (Alphabet) ＊
+    input_first_name_romaji: First name (Alphabet) ＊ 
+    input_affil_ja: Affiliation (Kanji, Kana) 
+    input_affil_en: Affiliation (Alphabet) ＊ 
+    input_email: Email ＊
+    input_speaker_host: Host ＊
+    input_talk_type: Occasion of talk ＊
+    input_ttypes:
+      - Uchu Forum
+      - Colloquium
+    input_homepage: Homepage URL
+    input_talk_title: Talk title ＊
+    input_talk_abstract: Talk abstract ＊
+    input_talk_date: Talk date ＊
+    input_talk_time: Talk time ＊
+    input_talk_kw1: Keywords 1 ＊
+    input_talk_kw2: Keywords 2
+    input_talk_kw3: Keywords 3
+    ph_last_name: アインシュタイン
+    ph_first_name: アルバート
+    ph_last_name_romaji: Einstein
+    ph_first_name_romaji: Albert
+    ph_affil_ja: ナルニア大学
+    ph_affil_en: University of Narnia
+    ph_homepage: https://www.your.homepage.jp
+    ph_email: your@email.ac.jp
+    ph_talk_title: The title of the talk
+    ph_talk_abstract: An abstract of the talk (Inline LaTeX math allowed &#36;10^{-23}&#36;）
+    legend_about_talk: About your talk
+    legend_about_speaker: About yourself
+    submit: Submit
+
+
 # Members page translations
 members:
   ja:

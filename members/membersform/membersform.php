@@ -122,8 +122,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     # TODO: Add - lang: ja  and - lang: en to the yamllines. 
 
     # Construct latex lines and yaml lines
-    $latexlines = "$iln $ifn \\small{ $pos } & 〒$ip $ia & $it1 $fst4 $it4 \\\\\r\n$ilnr $ifnr & \\texttt{ $ie1 } $fse2 \\texttt{ $ie2 } & $it2 \\\\";
-    $yamllines = "---\r\nname: $iln $ifn\r\nname: $ifnr $ilnr\r\nemail: $uname\r\ntel: $it3\r\nposition: $rank_ids[$iry]\r\nhomepage: \"$ih\"\r\nresearch: $ir\r\n---";
+    $latexlines = "$iln $ifn \\small{ $pos } & 〒$ip $ia & $it1 $fst4 $it4 \\\\\n$ilnr $ifnr & \\texttt{ $ie1 } $fse2 \\texttt{ $ie2 } & $it2 \\\\";
+    $yamllines = "---\nname: $iln $ifn\nname: $ifnr $ilnr\nemail: $uname\ntel: $it3\nposition: $rank_ids[$iry]\nhomepage: \"$ih\"\nresearch: $ir\n---";
 
     # Fix spaces in curly braces
     $latexlines = str_replace("{ ", "{", $latexlines);
@@ -146,10 +146,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $yamllines = str_replace("、", "，", $yamllines);
 
     # Email 
-    $formcontent = "$latexlines\r\n\r\n$yamllines";
+    $formcontent = "$latexlines\n\n$yamllines";
     $recipient = 'astro.ccs.tsukuba@gmail.com';
     $subject = "TAG member $iln $ifn ($ilnr $ifnr) info";
-    $mailheader = "From: $ie1 \r\n";
+    $mailheader = "From: $ie1 \n";
     mail($recipient, $subject, $formcontent, $mailheader);
 
     # Encrypt the private data with OpenSSL

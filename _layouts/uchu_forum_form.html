@@ -1,0 +1,202 @@
+---
+layout: default
+---
+
+{% include page_header.html title=page.title %}
+
+{% assign tau = site.data.translations.uchu_forum_form[page.lang] %}
+{% assign ttg = site.data.translations.tags %}
+
+<div class="container">
+
+  {% if page.form_active %}
+
+  <h3 class="section-title"> {{ page.subtitle }} </h3>
+
+  <div class="uchu_forum_form">
+
+    {{ content }}
+
+    <form name="uchu_forum_info" role="form" action="../uchu_forum_form.php" method="post" id="uchu_forum_form" autocomplete="on">
+
+      <br />
+
+      <fieldset>
+        <legend>{{ tau.legend_about_speaker }}</legend>
+
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <label for="InputLastName"> {{ tau.input_last_name }} </label>
+            <input type="text" class="form-control" name="InputLastName" id="InputLastName"
+              placeholder="{{ tau.ph_last_name }}" 
+              autofocus required>
+              <!-- These Japanese pattern checks don't work. Neither do unicode points regex. -->
+              <!-- pattern="[\p{Han}\p{Hiragana}\p{Katakana}]+" -->
+          </div>
+
+          <div class="form-group col-sm-6">
+            <label for="InputFirstName"> {{ tau.input_first_name }} </label>
+            <input type="text" class="form-control" name="InputFirstName" id="InputFirstName"
+              placeholder="{{ tau.ph_first_name }}" 
+              required>
+              <!-- These Japanese pattern checks don't work. Neither do unicode points regex. -->
+              <!-- pattern="[\p{Han}\p{Hiragana}\p{Katakana}]+" -->
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <label for="InputLastNameRomaji"> {{ tau.input_last_name_romaji }} </label>
+            <input type="text" class="form-control" name="InputLastNameRomaji" id="InputLastNameRomaji"
+              placeholder="{{ tau.ph_last_name_romaji }}" 
+              pattern="[A-ZÀ-Ÿ][-'a-zà-ÿ]{1,}"
+              required>
+          </div>
+
+          <div class="form-group col-sm-6">
+            <label for="InputFirstNameRomaji"> {{ tau.input_first_name_romaji }} </label>
+            <input type="text" class="form-control" name="InputFirstNameRomaji" id="InputFirstNameRomaji"
+              placeholder="{{ tau.ph_first_name_romaji }}" 
+              pattern="[A-ZÀ-Ÿ][-'a-zà-ÿ]{1,}"
+              required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <label for="InputAffilJa"> {{ tau.input_affil_ja }} </label>
+            <input type="text" class="form-control" name="InputAffilJa" id="InputAffilJa"
+              placeholder="{{ tau.ph_affil_ja }}" 
+              required>
+          </div>
+
+          <div class="form-group col-sm-6">
+            <label for="InputAffilEn"> {{ tau.input_affil_en }} </label>
+            <input type="text" class="form-control" name="InputAffilEn" id="InputAffilEn"
+              placeholder="{{ tau.ph_affil_en }}" 
+              required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-sm-6 col-md-4">
+            <label for="InputEmail">{{ tau.input_email }}</label>
+            <input type="email" class="form-control" name="InputEmail" id="InputEmail"
+              placeholder="{{ tau.ph_email }}" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z.]{2,}$" required>
+          </div>
+
+          <div class="form-group col-sm-6 col-md-4">
+            <label for="InputHomepage">{{ tau.input_homepage }}</label>
+            <input type="url" class="form-control" name="InputHomepage" id="InputHomepage"
+              placeholder="{{ tau.ph_homepage }}" pattern="https?://.+">
+          </div>
+
+
+          {% assign positions = 'professor associate_professor lecturer assistant_professor postdoc postdoc_student d5 d4 d3 d2 d1' | split: ' ' %}
+
+          <div class="form-group col-sm-6 col-md-4">
+            <label for="InputSpeakerHost"> {{ tau.input_speaker_host }} </label>
+            <input list="speaker_host" class="form-control" name="InputSpeakerHost" id="InputSpeakerHost" required>
+            <datalist id="speaker_host">
+              {% for p in positions %}
+              {% assign pindex = forloop.index %}
+              {% assign mem_ja = site.members | where: 'lang', "ja" | where: 'position', p | sort: 'order' %}
+              {% assign mem_en = site.members | where: 'lang', "en" | where: 'position', p | sort: 'order' %}
+              {% for m in mem_ja %}
+              {% assign mindex = forloop.index | minus: 1 %}
+              {% assign m_en = mem_en[mindex] %}
+              {% unless pindex == 1 and mindex == 0 %}
+              <option value="{{ m.name }} | {{ m_en.name }}">
+              {% endunless %}
+              {% endfor %}
+              {% endfor %}
+            </datalist>
+          </div>
+        </div>
+
+
+      </fieldset>
+
+      <br />
+
+      <fieldset>
+        <legend>{{ tau.legend_about_talk }}</legend>
+
+        <div class="row">
+          <div class="form-group col-sm-4">
+            <label for="InputTalkType"> {{ tau.input_talk_type }} </label>
+            <input list="talktype" class="form-control" name="InputTalkType" id="InputTalkType" required>
+            <datalist id="talktype">
+              {% for type in tau.input_ttypes %}
+              <option value="{{ type }}">
+                {% endfor %}
+            </datalist>
+          </div>
+
+          <div class="form-group col-sm-4">
+            <label for="InputTalkDate">{{ tau.input_talk_date }}</label>
+            <input type="date" class="form-control" name="InputTalkDate" id="InputTalkDate"
+              placeholder="{{ tau.ph_talk_date }}">
+          </div>
+
+          <div class="form-group col-sm-4">
+            <label for="InputTalkTime">{{ tau.input_talk_time }}</label>
+            <input type="time" class="form-control" name="InputTalkTime" id="InputTalkTime"
+              placeholder="{{ tau.ph_talk_time }}" value="15:30" >
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="form-group col-sm-12">
+            <label for="InputTalkTitle">{{ tau.input_talk_title }}</label>
+            <input type="text" class="form-control" name="InputTalkTitle" id="InputTalkTitle"
+              placeholder="{{ tau.ph_talk_title }}">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-sm-12">
+            <label for="InputTalkAbstract">{{ tau.input_talk_abstract }}</label>
+            <textarea type="text" class="form-control" name="InputTalkAbstract" id="InputTalkAbstract"
+                      placeholder="{{ tau.ph_talk_abstract }}" rows=15 required></textarea>
+          </div>
+        </div>
+
+
+        <div class="row">
+          {% for ikw in (1..3) %}
+          <div class="form-group col-sm-4">
+            {% assign itkwn = "input_talk_kw" | append: ikw %}
+            <label for="InputTalkKw{{ iwk }}"> {{ tau[itkwn] }} </label>
+            <input list="talkkw{{ ikw }}" class="form-control" name="InputTalkKw{{ ikw }}" id="InputTalkKw{{ ikw }}" {% if forloop.index == 1 %} required {% endif %}>
+            <datalist id="talkkw{{ ikw }}">
+              {% for kw in ttg %}
+              <option value="{{ kw[0] }}">
+              {% endfor %}
+            </datalist>
+          </div>
+          {% endfor %}
+
+        </div>
+
+
+      </fieldset>
+
+      <br />
+
+      <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+
+      <p class="grecaptcha-message">This site is protected by reCAPTCHA and the Google
+        <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+        <a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
+      <button type="submit" class="btn btn-primary pull-right">{{ tau.submit }}</button>
+      <div class="clearfix"></div>
+
+    </form>
+  </div>
+
+  {% endif %}
+
+</div>
+
