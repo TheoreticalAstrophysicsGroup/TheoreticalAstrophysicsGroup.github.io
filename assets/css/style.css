@@ -17,7 +17,7 @@ Tags: bootsrap, whithe, blue
   font-family: 'Abel';
   font-style: normal;
   font-weight: 400;
-  src: url(http://fonts.gstatic.com/s/abel/v12/MwQ5bhbm2POE2V9BOA.ttf) format('truetype');
+  src: url(http://fonts.gstatic.com/s/abel/v18/MwQ5bhbm2POE2V9BOA.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Lato';
@@ -131,6 +131,41 @@ textarea {
   border-color: #00708c;
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+/* Some styles for form file drag and drop*/
+.file-area {
+  position: relative;
+}
+.file-area input[type=file] {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.file-area .file-dummy {
+  padding: 50px 30px;
+  border: 2px dashed #ccc;
+  text-align: center;
+  transition: background 0.3s ease-in-out;
+}
+.file-area .file-dummy .success {
+  display: none;
+}
+.file-area:hover .file-dummy {
+  border: 2px dashed #00708c;
+}
+.file-area input[type=file]:valid + .file-dummy {
+  border-color: #00708c;
+}
+.file-area input[type=file]:valid + .file-dummy .success {
+  display: inline-block;
+}
+.file-area input[type=file]:valid + .file-dummy .default {
+  display: none;
 }
 .input-group-btn .btn {
   border-radius: 0;

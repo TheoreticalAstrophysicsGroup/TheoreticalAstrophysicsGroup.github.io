@@ -118,8 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     # Replace latex characters that need escaping in address
     $ia = escape_all_latex_special_chars($ia);
 
-    # TODO: make English and Japanese yamllines. 
-    # TODO: Add - lang: ja  and - lang: en to the yamllines. 
+    # TODO: make separate English and Japanese yamllines and files. 
 
     # Construct latex lines and yaml lines
     $latexlines = "$iln $ifn \\small{ $pos } & 〒$ip $ia & $it1 $fst4 $it4 \\\\\n$ilnr $ifnr & \\texttt{ $ie1 } $fse2 \\texttt{ $ie2 } & $it2 \\\\";
