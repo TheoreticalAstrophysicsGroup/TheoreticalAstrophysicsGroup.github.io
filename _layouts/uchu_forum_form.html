@@ -179,34 +179,34 @@ layout: default
 
         </div>
 
-        <div class="row">
-          <div class="col-sm-12">
-            <label> {{ tau.input_talk_img }} </label>
-          </div>
-        </div>
 
         <div class="row">
+
           <div class="form-group col-sm-6">
-            <label for="InputTalkImg1"> {{ tau.input_talk_img1 }} </label>
-            <div class="file-area">
-              <input type="file" name="fileToUpload1" id="fileToUpload1" required>
+            <label for="InputTalkImg"> {{ tau.input_talk_img }} </label>
+            <div id="file-area" class="file-area">
+              <!--<input type="file" name="fileToUpload" id="fileToUpload" required>-->
               <div class="file-dummy">
-                <span class="default">{{ tau.ph_talk_img }}</span>
-                <span class="success">{{ tau.ph_talk_img_success }}</span>
+              <input type="file" name="fileToUpload" id="fileToUpload" required>
+                <!--<span class="default">{{ tau.ph_talk_img }}</span>
+                <span class="success">{{ tau.ph_talk_img_success }} </span>-->
               </div>
             </div>
           </div>
+              <label id="file-name">Some text</label>
+
+          <!--
+          <div class="form-group col-sm-6">
+            <label for="InputTalkImg"> {{ tau.input_talk_img }} </label>
+              <input type="file" name="fileToUpload" id="fileToUpload" required>
+          </div>
+          -->
 
           <div class="form-group col-sm-6">
-            <label for="InputTalkImg2"> {{ tau.input_talk_img2 }} </label>
-            <div class="file-area">
-              <input type="file" name="fileToUpload2" id="fileToUpload2" required>
-              <div class="file-dummy">
-                <span class="default">{{ tau.ph_talk_img }}</span>
-                <span class="success">{{ tau.ph_talk_img_success }}</span>
-              </div>
-            </div>
+            <label for="InputTalkRemarks">{{ tau.input_talk_remarks }}</label>
+            <textarea type="text" class="form-control" name="InputTalkAbstract" id="InputTalkAbstract" rows=5></textarea>
           </div>
+
         </div>
 
         <!-- Keeping for reference-->
@@ -231,4 +231,5 @@ layout: default
   {% endif %}
 
 </div>
+
 

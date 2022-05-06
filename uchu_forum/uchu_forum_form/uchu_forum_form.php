@@ -76,6 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $itkw1 = $_POST['InputTalkKw1'];
     $itkw2 = $_POST['InputTalkKw2'];
     $itkw3 = $_POST['InputTalkKw3'];
+    $itr = $_POST['InputTalkRemarks'];
 
     # TODO: Use DeepL to get English titles and abstracts, and other stuff, if missing.
 
@@ -108,6 +109,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
  
     # Construct email lines and file lines
     $email_astro = "
+
+<p>Remarks by speaker: $itr </p>
+
+<hr>
+
 <p>宇宙部塵理論研究室の皆様</p>
 
 <p>筑波大学，宇宙理論研究室の{$organizer_uchu_forum}です。</p>
@@ -162,6 +168,7 @@ We have received the following information.</p>
 <dt>keywords:</dt> <dd>$itkw1, $itkw2, $itkw3 </dd>
 <dt>abstract:</dt> <dd>$ita </dd>
 <dt>images:</dt> <dd></dd>
+<dt>remarks:</dt> <dd>$itr </dd>
 </dl>
 
 <hr>
@@ -185,6 +192,7 @@ tags: [$itkw1, $itkw2, $itkw3]
 img_thumb: uchu-forum-{$date_str}-thumb.jpg
 img:
   - uchu-forum-{$date_str}.jpg
+remarks: $itr
 categories:
   - $ttype_ids[$ity]
   - ja
@@ -209,6 +217,7 @@ tags: [$itkw1, $itkw2, $itkw3]
 img_thumb: uchu-forum-$date_str-thumb.jpg
 img:
   - uchu-forum-$date_str.jpg
+remarks: $itr
 categories:
   - $ttype_ids[$ity]
   - en
@@ -217,6 +226,9 @@ categories:
 $ita
 
 ";
+
+
+    # Bulk replacements
 
     # Fix html http -> https
     $email_astro = str_replace("http:", "https:", $email_astro);
@@ -270,66 +282,46 @@ $ita
     // Image uploads
 
     $target_dir = "img/";
-    $target_file1 = $target_dir . basename($_FILES["fileToUpload1"]["name"]);
-    $target_file2 = $target_dir . basename($_FILES["fileToUpload2"]["name"]);
-    $uploadOk1 = 1;
-    $uploadOk2 = 1;
-    $imageFileType1 = strtolower(pathinfo($target_file1,PATHINFO_EXTENSION));
-    $imageFileType2 = strtolower(pathinfo($target_file2,PATHINFO_EXTENSION));
+    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
     // Check if image file is a actual image or fake image
     if(isset($_POST["submit"])) {
-      $check1 = getimagesize($_FILES["fileToUpload1"]["tmp_name"]);
-      $check2 = getimagesize($_FILES["fileToUpload2"]["tmp_name"]);
-      if($check1 !== false) {
-        echo "File 1 is an image - " . $check["mime"] . ".";
-        $uploadOk1 = 1;
+      $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+      if($check !== false) {
+        echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
       } else {
-        echo "File 1 is not an image.";
-        $uploadOk1 = 0;
-      }
-      if($check2 !== false) {
-        echo "File 2 is an image - " . $check["mime"] . ".";
-        $uploadOk2 = 1;
-      } else {
-        echo "File 2 is not an image.";
-        $uploadOk2 = 0;
+        echo "File is not an image.";
+        $uploadOk = 0;
       }
     }
 
     // Limit file size to 30 Mb
-    if ($_FILES["fileToUpload1"]["size"] > 30000000 {
-      echo "File 1: Sorry, your file is too large (max 30 MB). 画像ファイルは 30 MB まででお願いします。";
-      $uploadOk1 = 0;
-    }
-    if ($_FILES["fileToUpload2"]["size"] > 30000000 {
-      echo "File 2: Sorry, your file is too large (max 30 MB). 画像ファイルは 30 MB まででお願いします。";
-      $uploadOk2 = 0;
+    if ($_FILES["fileToUpload"]["size"] > 30000000 {
+      echo "File: Sorry, your file is too large (max 30 MB). 画像ファイルは 30 MB まででお願いします。";
+      $uploadOk = 0;
     }
 
     // Allow certain file formats
-    if($imageFileType1 != "jpg" && $imageFileType1 != "png" && $imageFileType1 != "jpeg") {
-      echo "File 1: Sorry, only jpg/jpeg & png files allowed. 画像ファイルは jpg/jpeg & png でお願いします。";
-      $uploadOk1 = 0;
-    }
-    if($imageFileType2 != "jpg" && $imageFileType2 != "png" && $imageFileType2 != "jpeg") {
-      echo "File 2: Sorry, only jpg/jpeg & png files allowed. 画像ファイルは jpg/jpeg & png でお願いします。";
-      $uploadOk2 = 0;
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+      echo "File: Sorry, only jpg/jpeg & png files allowed. 画像ファイルは jpg/jpeg & png でお願いします。";
+      $uploadOk = 0;
     }
 
     // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk1 == 0 || $uploadOk2 == 0) {
+    if ($uploadOk == 0) {
       echo "Sorry, your files were not uploaded.";
 
     // If everything is ok, try to upload file
     } else {
-      if (move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], $target_file1)) {
-        echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload1"]["name"])). " has been uploaded.";
+      if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        echo "The files ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
       } else {
         echo "Sorry, there was an error uploading your file.";
       }
     }
-
 
     echo "<p>　</p>";
     echo "<p>　</p>";

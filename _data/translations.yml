@@ -132,10 +132,8 @@ uchu_forum_form:
     input_talk_kw1: 発表内容キーワード1 ＊
     input_talk_kw2: 発表内容キーワード2
     input_talk_kw3: 発表内容キーワード3
-    input_talk_img: 発表内容の図（30 MB まで，JPG/JPEG・PNG）
-    input_talk_img1: 図1： 研究結果の図やポンチ絵，イラストなど ＊
-    input_talk_img2: 図2： 図1のサムネイルやプロフィール写真，研究結果の図など ＊
-    input talk_remarks: 備考（画像帰属・クレジット，特別なご要望など）
+    input_talk_img: 図（30 MB まで，JPG/JPEG・PNG）： 研究結果の図やポンチ絵，イラストなど ＊
+    input_talk_remarks: 備考（画像帰属・クレジット，特別なご要望など）
     ph_last_name: 鈴木
     ph_first_name: 一郎
     ph_last_name_romaji: Suzuki
@@ -173,10 +171,8 @@ uchu_forum_form:
     input_talk_kw1: Keywords 1 ＊
     input_talk_kw2: Keywords 2
     input_talk_kw3: Keywords 3
-    input_talk_img: Figures (Max 30 MB, JPG/JPEG, PNG) 
-    input_talk_img1: Figure 1, e.g., figure showing research results, a sketch, an artists impression ＊
-    input_talk_img2: Figure 2, e.g., profile pic, thumbnail of Figure 1, another figure ＊
-    input talk_remarks: Remarks (e.g. Figure attribution/credits, special requests)
+    input_talk_img: Figure (Max 30 MB, JPG/JPEG, PNG) e.g., figure showing research results, a sketch, an illustration etc ＊
+    input_talk_remarks: Remarks (e.g. Figure attribution/credits, special requests)
     ph_last_name: アインシュタイン
     ph_first_name: アルバー
     ph_last_name_romaji: Einstein
