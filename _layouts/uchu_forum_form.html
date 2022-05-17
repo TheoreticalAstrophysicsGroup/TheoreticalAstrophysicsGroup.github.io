@@ -17,7 +17,7 @@ layout: default
 
     {{ content }}
 
-    <form name="uchu_forum_info" role="form" action="../uchu_forum_form.php" method="post" id="uchu_forum_form" autocomplete="on">
+    <form name="uchu_forum_info" role="form" action="../uchu_forum_form.php" method="post" class="dropzone" id="uchuForumForm" autocomplete="on">
 
       <br />
 
@@ -182,30 +182,43 @@ layout: default
 
         <div class="row">
 
-          <div class="form-group col-sm-6">
+          <!--
+          <div class="form-group col-sm-12">
             <label for="InputTalkImg"> {{ tau.input_talk_img }} </label>
-            <div id="file-area" class="file-area">
-              <!--<input type="file" name="fileToUpload" id="fileToUpload" required>-->
-              <div class="file-dummy">
-              <input type="file" name="fileToUpload" id="fileToUpload" required>
-                <!--<span class="default">{{ tau.ph_talk_img }}</span>
-                <span class="success">{{ tau.ph_talk_img_success }} </span>-->
-              </div>
+
+            <div id="dZUpload" class="dropzone">
+             <div class="dz-default dz-message"></div>
             </div>
-          </div>
-              <label id="file-name">Some text</label>
+          -->
+              <!-- <div id="myDropzone" class="dropzone"> -->
+
+              <!--
+              <div class="file-area">
+                <input type="file" name="fileToUpload1" id="fileToUpload1" required>
+                <div class="file-dummy">
+                  <span class="default">{{ tau.ph_talk_img }}</span>
+                  <span class="success">{{ tau.ph_talk_img_success }}</span>
+                </div>
+              </div>
+              -->
 
           <!--
           <div class="form-group col-sm-6">
             <label for="InputTalkImg"> {{ tau.input_talk_img }} </label>
               <input type="file" name="fileToUpload" id="fileToUpload" required>
           </div>
+
           -->
 
-          <div class="form-group col-sm-6">
+          <div class="form-group col-sm-12">
             <label for="InputTalkRemarks">{{ tau.input_talk_remarks }}</label>
-            <textarea type="text" class="form-control" name="InputTalkAbstract" id="InputTalkAbstract" rows=5></textarea>
+            <textarea type="text" class="form-control" name="InputTalkAbstract" id="InputTalkAbstract" rows=2></textarea>
           </div>
+
+          <div class="form-group col-sm-12">
+            <label for="InputTalkImg"> {{ tau.input_talk_img }} </label>
+          </div>
+
 
         </div>
 
@@ -219,13 +232,17 @@ layout: default
 
       <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
 
-      <p class="grecaptcha-message">This site is protected by reCAPTCHA and the Google
-        <a href="https://policies.google.com/privacy">Privacy Policy</a> and
-        <a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
-      <button type="submit" class="btn btn-primary pull-right">{{ tau.submit }}</button>
       <div class="clearfix"></div>
 
     </form>
+
+      <p class="grecaptcha-message">This site is protected by reCAPTCHA and the Google
+        <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+        <a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
+
+      <button type="submit" form="uchu_forum_info" class="btn btn-primary pull-right" onclick="!this.form && document.getElementById('myform').submit()">{{ tau.submit }}</button>
+
+
   </div>
 
   {% endif %}

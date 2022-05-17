@@ -167,9 +167,6 @@ textarea {
 .file-area input[type=file]:valid + .file-dummy .default {
   display: none;
 }
-.file-area input[type=file]:valid + .file-dummy .success #file-name {
-  display: inline-block;
-}
 .input-group-btn .btn {
   border-radius: 0;
 }
