@@ -240,7 +240,13 @@ layout: default
         <a href="https://policies.google.com/privacy">Privacy Policy</a> and
         <a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
 
-      <button type="submit" form="uchu_forum_info" class="btn btn-primary pull-right" onclick="!this.form && document.getElementById('myform').submit()">{{ tau.submit }}</button>
+      <button type="submit" form="uchu_forum_info" class="btn btn-primary pull-right" id="submit_data">{{ tau.submit }}</button>
+
+      <div class="panel panel-primary" id="form_success" style="display:none;">
+        <div class="panel-body">
+          Success! The form has been submitted. Feel free to resubmit any number of times, if necessary.
+        </div>
+      </div>
 
 
   </div>

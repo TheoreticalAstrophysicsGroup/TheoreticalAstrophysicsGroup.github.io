@@ -10419,38 +10419,45 @@ Dropzone._autoDiscoverFunction = function () {
 
 
 Dropzone.options.uchuForumForm = {
-//    autoProcessQueue: false,
-//    url: '/test/upload/doupload.php',
-//    init: function () {
-//        var myDropzone = this;
-//        // Update selector to match your button
-//        $("#hochladdaten").click(function (e) {
-//            e.preventDefault();
-//            myDropzone.processQueue();
-//        });
-//        this.on('sending', function(file, xhr, formData) {
-//            // Append all form inputs to the formData Dropzone will POST
-//            var data = $('#datenhochlad').serializeArray();
-//            $.each(data, function(key, el) {
-//                formData.append(el.name, el.value);
-//            });
-//
-//        });
-//
-//    }
+    autoProcessQueue: false,
+    url: './../uchu_forum_form.php',
+    maxFilesize: 30, // MB
+    uploadMultiple: true,
+    parallelUploads: 4,
+    maxFiles: 4,
+    acceptedFiles: "image/png,image/jpeg", 
+    addRemoveLinks: true,
+    dictDefaultMessage: 'Drag &amp; drop <i class="fa fa-cloud-upload fa-5x" aria-hidden="true"></i> or click here',
+    dictInvalidFileType: "File type unsupported.",
+    dictFileTooBig: "File too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.",
+    dictMaxFilesExceeded: "File upload limit reached.",
+    dictCancelUpload: "Cancel upload",
+    dictCancelUploadConfirmation: "Cancel upload?",
+    init: function () {
+        var myDropzone = this;
+        // Update selector to match your button
+        $("#submit_data").click(function (e) {
+            e.preventDefault();
+            myDropzone.processQueue();
+            var div = document.getElementById("form_success");
+            if (div.style.display == 'none') {
+              div.style.display = '';
+            }
+            else {
+              div.style.display = 'none';
+            }
+        });
+        this.on('sending', function(file, xhr, formData) {
+            // Append all form inputs to the formData Dropzone will POST
+            var data = $('#uchuForumForm').serializeArray();
+            $.each(data, function(key, el) {
+                formData.append(el.name, el.value);
+            });
 
-  maxFilesize: 30, // MB
-  uploadMultiple: true,
-  parallelUploads: 4,
-  maxFiles: 4,
-  acceptedFiles: "image/png,image/jpeg", 
-  addRemoveLinks: true,
-  dictDefaultMessage: 'Drag &amp; drop <i class="fa fa-cloud-upload fa-5x" aria-hidden="true"></i> or click here',
-  dictInvalidFileType: "File type unsupported.",
-  dictFileTooBig: "File too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.",
-  dictMaxFilesExceeded: "File upload limit reached.",
-  dictCancelUpload: "Cancel upload",
-  dictCancelUploadConfirmation: "Cancel upload?"
+        });
+
+    }
+
 };
 
 
