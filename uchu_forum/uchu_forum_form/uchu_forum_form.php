@@ -151,7 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 下記のようにデータを受け取りました。</p>
 
 <p>Dear speaker,</p>
-<p>Thank you for providing informatino for your Uchu-forum talk.
+<p>Thank you for providing information for your Uchu-forum talk.
 We have received the following information.</p>
 
 <hr>

@@ -10438,6 +10438,7 @@ Dropzone.options.uchuForumForm = {
         // Update selector to match your button
         $("#submit_data").click(function (e) {
             e.preventDefault();
+            e.stopPropagation();
             myDropzone.processQueue();
             var div = document.getElementById("form_success");
             if (div.style.display == 'none') {
@@ -10453,13 +10454,9 @@ Dropzone.options.uchuForumForm = {
             $.each(data, function(key, el) {
                 formData.append(el.name, el.value);
             });
-
         });
-
     }
-
 };
-
 
 
 contentLoaded(window, Dropzone._autoDiscoverFunction);
