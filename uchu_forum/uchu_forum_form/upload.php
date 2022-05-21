@@ -12,8 +12,11 @@
         $targetFile =  $targetPath. $_FILES['file']['name'][$ifile];
         move_uploaded_file($tempFile, $targetFile);
       }
+      //$tempFile = $_FILES['file']['tmp_name'];
+      //$targetPath = dirname( __FILE__ ) . $ds. $target_dir . $ds;
+      //$targetFile =  $targetPath. $_FILES['file']['name'];
+      //move_uploaded_file($tempFile, $targetFile);
     }
-
 
     // Image uploads 
     // TODO: adjust the above with additional checks below
@@ -60,4 +63,4 @@
     //  }
     //}
 
-} ?>
+?>

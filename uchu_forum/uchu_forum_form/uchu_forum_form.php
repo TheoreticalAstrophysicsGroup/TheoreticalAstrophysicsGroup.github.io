@@ -278,21 +278,6 @@ $ita
     fwrite($fcon, $file_en);
     fclose($fcon);
 
-    # Image upload DropzoneJS
-    $ds = DIRECTORY_SEPARATOR;
- 
-    $target_dir = 'img';
- 
-    if (!empty($_FILES)) {
-      for($ifile = 0; $ifile < count($_FILES['file']['tmp_name']); $ifile++) {
-        $tempFile = $_FILES['file']['tmp_name'][$ifile];
-        $targetPath = dirname( __FILE__ ) . $ds. $target_dir . $ds;
-        $targetFile =  $targetPath. $_FILES['file']['name'][$ifile];
-        move_uploaded_file($tempFile, $targetFile);
-      }
-    }
-
-
     echo "<p>　</p>";
     echo "<p>　</p>";
     echo '<h4 class="pull-left">ご協力ありがとうございました。　</h4>';

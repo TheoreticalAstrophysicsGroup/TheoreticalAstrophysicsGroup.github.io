@@ -10413,14 +10413,10 @@ Dropzone._autoDiscoverFunction = function () {
   }
 };
 
-// Doesn't work
-//import { uf_options } from './dropzone_uchu_forum_options.mjs';
-//Dropzone.options.uchuForumForm = uf_options();
 
-
-Dropzone.options.uchuForumForm = {
-    autoProcessQueue: false,
-    url: './../uchu_forum_form.php',
+Dropzone.options.uchuForumImg = {
+    //autoProcessQueue: false,
+    //url: './../upload.php',
     maxFilesize: 30, // MB
     uploadMultiple: true,
     parallelUploads: 4,
@@ -10433,32 +10429,6 @@ Dropzone.options.uchuForumForm = {
     dictMaxFilesExceeded: "File upload limit reached.",
     dictCancelUpload: "Cancel upload",
     dictCancelUploadConfirmation: "Cancel upload?",
-    init: function () {
-        var myDropzone = this;
-        // Update selector to match your button
-        $("#submit_data").click(function (e) {
-            e.preventDefault();
-            myDropzone.processQueue();
-            var div = document.getElementById("form_success");
-            var button = document.getElementById("submit_data");
-            if (div.style.display == 'none') {
-              div.style.display = '';
-            }
-            else {
-              button.innerHTML = 'Resubmit'
-            }
-        });
-        this.on('sending', function(file, xhr, formData) {
-            // Append all form inputs to the formData Dropzone will POST
-            var data = $('#uchuForumForm').serializeArray();
-            $.each(data, function(key, el) {
-                formData.append(el.name, el.value);
-            });
-            // Serialize above omits textareas so include them manually
-            formData.append("InputTalkAbstract", jQuery("#InputTalkAbstract").val());
-            formData.append("InputTalkRemarks", jQuery("#InputTalkRemarks").val());
-        });
-    }
 };
 
 
