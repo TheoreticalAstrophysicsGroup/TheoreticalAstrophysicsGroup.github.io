@@ -10427,7 +10427,7 @@ Dropzone.options.uchuForumForm = {
     maxFiles: 4,
     acceptedFiles: "image/png,image/jpeg", 
     addRemoveLinks: true,
-    dictDefaultMessage: 'Drag &amp; drop <i class="fa fa-cloud-upload fa-5x" aria-hidden="true"></i> or click here',
+    dictDefaultMessage: '<i class="fa fa-cloud-upload fa-5x" aria-hidden="true"></i>',
     dictInvalidFileType: "File type unsupported.",
     dictFileTooBig: "File too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.",
     dictMaxFilesExceeded: "File upload limit reached.",
@@ -10438,14 +10438,14 @@ Dropzone.options.uchuForumForm = {
         // Update selector to match your button
         $("#submit_data").click(function (e) {
             e.preventDefault();
-            e.stopPropagation();
             myDropzone.processQueue();
             var div = document.getElementById("form_success");
+            var button = document.getElementById("submit_data");
             if (div.style.display == 'none') {
               div.style.display = '';
             }
             else {
-              div.style.display = 'none';
+              button.innerHTML = 'Resubmit'
             }
         });
         this.on('sending', function(file, xhr, formData) {
@@ -10454,6 +10454,9 @@ Dropzone.options.uchuForumForm = {
             $.each(data, function(key, el) {
                 formData.append(el.name, el.value);
             });
+            // Serialize above omits textareas so include them manually
+            formData.append("InputTalkAbstract", jQuery("#InputTalkAbstract").val());
+            formData.append("InputTalkRemarks", jQuery("#InputTalkRemarks").val());
         });
     }
 };
