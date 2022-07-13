@@ -1,3 +1,5 @@
+
+// Not used - options are set directly in dropzone.js
 export function uf_options() {
 
   var options;

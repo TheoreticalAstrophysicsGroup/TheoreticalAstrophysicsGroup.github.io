@@ -40,7 +40,7 @@ layout: default
       -->
       {% assign page_img_fname = page.img[0] | remove: '.png' | remove: '.jpg' %}
       {% unless page.img_thumb contains page_img_fname %}
-      <img src="{{ site.baseurl }}{{ la.img }}/{{ page.img_thumb }}" width="170px" style="margin-left:20px;" class="img-responsive pull-right" alt="Image">
+      <img src="{{ site.baseurl }}{{ la.img }}/{{ page.categories[0] }}/{{ page.img_thumb }}" width="170px" style="margin-left:20px;" class="img-responsive pull-right" alt="Image">
       {% endunless %}
       {% endif %}
 

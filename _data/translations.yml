@@ -132,7 +132,7 @@ uchu_forum_form:
     input_talk_kw1: 発表内容キーワード1 ＊
     input_talk_kw2: 発表内容キーワード2
     input_talk_kw3: 発表内容キーワード3
-    input_talk_img: 図（30 MB まで，JPG/JPEG・PNG）： 研究結果の図やポンチ絵，イラストなど ＊
+    input_talk_img: 図（一枚 30 MB まで，4枚まで，JPG/JPEG・PNG）： 研究結果の図やポンチ絵，イラストなど ＊
     input_talk_remarks: 備考（画像帰属・クレジット，特別なご要望など）
     ph_last_name: 鈴木
     ph_first_name: 一郎
@@ -144,8 +144,7 @@ uchu_forum_form:
     ph_email: your@email.ac.jp
     ph_talk_title: 発表のタイトル（インライン数式LaTeX可，例：&#36;10^{-23}&#36;）
     ph_talk_abstract: 発表の概要<br />（HTMLタグ利用可，インライン数式LaTeX可，例：&#36;10^{-23}&#36;）
-    ph_talk_img: クリックしてファイルを選択するか，ここにフィアルを落としてください。
-    ph_talk_img_success: ファイルが選択されています。
+    form_success: フォームのご入力ありがとうございました。修正が必要な場合はそのまま修正・再送してください。
     legend_about_talk: 発表について
     legend_about_speaker: 発表者について
     submit: 送信
@@ -171,7 +170,7 @@ uchu_forum_form:
     input_talk_kw1: Keywords 1 ＊
     input_talk_kw2: Keywords 2
     input_talk_kw3: Keywords 3
-    input_talk_img: Figure (Max 30 MB, JPG/JPEG, PNG) e.g., figure showing research results, a sketch, an illustration etc ＊
+    input_talk_img: Up to 4 figures (Max 30 MB each, JPG/JPEG, PNG) e.g., showing research results, a sketch, an illustration etc ＊
     input_talk_remarks: Remarks (e.g. Figure attribution/credits, special requests)
     ph_last_name: アインシュタイン
     ph_first_name: アルバー
@@ -183,8 +182,7 @@ uchu_forum_form:
     ph_email: your@email.ac.jp
     ph_talk_title: The title of the talk (Inline LaTeX math possible, e.g., &#36;10^{-23}&#36;)
     ph_talk_abstract: An abstract of the talk (HTML tags and Inline LaTeX math allowed, e.g., &#36;10^{-23}&#36;）
-    ph_talk_img: Click to select a file, or drag it here.
-    ph_talk_img_success: Great, your file is selected.
+    form_success: Success! The form has been submitted. Feel free to resubmit any number of times, if necessary.
     legend_about_talk: About your talk
     legend_about_speaker: About yourself
     submit: Submit
@@ -474,7 +472,7 @@ resources:
     study: 学習 
     it: IT
     research: 研究
-    about_header: リソース一覧に就て
+    about_header: リソース一覧について
   en:
     study: Study
     it: IT
@@ -674,8 +672,8 @@ uchu_forum: # Make these the same as categories naming below?
     info: 情報・案内
     host: 世話人
     access: アクセス
-    about_speaker: 発表者に就いて
-    about_header: 宇宙フォーラムに就いて
+    about_speaker: 発表者について
+    about_header: 宇宙フォーラムについて
     pdf_download: 発表スライドPDFダウンロード
     pdf_ccswiki: 内部用ウィキ
     photos: アルバム
@@ -704,8 +702,8 @@ seminars:
     info: 情報・案内
     host: 世話人
     access: アクセス
-    about_speaker: 発表者に就いて
-    about_header: セミナーに就いて
+    about_speaker: 発表者について
+    about_header: セミナーについて
     pdf_download: 発表スライドPDFダウンロード
     pdf_ccswiki: 内部用ウィキ
     photos: アルバム
@@ -769,8 +767,8 @@ conferences:
     abroad: &conferences_ab_ja 海外での研究会
     no_current: 現在開先中の研究会はありません。
     no_future: 現在開催予定の研究会はありません。
-    no_abroad: 現在海外での研究会に就いての投稿はありません。
-    no_domestic: 現在国内での研究会に就いての投稿はありません。
+    no_abroad: 現在海外での研究会についての投稿はありません。
+    no_domestic: 現在国内での研究会についての投稿はありません。
     archive_msg: 全研究会議の一覧はアーカイブを御覧ください。
     info: 情報・案内
   en:
@@ -875,7 +873,7 @@ achievements:
     keywords: キーワード
     pub_date: 発表日
     abstract: 要旨
-    about_header: 発表論文リストに就いて
+    about_header: 発表論文リストについて
     members: メンバー
     pdf_download: PDF版ダウンロード
     refs: 参考文献・リンク
@@ -902,7 +900,7 @@ featured:
   ja:
     abstract: 概要
     author: 発表者
-    about_header: 特集記事に就いて
+    about_header: 特集記事について
     photos: 図
   en:
     abstract: Summary

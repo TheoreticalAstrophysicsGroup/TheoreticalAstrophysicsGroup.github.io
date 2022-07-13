@@ -20,6 +20,7 @@ function str_replace_last($needle, $replace, $haystack) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
 
+    # __________________________________________________________________
     # Some settings
 
     # Organizer, sender
@@ -34,6 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     #$loc_ja = "CCS ワークショップ室";
     $twdy_ja = "火";
     $twdy_en = "Tue";
+
+    # __________________________________________________________________
+    # Main bit
+
 
     # Translating inputted talk types to category names
     $ttype_ids = array(
@@ -86,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     if (empty($iaffja)) $iaffja = $iaffen;
 
     # Create filenames
-    $fbase = '../../uchu_forum_form_data/';  // For site on charon
+    $fbase = 'yml/';
     $date_str = str_replace("/", "-", $itdate);
     $fname_yml_ja = $fbase . 'ja/' . $date_str . '-' . strtolower($ilnr) . '.html';
     $fname_yml_en = $fbase . 'en/' . $date_str . '-' . strtolower($ilnr) . '.html';
@@ -167,7 +172,6 @@ We have received the following information.</p>
 <dt>title:</dt> <dd>$itt </dd>
 <dt>keywords:</dt> <dd>$itkw1, $itkw2, $itkw3 </dd>
 <dt>abstract:</dt> <dd>$ita </dd>
-<dt>images:</dt> <dd></dd>
 <dt>remarks:</dt> <dd>$itr </dd>
 </dl>
 
@@ -249,8 +253,8 @@ $ita
 
     # Email 
     $formcontent = "$email_astro";
-    $recipient = "astro.ccs.tsukuba@gmail.com";
-    #$recipient = $email_uchu_forum;
+    #$recipient = "astro.ccs.tsukuba@gmail.com";  # For testing
+    $recipient = $email_uchu_forum;
     $subject = "今月の宇宙フォーラム：" . $date_str_ja . "（{$twdy_ja}） $ittime";
     $mailheader  = "MIME-Version: 1.0" . "\r\n";
     $mailheader .= "Content-type: text/html; charset=UTF-8" . "\r\n";
@@ -260,8 +264,8 @@ $ita
 
     # Email 
     $formcontent = "$email_speaker";
-    $recipient = "astro.ccs.tsukuba@gmail.com";
-    #$recipient = $ie;
+    #$recipient = "astro.ccs.tsukuba@gmail.com";  # For testing
+    $recipient = $ie;
     $subject = "宇宙フォーラム Uchu forum " . $date_str_ja . "（{$twdy_ja} | {$twdy_en}） $ittime";
     $mailheader  = "MIME-Version: 1.0" . "\r\n";
     $mailheader .= "Content-type: text/html; charset=UTF-8" . "\r\n";
@@ -278,19 +282,10 @@ $ita
     fwrite($fcon, $file_en);
     fclose($fcon);
 
-    echo "<p>　</p>";
-    echo "<p>　</p>";
-    echo '<h4 class="pull-left">ご協力ありがとうございました。　</h4>';
-    echo '<a href="."><button type="submit" class="btn btn-primary pull-right">再入力</button></a>';
 
     } else {
 
     # Not verified
-
-    echo "<p>　</p>";
-    echo "<p>　</p>";
-    echo '<h4 class="pull-left">You have failed the recaptcha test. Please try again.　</h4>';
-    echo '<a href="."><button class="btn btn-primary pull-right">再入力</button></a>';
 
     }
 } ?>
