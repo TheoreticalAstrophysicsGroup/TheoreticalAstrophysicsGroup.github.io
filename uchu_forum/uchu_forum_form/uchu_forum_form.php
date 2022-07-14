@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $organizer_uchu_forum = "内海";
     $email_uchu_forum = "utsumi@ccs.tsukuba.ac.jp";
     $email_sender = 'ayw@ccs.tsukuba.ac.jp';
+    $test = true;
 
     # Location
     $loc_en = "Online";
@@ -100,6 +101,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $host_bl = explode(" | ", $ish);
     $host_ja = $host_bl[0];
     $host_en = $host_bl[1];
+    $host_ja_bl = explode(" ", $host_ja);
+    $host_ja_sn = $host_ja_bl[0];
 
     # Titles sometimes contain colons which we cannot have.
     $itt = str_replace(":", "&#58;", $itt);
@@ -111,7 +114,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 
     # Date string
     $date_str_ja = date("n月j日",strtotime($date_str));
+
+    # Uchu forum or colloquium-dependent strings
+    if ($ity == "宇宙フォーラム" or $ity == "Uchu Forum") {
+      $organizer = $organizer_uchu_forum;
+      $email_intro = "<p>今月の宇宙フォーラムは，" . $iaffja . "の " . $iln . " " . $ifn . " 氏に<br/>ご講演していただきます。 講演タイトルおよび概要を下記に記載いたしましたのでご確認ください。</p>";
+      $file_str = 'uchu-forum';
+    } else {
+      $organizer = $host_ja_sn;
+      $email_intro = "<p>" . $date_str_ja . "（{$twdy_ja}）に" . $iaffja . "の " . $iln . " " . $ifn . " 氏に<br/>ご講演していただきます。 講演タイトルおよび概要を下記に記載いたしましたのでご確認ください。</p>";
+      $file_str = 'colloquium';
+    }
  
+
     # Construct email lines and file lines
     $email_astro = "
 
@@ -121,10 +136,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 
 <p>宇宙部塵理論研究室の皆様</p>
 
-<p>筑波大学，宇宙理論研究室の{$organizer_uchu_forum}です。</p>
+<p>筑波大学，宇宙理論研究室の{$organizer}です。</p>
 
-<p>今月の宇宙フォーラムは，" . $iaffja . "の " . $iln . " " . $ifn . " 氏に<br/>ご講演していただきます。
-講演タイトルおよび概要を下記に記載いたしましたのでご確認ください。</p>
+{$email_intro}
 
 <p>Zoom を用いたリモート開催となります。 以下Zoom の情報です。</p>
 <dl>
@@ -152,11 +166,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 
     $email_speaker = "
 <p>$iln 様</p>
-<p>宇宙フォーラムのデータ入力ありがとうございました。
+<p>講演についてのデータ入力ありがとうございました。
 下記のようにデータを受け取りました。</p>
 
 <p>Dear speaker,</p>
-<p>Thank you for providing information for your Uchu-forum talk.
+<p>Thank you for providing information for your talk.
 We have received the following information.</p>
 
 <hr>
@@ -193,9 +207,9 @@ host: $host_ja
 lang: ja
 tags: [$itkw1, $itkw2, $itkw3]
 #pdf: 
-img_thumb: uchu-forum-{$date_str}-thumb.jpg
+img_thumb: {$file_str}-{$date_str}-thumb.jpg
 img:
-  - uchu-forum-{$date_str}.jpg
+  - {$file_str}-{$date_str}.jpg
 remarks: $itr
 categories:
   - $ttype_ids[$ity]
@@ -218,9 +232,9 @@ host: $host_en
 lang: en
 tags: [$itkw1, $itkw2, $itkw3]
 #pdf: 
-img_thumb: uchu-forum-$date_str-thumb.jpg
+img_thumb: {$file_str}-$date_str-thumb.jpg
 img:
-  - uchu-forum-$date_str.jpg
+  - {$file_str}-$date_str.jpg
 remarks: $itr
 categories:
   - $ttype_ids[$ity]
@@ -253,8 +267,11 @@ $ita
 
     # Email 
     $formcontent = "$email_astro";
-    #$recipient = "astro.ccs.tsukuba@gmail.com";  # For testing
-    $recipient = $email_uchu_forum;
+    if ($test) {
+      $recipient = "astro.ccs.tsukuba@gmail.com";
+    } else {
+      $recipient = $email_uchu_forum;
+    }
     $subject = "今月の宇宙フォーラム：" . $date_str_ja . "（{$twdy_ja}） $ittime";
     $mailheader  = "MIME-Version: 1.0" . "\r\n";
     $mailheader .= "Content-type: text/html; charset=UTF-8" . "\r\n";
@@ -264,8 +281,11 @@ $ita
 
     # Email 
     $formcontent = "$email_speaker";
-    #$recipient = "astro.ccs.tsukuba@gmail.com";  # For testing
-    $recipient = $ie;
+    if ($test) {
+      $recipient = "astro.ccs.tsukuba@gmail.com";
+    } else {
+      $recipient = $ie;
+    }
     $subject = "宇宙フォーラム Uchu forum " . $date_str_ja . "（{$twdy_ja} | {$twdy_en}） $ittime";
     $mailheader  = "MIME-Version: 1.0" . "\r\n";
     $mailheader .= "Content-type: text/html; charset=UTF-8" . "\r\n";
