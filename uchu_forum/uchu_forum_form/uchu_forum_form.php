@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $organizer_uchu_forum = "内海";
     $email_uchu_forum = "utsumi@ccs.tsukuba.ac.jp";
     $email_sender = 'ayw@ccs.tsukuba.ac.jp';
-    $test = true;
+    $test = false;
 
     # Location
     $loc_en = "Online";
@@ -47,6 +47,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
       'コロキウム' => 'colloquium', 
       'Uchu Forum' => 'uchu_forum', 
       'Colloquium' => 'colloquium', 
+    );
+
+    # Host emails (needs to be regularly updated)
+    $host_emails = array(
+      'Masayuki Umemura' => 'umemura@ccs.tsukuba.ac.jp',
+      'Ken Ohsuga' => 'ohsuga@ccs.tsukuba.ac.jp',
+      'Masao Mori' => 'mmori@ccs.tsukuba.ac.jp',
+      'Hidenobu Yajima' => 'yajima@ccs.tsukuba.ac.jp',
+      'Kohji Yoshikawa' => 'kohji@ccs.tsukuba.ac.jp',
+      'Alexander Wagner' => 'ayw@ccs.tsukuba.ac.jp',
+      'Hajime Fukushima' => 'fukushima@ccs.tsukuba.ac.jp',
+      'Yuichi Takamizu' => 'takamizu@ccs.tsukuba.ac.jp',
+      'Makito Abe' => 'mabe@ccs.tsukuba.ac.jp',
+      'Yuta Asahina' => 'asahinyt@ccs.tsukuba.ac.jp',
+      'Takumi Ogawa' => 'takumi@ccs.tsukuba.ac.jp',
+      'Satoshi Kikuta' => 'kikutast@ccs.tsukuba.ac.jp',
+      'Takanobu Kirihara' => 'kirihara@ccs.tsukuba.ac.jp',
+      'Shinya Azami' => 'azami@ccs.tsukuba.ac.jp',
+      'Asuka Igarashi' => 'igarashi@ccs.tsukuba.ac.jp',
+      'Mayumi Obata' => 'obata	@ccs.tsukuba.ac.jp',
+      'Ayumu Watanabe' => 'ayumuw@ccs.tsukuba.ac.jp',
+      'Naoki Harada' => 'harada@ccs.tsukuba.ac.jp',
+      'Kenta Soga' => 'soga@ccs.tsukuba.ac.jp',
+      'Akihiro Inoue' => 'akihiro@ccs.tsukuba.ac.jp',
+      'Koki Otaki' => 'otaki@ccs.tsukuba.ac.jp',
+      'Mikiya Takahashi' => 'mikiya@ccs.tsukuba.ac.jp',
+      'Aoto Utsumi' => 'utsumi@ccs.tsukuba.ac.jp',
+      'Takuya Mushano' => 'mushano@ccs.tsukuba.ac.jp',
+      'Erika Ogata' => 'ogata@ccs.tsukuba.ac.jp',
     );
 
     # Build POST request
@@ -103,6 +132,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $host_en = $host_bl[1];
     $host_ja_bl = explode(" ", $host_ja);
     $host_ja_sn = $host_ja_bl[0];
+    $host_ja_fn = $host_ja_bl[1];
+    $host_ja_nsp = $host_ja_sn . $host_ja_fn;
 
     # Titles sometimes contain colons which we cannot have.
     $itt = str_replace(":", "&#58;", $itt);
@@ -116,14 +147,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $date_str_ja = date("n月j日",strtotime($date_str));
 
     # Uchu forum or colloquium-dependent strings
-    if ($ity == "宇宙フォーラム" or $ity == "Uchu Forum") {
+  
+    if ($ttype_ids[$ity] == "uchu_forum") {
       $organizer = $organizer_uchu_forum;
-      $email_intro = "<p>今月の宇宙フォーラムは，" . $iaffja . "の " . $iln . " " . $ifn . " 氏に<br/>ご講演していただきます。 講演タイトルおよび概要を下記に記載いたしましたのでご確認ください。</p>";
+      $subject_str = "宇宙フォーラム (Uchu Forum)";
+      $email_intro = "<p>今月の宇宙フォーラムは，" . $iaffja . "の " . $iln . " " . $ifn . " 氏に<br/>ご講演していただきます。 講演タイトルおよび概要を下記に記載いたしましたのでご確認ください。</p>" . 
+        "<p>宇宙フォーラム後には講演者と学生のみの議論の時間を<br/>設けて頂きました（開催予定時刻：17:15 ~ 17:45）。<br/>学生の方はそちらも奮ってご参加ください。</p>";
       $file_str = 'uchu-forum';
+      $org_email_to = $email_uchu_forum;
     } else {
       $organizer = $host_ja_sn;
+      $subject_str = "コロキウム (Colloquium)";
       $email_intro = "<p>" . $date_str_ja . "（{$twdy_ja}）に" . $iaffja . "の " . $iln . " " . $ifn . " 氏に<br/>ご講演していただきます。 講演タイトルおよび概要を下記に記載いたしましたのでご確認ください。</p>";
       $file_str = 'colloquium';
+      $org_email_to = $host_emails[$host_en];
     }
  
 
@@ -140,7 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 
 {$email_intro}
 
-<p>Zoom を用いたリモート開催となります。 以下Zoom の情報です。</p>
+<p>Zoom を用いたリモート開催となります。以下 Zoom の情報です。</p>
 <dl>
 <dt>リンク： https://us02web.zoom.us/j/89630613401pwd=NXRhU3ZCam9jVmhyY25CbU5ZUjJhdz09</dt>
 <dt>ミーティングID： 896 3061 3401</dt>
@@ -203,7 +240,7 @@ webpage: \"$ih\"
 date: $date_str
 time: \"$ittime\" # Must use quotes
 place: $loc_ja
-host: $host_ja
+host: $host_ja_nsp
 lang: ja
 tags: [$itkw1, $itkw2, $itkw3]
 #pdf: 
@@ -265,28 +302,28 @@ $ita
     $file_ja = str_replace("．", "。", $file_ja);
     $file_en = str_replace("．", "。", $file_en);
 
-    # Email 
+    # Email to organizer/host
     $formcontent = "$email_astro";
     if ($test) {
       $recipient = "astro.ccs.tsukuba@gmail.com";
     } else {
-      $recipient = $email_uchu_forum;
+      $recipient = $org_email_to;
     }
-    $subject = "今月の宇宙フォーラム：" . $date_str_ja . "（{$twdy_ja}） $ittime";
+    $subject = $subject_str . "：" . $date_str_ja . "（{$twdy_ja}） $ittime";
     $mailheader  = "MIME-Version: 1.0" . "\r\n";
     $mailheader .= "Content-type: text/html; charset=UTF-8" . "\r\n";
     $mailheader .= "From: $email_sender \r\n";
     $mailheader .= "X-Mailer: PHP/" . phpversion();
     mail($recipient, $subject, $formcontent, $mailheader);
 
-    # Email 
+    # Email to speaker
     $formcontent = "$email_speaker";
     if ($test) {
       $recipient = "astro.ccs.tsukuba@gmail.com";
     } else {
       $recipient = $ie;
     }
-    $subject = "宇宙フォーラム Uchu forum " . $date_str_ja . "（{$twdy_ja} | {$twdy_en}） $ittime";
+    $subject = $subject_str . " " . $date_str_ja . "（{$twdy_ja} | {$twdy_en}） $ittime";
     $mailheader  = "MIME-Version: 1.0" . "\r\n";
     $mailheader .= "Content-type: text/html; charset=UTF-8" . "\r\n";
     $mailheader .= "From: $email_sender \r\n";
