@@ -102,6 +102,7 @@ assets:
   doc: /assets/doc
   doc_projects: /assets/doc/projects
   doc_achievements: /assets/doc/achievements
+  doc_annual_reports: /assets/doc/annual_reports
   tipuesearch: /assets/tipuesearch
 
 

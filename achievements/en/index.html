@@ -3,6 +3,9 @@ layout: achievements
 lang: en
 title: List of Publications
 annual_reports:
+  - 2021-2022-annual-report.pdf
+  - 2020-2021-annual-report.pdf
+  - 2019-2020-annual-report.pdf
   - 2018-2019-annual-report.pdf
   - 2017-2018-annual-report.pdf
   - 2016-2017-annual-report.pdf
@@ -24,7 +27,7 @@ annual_reports:
 <p>The following is a list of annual reports (pdf), which also contain a full list of publications, talks given, as well as descriptions of research projects and other services and activities that we engaged in.</p>
 <ul>
 {% for ar in page.annual_reports %}
-<li><a href="{{ site.baseurl }}{{ la.doc }}/{{ ar }}" target="_blank">{{ ar | replace_first: "-", " ~ " | remove: "-annual-report.pdf" }} <i class="fa fa-file-pdf-o"></i></a></li>
+<li><a href="{{ site.baseurl }}{{ la.doc_annual_reports }}/{{ ar }}" target="_blank">{{ ar | replace_first: "-", " ~ " | remove: "-annual-report.pdf" }} <i class="fa fa-file-pdf-o"></i></a></li>
 {% endfor %}
 </ul>
 
