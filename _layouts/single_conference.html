@@ -219,7 +219,7 @@ layout: default
       {% endif %}
         <tr>
           <td>{% if contrib.from %}{{ contrib.from | remove: "!" }}{% endif %}{% if contrib.to %} ~ {{ contrib.to | remove: "!" }}{% endif %}</td>
-          <td>{{ contrib.title }}{% if contrib.pdf %}<span class="pull-right">&nbsp;<a href="{{ files_loc_base }}/{{ contrib.pdf }}" target="_blank"><i class="fa fa-file-pdf-o"></i></a></span>{% endif %}</td>
+          <td>{{ contrib.title }}{% if contrib.pdf %}<span class="pull-right">&nbsp;<a href="{{ files_loc_base }}/talks/{{ contrib.pdf }}" target="_blank"><i class="fa fa-file-pdf-o"></i></a></span>{% endif %}</td>
           <td>{% if contrib.speaker %}{{ contrib.speaker }}{% endif %}{% if contrib.affil or contrib.position %}{{ open_bra }}{{ contrib.affil }}{% if page.show_positions and position %}, {{ position }}{% endif %}{{ close_bra }}{% endif %}</td>
         </tr>
       {% endfor %}

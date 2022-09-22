@@ -50,6 +50,7 @@
           <h3 class="footer-widget-title">{{ tfl.recent_posts }}</h3>
           {% assign posts_lang = site.posts | where: 'lang', page.lang %}
           {% for post in posts_lang limit: 3 %}
+          {% assign posturl = post.url | prepend: site.baseurl %}
           <div class="media">
 
           <!-- location of image files is sometimes in subdirectories. Eventually they all will be. -->
