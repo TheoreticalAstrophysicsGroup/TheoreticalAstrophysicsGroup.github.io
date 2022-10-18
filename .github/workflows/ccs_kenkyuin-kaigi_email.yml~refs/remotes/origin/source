@@ -1,64 +1,78 @@
+name: send-kenkyuin-kaigi-email
 
+# Usually, the meeting is held every month on the 4th Tuesday,
+# except in August and February.
+
+# Cron syntax: minute hour day-of-month month day-of-week
+# 22-28: 4th week
+# 15-21: 3rd week
 on:
   schedule:
     - cron: '0 9 22-28 1,3,4-7,9-12 TUE'
+    
+    # Add any dates hat are different to those given by the cron above. 
+    # Make sure the original dates are excluded in the "if" condition of the send mail step.
+    - cron: '0 9 15-21 9 TUE'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
-  send_kenkyui_kaigi_email:
+  send_kenkyuin_kaigi_email:
     runs-on: ubuntu-latest
     steps:
 
       - name: Get current date
         id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m')"
-        run: echo "::set-output name=month::$(date +'%m')"
-        run: echo "::set-output name=day::$(date +'%d')"
+        run: |
+          echo "date=$(date +'%Y-%m')" >> $GITHUB_ENV
+          echo "month=$(date +'%m')" >> $GITHUB_ENV
+          echo "day=$(date +'%d')" >> $GITHUB_ENV
+          echo "day_kaigi=$(($(date +'%d') + 7))" >> $GITHUB_ENV
 
       - name: Send mail
-        if: github.event.schedule != '0 9 22-28 1,3,4-7,9-12 MON,WED,THU,FRI,SAT,SUN'
+        # Add date exceptions here, including dates that were moved.
+        if: |
+          github.event.schedule != '0 9 22-28 1,3,4-7,10-12 MON,WED,THU,FRI,SAT,SUN' &&
+          github.event.schedule != '0 9 22-28 9 TUE
         uses: dawidd6/action-send-mail@v3
         with:
 
-          # Specify connection via URL (replaces server_address, server_port, secure,
-          # username and password)
-          #
-          # Format:
-          #
-          #  * smtp://user:password@server:port
-          #  * smtp+starttls://user:password@server:port
+          # Specify connection via URL
+          # Format: smtp+starttls://user:password@server:port
           connection_url: ${{ secrets.MAIL_CONNECTION }}
+          
+          # Server port, default 25:
+          server_port: 465
 
           # Required mail subject:
-          subject: 【依頼】${{ steps.date.outputs.month }}/${{ steps.date.outputs.day }} 研究員会議報告
+          subject: 【依頼】${{ env.month }}/${{ env.day_kaigi }} 研究員会議報告
 
           # Required recipients' addresses:
-          to: ayw@ccs.tsukuba.ac.jp
+          to: astro@ccs.tsukuba.ac.jp
 
           # Required sender full name (address can be skipped):
-          from: Alexander Y. Wagner
+          from: ayw@ccs.tsukuba.ac.jp
 
-          # Optional plain body:
-          body: |
-            宇宙物理理論研究室の教員および研究員のみなさま
+          # html body:
+          html_body: |
+            宇宙物理理論研究室の教員および研究員のみなさま   
             （それ以外の方は無視してください）
-            
-            来週の火曜に研究員会議が開催されます。
+
+            来週の火曜に研究員会議が開催されます。   
             報告事項のある方は Overleaf で前日の深夜までにお願いします。
-            
+
             ```
             ${{ secrets.KENKYUIN_KAIGI_OVERLEAF_LINK }}
             ```
-            
-            編集するのは `${{ steps.date.outputs.date }}/` のディレクトリです。
-            
+
+            編集するのは `${{ env.date }}/` のディレクトリです。
+
             よろしくお願いします。
-            
+
             Alex
-            
-            
+
+
             BibTeX ファイルの内容
             * 受賞： `awards.bib`
             * 著書（全体・章・解説記事）： `books.bib`
@@ -74,14 +88,14 @@ jobs:
             * 論文（審査無し）： `papers_non-refereed.bib`
             * シンポジウム・研究会・スクール等の開催実績： `soc_loc.bib`
             * 社会貢献・国際貢献： `social_benefits.bib`
-            
+
             注意点：
             * 記入例はそれぞれのファイルのヘダーにあります。
             * 論文は NASA ADS からの BibTeX export をそのまま貼り付けるだけで結構です。
             * 論文は掲載されたもののみでお願いします。Preprint 段階のものはのせないでください。
-            * 共著者又は共発表者は and でつなげてリストアップしてください。E.g., `author = {福島肇 and 矢島秀伸 and 安部牧人},`
+            * 共著者又は共発表者は and でつなげてリストアップしてください。E.g., `author = {福島肇 and 矢島秀伸 and 安部牧人},`。
             * ポスター発表の場合は `presentation = {poster},` 基調講演の場合は `presentation = {keynote},` にしてください。
-            * コンパイルされるメインファイルは `2022-10-Astro_Report.tex` ですが，そのファイルは編集しないでください。
+            * コンパイルされるメインファイルは `${{ env.date }}-Astro_Report.tex` ですが，そのファイルは編集しないでください。
 
           # Optional HTML body read from file:
           #html_body: file://README.html
@@ -99,7 +113,7 @@ jobs:
           #in_reply_to: <random-luke@example.com>
 
           # Optional unsigned/invalid certificates allowance:
-          ignore_cert: true
+          ignore_cert: false
 
           # Optional converting Markdown to HTML (set content_type to text/html too):
           convert_markdown: true
@@ -109,4 +123,4 @@ jobs:
 
           # Optional priority: 'high', 'normal' (default) or 'low'
           priority: normal
-
+          
