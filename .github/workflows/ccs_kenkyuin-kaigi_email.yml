@@ -39,7 +39,7 @@ jobs:
           to: ayw@ccs.tsukuba.ac.jp
 
           # Required sender full name (address can be skipped):
-          from: Alexander Y. Wagner
+          from: Alexander Y. Wagner <ayw@ccs.tsukuba.ac.jp>
 
           # html body:
           html_body: |
