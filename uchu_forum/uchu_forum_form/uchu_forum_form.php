@@ -179,7 +179,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 
 <p>Zoom を用いたリモート開催となります。以下 Zoom の情報です。</p>
 <dl>
-<dt>リンク： https://us02web.zoom.us/j/89630613401pwd=NXRhU3ZCam9jVmhyY25CbU5ZUjJhdz09</dt>
+<dt>リンク： https://us02web.zoom.us/j/89630613401?pwd=NXRhU3ZCam9jVmhyY25CbU5ZUjJhdz09</dt>
 <dt>ミーティングID： 896 3061 3401</dt>
 <dt>パスコード： 189822</dt>
 </dl>
