@@ -152,10 +152,10 @@ layout: default
 
       {% if page.registration_message %}
       <h3 id="registration"> {{ tcl.registration }} </h3>
+      <p>{{ page.registration_message }}</p>
       {% if page.registration_link %}
       <p><a href="{{ page.registration_link }}" target="_blank">{{ tcl.registration_link_text }} </a></p>
       {% endif %}
-      <p>{{ page.registration_message }}</p>
       {% endif %}
 
       {% if page.program or page.program_download or page.info_download or page.contribution_types %}
