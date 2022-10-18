@@ -100,7 +100,7 @@ jobs:
           #in_reply_to: <random-luke@example.com>
 
           # Optional unsigned/invalid certificates allowance:
-          ignore_cert: true
+          ignore_cert: false
 
           # Optional converting Markdown to HTML (set content_type to text/html too):
           convert_markdown: true
