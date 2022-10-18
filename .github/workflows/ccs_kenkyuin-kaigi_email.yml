@@ -25,13 +25,8 @@ jobs:
         uses: dawidd6/action-send-mail@v3
         with:
 
-          # Specify connection via URL (replaces server_address, server_port, secure,
-          # username and password)
-          #
-          # Format:
-          #
-          #  * smtp://user:password@server:port
-          #  * smtp+starttls://user:password@server:port
+          # Specify connection via URL
+          # Format: smtp+starttls://user:password@server:port
           connection_url: ${{ secrets.MAIL_CONNECTION }}
           
           # Server port, default 25:
@@ -46,8 +41,8 @@ jobs:
           # Required sender full name (address can be skipped):
           from: Alexander Y. Wagner
 
-          # Optional plain body:
-          body: |
+          # html body:
+          html_body: |
             宇宙物理理論研究室の教員および研究員のみなさま
             （それ以外の方は無視してください）
 
