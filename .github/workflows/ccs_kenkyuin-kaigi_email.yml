@@ -36,7 +36,7 @@ jobs:
           subject: 【依頼】${{ env.month }}/${{ env.day_kaigi }} 研究員会議報告
 
           # Required recipients' addresses:
-          to: ayw@ccs.tsukuba.ac.jp
+          to: astro@ccs.tsukuba.ac.jp
 
           # Required sender full name (address can be skipped):
           from: ayw@ccs.tsukuba.ac.jp
