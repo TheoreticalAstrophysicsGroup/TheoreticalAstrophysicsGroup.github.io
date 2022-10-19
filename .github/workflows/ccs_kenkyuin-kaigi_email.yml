@@ -2,11 +2,17 @@ name: send-kenkyuin-kaigi-email
 
 # Usually, the meeting is held every month on the 4th Tuesday,
 # except in August and February.
+
+# Cron syntax: minute hour day-of-month month day-of-week
+# 22-28: 4th week
+# 15-21: 3rd week
 on:
   schedule:
     - cron: '0 9 22-28 1,3,4-7,9-12 TUE'
-    # Add any exceptions here
-    - cron: '0 9 20 9 *'
+    
+    # Add any dates hat are different to those given by the cron above. 
+    # Make sure the original dates are excluded in the "if" condition of the send mail step.
+    - cron: '0 9 15-21 9 TUE'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -25,8 +31,10 @@ jobs:
           echo "day_kaigi=$(($(date +'%d') + 7))" >> $GITHUB_ENV
 
       - name: Send mail
-        # Add any additional exceptions using "|" to create conditions across multiple lines
-        if: github.event.schedule != '0 9 22-28 1,3,4-7,9-12 MON,WED,THU,FRI,SAT,SUN'
+        # Add date exceptions here, including dates that were moved.
+        if: |
+          github.event.schedule != '0 9 22-28 1,3,4-7,10-12 MON,WED,THU,FRI,SAT,SUN' &&
+          github.event.schedule != '0 9 22-28 9 TUE
         uses: dawidd6/action-send-mail@v3
         with:
 
