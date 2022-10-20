@@ -34,12 +34,14 @@ jobs:
           echo "date=$(date +'%Y-%m')" >> $GITHUB_ENV
           echo "month=$(date +'%m')" >> $GITHUB_ENV
           echo "day=$(date +'%d')" >> $GITHUB_ENV
-          echo "day_kaigi=$(($(date +'%d') + 7))" >> $GITHUB_ENV
+          echo "dow=$(date +'%u')" >> $GITHUB_ENV
+          echo "day_kaigi=$(($(date +'%d') + 1))" >> $GITHUB_ENV
 
       - name: Send mail
+
         # This condition makes sure its a Monday
-        if: |
-          github.event.schedule != '* * * * TUE,WED,THU,FRI,SAT,SUN'
+        if: ${{ env.dow }} == 1
+
         uses: dawidd6/action-send-mail@v3
         with:
 
@@ -54,7 +56,7 @@ jobs:
           subject: 【依頼】リマインダー：明日の研究員会議報告
 
           # Required recipients' addresses:
-          to: astro@ccs.tsukuba.ac.jp
+          to: ayw@ccs.tsukuba.ac.jp
 
           # Required sender full name (address can be skipped):
           from: ayw@ccs.tsukuba.ac.jp

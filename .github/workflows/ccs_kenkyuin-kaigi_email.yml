@@ -34,12 +34,14 @@ jobs:
           echo "date=$(date +'%Y-%m')" >> $GITHUB_ENV
           echo "month=$(date +'%m')" >> $GITHUB_ENV
           echo "day=$(date +'%d')" >> $GITHUB_ENV
+          echo "dow=$(date +'%u')" >> $GITHUB_ENV
           echo "day_kaigi=$(($(date +'%d') + 7))" >> $GITHUB_ENV
 
       - name: Send mail
+
         # This condition makes sure its a Tuesday
-        if: |
-          github.event.schedule != '* * * * MON,WED,THU,FRI,SAT,SUN'
+        if: ${{ env.dow }} == 1
+
         uses: dawidd6/action-send-mail@v3
         with:
 
