@@ -40,7 +40,7 @@ jobs:
       - name: Send mail
 
         # This condition makes sure its a Tuesday
-        if: ${{ env.dow }} == 1
+        if: ${{ env.dow == 2 }}
 
         uses: dawidd6/action-send-mail@v3
         with:
