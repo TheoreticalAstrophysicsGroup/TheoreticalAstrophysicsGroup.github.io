@@ -15,7 +15,7 @@ on:
   schedule:
 
     # This makes sure its the 3rd <weekday> in the month
-    - cron: '50 1 15-21 1,3,4-7,10-12 *'
+    - cron: '0 1 15-21 1,3,4-7,10-12 *'
     
     # Add any dates hat are different to those given by the cron above. 
     - cron: '0 1 8-14 9 *'
@@ -40,7 +40,7 @@ jobs:
       - name: Send mail
 
         # This condition makes sure its a Tuesday
-        if: ${{ env.dow == 5 }}
+        if: ${{ env.dow == 2 }}
 
         uses: dawidd6/action-send-mail@v3
         with:
@@ -56,7 +56,7 @@ jobs:
           subject: 【依頼】${{ env.month }}/${{ env.day_kaigi }} 研究員会議報告
 
           # Required recipients' addresses:
-          to: ayw@ccs.tsukuba.ac.jp
+          to: astro@ccs.tsukuba.ac.jp
 
           # Required sender full name (address can be skipped):
           from: ayw@ccs.tsukuba.ac.jp
