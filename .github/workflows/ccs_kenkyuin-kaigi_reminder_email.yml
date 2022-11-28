@@ -1,9 +1,11 @@
 name: send-kenkyuin-kaigi-reminder-email
 
 # Usually, the meeting is held every month on the 4th Tuesday,
-# except in August and February. 
+# except in August and February, in which no meeting is held.
 
-# This reminder is to be sent a day before.
+# This reminder is to be sent a day before. This is usually
+# the 4th Monday, except when the month begins with a Tuesday,
+# it is the 3rd Monday.
 
 # Cron syntax: minute hour day-of-month month day-of-week
 # Time is UTC. DOM and DOW are logically-"or"-combined
