@@ -1,7 +1,7 @@
 name: send-kenkyuin-kaigi-email
 
 # Usually, the meeting is held every month on the 4th Tuesday,
-# except in August and February. 
+# except in August and February, in which no meeting is held.
 
 # This announcement is to be sent a week before.
 
