@@ -173,7 +173,7 @@ uchu_forum_form:
     input_talk_img: Up to 4 figures (Max 30 MB each, JPG/JPEG, PNG) e.g., showing research results, a sketch, an illustration etc ＊
     input_talk_remarks: Remarks (e.g. Figure attribution/credits, special requests)
     ph_last_name: アインシュタイン
-    ph_first_name: アルバー
+    ph_first_name: アルバート
     ph_last_name_romaji: Einstein
     ph_first_name_romaji: Albert
     ph_affil_ja: ナルニア大学
