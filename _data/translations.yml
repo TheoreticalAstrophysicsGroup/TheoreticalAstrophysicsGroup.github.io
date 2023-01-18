@@ -134,6 +134,22 @@ uchu_forum_form:
     input_talk_kw3: 発表内容キーワード3
     input_talk_img: 図（一枚 30 MB まで，4枚まで，JPG/JPEG・PNG）： 研究結果の図やポンチ絵，イラストなど ＊
     input_talk_remarks: 備考（画像帰属・クレジット，特別なご要望など）
+    additional_hosts: 
+      - name: 久野 成夫
+        position: professor
+        order: 1
+      - name: 徂徠 和夫
+        position: professor
+        order: 2
+      - name: 柴田 和樹
+        position: d2
+        order:
+      - name: 橋本 拓也
+        position: assistant_professor
+        order: 1
+      - name: 本多 俊介
+        position: assistant_professor
+        order: 2
     ph_last_name: 鈴木
     ph_first_name: 一郎
     ph_last_name_romaji: Suzuki
@@ -172,6 +188,22 @@ uchu_forum_form:
     input_talk_kw3: Keywords 3
     input_talk_img: Up to 4 figures (Max 30 MB each, JPG/JPEG, PNG) e.g., showing research results, a sketch, an illustration etc ＊
     input_talk_remarks: Remarks (e.g. Figure attribution/credits, special requests)
+    additional_hosts: 
+      - name: Nario Kuno
+        position: professor
+        order: 1
+      - name: Kazuo Sorai
+        position: professor
+        order: 2
+      - name: Kazuki Shibata
+        position: d2
+        order:
+      - name: Takuya Hashimoto
+        position: assistant_professor
+        order: 1
+      - name: Shunsuke Honda
+        position: assistant_professor
+        order: 2
     ph_last_name: アインシュタイン
     ph_first_name: アルバート
     ph_last_name_romaji: Einstein

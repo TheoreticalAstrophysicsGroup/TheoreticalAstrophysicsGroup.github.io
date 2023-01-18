@@ -4,8 +4,9 @@ layout: default
 
 {% include page_header.html title=page.title %}
 
-{% assign tau = site.data.translations.uchu_forum_form[page.lang] %}
+{% assign tau_l = site.data.translations.uchu_forum_form[page.lang] %}
 {% assign ttg = site.data.translations.tags %}
+{% assign tau = site.data.translations.uchu_forum_form %}
 
 <div class="container">
 
@@ -23,21 +24,21 @@ layout: default
       <br />
 
       <fieldset>
-        <legend>{{ tau.legend_about_speaker }}</legend>
+        <legend>{{ tau_l.legend_about_speaker }}</legend>
 
         <div class="row">
           <div class="form-group col-sm-6">
-            <label for="InputLastName"> {{ tau.input_last_name }} </label>
-            <input type="text" class="form-control" name="InputLastName" id="InputLastName" placeholder="{{ tau.ph_last_name }}" 
+            <label for="InputLastName"> {{ tau_l.input_last_name }} </label>
+            <input type="text" class="form-control" name="InputLastName" id="InputLastName" placeholder="{{ tau_l.ph_last_name }}" 
               autofocus {% if page.lang == "ja" %} required {% endif %}>
               <!-- These Japanese pattern checks don't work. Neither do unicode points regex. -->
               <!-- pattern="[\p{Han}\p{Hiragana}\p{Katakana}]+" -->
           </div>
 
           <div class="form-group col-sm-6">
-            <label for="InputFirstName"> {{ tau.input_first_name }} </label>
+            <label for="InputFirstName"> {{ tau_l.input_first_name }} </label>
             <input type="text" class="form-control" name="InputFirstName" id="InputFirstName"
-              placeholder="{{ tau.ph_first_name }}" 
+              placeholder="{{ tau_l.ph_first_name }}" 
               {% if page.lang == "ja" %} required {% endif %}>
               <!-- These Japanese pattern checks don't work. Neither do unicode points regex. -->
               <!-- pattern="[\p{Han}\p{Hiragana}\p{Katakana}]+" -->
@@ -46,64 +47,68 @@ layout: default
 
         <div class="row">
           <div class="form-group col-sm-6">
-            <label for="InputLastNameRomaji"> {{ tau.input_last_name_romaji }} </label>
+            <label for="InputLastNameRomaji"> {{ tau_l.input_last_name_romaji }} </label>
             <input type="text" class="form-control" name="InputLastNameRomaji" id="InputLastNameRomaji"
-              placeholder="{{ tau.ph_last_name_romaji }}" 
+              placeholder="{{ tau_l.ph_last_name_romaji }}" 
               pattern="[A-ZÀ-Ÿ][-'a-zà-ÿ]{1,}" required>
           </div>
 
           <div class="form-group col-sm-6">
-            <label for="InputFirstNameRomaji"> {{ tau.input_first_name_romaji }} </label>
+            <label for="InputFirstNameRomaji"> {{ tau_l.input_first_name_romaji }} </label>
             <input type="text" class="form-control" name="InputFirstNameRomaji" id="InputFirstNameRomaji"
-              placeholder="{{ tau.ph_first_name_romaji }}" 
+              placeholder="{{ tau_l.ph_first_name_romaji }}" 
               pattern="[A-ZÀ-Ÿ][-'a-zà-ÿ]{1,}" required>
           </div>
         </div>
 
         <div class="row">
           <div class="form-group col-sm-6">
-            <label for="InputAffilJa"> {{ tau.input_affil_ja }} </label>
+            <label for="InputAffilJa"> {{ tau_l.input_affil_ja }} </label>
             <input type="text" class="form-control" name="InputAffilJa" id="InputAffilJa"
-              placeholder="{{ tau.ph_affil_ja }}" 
+              placeholder="{{ tau_l.ph_affil_ja }}" 
               {% if page.lang == "ja" %} required {% endif %}>
           </div>
 
           <div class="form-group col-sm-6">
-            <label for="InputAffilEn"> {{ tau.input_affil_en }} </label>
+            <label for="InputAffilEn"> {{ tau_l.input_affil_en }} </label>
             <input type="text" class="form-control" name="InputAffilEn" id="InputAffilEn"
-              placeholder="{{ tau.ph_affil_en }}" required>
+              placeholder="{{ tau_l.ph_affil_en }}" required>
           </div>
         </div>
 
         <div class="row">
           <div class="form-group col-sm-6 col-md-4">
-            <label for="InputEmail">{{ tau.input_email }}</label>
+            <label for="InputEmail">{{ tau_l.input_email }}</label>
             <input type="email" class="form-control" name="InputEmail" id="InputEmail"
-              placeholder="{{ tau.ph_email }}" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z.]{2,}$" required>
+              placeholder="{{ tau_l.ph_email }}" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z.]{2,}$" required>
           </div>
 
           <div class="form-group col-sm-6 col-md-4">
-            <label for="InputHomepage">{{ tau.input_homepage }}</label>
+            <label for="InputHomepage">{{ tau_l.input_homepage }}</label>
             <input type="url" class="form-control" name="InputHomepage" id="InputHomepage"
-              placeholder="{{ tau.ph_homepage }}" pattern="https?://.+">
+              placeholder="{{ tau_l.ph_homepage }}" pattern="https?://.+">
           </div>
 
 
           {% assign positions = 'professor associate_professor lecturer assistant_professor postdoc postdoc_student d5 d4 d3 d2 d1' | split: ' ' %}
 
           <div class="form-group col-sm-6 col-md-4">
-            <label for="InputSpeakerHost"> {{ tau.input_speaker_host }} </label>
+            <label for="InputSpeakerHost"> {{ tau_l.input_speaker_host }} </label>
             <input list="speaker_host" class="form-control" name="InputSpeakerHost" id="InputSpeakerHost" required>
             <datalist id="speaker_host">
               {% for p in positions %}
               {% assign pindex = forloop.index %}
               {% assign mem_ja = site.members | where: 'lang', "ja" | where: 'position', p | sort: 'order' %}
               {% assign mem_en = site.members | where: 'lang', "en" | where: 'position', p | sort: 'order' %}
-              {% for m in mem_ja %}
-              {% assign mindex = forloop.index | minus: 1 %}
-              {% assign m_en = mem_en[mindex] %}
-              {% unless pindex == 1 and mindex == 0 %}
-              <option value="{{ m.name }} | {{ m_en.name }}">
+              {% assign adh_ja = tau['ja'].additional_hosts | where: 'position', p | sort: 'order' %}
+              {% assign adh_en = tau['en'].additional_hosts | where: 'position', p | sort: 'order' %}
+              {% assign hosts_ja = mem_ja | concat: adh_ja %}
+              {% assign hosts_en = mem_en | concat: adh_en %}
+              {% for h in hosts_ja %}
+              {% assign hindex = forloop.index | minus: 1 %}
+              {% assign h_en = hosts_en[hindex] %}
+              {% unless pindex == 1 and hindex == 0 %}
+              <option value="{{ h.name }} | {{ h_en.name }}">
               {% endunless %}
               {% endfor %}
               {% endfor %}
@@ -117,46 +122,46 @@ layout: default
       <br />
 
       <fieldset>
-        <legend>{{ tau.legend_about_talk }}</legend>
+        <legend>{{ tau_l.legend_about_talk }}</legend>
 
         <div class="row">
           <div class="form-group col-sm-4">
-            <label for="InputTalkType"> {{ tau.input_talk_type }} </label>
+            <label for="InputTalkType"> {{ tau_l.input_talk_type }} </label>
             <input list="talktype" class="form-control" name="InputTalkType" id="InputTalkType" required>
             <datalist id="talktype">
-              {% for type in tau.input_ttypes %}
+              {% for type in tau_l.input_ttypes %}
               <option value="{{ type }}">
                 {% endfor %}
             </datalist>
           </div>
 
           <div class="form-group col-sm-4">
-            <label for="InputTalkDate">{{ tau.input_talk_date }}</label>
+            <label for="InputTalkDate">{{ tau_l.input_talk_date }}</label>
             <input type="date" class="form-control" name="InputTalkDate" id="InputTalkDate"
-              placeholder="{{ tau.ph_talk_date }}" required>
+              placeholder="{{ tau_l.ph_talk_date }}" required>
           </div>
 
           <div class="form-group col-sm-4">
-            <label for="InputTalkTime">{{ tau.input_talk_time }}</label>
+            <label for="InputTalkTime">{{ tau_l.input_talk_time }}</label>
             <input type="time" class="form-control" name="InputTalkTime" id="InputTalkTime"
-              placeholder="{{ tau.ph_talk_time }}" value="15:30" required>
+              placeholder="{{ tau_l.ph_talk_time }}" value="15:30" required>
           </div>
 
         </div>
 
         <div class="row">
           <div class="form-group col-sm-12">
-            <label for="InputTalkTitle">{{ tau.input_talk_title }}</label>
+            <label for="InputTalkTitle">{{ tau_l.input_talk_title }}</label>
             <input type="text" class="form-control" name="InputTalkTitle" id="InputTalkTitle"
-              placeholder="{{ tau.ph_talk_title }}" required>
+              placeholder="{{ tau_l.ph_talk_title }}" required>
           </div>
         </div>
 
         <div class="row">
           <div class="form-group col-sm-12">
-            <label for="InputTalkAbstract">{{ tau.input_talk_abstract }}</label>
+            <label for="InputTalkAbstract">{{ tau_l.input_talk_abstract }}</label>
             <textarea type="text" class="form-control" name="InputTalkAbstract" id="InputTalkAbstract"
-                      placeholder="{{ tau.ph_talk_abstract }}" rows=15 required></textarea>
+                      placeholder="{{ tau_l.ph_talk_abstract }}" rows=15 required></textarea>
           </div>
         </div>
 
@@ -164,7 +169,7 @@ layout: default
           {% for ikw in (1..3) %}
           <div class="form-group col-sm-4">
             {% assign itkwn = "input_talk_kw" | append: ikw %}
-            <label for="InputTalkKw{{ iwk }}"> {{ tau[itkwn] }} </label>
+            <label for="InputTalkKw{{ iwk }}"> {{ tau_l[itkwn] }} </label>
             <input list="talkkw{{ ikw }}" class="form-control" name="InputTalkKw{{ ikw }}" id="InputTalkKw{{ ikw }}" {% if forloop.index == 1 %} required {% endif %}>
             <datalist id="talkkw{{ ikw }}">
               {% for kw in ttg %}
@@ -179,7 +184,7 @@ layout: default
 
         <div class="row">
           <div class="form-group col-sm-12">
-            <label for="InputTalkRemarks">{{ tau.input_talk_remarks }}</label>
+            <label for="InputTalkRemarks">{{ tau_l.input_talk_remarks }}</label>
             <textarea type="text" class="form-control" name="InputTalkRemarks" id="InputTalkRemarksAbstract" rows=2></textarea> 
           </div>
 
@@ -198,7 +203,7 @@ layout: default
     <form name="uchu_forum_img" role="form" action="../upload.php" method="post" class="dropzone" id="uchuForumImg">
 
           <div class="form-group col-sm-12">
-            <label for="InputTalkImg"> {{ tau.input_talk_img }} </label>
+            <label for="InputTalkImg"> {{ tau_l.input_talk_img }} </label>
           </div>
 
     </form>
@@ -211,7 +216,7 @@ layout: default
 
       <div class="row">
         <div class="col-sm-12">
-          <button type="submit" id="uf_submit_btn" class="btn btn-primary pull-right" form="uchuForumForm">{{ tau.submit }}</button>
+          <button type="submit" id="uf_submit_btn" class="btn btn-primary pull-right" form="uchuForumForm">{{ tau_l.submit }}</button>
         </div>
       </div>
 
@@ -221,7 +226,7 @@ layout: default
       <div class="col-sm-12">
         <div class="panel panel-primary" id="form_success" style="display:none;">
           <div class="panel-body">
-            {{ tau.form_success }}
+            {{ tau_l.form_success }}
           </div>
         </div>
       </div>
