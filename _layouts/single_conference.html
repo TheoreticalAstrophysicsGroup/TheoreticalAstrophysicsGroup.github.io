@@ -78,15 +78,6 @@ layout: default
       </ul>
       {% endif %}
 
-      {% if page.poster %}
-      <h3 id="poster"> {{ tcl.poster }} </h3>
-      <ul>
-        {% for pos in page.poster %}
-        <li>{{ pos.name }}{{ open_bra }}{{ pos.affil }}{{ close_bra }}{% if pos.title %}{{ colon }}{{ open_quo}}{{ pos.title }}{{ close_quo }}{% endif %}{% if pos.id %} [{{ pos.id }}]{% endif %}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-
       {% if page.panel %}
       <h3 id="panel"> {{ tcl.panel }} </h3>
       <ul>
@@ -228,6 +219,30 @@ layout: default
       {% endfor %}
 
       {% endfor %}
+      {% endif %}
+
+
+      {% if page.posters %}
+      <h4>{{ tcl.posters_heading }}</h4>
+      <table class="table table-striped">
+      <tbody>
+        {% for pitem in page.posters %}
+        {% if page.show_positions and pitem.position %}
+            {% assign first_letter = pitem.position | slice: 0 %}
+            {% if first_letter == "M" or first_letter == "B" or first_letter == "D" %} 
+              {% assign position = pitem.position %}
+            {% else %}
+              {% assign position = false %}
+            {% endif %}
+        {% endif %}
+        <tr>
+          <td>{% if pitem.id %}{{ pitem.id }}{% else %}P{{ forloop.index }}{% endif %}</td>
+          <td>{{ pitem.title }}{% if pitem.pdf %}<span class="pull-right">&nbsp;<a href="{{ files_loc_base }}/talks/{{ pitem.pdf }}" target="_blank"><i class="fa fa-file-pdf-o"></i></a></span>{% endif %}</td>
+          <td>{% if pitem.name %}{{ pitem.name }}{% endif %}{% if pitem.affil or pitem.position %}{{ open_bra }}{{ pitem.affil }}{% if page.show_positions and position %}, {{ position }}{% endif %}{{ close_bra }}{% endif %}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+      </table>
       {% endif %}
 
 

@@ -768,7 +768,7 @@ conferences:
     loc: Local Organizing Committee
     org: 世話人
     access: アクセス
-    important_dates: 重要な日付
+    important_dates: 重要な日時
     registration: 参加登録
     registration_link_text: 参加登録ウェブページへ
     other_info: その他の情報
@@ -779,6 +779,7 @@ conferences:
     full_part: 全参加者一覧
     min: 分
     program: プログラム
+    posters_heading: ポスター
     dinner: 懇親会
     lunch: 昼食
     lunch_info_web: 昼食情報（ウェブ）
@@ -809,7 +810,7 @@ conferences:
     invited: Invited Talks
     contributed: Contributed Talks
     participants: Participants
-    poster: Posters
+    posters_heading: Posters
     panel: Panel
     soc: Science Organizing Committee
     loc: Local Organizing Committee
@@ -826,6 +827,7 @@ conferences:
     full_part: Full list of participants
     min: min
     program: Program
+    program: Posters
     dinner: Conference Dinner
     lunch: Lunch
     lunch_info_web: Lunch information (Web)
