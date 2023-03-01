@@ -149,6 +149,13 @@ layout: default
       {% endif %}
       {% endif %}
 
+      {% if page.other_info %}
+      <h3 id="other_info"> {{ tcl.other_info }} </h3>
+      {% for oi in page.other_info %}
+        <p>{{ oi }}</p>
+      {% endfor %}
+      {% endif %}
+
       {% if page.program or page.program_download or page.info_download or page.contribution_types %}
       <h3 id="program"> {{ tcl.program }} </h3>
       {% endif %}
@@ -223,7 +230,7 @@ layout: default
 
 
       {% if page.posters %}
-      <h4>{{ tcl.posters_heading }}</h4>
+      <h4 id="posters">{{ tcl.posters_heading }}</h4>
       <table class="table table-striped">
       <tbody>
         {% for pitem in page.posters %}
@@ -278,13 +285,6 @@ layout: default
         {% if pl.web %}<li><i class="fa-li fa fa-map-marker"></i><a href="{{ pl.web }}" target="_blank">{{ tcl.lunch_info_web }}</a></li>{% endif %}
         {% if pl.pdf %}<li><i class="fa-li fa fa-file-pdf-o"></i><a href="{{ site.baseurl }}{{ la.doc }}/{{ pl.pdf }}" target="_blank">{{ tcl.lunch_info_pdf }}</a></li>{% endif %}
       </ul>
-      {% endif %}
-
-      {% if page.other_info %}
-      <h3 id="other_info"> {{ tcl.other_info }} </h3>
-      {% for oi in page.other_info %}
-        <p>{{ oi }}</p>
-      {% endfor %}
       {% endif %}
 
       {% if page.events %}
