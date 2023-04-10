@@ -76,40 +76,7 @@ ${name2}" "$members_directory/ja/$filename"
       sed -i "${row}a\\
 ${name1}" "$members_directory/ja/$filename"
 
-        #ファイルが存在する場合は、name, email, tel, position, homepageを置換
-      var=$(awk '/---/ {print NR}' $members_directory/en/$filename)
-      row=$(echo $var | awk '{print $1}')
-
-      name=$(awk '/^name/{print}' "$registerd_member_directory/$filename")
-      name1=$(echo "$name" | awk 'NR==1{print}')
-      name2=$(echo "$name" | awk 'NR==2{print}')
-      email=$(awk '/^email/{print}' "$registerd_member_directory/$filename")
-      tel=$(awk '/^tel/{print}' "$registerd_member_directory/$filename")
-      position=$(awk '/^position/{print}' "$registerd_member_directory/$filename")
-      homepage=$(awk '/^homepage/{print}' "$registerd_member_directory/$filename")
-      research=$(awk '/^research/{print}' "$registerd_member_directory/$filename")
-
-      sed -i -e "/^name/d" "$members_directory/en/$filename"
-      sed -i -e "/^email/d" "$members_directory/en/$filename"
-      sed -i -e "/^tel/d" "$members_directory/en/$filename"
-      sed -i -e "/^position/d" "$members_directory/en/$filename"
-      sed -i -e "/^homepage/d" "$members_directory/en/$filename"
-      sed -i -e "/^research/d" "$members_directory/en/$filename"
-
-      sed -i "${row}a\\
-${research}" "$members_directory/en/$filename"
-      sed -i "${row}a\\
-${homepage}" "$members_directory/en/$filename"
-      sed -i "${row}a\\
-${position}" "$members_directory/en/$filename"
-      sed -i "${row}a\\
-${tel}" "$members_directory/en/$filename"
-      sed -i "${row}a\\
-${email}" "$members_directory/en/$filename"
-      sed -i "${row}a\\
-${name2}" "$members_directory/en/$filename"
-      sed -i "${row}a\\
-${name1}" "$members_directory/en/$filename"
+        
     fi
     
 done
