@@ -16,6 +16,7 @@ on:
 
     # The correct week before the week for the meeting in April
     - cron: '0 1 15-21 4 *'
+    - cron: '33 15 12 4 *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -54,7 +55,8 @@ jobs:
           subject: 【依頼】${{ env.month }}/${{ env.day_kaigi }} 研究員会議報告
 
           # Required recipients' addresses:
-          to: astro@ccs.tsukuba.ac.jp
+          #to: astro@ccs.tsukuba.ac.jp
+          to: alexander.y.wagner@gmail.com
 
           # Required sender full name (address can be skipped):
           from: ayw@ccs.tsukuba.ac.jp
