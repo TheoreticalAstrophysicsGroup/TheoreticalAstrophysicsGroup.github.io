@@ -115,8 +115,6 @@ jobs:
             * メンバー： `members.tex`
             * 概要（活動報告）： `projects.tex`
 
-            （上記以外の `.tex` フィアルは年次報告に使われますので今回は修正は必要ないです。）
-
 
           # Optional HTML body read from file:
           #html_body: file://README.html
