@@ -1,9 +1,11 @@
-name: send-kenkyuin-kaigi-email
+name: send-kenkyuin-kaigi-april-reminder-email
 
 # Usually, the meeting is held every month on the 4th Tuesday,
 # except in August and February, in which no meeting is held.
 
-# This announcement is to be sent a week before.
+# This reminder is to be sent a day before. This is usually
+# the 4th Monday, except when the month begins with a Tuesday,
+# it is the 3rd Monday.
 
 # Cron syntax: minute hour day-of-month month day-of-week
 # Time is UTC. DOM and DOW are logically-"or"-combined
@@ -14,11 +16,8 @@ name: send-kenkyuin-kaigi-email
 on:
   schedule:
 
-    # This makes sure its the 3rd <weekday> in the month
-    - cron: '0 1 15-21 1,3,5-7,10-12 *'
-    
-    # Add any dates hat are different to those given by the cron above. 
-    - cron: '0 1 8-14 9 *'
+    # The week of the meeting in April
+    - cron: '0 1 22-28 4 *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -32,15 +31,16 @@ jobs:
         id: date
         run: |
           echo "date=$(date +'%Y-%m')" >> $GITHUB_ENV
+          echo "academic_years=$(date +'%Y')-$(($(date +'%Y') + 1))" >> $GITHUB_ENV
           echo "month=$(date +'%m')" >> $GITHUB_ENV
           echo "day=$(date +'%d')" >> $GITHUB_ENV
           echo "dow=$(date +'%u')" >> $GITHUB_ENV
-          echo "day_kaigi=$(($(date +'%d') + 7))" >> $GITHUB_ENV
+          echo "day_kaigi=$(($(date +'%d') + 1))" >> $GITHUB_ENV
 
       - name: Send mail
 
-        # This condition makes sure its a Tuesday
-        if: ${{ env.dow == 2 }}
+        # This condition makes sure its a Monday
+        if: ${{ env.dow == 1 }}
 
         uses: dawidd6/action-send-mail@v3
         with:
@@ -53,11 +53,11 @@ jobs:
           server_port: 465
 
           # Required mail subject:
-          subject: 【依頼】${{ env.month }}/${{ env.day_kaigi }} 研究員会議報告
+          subject: 【依頼】リマインダー：明日の研究員会議報告
 
           # Required recipients' addresses:
           to: astro@ccs.tsukuba.ac.jp
-
+          
           # Required sender full name (address can be skipped):
           from: ayw@ccs.tsukuba.ac.jp
 
@@ -65,22 +65,26 @@ jobs:
           html_body: |
             宇宙物理理論研究室の教員および研究員のみなさま   
             （それ以外の方は無視してください）
-
-            来週の火曜に研究員会議が開催されます。   
-            報告事項のある方は Overleaf で前日の深夜までにお願いします。
-
+            
+            明日行われる研究員会議で報告事項のある方は
+            Overleaf で前日の深夜までにお願いします。
+            
+            今年度最初の研究員会議で報告される項目の
+            チェックと編集も忘れないようお願いします。
+            
             ```
             ${{ secrets.KENKYUIN_KAIGI_OVERLEAF_LINK }}
             ```
 
-            編集するのは `${{ env.date }}/` のディレクトリです。
+            編集するのは `${{ env.date }}/` と `${{ env.academic_years }}/` のディレクトリです。
+            
+            > 研究員会議で新しいい研究員やスタッフの自己紹介がありますのでよろしくお願いいたします。
 
             よろしくお願いします。
 
             Alex
 
-
-            BibTeX ファイルの内容
+            `${{ env.date }}/` BibTeX ファイルの内容：
             * 受賞： `awards.bib`
             * 著書（全体・章・解説記事）： `books.bib`
             * 国内研究会（招待講演）： `conf_dom_invited.bib`
@@ -103,6 +107,14 @@ jobs:
             * 共著者又は共発表者は and でつなげてリストアップしてください。E.g., `author = {福島肇 and 矢島秀伸 and 安部牧人},`。
             * ポスター発表の場合は `presentation = {poster},` 基調講演の場合は `presentation = {keynote},` にしてください。
             * コンパイルされるメインファイルは `${{ env.date }}-Astro_Report.tex` ですが，そのファイルは編集しないでください。
+
+            `${{ env.academic_years }}/` のディレクトリの中のフィアルの確認・修正：
+            * 外部資金（分担）： `grants_CI.tex`
+            * 外部資金（代表）： `grants_PI.tex`
+            * 異分野間連携・産学官連携・国際連携・国際活動等（年中）： `linkages.tex`
+            * メンバー： `members.tex`
+            * 概要（活動報告）： `projects.tex`
+
 
           # Optional HTML body read from file:
           #html_body: file://README.html

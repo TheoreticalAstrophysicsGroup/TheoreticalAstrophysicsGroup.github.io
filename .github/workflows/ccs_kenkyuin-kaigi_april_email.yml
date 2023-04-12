@@ -1,4 +1,4 @@
-name: send-kenkyuin-kaigi-email
+name: send-kenkyuin-kaigi-april-email
 
 # Usually, the meeting is held every month on the 4th Tuesday,
 # except in August and February, in which no meeting is held.
@@ -14,11 +14,8 @@ name: send-kenkyuin-kaigi-email
 on:
   schedule:
 
-    # This makes sure its the 3rd <weekday> in the month
-    - cron: '0 1 15-21 1,3,5-7,10-12 *'
-    
-    # Add any dates hat are different to those given by the cron above. 
-    - cron: '0 1 8-14 9 *'
+    # The correct week before the week for the meeting in April
+    - cron: '0 1 15-21 4 *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -32,6 +29,7 @@ jobs:
         id: date
         run: |
           echo "date=$(date +'%Y-%m')" >> $GITHUB_ENV
+          echo "academic_years=$(date +'%Y')-$(($(date +'%Y') + 1))" >> $GITHUB_ENV
           echo "month=$(date +'%m')" >> $GITHUB_ENV
           echo "day=$(date +'%d')" >> $GITHUB_ENV
           echo "dow=$(date +'%u')" >> $GITHUB_ENV
@@ -65,20 +63,17 @@ jobs:
           html_body: |
             宇宙物理理論研究室の教員および研究員のみなさま   
             （それ以外の方は無視してください）
+            
+            > 今年度の最初の研究員会議ですの追加の点があります。メール下部を御覧ください。
 
             来週の火曜に研究員会議が開催されます。   
             報告事項のある方は Overleaf で前日の深夜までにお願いします。
-
+            
             ```
             ${{ secrets.KENKYUIN_KAIGI_OVERLEAF_LINK }}
             ```
 
             編集するのは `${{ env.date }}/` のディレクトリです。
-
-            よろしくお願いします。
-
-            Alex
-
 
             BibTeX ファイルの内容
             * 受賞： `awards.bib`
@@ -103,6 +98,21 @@ jobs:
             * 共著者又は共発表者は and でつなげてリストアップしてください。E.g., `author = {福島肇 and 矢島秀伸 and 安部牧人},`。
             * ポスター発表の場合は `presentation = {poster},` 基調講演の場合は `presentation = {keynote},` にしてください。
             * コンパイルされるメインファイルは `${{ env.date }}-Astro_Report.tex` ですが，そのファイルは編集しないでください。
+
+            今年度の最初の研究員会議となりますので，`${{ env.academic_years }}/` のディレクトリの中のフィアル
+            の確認・修正もお願いします。
+            * 外部資金（分担）： `grants_CI.tex`
+            * 外部資金（代表）： `grants_PI.tex`
+            * 異分野間連携・産学官連携・国際連携・国際活動等（年中）： `linkages.tex`
+            * メンバー： `members.tex`
+            * 概要（活動報告）： `projects.tex`
+
+            > 研究員会議で新しいい研究員やスタッフの自己紹介がありますのでよろしくお願いいたします。
+
+            よろしくお願いします。
+
+            Alex
+
 
           # Optional HTML body read from file:
           #html_body: file://README.html
