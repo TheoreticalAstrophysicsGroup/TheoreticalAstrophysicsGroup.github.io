@@ -72,7 +72,7 @@ jobs:
             Overleaf で前日の深夜までにお願いします。
 
             ```
-            ${{ secrets.KENKYUIN_KAIGI_OVERLEAF_LINK }}
+            [${{ secrets.KENKYUIN_KAIGI_OVERLEAF_LINK }}](${{ secrets.KENKYUIN_KAIGI_OVERLEAF_LINK }})
             ```
 
             編集するのは `${{ env.date }}/` のディレクトリです。
