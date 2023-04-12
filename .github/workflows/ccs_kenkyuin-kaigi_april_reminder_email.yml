@@ -1,0 +1,144 @@
+name: send-kenkyuin-kaigi-reminder-email
+
+# Usually, the meeting is held every month on the 4th Tuesday,
+# except in August and February, in which no meeting is held.
+
+# This reminder is to be sent a day before. This is usually
+# the 4th Monday, except when the month begins with a Tuesday,
+# it is the 3rd Monday.
+
+# Cron syntax: minute hour day-of-month month day-of-week
+# Time is UTC. DOM and DOW are logically-"or"-combined
+# 22-28: 4th 7-day span
+# 15-21: 3rd 7-day span
+#  8-14: 2nd 7-day span
+#   1-7: 1st 7-day span
+on:
+  schedule:
+
+    # The week of the meeting in April
+    - cron: '0 1 22-28 4 *'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  send_kenkyuin_kaigi_email:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Get current date
+        id: date
+        run: |
+          echo "date=$(date +'%Y-%m')" >> $GITHUB_ENV
+          echo "academic_years=$(date +'%Y')-$(($(date +'%Y') + 1))" >> $GITHUB_ENV
+          echo "month=$(date +'%m')" >> $GITHUB_ENV
+          echo "day=$(date +'%d')" >> $GITHUB_ENV
+          echo "dow=$(date +'%u')" >> $GITHUB_ENV
+          echo "day_kaigi=$(($(date +'%d') + 1))" >> $GITHUB_ENV
+
+      - name: Send mail
+
+        # This condition makes sure its a Monday
+        if: ${{ env.dow == 1 }}
+
+        uses: dawidd6/action-send-mail@v3
+        with:
+
+          # Specify connection via URL
+          # Format: smtp+starttls://user:password@server:port
+          connection_url: ${{ secrets.MAIL_CONNECTION }}
+          
+          # Server port, default 25:
+          server_port: 465
+
+          # Required mail subject:
+          subject: 【依頼】リマインダー：明日の研究員会議報告
+
+          # Required recipients' addresses:
+          to: astro@ccs.tsukuba.ac.jp
+
+          # Required sender full name (address can be skipped):
+          from: ayw@ccs.tsukuba.ac.jp
+
+          # html body:
+          html_body: |
+            宇宙物理理論研究室の教員および研究員のみなさま   
+            （それ以外の方は無視してください）
+            
+            明日行われる研究員会議で報告事項のある方は
+            Overleaf で前日の深夜までにお願いします。
+            
+            ```
+            [${{ secrets.KENKYUIN_KAIGI_OVERLEAF_LINK }}](${{ secrets.KENKYUIN_KAIGI_OVERLEAF_LINK }})
+            ```
+
+            編集するのは `${{ env.date }}/` と `${{ env.academic_years }}/` のディレクトリです。
+            
+            > 研究員会議で新しいい研究員やスタッフの自己紹介がありますのでよろしくお願いいたします。
+
+            よろしくお願いします。
+
+            Alex
+
+            `${{ env.date }}/` BibTeX ファイルの内容：
+            * 受賞： `awards.bib`
+            * 著書（全体・章・解説記事）： `books.bib`
+            * 国内研究会（招待講演）： `conf_dom_invited.bib`
+            * 国内研究会（一般講演）： `conf_dom_contrib.bib`
+            * 国際研究会（招待講演）： `conf_intl_invited.bib`
+            * 国際研究会（一般講演）： `conf_intl_contrib.bib`
+            * 集中講義： `lectures.bib`
+            * 異分野連携・国際連携・国際活動など（月別）： `linkages.bib`
+            * ミーティング： `meetings.bib`
+            * その他： `miscellaneous.bib`
+            * 論文（審査付き）： `papers_refereed.bib`
+            * 論文（審査無し）： `papers_non-refereed.bib`
+            * シンポジウム・研究会・スクール等の開催実績： `soc_loc.bib`
+            * 社会貢献・国際貢献： `social_benefits.bib`
+
+            注意点：
+            * 記入例はそれぞれのファイルのヘダーにあります。
+            * 論文は NASA ADS からの BibTeX export をそのまま貼り付けるだけで結構です。
+            * 論文は掲載されたもののみでお願いします。Preprint 段階のものはのせないでください。
+            * 共著者又は共発表者は and でつなげてリストアップしてください。E.g., `author = {福島肇 and 矢島秀伸 and 安部牧人},`。
+            * ポスター発表の場合は `presentation = {poster},` 基調講演の場合は `presentation = {keynote},` にしてください。
+            * コンパイルされるメインファイルは `${{ env.date }}-Astro_Report.tex` ですが，そのファイルは編集しないでください。
+
+            `${{ env.academic_years }}/` のディレクトリの中のフィアルの確認・修正：
+            * 外部資金（分担）： `grants_CI.tex`
+            * 外部資金（代表）： `grants_PI.tex`
+            * 異分野間連携・産学官連携・国際連携・国際活動等（年中）： `linkages.tex`
+            * メンバー： `members.tex`
+            * 概要（活動報告）： `projects.tex`
+
+            （上記以外の `.tex` フィアルは年次報告に使われますので今回は修正は必要ないです。）
+
+
+          # Optional HTML body read from file:
+          #html_body: file://README.html
+
+          # Optional carbon copy recipients:
+          #cc: kyloren@example.com,leia@example.com
+
+          # Optional blind carbon copy recipients:
+          #bcc: r2d2@example.com,hansolo@example.com
+
+          # Optional recipient of the email response:
+          #reply_to: luke@example.com
+
+          # Optional Message ID this message is replying to:
+          #in_reply_to: <random-luke@example.com>
+
+          # Optional unsigned/invalid certificates allowance:
+          ignore_cert: false
+
+          # Optional converting Markdown to HTML (set content_type to text/html too):
+          convert_markdown: true
+
+          # Optional attachments:
+          #attachments: attachments.zip,git.diff,./dist/static/*.js
+
+          # Optional priority: 'high', 'normal' (default) or 'low'
+          priority: normal
+          
