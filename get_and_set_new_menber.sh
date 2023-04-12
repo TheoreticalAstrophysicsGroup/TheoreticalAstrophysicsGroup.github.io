@@ -4,7 +4,7 @@
 registerd_member_directory="temporary_data_from_charon/new_registerd_member"
 lastyear_members_directory="_members/lastyear_members/"
 members_directory="_members"
-almuni_directory="alumni/maybe_alumni_list"
+almuni_directory="alumni/"
 scp -r -q yuasat@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/membersform_data/*.html $registerd_member_directory
 
 goodbye_members=()
@@ -96,7 +96,7 @@ if [ "$*" = "--update_alumni" ]; then
     done
 
     for file in "${goodbye_members[@]}"; do
-        cp "$lastyear_members_directory/ja/$file" "$almuni_directory/ja/$file"
+        cp "$lastyear_members_directory/ja/$file" "$almuni_directory/ja/from_members/$file"
     done
 
 
@@ -111,7 +111,7 @@ if [ "$*" = "--update_alumni" ]; then
     done
 
     for file in "${goodbye_members[@]}"; do
-        cp "$lastyear_members_directory/en/$file" "$almuni_directory/en/$file"
+        cp "$lastyear_members_directory/en/$file" "$almuni_directory/en/from_members/$file"
     done
 fi
 
