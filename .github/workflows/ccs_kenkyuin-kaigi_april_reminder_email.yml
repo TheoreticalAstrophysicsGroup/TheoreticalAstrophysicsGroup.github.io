@@ -56,8 +56,9 @@ jobs:
           subject: 【依頼】リマインダー：明日の研究員会議報告
 
           # Required recipients' addresses:
-          to: astro@ccs.tsukuba.ac.jp
-
+          #to: astro@ccs.tsukuba.ac.jp
+          to: alexander.y.wagner@gmail.com
+          
           # Required sender full name (address can be skipped):
           from: ayw@ccs.tsukuba.ac.jp
 
