@@ -40,7 +40,7 @@ jobs:
       - name: Send mail
 
         # This condition makes sure its a Monday
-        #if: ${{ env.dow == 1 }}
+        if: ${{ env.dow == 1 }}
 
         uses: dawidd6/action-send-mail@v3
         with:
@@ -56,8 +56,7 @@ jobs:
           subject: 【依頼】リマインダー：明日の研究員会議報告
 
           # Required recipients' addresses:
-          #to: astro@ccs.tsukuba.ac.jp
-          to: alexander.y.wagner@gmail.com
+          to: astro@ccs.tsukuba.ac.jp
           
           # Required sender full name (address can be skipped):
           from: ayw@ccs.tsukuba.ac.jp
@@ -71,7 +70,7 @@ jobs:
             Overleaf で前日の深夜までにお願いします。
             
             ```
-            [${{ secrets.KENKYUIN_KAIGI_OVERLEAF_LINK }}](${{ secrets.KENKYUIN_KAIGI_OVERLEAF_LINK }})
+            ${{ secrets.KENKYUIN_KAIGI_OVERLEAF_LINK }}
             ```
 
             編集するのは `${{ env.date }}/` と `${{ env.academic_years }}/` のディレクトリです。
