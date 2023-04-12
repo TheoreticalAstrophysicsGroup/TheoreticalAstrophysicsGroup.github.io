@@ -14,7 +14,7 @@ name: send-kenkyuin-kaigi-email
 on:
   schedule:
 
-    # The correct weekday for the meeting in April
+    # The correct week before the week for the meeting in April
     - cron: '0 1 15-21 4 *'
 
   # Allows you to run this workflow manually from the Actions tab
