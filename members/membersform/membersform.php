@@ -121,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     # TODO: make separate English and Japanese yamllines and files. 
 
     # Construct latex lines and yaml lines
-    $latexlines = "$iln $ifn \\small{ $pos } & 〒$ip $ia & $it1 $fst4 $it4 \\\\\n$ilnr $ifnr & \\texttt{ $ie1 } $fse2 \\texttt{ $ie2 } & $it2 \\\\";
+    $latexlines = "$iln $ifn \\small{ $pos } & 〒$ip $ia & $it1 $fst4 $it4 \\\\\n$ilnr $ifnr & \\texttt{ $ie1 } $fse2 \\texttt{ $ie2 } & $it2";
     $yamllines = "---\nname: $iln $ifn\nname: $ifnr $ilnr\nemail: $uname\ntel: $it3\nposition: $rank_ids[$iry]\nhomepage: \"$ih\"\nresearch: $ir\n---";
 
     # Fix spaces in curly braces
