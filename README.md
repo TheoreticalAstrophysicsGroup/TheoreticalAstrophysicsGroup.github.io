@@ -46,3 +46,26 @@ The calendar is a google calendar. All staff and several other people of the gro
 ## Issues
 
 All work in progress is tracked on the Issues board. Please log any issues you encounter or enhancements you would like to see on the issues board.
+
+## Description (TODO: Needs to be well-writen in English.)
+グループ写真変更方法
+1. ローカル側でassets/img/group.jpgを、別の写真に変える
+
+宇宙フォーラム更新方法
+1. charon側で
+uchu_forum/uchu_forum_form/img
+uchu_forum/uchu_forum_form/yaml/[ja,en]
+から
+hogehoge.[jpg, png, etc]と
+20xx-xx-xx-hoge.htmlを取り出す
+
+scp -r <user_name>@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/uchu_forum/uchu_forum_form/yml temp/yml
+scp -r <user_name>@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/uchu_forum/uchu_forum_form/img temp/img
+
+2.  ローカル側でuchu_forum/_posts/[ja,en]に20xx-xx-xx-hoge.htmlを配置(enに配置するやつは英訳)
+ローカル側でassets/img/uchu_forumにhogehoge.[jpg, png, etc]をuchu-forum-20xx-xx-xx.jpgとして保存し、
+その画像を200×200のサイズに切り取った画像をuchu-forum-20xx-xx-xx-thumb.jpgとして保存
+https://www.iloveimg.com/ja/crop-image
+このサイトで切り抜きできる(どうせ外部に公開するものだからセキュリティはあまり考えなくて良い)
+
+3. Build and deploy

@@ -8,3 +8,4 @@ _scripts/pdf
 _scripts/bib
 Gemfile.lock
 .jekyll-metadata
+temp
