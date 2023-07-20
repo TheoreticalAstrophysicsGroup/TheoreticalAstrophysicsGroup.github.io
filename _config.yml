@@ -17,7 +17,7 @@ description: "Theoretical Astrophysics Group, Center for Computational Sciences,
 # No need for user/organization github pages, and localhost,
 # but deployment on organization server requires
 # subdirectory "/Astro"
-baseurl: /Astro/Astro
+baseurl: /Astro
 url: http://www2.ccs.tsukuba.ac.jp
 
 timezone: Asia/Tokyo
