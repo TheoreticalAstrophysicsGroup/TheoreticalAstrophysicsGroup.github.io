@@ -8,3 +8,99 @@ orgname: TheoreticalAstrophysicsGroup
 branch: source
 post_limit: 9999
 
+# Site settings
+title: Theoretical Astrophysics Group
+email: astro.ccs.tsukuba@gmail.com
+webmaster: Alex Wagner
+description: "Theoretical Astrophysics Group, Center for Computational Sciences, University of Tsukuba. We research in Numerical Astrophysics, High-performance Computing, Radiation Hydrodynamics, Galaxy Evolution, Cosmology, First Stars, and much much more."
+
+# No need for user/organization github pages, and localhost,
+# but deployment on organization server requires
+# subdirectory "/Astro"
+baseurl: /Astro/Astro
+url: http://www2.ccs.tsukuba.ac.jp
+
+timezone: Asia/Tokyo
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+destination: ../ccs_version
+
+# Exclude
+# See https://jekyllrb.com/docs/troubleshooting/#configuration-problems
+
+exclude: 
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - Rakefile
+  - summat.sh
+  - conferences/_posts/en/yml2tex_output/
+  - conferences/_posts/ja/yml2tex_output/
+
+# Include
+include:
+  - .htaccess
+
+# Collections
+collections:
+  members:
+    output: true
+
+# Defaults for categories
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      lang: ja
+  -
+    scope:
+      path: seminars
+    values:
+      layout: single_seminar
+  -
+    scope:
+      path: news
+    values:
+      layout: single_news
+  -
+    scope:
+      path: achievements
+    values:
+      layout: single_achievement
+  -
+    scope:
+      path: uchu_forum
+    values:
+      layout: single_uchu_forum
+  -
+    scope:
+      path: conferences
+    values:
+      layout: single_conference
+  -
+    scope:
+      path: projects
+    values:
+      layout: single_project
+  -
+    scope:
+      path: featured
+    values:
+      layout: single_featured
+  -
+    scope:
+      path: members
+    values:
+      layout: redirect_back
+
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
