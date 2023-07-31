@@ -51,6 +51,8 @@ All work in progress is tracked on the Issues board. Please log any issues you e
 グループ写真変更方法
 1. ローカル側でassets/img/group.jpgを、別の写真に変える
 
+2. Build and deploy
+
 宇宙フォーラム更新方法
 1. charon側で
 uchu_forum/uchu_forum_form/img
@@ -59,8 +61,8 @@ uchu_forum/uchu_forum_form/yaml/[ja,en]
 hogehoge.[jpg, png, etc]と
 20xx-xx-xx-hoge.htmlを取り出す
 
-scp -r <user_name>@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/uchu_forum/uchu_forum_form/yml temp/yml
-scp -r <user_name>@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/uchu_forum/uchu_forum_form/img temp/img
+scp -r <user_name>@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/uchu_forum/uchu_forum_form/yml __temp/yml
+scp -r <user_name>@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/uchu_forum/uchu_forum_form/img __temp/img
 
 2.  ローカル側でuchu_forum/_posts/[ja,en]に20xx-xx-xx-hoge.htmlを配置(enに配置するやつは英訳)
 ローカル側でassets/img/uchu_forumにhogehoge.[jpg, png, etc]をuchu-forum-20xx-xx-xx.jpgとして保存し、
@@ -69,3 +71,14 @@ https://www.iloveimg.com/ja/crop-image
 このサイトで切り抜きできる(どうせ外部に公開するものだからセキュリティはあまり考えなくて良い)
 
 3. Build and deploy
+
+新メンバー追加方法
+
+1. ローカル側でmembers/membresform/[ja,en]/index.htmlのform_activeをfalseからtrueに
+ローカル側でmembers/[ja,en]/index.htmlのform_activeをfalseからtrueに
+
+2. build and deploy
+
+3. 新入生と既存の学生全員にフォームを入力してもらう
+
+4. 

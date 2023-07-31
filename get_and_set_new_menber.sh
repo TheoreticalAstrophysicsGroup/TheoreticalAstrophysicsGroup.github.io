@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #change username and add key place if neeeded
-registerd_member_directory="temporary_data_from_charon/new_registerd_member"
+registerd_member_directory="__temp/new_registerd_member"
 lastyear_members_directory="_members/lastyear_members/"
 members_directory="_members"
 almuni_directory="alumni/"

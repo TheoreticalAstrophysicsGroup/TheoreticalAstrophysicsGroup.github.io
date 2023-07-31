@@ -9,3 +9,4 @@ _scripts/bib
 Gemfile.lock
 .jekyll-metadata
 temp
+__temp
