@@ -61,8 +61,8 @@ uchu_forum/uchu_forum_form/yaml/[ja,en]
 hogehoge.[jpg, png, etc]と
 20xx-xx-xx-hoge.htmlを取り出す
 
-scp -r <user_name>@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/uchu_forum/uchu_forum_form/yml __temp/yml
-scp -r <user_name>@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/uchu_forum/uchu_forum_form/img __temp/img
+scp -r <user_name>@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/Astro_source/uchu_forum/uchu_forum_form/yml __temp/yml
+scp -r <user_name>@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/Astro_source/uchu_forum/uchu_forum_form/img __temp/img
 
 2.  ローカル側でuchu_forum/_posts/[ja,en]に20xx-xx-xx-hoge.htmlを配置(enに配置するやつは英訳)
 ローカル側でassets/img/uchu_forumにhogehoge.[jpg, png, etc]をuchu-forum-20xx-xx-xx.jpgとして保存し、
