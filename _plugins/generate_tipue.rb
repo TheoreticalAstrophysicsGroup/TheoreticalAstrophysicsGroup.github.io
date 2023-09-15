@@ -84,7 +84,7 @@ module Jekyll
           language = '日本語'
         end
 
-        tp_page = TipuePage.new(page.data['title']+'【'+language+'】', page.content.to_s, page.data['tags'].to_s, baseurl + page.url)
+        tp_page = TipuePage.new(page.data['title_plain'].to_s+'【'+language+'】', page.content.to_s, page.data['tags'].to_s, baseurl + page.url)
         target.puts(tp_page.to_json + ',')
         
       end
@@ -97,7 +97,7 @@ module Jekyll
 
      
       # Do the last
-      tp_page = TipuePage.new(last.data['title']+'【'+language+'】', last.content.to_s, last.data['tags'].to_s, baseurl + last.url)
+      tp_page = TipuePage.new(last.data['title_plain'].to_s+'【'+language+'】', last.content.to_s, last.data['tags'].to_s, baseurl + last.url)
       target.puts(tp_page.to_json)
       
       target.puts(']};')
