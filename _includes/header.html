@@ -12,14 +12,26 @@
       <div id="header-title">
 
         {% if page.lang == 'ja' %}
-        <h1 class="animated fadeInDown"><a href="{{ site.baseurl }}{{ li.home }}/{{ page.lang }}">
-            <img src="{{ site.baseurl }}{{ la.img }}/title-rg-l.jpg" class="hidden-xs"></img>
-            <img src="{{ site.baseurl }}{{ la.img }}/title-rg-s.jpg" class="hidden-sm hidden-md hidden-lg"></img>
+        <h1 class="animated fadeInDown">
+          <a href="{{ site.baseurl }}{{ li.home }}/{{ page.lang }}">
+            <div id="logo-and-title">
+              <img src="{{ site.baseurl }}{{ la.img }}/logo-s.png" id="logo-l" class="hidden-xs"></img><img src="{{ site.baseurl }}{{ la.img }}/title-rg-l.jpg" class="hidden-xs"></img>
+              <img src="{{ site.baseurl }}{{ la.img }}/logo-s.png" id="logo-s" class="hidden-sm hidden-md hidden-lg"></img><img src="{{ site.baseurl }}{{ la.img }}/title-rg-s.jpg" class="hidden-sm hidden-md hidden-lg"></img>
+            </div>
           </a></h1>
         {% else %}
-        <h1 class="animated fadeInDown"><a href="{{ site.baseurl }}{{ li.home }}/{{ page.lang }}"><span>{{ thl.title_l }}</span>{{ thl.title_r }}</a></h1>
+          <h1 class="animated fadeInDown">
+            <a href="{{ site.baseurl }}{{ li.home }}/{{ page.lang }}">
+              <div id="logo-and-title">
+                <img src="{{ site.baseurl }}{{ la.img }}/logo-s.png" id="logo-l" class="hidden-xs"></img>
+                <span>{{ thl.title_l }}</span>{{ thl.title_r }}
+              </div>
+            </a>
+          </h1>
         {% endif %}
+        <div id="subtitle">
         <p class="animated fadeInLeft">{{ thl.subtitle }}</p>
+	</div>
 
         <div class="hidden-xs hidden-sm">
 
@@ -46,7 +58,7 @@
         <!--<div class="input-group">-->
 
         <form action="{{ site.baseurl }}{{ li.search }}/{{ page.lang }}/index.html">
-        <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+        <input type="text" name="q" id="tipue_search_input" class="tipue_search_input" autocomplete="off" placeholder="{{ thl.search }}" required>
         <div style="clear: both;"></div>
         </form>
 
