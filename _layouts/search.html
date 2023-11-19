@@ -3,6 +3,7 @@ layout: default
 ---
 
 {% assign li = site.data.links.internal %}
+{% assign tsl = site.data.translations.header[page.lang] %}
 
 <div class="container">
   <div class="row">
@@ -13,7 +14,7 @@ layout: default
         <br />
 
         <form action="{{ site.baseurl }}{{ li.search }}/{{ page.lang }}/index.html">
-        <input type="text" name="q" id="tipue_search_input" autocomplete="off" required>
+        <input type="text" name="q" id="tipue_search_input" autocomplete="off" placeholder="{{ tsl.search }}" required>
         </form>
 
           <!--

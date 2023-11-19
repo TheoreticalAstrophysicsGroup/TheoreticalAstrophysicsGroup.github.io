@@ -947,6 +947,11 @@ news:
   en:
     photos: Photos
 
+search:
+  ja:
+    search: 検索
+  en:
+    search: Search
 
 # Header translations
 # Categories for posts are listed separately 
