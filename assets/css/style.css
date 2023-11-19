@@ -1197,8 +1197,9 @@ img.alignright + p {
   /* -- AYW */
 }
 #header-title p {
-  font-size: 1.2em;
+  font-size: 0.4em;
   color: #737373;
+  word-spacing: 0.04em;
 }
 @media (max-width: 767px) {
   #header-title h1 {
@@ -1206,8 +1207,9 @@ img.alignright + p {
     font-size: 2em;
   }
   #header-title p {
-    font-size: 1em;
+    font-size: 0.4em;
     color: #737373;
+    word-spacing: 0.04em;
   }
 }
 #header-s {
@@ -2795,8 +2797,8 @@ li.fali {
   align-items: center;
 }
 #logo-l {
-  width: 70px;
+  width: 100px;
 }
 #logo-s {
-  width: 30px;
+  width: 60px;
 }
