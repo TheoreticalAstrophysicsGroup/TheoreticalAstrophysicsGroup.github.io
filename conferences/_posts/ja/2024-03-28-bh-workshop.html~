@@ -1,0 +1,775 @@
+---
+lang: ja
+title: ブラックホール大研究会 <br>~星質量から超巨大ブラックホールまで~
+from: 2024-02-28
+to: 2024-03-02
+place: 御殿場高原 時之栖 + オンライン
+place_web: https://www.tokinosumika.com/access/
+price:
+open_to:
+contact_name: 桐原 崇亘
+contact_email: kirihara@ccs.tsukuba.ac.jp
+contact_message:
+#registration_link: "https://docs.google.com/forms/d/e/1FAIpQLSfwzXczI3wdfhkMNv9P9ZisLIcM6ynaImIjs4jBZ9xhWH7ClQ/viewform"
+#registration_message: 以下の web form から申し込みください。(宿泊申込も含みます。)<br>旅費として交通費および宿泊費を補助します。（希望者多数の場合は，若手を優先させて頂きます。） 
+#resistration_message: 参加登録は締め切りました
+
+files_loc: bh-2024
+wiki: https://www2.ccs.tsukuba.ac.jp/ccswiki/mbhwiki/
+
+#review:
+
+show_all_participants: true
+
+invited:
+- name: 水本 岬希
+  affil: 福岡教育大学
+- name: 秦 和弘
+  affil: 国立天文台水沢VLBI観測所
+- name: 泉 拓磨
+  affil: 国立天文台
+- name: 尾上 匡房
+  affil: 東京大学　Kavli IPMU
+- name: 豊内 大輔
+  affil: 大阪大学
+- name: 鳥羽 儀樹
+  affil: 国立天文台
+- name: 朝比奈 雄太
+  affil: 筑波大学
+- name: 野村 真理子
+  affil: 弘前大学
+important_dates:
+- date: 2024-01-10
+  note: 申込締切
+- date: 2024-02-28
+  note: ワークショップ開会
+  time: '!13:00'
+- date: 2024-02-29
+  note: ワークショップ 2日目 開始
+  time: '!9:00'
+- date: 2024-03-01
+  note: ワークショップ 3日目 開始
+  time: '!9:00'
+- date: 2024-03-02
+  note: ワークショップ 4日目 開始
+  time: '!9:00'
+- date: 2024-03-02
+  note: ワークショップ終了
+  time: '!12:55'
+#contribution_types:
+#  - type: 招待講演
+#    talk: 30
+#    disc: 10
+#  - type: 一般講演
+#    talk: 20
+#    disc: 5 
+
+
+dinner:
+  place: 御殿場高原 時之栖内レストラン グランテーブル
+#  about: 18:00にCCSからレストランまでシャトルバスが出ます。
+  date: 2024-02-29
+  from: "18:00"
+  web: https://www.tokinosumika.com/banquets/
+#  #to: '21:00'
+#  #img:
+
+lunch:
+  about: 昼食は近くのレストランが利用可能です。
+#  pdf: lunch.pdf
+  web: https://www.tokinosumika.com/food/
+#  #img:
+
+#other_info:
+
+program_download:
+  text: プログラム(PDF)
+  link: bh-workshop_program.pdf
+
+program:
+- date: '2024-02-28'
+  sessions:
+  - title: セッション 1
+    from: '!13:00'
+    contributions:
+    - title: はじめに
+      speaker: 大須賀 健
+      affil: 筑波大学
+      position: ''
+      from: '!13:00'
+      to: '!13:05'
+    - title: First-Year Observations of High-redshift AGN with JWST
+      speaker: 尾上 匡房
+      affil: 東京大学　Kavli IPMU
+      position: ''
+      from: '!13:05'
+      to: '!13:55'
+      pdf: onoue_masafusa.pdf
+    - title: JWST COSMOS-Web 画像データから探る AGN 母銀河の性質
+      speaker: 田中 匠
+      affil: 東京大学
+      position: ''
+      from: '!13:55'
+      to: '!14:10'
+      pdf: tanaka_takumi.pdf
+    - title: Blue-excess dust-obscured galaxies と JWST extremely red objects の SED
+        の相似性
+      speaker: 登口 暁
+      affil: 信州大学
+      position: ''
+      from: '!14:10'
+      to: '!14:35'
+      pdf: noboriguchi_akatoki.pdf
+    - title: 準解析的モデルで探る宇宙初期の銀河とブラックホールの共進化
+      speaker: 大木 平
+      affil: 旭川工業高等専門学校
+      position: ''
+      from: '!14:35'
+      to: '!15:00'
+      pdf: oogi_taira.pdf
+    - title: Coffee Break & Free Discussion
+      from: '!15:00'
+      to: '!15:30'
+    to: '!15:30'
+  - title: セッション 2
+    from: '!15:30'
+    contributions:
+    - title: ALMA望遠鏡が切り開いたAGN研究の最前線
+      speaker: 泉 拓磨
+      affil: 国立天文台
+      position: ''
+      from: '!15:30'
+      to: '!16:20'
+      pdf: izumi_takuma.pdf
+    - title: No galaxy-scale [CII] outflow detected in a z=6.72 red quasar with ALMA
+      speaker: 澤村 真星
+      affil: 東京大学
+      position: ''
+      from: '!16:20'
+      to: '!16:35'
+      pdf: sawamura_mahoshi.pdf
+    - title: Updated AGN Picture with Dusty/Dust-free Gas Structures and Effects of
+        the Radiation Pressure
+      speaker: 水越 翔一郎
+      affil: 東京大学
+      position: ''
+      from: '!16:35'
+      to: '!17:00'
+      pdf: mizukoshi_shoichiro.pdf
+    - title: ポスターフラッシュトーク
+      from: '!17:00'
+      to: '!17:10'
+    to: '!17:10'
+  day: 1
+- date: '2024-02-29'
+  sessions:
+  - title: セッション 3
+    from: '!9:00'
+    contributions:
+    - title: すばるHSCによるAGNサイエンスと今後の展望
+      speaker: 鳥羽 儀樹
+      affil: 国立天文台
+      position: ''
+      from: '!9:00'
+      to: '!9:50'
+      pdf: toba_yoshiki.pdf
+    - title: Near infra-red variability found in the local young star-forming dwarf
+        galaxy SBS 0335-052E
+      speaker: 波多野 駿
+      affil: 総研大
+      position: ''
+      from: '!9:50'
+      to: '!10:05'
+      pdf: hatano_shun.pdf
+    - title: 高密度星団形成シミュレーション
+      speaker: 福島 肇
+      affil: 筑波大学
+      position: ''
+      from: '!10:05'
+      to: '!10:30'
+      pdf: fukushima_hajime.pdf
+    - title: Coffee Break & Free Discussion
+      from: '!10:30'
+      to: '!11:00'
+    to: '!11:00'
+  - title: セッション 4
+    from: '!11:00'
+    contributions:
+    - title: 銀河・超巨大ブラックホール共進化過程の理解に向けて
+      speaker: 豊内 大輔
+      affil: 大阪大学
+      position: ''
+      from: '!11:00'
+      to: '!11:50'
+      pdf: toyouchi_daisuke.pdf
+    - title: ブラックホールの巣としての初代星形成領域
+      speaker: 平野 信吾
+      affil: 神奈川大学
+      position: ''
+      from: '!11:50'
+      to: '!12:15'
+      pdf: hirano_shingo.pdf
+    - title: 昼食 & Free Discussion
+      from: '!12:15'
+      to: '!13:45'
+    to: '!13:45'
+  - title: セッション 5
+    from: '!13:45'
+    contributions:
+    - title: 原始銀河とAGNの共進化過程と宇宙再電離への寄与
+      speaker: 曽我 健太
+      affil: 筑波大学
+      position: ''
+      from: '!13:45'
+      to: '!14:10'
+      pdf: soga_kenta.pdf
+    - title: ３次元輻射流体計算で探る超大質量ブラックホールの起源：浮遊する種ブラックホールへの超臨界降着過程
+      speaker: 尾形 絵梨花
+      affil: 筑波大学
+      position: ''
+      from: '!14:10'
+      to: '!14:35'
+      pdf: ogata_erika.pdf
+    - title: 星間媒質中を高速移動するブラックホールが形成する星間コントレイルと新たなブラックホール検出法の提案
+      speaker: 北島 歓大
+      affil: 名古屋大学
+      position: ''
+      from: '!14:35'
+      to: '!15:00'
+      pdf: kitajima_kanta.pdf
+    - title: Coffee Break & Free Discussion
+      from: '!15:00'
+      to: '!15:30'
+    to: '!15:30'
+  - title: セッション 6
+    from: '!15:30'
+    contributions:
+    - title: AGNアウトフローの理論研究とSMBHの進化
+      speaker: 野村 真理子
+      affil: 弘前大学
+      position: ''
+      from: '!15:30'
+      to: '!16:20'
+      pdf: nomura_mariko.pdf
+    - title: 降着円盤の光度変動を考慮したラインフォース駆動型円盤風の研究
+      speaker: 黒田 裕太郎
+      affil: 筑波大学
+      position: ''
+      from: '!16:20'
+      to: '!16:35'
+      pdf: kuroda_yutaro.pdf
+    - title: 不活性ブラックホール連星探査と理論研究
+      speaker: 谷川 衝
+      affil: 福井県立大学
+      position: ''
+      from: '!16:35'
+      to: '!17:00'
+      pdf: tanikawa_ataru.pdf
+    - title: 暗黒物質起源の超大質量ブラックホールと磁極反転磁気再結合ジェット
+      speaker: 森川 雅博
+      affil: お茶の水女子大学
+      position: ''
+      from: '!17:00'
+      to: '!17:25'
+      pdf: morikawa_masahiro.pdf
+    - title: 懇親会
+      from: '!18:00'
+      to: '!20:00'
+    to: '!17:25'
+  day: 2
+- date: '2024-03-01'
+  sessions:
+  - title: セッション 7
+    from: '!9:00'
+    contributions:
+    - title: Event Horizon Explore
+      speaker: 秦 和弘
+      affil: 国立天文台水沢VLBI観測所
+      position: ''
+      from: '!9:00'
+      to: '!9:50'
+      pdf: hada_kazuhiro.pdf
+    - title: 時間変動する観測イメージを用いたブラックホールスピンの推定
+      speaker: 高橋 幹弥
+      affil: 筑波大学
+      position: ''
+      from: '!9:50'
+      to: '!10:15'
+      pdf: takahashi_mikiya.pdf
+    - title: NGC1275におけるジェット・降着流
+      speaker: 永井 洋
+      affil: 国立天文台
+      position: ''
+      from: '!10:15'
+      to: '!10:40'
+      pdf: nagai_hiroshi.pdf
+    - title: Coffee Break & Free Discussion
+      from: '!10:40'
+      to: '!11:10'
+    to: '!11:10'
+  - title: セッション 8
+    from: '!11:10'
+    contributions:
+    - title: 高光度赤外線銀河における大規模ジェット活動とその影響
+      speaker: 林 隆之
+      affil: 国立天文台／麻布中高
+      position: ''
+      from: '!11:10'
+      to: '!11:35'
+      pdf: hayashi_takayuki.pdf
+    - title: コクーン膨張力学から探る3C84ミニジェットパワーの時間進化とプラズマ組成
+      speaker: 川勝 望
+      affil: 呉高専
+      position: ''
+      from: '!11:35'
+      to: '!12:00'
+      pdf: kawakatsu_nozomu.pdf
+    - title: ブラックホール天体のX線スペクトル観測 -- わかってきたこと、まだわかっていないこと--
+      speaker: 海老沢 研
+      affil: 宇宙航空研究開発機構・宇宙科学研究所
+      position: ''
+      from: '!12:00'
+      to: '!12:25'
+      pdf: ebisawa_ken.pdf
+    - title: 昼食 & Free Discussion
+      from: '!12:25'
+      to: '!13:55'
+    to: '!13:55'
+  - title: セッション 9
+    from: '!13:55'
+    contributions:
+    - title: XRISM衛星が拓くブラックホールの物理
+      speaker: 水本 岬希
+      affil: 福岡教育大学
+      position: ''
+      from: '!13:55'
+      to: '!14:45'
+      pdf: mizumoto_misaki.pdf
+    - title: Detailed X-ray Spectral Modeling of Circinus X-1 Based on Radiative Transfer
+      speaker: 辻本 匡弘
+      affil: 宇宙科学研究所
+      position: ''
+      from: '!14:45'
+      to: '!15:10'
+      pdf: tsujimoto_masahiro.pdf
+    - title: XRISM Study on Ionized Absorbers of Seyfert Galaxies
+      speaker: 小川 翔司
+      affil: 宇宙科学研究所
+      position: ''
+      from: '!15:10'
+      to: '!15:35'
+      pdf: ogawa_shoji.pdf
+    - title: Coffee Break & Free Discussion
+      from: '!15:35'
+      to: '!16:05'
+    to: '!16:05'
+  - title: セッション 10
+    from: '!16:05'
+    contributions:
+    - title: ブラックホールX線連星の偏光観測
+      speaker: 高橋 弘充
+      affil: 広島大学
+      position: ''
+      from: '!16:05'
+      to: '!16:30'
+      pdf: takahashi_hiromitsu.pdf
+    - title: IXPE衛星によるCyg X-1のX線偏光観測と短時間変動
+      speaker: 二之湯 開登
+      affil: 東京理科大学
+      position: ''
+      from: '!16:30'
+      to: '!16:45'
+      pdf: ninoyu_kaito.pdf
+    - title: The Origin of the X-Ray Polarization in the Circinus Galaxy
+      speaker: 谷本 敦
+      affil: 鹿児島大学
+      position: ''
+      from: '!16:45'
+      to: '!17:10'
+      pdf: tanimoto_atsushi.pdf
+    - title: 相対論的ジェット中における散乱を考慮した一般相対論的偏光輻射輸送計算
+      speaker: 竹林 晃大
+      affil: 筑波大学
+      position: ''
+      from: '!17:10'
+      to: '!17:25'
+      pdf: takebayashi_koudai.pdf
+    to: '!17:25'
+  day: 3
+- date: '2024-03-02'
+  sessions:
+  - title: セッション 11
+    from: '!9:00'
+    contributions:
+    - title: ブラックホール降着円盤の数値シミュレーション
+      speaker: 朝比奈 雄太
+      affil: 筑波大学
+      position: ''
+      from: '!9:00'
+      to: '!9:50'
+      pdf: asahina_yuta.pdf
+    - title: 一般相対論的輻射磁気流体シミュレーションで探る、カー・ブラックホール周りにおける超臨界降着円盤のエネルギーと物質の流れ
+      speaker: 内海 碧人
+      affil: 筑波大学
+      position: ''
+      from: '!9:50'
+      to: '!10:15'
+      pdf: utsumi_aoto.pdf
+    - title: Lense-Thirring歳差運動を伴う降着流と相対論的ジェットの多波長放射特性
+      speaker: 川島 朋尚
+      affil: 東大宇宙線研
+      position: ''
+      from: '!10:15'
+      to: '!10:40'
+      pdf: kawashima_tomohisa.pdf
+    - title: 一般相対論的輻射磁気流体力学シミュレーションによる超臨界低角運動降着の研究
+      speaker: 島田 悠愛
+      affil: 筑波大学
+      position: ''
+      from: '!10:40'
+      to: '!10:55'
+      pdf: shimada_yuma.pdf
+    - title: Coffee Break & Free Discussion
+      from: '!10:55'
+      to: '!11:15'
+    to: '!11:15'
+  - title: セッション 12
+    from: '!11:15'
+    contributions:
+    - title: 超巨大ブラックホールの超エディントン降着成長における熱伝導の効果
+      speaker: 川中 宣太
+      affil: 国立天文台・東京都立大学
+      position: ''
+      from: '!11:15'
+      to: '!11:40'
+      pdf: kawanaka_norita.pdf
+    - title: SS433ジェット噴出・伝搬の2次元・軸対称シミュレーション
+      speaker: 五十嵐 太一
+      affil: 国立天文台科学研究部/立教大学
+      position: ''
+      from: '!11:40'
+      to: '!12:05'
+      pdf: igarashi_taichi.pdf
+    - title: 超巨大ブラックホール連星の合体過程で放射される重力波の電磁波対応天体としての潮汐破壊現象
+      speaker: 早崎 公威
+      affil: Chungbuk National University
+      position: ''
+      from: '!12:05'
+      to: '!12:30'
+      pdf: hayasaki_kimitake.pdf
+    - title: 機械学習を用いたエディントンテンソルの推定
+      speaker: 上野 航介
+      affil: 筑波大学
+      position: ''
+      from: '!12:30'
+      to: '!12:45'
+      pdf: ueno_kosuke.pdf
+    - title: おわりに
+      speaker: 梅村 雅之
+      affil: 筑波大学
+      position: ''
+      from: '!12:45'
+      to: '!12:55'
+    to: '!12:55'
+  day: 4
+
+
+
+#upload:
+#  type: dbinbox
+#  text: 発表スライドPDFのアップロード
+#  link: bh_2024-02
+
+soc:
+- name: 梅村雅之
+  affil: 筑波大
+- name: 大須賀健
+  affil: 筑波大
+- name: 河野孝太郎
+  affil: 東京大学
+- name: 髙橋博之
+  affil: 駒澤大
+- name: 當真賢二
+  affil: 東北大
+- name: 長尾透
+  affil: 愛媛大学
+- name: 秦和弘
+  affil: 国立天文台
+- name: 矢島秀伸
+  affil: 筑波大学
+- name: 和田桂一
+  affil: 鹿児島大学
+
+
+
+loc:
+- name: 朝比奈雄太
+  affil: 筑波大
+- name: 梅村雅之
+  affil: 筑波大
+- name: 大須賀健
+  affil: 筑波大
+- name: 小川拓未
+  affil: 筑波大
+- name: 小幡真弓
+  affil: 筑波大
+- name: 桐原崇亘
+  affil: 筑波大
+- name: 矢島秀伸
+  affil: 筑波大
+
+
+#organizers:
+#  - name: 梅村雅之
+#    affil: 筑波大学
+
+img_thumb: quasar-thumb.png
+img:
+- quasar.jpg
+
+
+photos:
+- img: bh_workshop_2024.jpg
+  caption: 集合写真
+
+photos_zip: bh_workshop_2024.zip
+
+#photos:
+#  - img: bh_2014-11-group.png
+#    caption: 集合写真
+#  - img: bh_2014-11-dinner0.png
+#    caption: 懇親会＠杉浦
+#  - img: bh_2014-11-dinner1.png
+#    caption: 懇親会＠杉浦
+#  - img: bh_2014-11-dinner2.png
+#    caption: 懇親会＠杉浦
+#  - img: bh_2014-11-dinner3.png
+#    caption: 懇親会＠杉浦
+#  - img: bh_2014-11-dinner4.png
+#    caption: 懇親会＠杉浦
+#photos_zip: bh_2014-11-photos.zip
+
+categories:
+- conferences
+- ccs
+- ja
+participants:
+- name: 桐原 崇亘
+  affil: 筑波大学
+- name: 大須賀 健
+  affil: 筑波大学
+- name: 矢島 秀伸
+  affil: 筑波大学
+- name: 松井 思引
+  affil: 東京大学
+- name: 竹田 麟太郎
+  affil: 筑波大学
+- name: 星 宏樹
+  affil: 東京大学
+- name: 真貝 寿明
+  affil: 大阪工業大学
+- name: 今西 昌俊
+  affil: 国立天文台
+- name: チン コウレキ
+  affil: 神奈川大学
+- name: 荒木田 英禎
+  affil: 日本大学
+- name: 浅田 秀樹
+  affil: 弘前大学
+- name: 登口 暁
+  affil: 信州大学
+- name: 平野 信吾
+  affil: 神奈川大学
+- name: 小出 眞路
+  affil: 熊本大学
+- name: 伊藤 裕貴
+  affil: 理化学研究所
+- name: 辻本 匡弘
+  affil: 宇宙科学研究所
+- name: 紀 基樹
+  affil: 工学院大学
+- name: 小出 美香
+  affil: 崇城大学
+- name: 永井 洋
+  affil: 国立天文台
+- name: 坂井 延行
+  affil: 大阪大学
+- name: 松岡 良樹
+  affil: 愛媛大学
+- name: 川室 太希
+  affil: 理研
+- name: 高橋 幹弥
+  affil: 筑波大学
+- name: 望月 雄友
+  affil: 東京大学
+- name: 内海 碧人
+  affil: 筑波大学
+- name: 尾形 絵梨花
+  affil: 筑波大学
+- name: 丹 海歩
+  affil: 総合研究大学院大学
+- name: 北島 歓大
+  affil: 名古屋大学
+- name: 谷川 衝
+  affil: 福井県立大学
+- name: 小林 星羅
+  affil: 愛媛大学
+- name: 柴田 航平
+  affil: 愛媛大学
+- name: 嶋作 一大
+  affil: 東京大学
+- name: 松井 思引
+  affil: 東京大学
+- name: 高橋  歩美
+  affil: 愛媛大学
+- name: 中西 康一郎
+  affil: 国立天文台
+- name: 福江 純
+  affil: なし
+- name: 山田 智史
+  affil: 理化学研究所
+- name: 木坂 将大
+  affil: 広島大学
+- name: 家 正則
+  affil: 国立天文台、日本学士院
+- name: 岡崎 敦男
+  affil: 北海学園大学
+- name: 斉田 浩見
+  affil: 大同大学
+- name: 内山 秀樹
+  affil: 静岡大学
+- name: 丹羽 愛一郎
+  affil: 日本天文学会
+- name: 梅村 雅之
+  affil: 筑波大学
+- name: 松本 尚輝
+  affil: 東北大学
+- name: 倉澤 日菜
+  affil: 愛媛大学
+- name: 西村 治
+  affil: 長野高専
+- name: 澤村 真星
+  affil: 東京大学
+- name: 竹林 晃大
+  affil: 筑波大学
+- name: 川端 拡信
+  affil: 武蔵高等学校中学校
+- name: 稲垣 順也
+  affil: 名古屋市科学館
+- name: 長尾 透
+  affil: 愛媛大学
+- name: 當真 賢二
+  affil: 東北大学
+- name: 川中 宣太
+  affil: 国立天文台・東京都立大学
+- name: 黒田 裕太郎
+  affil: 筑波大学
+- name: 和田 桂一
+  affil: 鹿児島大学
+- name: 島田 悠愛
+  affil: 筑波大学
+- name: 林 隆之
+  affil: 国立天文台／麻布中高
+- name: 恒任 優
+  affil: ハーバード大学
+- name: 西村 陽一
+  affil: 株式会社ハル都市計画
+- name: 海老沢 研
+  affil: 宇宙航空研究開発機構・宇宙科学研究所
+- name: 谷本 敦
+  affil: 鹿児島大学
+- name: 齋藤  有菜
+  affil: 愛媛大学大学院
+- name: 町田 真美
+  affil: 国立天文台
+- name: 川勝 望
+  affil: 呉高専
+- name: 竹川 俊也
+  affil: 神奈川大学
+- name: 井上 壮大
+  affil: 筑波大学
+- name: 厚地 凪
+  affil: 東京大学
+- name: 吉村 超
+  affil: 愛媛大学
+- name: 森川 雅博
+  affil: お茶の水女子大学
+- name: 福島 肇
+  affil: 筑波大学
+- name: 鈴木 悠太
+  affil: 愛媛大学
+- name: 高橋 弘充
+  affil: 広島大学
+- name: 二之湯 開登
+  affil: 東京理科大学
+- name: 小川 拓未
+  affil: 筑波大学
+- name: チョウ コウエン
+  affil: 東京理科大学
+- name: 水越 翔一郎
+  affil: 東京大学
+- name: 早崎 公威
+  affil: Chungbuk National University
+- name: 三浦 大貴
+  affil: 東京大学
+- name: 五十嵐 太一
+  affil: 国立天文台科学研究部/立教大学
+- name: 大木 平
+  affil: 旭川工業高等専門学校
+- name: 田中 匠
+  affil: 東京大学
+- name: 小林 翔悟
+  affil: 東京理科大学
+- name: 芳岡 尚悟
+  affil: 京都大学
+- name: 菅原 一希
+  affil: 東京理科大学
+- name: 曽我 健太
+  affil: 筑波大学
+- name: 上野 航介
+  affil: 筑波大学
+- name: 川島 朋尚
+  affil: 東大宇宙線研
+- name: 波多野 駿
+  affil: 総研大
+- name: 小川 翔司
+  affil: 宇宙科学研究所
+- name: 松元 亮治
+  affil: 千葉大学
+- name: 髙橋 博之
+  affil: 駒澤大学
+- name: 中尾 颯吾
+  affil: 筑波大学
+- name: 小幡 真弓
+  affil: 筑波大学
+posters:
+- name: 浅田 秀樹
+  affil: 弘前大学
+  title: パルサータイミングアレイを用いたSMBH連星などの重力波源の方向推定法
+- name: 小出 眞路
+  affil: 熊本大学
+  title: MAD降着流のともなうブラックホール極領域における磁場崩壊モデル
+- name: 小林 星羅
+  affil: 愛媛大学
+  title: gzK選択を用いた z ~ 2 の電波銀河探査
+- name: 柴田 航平
+  affil: 愛媛大学
+  title: すばる望遠鏡 HSC データと SDSS クェーサーカタログを用いた z=0.3-1.0 のクェーサー周辺環境の調査
+- name: 恒任 優
+  affil: ハーバード大学
+  title: 偏光反転から探る、ブラックホール付近の非熱的電子
+- name: 井上 壮大
+  affil: 筑波大学
+  title: 四重極子磁場を有する中性子星への超臨界降着流の一般相対論的輻射磁気流体力学シミュレーション
+- name: 小川 拓未
+  affil: 筑波大学
+  title: 放射冷却を考慮した２温度計算による輻射非効率円盤の温度構造の解明
+- name: 桐原 崇亘
+  affil: 筑波大学
+  title: 銀河とブラックホールの共進化過程における種ブラックホール質量の影響
+
+---
+
+<p>一般相対性理論の予言から約100年，ついにブラックホールの存在が確たるものとなりました。重力波の検出によって恒星質量ブラックホールの存在が，EHTによる撮像によって超巨大ブラックホールの存在が実証されました。しかしながら，ブラックホールの形成機構や成長史，銀河進化との関係は未だ謎に包まれています。また，ジェットや放射のメカニズム，降着円盤や円盤風の構造も解明されていません。こうした現状を打破するには，EHTやJWST，IXPE，XRISM等による精密観測と数値シミュレーションを含む最新の理論研究との協働が必要不可欠です。そこで, 恒星質量ブラックホールから中間質量ブラックホール，超巨大ブラックホールに至る多様なブラックホールに関する研究成果を共有するための研究会を開催します。積極的な意見交換を通じて，共同研究を推進する機会を提供します。</p>
+<p>この研究会は，筑波大学計算科学研究センターの主催の研究会です。また, 超巨大ブラックホール研究推進連絡会の研究会とブラックホールジェット・降着円盤・円盤風研究会の合同研究会として開催します。</p>
+<p>この研究会は科研費基盤A「多重AGNの統合研究で紐解く超巨大ブラックホールの起源」（代表者：梅村雅之，19H00697）および科研費基盤A「超大規模計算と超高精度観測で解き明かすブラックホールジェットの駆動機構と多様性」（代表者：大須賀健，21H04488）によってサポートされます。</p>
