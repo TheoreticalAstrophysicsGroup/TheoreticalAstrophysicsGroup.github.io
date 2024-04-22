@@ -1,17 +1,18 @@
 #!/bin/bash
 
 #change username and add key place if neeeded
-registerd_member_directory="__temp/new_registerd_member"
+registerd_member_directory="__temp/new_registerd_member/"
 lastyear_members_directory="_members/lastyear_members/"
 members_directory="_members"
 almuni_directory="alumni/"
-scp -r -q yuasat@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/membersform_data/*.html $registerd_member_directory
+scp -r -q yuasat@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/Astro_source/membersform_data/*.html $registerd_member_directory
 
 goodbye_members=()
 # 登録されたメンバーをメンバーディレクトリに格納
 for file in "$registerd_member_directory"/*; do
     # charonからとってきたファイル(メンバー)を_memberディレクトリに格納
     filename=$(basename "$file")
+    
      # ファイルが既に存在しない場合のみコピーする
     if [ ! -f "$members_directory/ja/$filename" ]; then
         cp "$registerd_member_directory/$filename" "$members_directory/ja/$filename"
@@ -21,24 +22,23 @@ for file in "$registerd_member_directory"/*; do
         var=$(awk '/---/ {print NR}' $members_directory/ja/$filename)
         row=$(echo $var | awk '{print $2}')
         # start_lineとend_lineの間に行を挿入する
-        sed -i "${row}i \
-lang: ja\\
-order: \\
-roles: \\
-profile_pic: \\
-footnote: " "$members_directory/ja/$filename"
-
+        
+        awk 'BEGIN {count=0; insert="lang: ja\norder: \nroles: \nprofile_pic:\nfootnote:"}
+     /---/ {count++}
+     count==2 {print insert; count++}
+     {print}' $members_directory/ja/$filename > temp && mv temp $members_directory/ja/$filename
+       
+    
+        
         cp "$registerd_member_directory/$filename" "$members_directory/en/$filename"
 
         var=$(awk '/---/ {print NR}' $members_directory/en/$filename)
         row=$(echo $var | awk '{print $2}')
         # ファイルの末尾にlang, order, roles, profile_pic, footnoteを追加する
-        sed -i "${row}i \
-lang: en\\
-order: \\
-roles: \\
-profile_pic: \\
-footnote: " "$members_directory/en/$filename"
+        awk 'BEGIN {count=0; insert="lang: en\norder: \nroles: \nprofile_pic:\nfootnote:"}
+     /---/ {count++}
+     count==2 {print insert; count++}
+     {print}' $members_directory/en/$filename > temp && mv temp $members_directory/en/$filename
     # ファイルが既に存在する場合は、項目上書き
     else
      #ファイルが存在する場合は、name, email, tel, position, homepageを置換
@@ -53,14 +53,14 @@ footnote: " "$members_directory/en/$filename"
       position=$(awk '/^position/{print}' "$registerd_member_directory/$filename")
       homepage=$(awk '/^homepage/{print}' "$registerd_member_directory/$filename")
       research=$(awk '/^research/{print}' "$registerd_member_directory/$filename")
-
+    
       sed -i -e "/^name/d" "$members_directory/ja/$filename"
       sed -i -e "/^email/d" "$members_directory/ja/$filename"
       sed -i -e "/^tel/d" "$members_directory/ja/$filename"
       sed -i -e "/^position/d" "$members_directory/ja/$filename"
       sed -i -e "/^homepage/d" "$members_directory/ja/$filename"
       sed -i -e "/^research/d" "$members_directory/ja/$filename"
-
+      
       sed -i "${row}a\\
 ${research}" "$members_directory/ja/$filename"
       sed -i "${row}a\\
@@ -75,7 +75,7 @@ ${email}" "$members_directory/ja/$filename"
 ${name2}" "$members_directory/ja/$filename"
       sed -i "${row}a\\
 ${name1}" "$members_directory/ja/$filename"
-
+      
         
     fi
     
