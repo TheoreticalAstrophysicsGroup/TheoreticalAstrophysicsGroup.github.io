@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 
     # Organizer, sender
     $organizer_uchu_forum = "金田";
-    $email_uchu_forum = "kaneda@ccs.tsukuba.ac.jp";
+    $email_uchu_forum = "kaneda@ccs.tsukuba.ac.jp, s2430049@u.tsukuba.ac.jp";
     $email_sender = 'ayw@ccs.tsukuba.ac.jp';
     $test = false;
 
