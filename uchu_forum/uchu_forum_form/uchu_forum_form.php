@@ -24,8 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     # Some settings
 
     # Organizer, sender
-    $organizer_uchu_forum = "内海";
-    $email_uchu_forum = "ogata@ccs.tsukuba.ac.jp";
+    $organizer_uchu_forum = "金田";
+    $email_uchu_forum = "kaneda@ccs.tsukuba.ac.jp";
     $email_sender = 'ayw@ccs.tsukuba.ac.jp';
     $test = false;
 
@@ -76,6 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
       'Aoto Utsumi' => 'utsumi@ccs.tsukuba.ac.jp',
       'Takuya Mushano' => 'mushano@ccs.tsukuba.ac.jp',
       'Erika Ogata' => 'ogata@ccs.tsukuba.ac.jp',
+      'Yuka Kaneda' => 'kaneda@ccs.tsukuba.ac.jp',
     );
 
     # Build POST request
