@@ -42,7 +42,7 @@ jobs:
       - name: Send mail
 
         # This condition makes sure its a Monday
-        if: ${{ env.dow == 2 }}
+        if: ${{ env.dow == 1 }}
 
         uses: dawidd6/action-send-mail@v3
         with:
@@ -58,7 +58,7 @@ jobs:
           subject: 【依頼】リマインダー：明日の研究員会議報告
 
           # Required recipients' addresses:
-          to: ayw@ccs.tsukuba.ac.jp
+          to: astro@ccs.tsukuba.ac.jp
 
           # Required sender full name (address can be skipped):
           from: ayw@ccs.tsukuba.ac.jp
