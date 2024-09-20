@@ -47,38 +47,147 @@ The calendar is a google calendar. All staff and several other people of the gro
 
 All work in progress is tracked on the Issues board. Please log any issues you encounter or enhancements you would like to see on the issues board.
 
-## Description (TODO: Needs to be well-writen in English.)
-グループ写真変更方法
-1. ローカル側でassets/img/group.jpgを、別の写真に変える
+## Install ruby and jekyll
 
-2. Build and deploy
+覚えていない。まずruby入れて、その後
+```bash
+  sudo gem install bundler jekyll
+```
+をする。その後もう少しなんかやった気がする。
 
-宇宙フォーラム更新方法
-1. charon側で
-uchu_forum/uchu_forum_form/img
-uchu_forum/uchu_forum_form/yaml/[ja,en]
-から
-hogehoge.[jpg, png, etc]と
-20xx-xx-xx-hoge.htmlを取り出す
+## 宇宙理論研究室の1年の流れ
 
-scp -r <user_name>@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/Astro_source/uchu_forum/uchu_forum_form/yml __temp/yml
-scp -r <user_name>@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/Astro_source/uchu_forum/uchu_forum_form/img __temp/img
+### 4月ごろ 
 
-2.  ローカル側でuchu_forum/_posts/[ja,en]に20xx-xx-xx-hoge.htmlを配置(enに配置するやつは英訳)
-ローカル側でassets/img/uchu_forumにhogehoge.[jpg, png, etc]をuchu-forum-20xx-xx-xx.jpgとして保存し、
-その画像を200×200のサイズに切り取った画像をuchu-forum-20xx-xx-xx-thumb.jpgとして保存
-https://www.iloveimg.com/ja/crop-image
-このサイトで切り抜きできる(どうせ外部に公開するものだからセキュリティはあまり考えなくて良い)
+#### イベント: 新入生や卒研生が新しく入ってくる。
 
-3. Build and deploy
+やること: https://www2.ccs.tsukuba.ac.jp/Astro/members/ja/ のメンバーを更新する。学年が上がった人、教員も含めて全員に改めて情報を入力してもらう。
 
-新メンバー追加方法
+手順: 
+ - ローカルにて、`members/ja/index.html`と`members/en/index.html`の`form_active`を`true`に変更する。
 
-1. ローカル側でmembers/membresform/[ja,en]/index.htmlのform_activeをfalseからtrueに
-ローカル側でmembers/[ja,en]/index.htmlのform_activeをfalseからtrueに
+ - (やらなくても良いが)以下のコマンドにより、フォームボタンがメンバーページに出現しているか、ローカルで確認する。
+ ```bash
+ bundle exec jekyll serve --future
+ ```
 
-2. build and deploy
+ - 以下のコマンドにより、ビルドを行う。
+ ```bash
+ bundle exec jekyll build --future 
+ ```
 
-3. 新入生と既存の学生全員にフォームを入力してもらう
+ - 以下のコマンドにより、デプロイする。
+ ```bash
+ cd ../ccs_version/ && rsync -Prvi ./ charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/Astro_source && cd - 
+ ```
 
-4. 
+ - `mail_script.txt`を、`astro@ccs.tsukuba.ac.jp`宛に送り、宇宙理論研究室全員がフォーム入力を完了するのを待つ。入力されたデータは`charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/Astro_source/membersform_data`に格納される。
+
+ - 格納されたデータのうち、`.tex.enc`のものは、zulipでAlexに対応してもらう。
+
+ - ローカルで、以下を実行する. 注意点として、以下のスクリプトの11行目は適宜変更すること。実行後、
+ `__temp/new_registerd_member`に、格納されたデータのうちの`.html`ファイルが入る。`_members`ディレクトリに、入力されたデータが加工された状態で入る (適切に加工されていないと、ページに表示されない。)。 以下のスクリプト実行後は、`charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/Astro_source/membersform_data`に入ったファイルを消すか別のディレクトリに入れておくと良い。(私は`membersform_data`に`_already_registerd`ディレクトリを作って、ファイルを入れていた。) 追加でフォームが入力され、新しいファイルがcharonに入った場合でも、もう一度以下のスクリプトを実行すれば良い。
+ ```bash
+ ./get_and_set_new_member.sh
+ ```
+
+ - 全員の入力を確認したら、ローカルにて、`members/ja/index.html`と`members/en/index.html`の`form_active`を`true`に変更する。
+
+ - (やらなくても良いが)以下のコマンドにより、フォームボタンがメンバーページに出現しているか、ローカルで確認する。
+ ```bash
+ bundle exec jekyll serve --future
+ ```
+
+ - 以下のコマンドにより、ビルドを行う。
+ ```bash
+ bundle exec jekyll build --future 
+ ```
+
+ - 以下のコマンドにより、デプロイする。
+ ```bash
+ cd ../ccs_version/ && rsync -Prvi ./ charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/Astro_source && cd - 
+ ```
+
+#### イベント: グループ写真変更
+やること: `https://www2.ccs.tsukuba.ac.jp/Astro/home/ja/`の集合写真変更
+
+手順: 
+ - 写真を受け取る
+
+ - ローカル側で、写真を`assets/img/group.jpg`として保存。
+
+ - (やらなくても良いが)以下のコマンドにより、フォームボタンがメンバーページに出現しているか、ローカルで確認する。
+ ```bash
+ bundle exec jekyll serve --future
+ ```
+
+ - 以下のコマンドにより、ビルドを行う。
+ ```bash
+ bundle exec jekyll build --future 
+ ```
+
+ - 以下のコマンドにより、デプロイする。
+ ```bash
+ cd ../ccs_version/ && rsync -Prvi ./ charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/Astro_source && cd - 
+ ```
+
+### 10月ごろ 
+
+#### イベント: 天体形成研究会
+やること: `https://www2.ccs.tsukuba.ac.jp/Astro/conferences/ja/`の中に、天体形成研究会の情報を載せる。
+
+手順:
+ - 多分、天体形成研究会の係の人が、ローカルの`conferences/_posts/en/2023-11-01-tentaikeisei.html`みたいな感じのファイルをくれると思う。
+
+ - (やらなくても良いが)以下のコマンドにより、フォームボタンがメンバーページに出現しているか、ローカルで確認する。
+ ```bash
+ bundle exec jekyll serve --future
+ ```
+
+ - 以下のコマンドにより、ビルドを行う。
+ ```bash
+ bundle exec jekyll build --future 
+ ```
+
+ - 以下のコマンドにより、デプロイする。
+ ```bash
+ cd ../ccs_version/ && rsync -Prvi ./ charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/Astro_source && cd - 
+ ```
+
+### だいたい毎月
+
+#### イベント: 宇宙フォーラム
+やること: `https://www2.ccs.tsukuba.ac.jp/Astro/uchu_forum/ja/`に宇宙フォーラムの情報を追加。
+
+手順: 
+ - ローカルで以下のコマンドを入力することで、charonの`uchu_forum/uchu_forum_form/img`と`uchu_forum/uchu_forum_form/yaml/[ja,en]`から、
+hogehoge.[jpg, png, etc]と20xx-xx-xx-hoge.htmlを取り出す.
+```bash
+mkdir -p __temp && scp -r <user_name>@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/Astro_source/uchu_forum/uchu_forum_form/yml __temp/ && scp -r <user_name>@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/Astro_source/uchu_forum/uchu_forum_form/img __temp/
+```
+
+ - ローカル側でuchu_forum/_posts/[ja,en]に20xx-xx-xx-hoge.htmlを配置(enに配置するやつは英訳)
+
+ - ローカル側でassets/img/uchu_forumにhogehoge.[jpg, png, etc]をuchu-forum-20xx-xx-xx.jpgとして保存する。
+
+ - (やらなくても良いが)以下のコマンドにより、フォームボタンがメンバーページに出現しているか、ローカルで確認する。
+ ```bash
+ bundle exec jekyll serve --future
+ ```
+
+ - 以下のコマンドにより、ビルドを行う。
+ ```bash
+ bundle exec jekyll build --future 
+ ```
+
+ - 以下のコマンドにより、デプロイする。
+ ```bash
+ cd ../ccs_version/ && rsync -Prvi ./ charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/Astro_source && cd - 
+ ```
+
+
+## FAQ
+
+- 変更が反映されない。 --> ブラウザのキャッシュ消して
+
+- エラーが出る --> 自分で頑張って。もしかしたら権限の問題かも。あと

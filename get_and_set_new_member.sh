@@ -2,9 +2,12 @@
 
 #change username and add key place if neeeded
 registerd_member_directory="__temp/new_registerd_member/"
-lastyear_members_directory="_members/lastyear_members/"
 members_directory="_members"
-almuni_directory="alumni/"
+
+mkdir -p $registerd_member_directory
+mkdir -p $members_directory/ja
+mkdir -p $members_directory/en
+
 scp -r -q yuasat@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/Astro_source/membersform_data/*.html $registerd_member_directory
 
 goodbye_members=()
@@ -12,8 +15,6 @@ goodbye_members=()
 for file in "$registerd_member_directory"/*; do
     # charonからとってきたファイル(メンバー)を_memberディレクトリに格納
     filename=$(basename "$file")
-    
-     # ファイルが既に存在しない場合のみコピーする
     
     cp "$registerd_member_directory/$filename" "$members_directory/ja/$filename"
 
@@ -51,38 +52,4 @@ for file in "$registerd_member_directory"/*; do
 # ファイルが既に存在する場合は、項目上書き
     
 done
-
-# 昨年度にいたメンバーについてループ処理
-# goodbye_member内の人物は、新年度に上がる際にいなくなった人たち --> alumniに入れる
-# これに関しては、全員が__membersに登録できたことを確認できた段階でやってください(昨年度にいた人で、今年度まだ登録してない人がいるとその人もalmuniに入ってしまいます)
-# 念のためalumni/maybe_alumni_listにalumni判定された人入れてます
-if [ "$*" = "--update_alumni" ]; then
-    for file in "$lastyear_members_directory"/ja/*; do
-        # ファイル名(メンバー名)のみを取得
-        filename=$(basename "$file")
-        # 昨年度にいたメンバーが今年度いなくなっていた場合、goodbye_member配列に入れる
-        if [ ! -e "$members_directory/ja/$filename" ]; then
-            goodbye_members+=("$filename")
-        fi
-    done
-
-    for file in "${goodbye_members[@]}"; do
-        cp "$lastyear_members_directory/ja/$file" "$almuni_directory/ja/from_members/$file"
-    done
-
-
-
-    for file in "$lastyear_members_directory"/en/*; do
-        # ファイル名(メンバー名)のみを取得
-        filename=$(basename "$file")
-        # 昨年度にいたメンバーが今年度いなくなっていた場合、goodbye_member配列に入れる
-        if [ ! -e "$members_directory/en/$filename" ]; then
-            goodbye_members+=("$filename")
-        fi
-    done
-
-    for file in "${goodbye_members[@]}"; do
-        cp "$lastyear_members_directory/en/$file" "$almuni_directory/en/from_members/$file"
-    done
-fi
 
