@@ -51,7 +51,8 @@ All work in progress is tracked on the Issues board. Please log any issues you e
 
 覚えていない。まずruby入れて、その後
 ```bash
-  sudo gem install bundler jekyll
+  gem install bundler jekyll
+  bundle add jekyll
 ```
 をする。その後もう少しなんかやった気がする。
 
