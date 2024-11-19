@@ -5,7 +5,8 @@ name: send-kenkyuin-kaigi-reminder-email
 
 # This reminder is to be sent a day before. This is usually
 # the 4th Monday, except when the month begins with a Tuesday,
-# it is the 3rd Monday.
+# or equivalently, when the meeting is on the 22nd,
+# it is the 3rd Monday, in which case, set an exception below.
 
 # Cron syntax: minute hour day-of-month month day-of-week
 # Time is UTC. DOM and DOW are logically-"or"-combined
