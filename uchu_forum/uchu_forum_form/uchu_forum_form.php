@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     # Organizer, sender
     $organizer_uchu_forum = "金田";
     $email_uchu_forum = "kaneda@ccs.tsukuba.ac.jp, s2430049@u.tsukuba.ac.jp";
-    $email_sender = 'ayw@ccs.tsukuba.ac.jp';
+    $email_sender = 'kaneda@ccs.tsukuba.ac.jp';
     $test = false;
 
     # Location
@@ -304,6 +304,8 @@ $ita
     $file_en = str_replace("．", "。", $file_en);
 
     # Email to organizer/host
+
+    mb_language("neutral");  
     $formcontent = "$email_astro";
     if ($test) {
       $recipient = "astro.ccs.tsukuba@gmail.com";
@@ -315,7 +317,7 @@ $ita
     $mailheader .= "Content-type: text/html; charset=UTF-8" . "\r\n";
     $mailheader .= "From: $email_sender \r\n";
     $mailheader .= "X-Mailer: PHP/" . phpversion();
-    mail($recipient, $subject, $formcontent, $mailheader);
+    mb_send_mail($recipient, $subject, $formcontent, $mailheader);
 
     # Email to speaker
     $formcontent = "$email_speaker";
@@ -329,7 +331,7 @@ $ita
     $mailheader .= "Content-type: text/html; charset=UTF-8" . "\r\n";
     $mailheader .= "From: $email_sender \r\n";
     $mailheader .= "X-Mailer: PHP/" . phpversion();
-    mail($recipient, $subject, $formcontent, $mailheader);
+    mb_send_mail($recipient, $subject, $formcontent, $mailheader);
 
     # Write files
     $fcon = fopen($fname_yml_ja, 'w');
