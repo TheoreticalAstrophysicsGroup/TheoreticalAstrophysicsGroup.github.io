@@ -145,11 +145,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $yamllines = str_replace("、", "，", $yamllines);
 
     # Email 
+    mb_language("neutral");
     $formcontent = "$latexlines\n\n$yamllines";
     $recipient = 'astro.ccs.tsukuba@gmail.com';
     $subject = "TAG member $iln $ifn ($ilnr $ifnr) info";
     $mailheader = "From: $ie1 \n";
-    mail($recipient, $subject, $formcontent, $mailheader);
+    mb_send_mail($recipient, $subject, $formcontent, $mailheader);
 
     # Encrypt the private data with OpenSSL
     $ssl_password = 
