@@ -164,7 +164,7 @@ All work in progress is tracked on the Issues board. Please log any issues you e
  - ローカルで以下のコマンドを入力することで、charonの`uchu_forum/uchu_forum_form/img`と`uchu_forum/uchu_forum_form/yaml/[ja,en]`から、
 hogehoge.[jpg, png, etc]と20xx-xx-xx-hoge.htmlを取り出す.
 ```bash
-mkdir -p __temp && scp -r <user_name>@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/Astro_source/uchu_forum/uchu_forum_form/yml __temp/ && scp -r <user_name>@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/Astro_source/uchu_forum/uchu_forum_form/img __temp/
+mkdir -p __temp && scp -r charon:/home-WWW/Research/Astro/Astro_source/uchu_forum/uchu_forum_form/yml __temp/ && scp -r charon:/home-WWW/Research/Astro/Astro_source/uchu_forum/uchu_forum_form/img __temp/
 ```
 
  - ローカル側でuchu_forum/_posts/[ja,en]に20xx-xx-xx-hoge.htmlを配置(enに配置するやつは英訳)
@@ -183,7 +183,7 @@ mkdir -p __temp && scp -r <user_name>@charon.ccs.tsukuba.ac.jp:/home-WWW/Researc
 
  - 以下のコマンドにより、デプロイする。
  ```bash
- cd ../ccs_version/ && rsync -Prvi ./ charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/Astro_source && cd - 
+ cd ../ccs_version/ && rsync -Prvi ./ charon:/home-WWW/Research/Astro/Astro_source && cd - 
  ```
 
 
