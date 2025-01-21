@@ -8,7 +8,7 @@ mkdir -p $registerd_member_directory
 mkdir -p $members_directory/ja
 mkdir -p $members_directory/en
 
-scp -r -q yuasat@charon.ccs.tsukuba.ac.jp:/home-WWW/Research/Astro/Astro_source/membersform_data/*.html $registerd_member_directory
+scp -r -q charon:/home-WWW/Research/Astro/Astro_source/membersform_data/*.html $registerd_member_directory
 
 goodbye_members=()
 # 登録されたメンバーをメンバーディレクトリに格納
