@@ -24,16 +24,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     # Some settings
 
     # Organizer, sender
-    $organizer_uchu_forum = "金田";
+    $organizer_uchu_forum_ja = "金田";
+    $organizer_uchu_forum_en = "Yuko Kaneda";
     $email_uchu_forum = "kaneda@ccs.tsukuba.ac.jp, s2430049@u.tsukuba.ac.jp";
     $email_sender = 'kaneda@ccs.tsukuba.ac.jp';
     $test = false;
 
     # Location
-    $loc_en = "Online";
-    $loc_ja = "オンライン開催";
-    #$loc_en = "CCS Workshop room";
-    #$loc_ja = "CCS ワークショップ室";
+    $loc_en = "Seminar Room A and via Zoom";
+    $loc_ja = "会議室A";
+
     $twdy_ja = "火";
     $twdy_en = "Tue";
 
@@ -146,20 +146,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 
     # Date string
     $date_str_ja = date("n月j日",strtotime($date_str));
+    $date_str_en = date("F j (D)",strtotime($date_str));
 
     # Uchu forum or colloquium-dependent strings
   
     if ($ttype_ids[$ity] == "uchu_forum") {
-      $organizer = $organizer_uchu_forum;
+      $organizer_ja = $organizer_uchu_forum_ja;
+      $organizer_en = $organizer_uchu_forum_en;
       $subject_str = "宇宙フォーラム (Uchu Forum)";
-      $email_intro = "<p>今月の宇宙フォーラムは，" . $iaffja . "の " . $iln . " " . $ifn . " 氏に<br/>ご講演していただきます。 講演タイトルおよび概要を下記に記載いたしましたのでご確認ください。</p>" . 
+      $email_intro_ja = "<p>今月の宇宙フォーラムは，" . $iaffja . "の " . $iln . " " . $ifn . " 氏に<br/>ご講演していただきます。 講演タイトルおよび概要を下記に記載いたしましたのでご確認ください。</p>" . 
         "<p>宇宙フォーラム後には講演者と学生のみの議論の時間を<br/>設けて頂きました（開催予定時刻：17:15 ~ 17:45）。<br/>学生の方はそちらも奮ってご参加ください。</p>";
+      $email_intro_en = "<p>This month's Uchu Forum will be given by " . $ifnr . " " . $ilnr . " from " $iaffen . ".<br/>Please find the title and abstract of the talk below.</p>" . 
+        "<p>Following the talk, there will be a discussion session with the speaker exclusively for students (scheduled from 17:15 to 17:45). We encourage all students to actively participate in this discussion session.</p>";
       $file_str = 'uchu-forum';
       $org_email_to = $email_uchu_forum;
     } else {
-      $organizer = $host_ja_sn;
+      $organizer_ja = $host_ja_sn;
+      $organizer_en = $host_en_fn . " " . $host_en_sn;
       $subject_str = "コロキウム (Colloquium)";
-      $email_intro = "<p>" . $date_str_ja . "（{$twdy_ja}）に" . $iaffja . "の " . $iln . " " . $ifn . " 氏に<br/>ご講演していただきます。 講演タイトルおよび概要を下記に記載いたしましたのでご確認ください。</p>";
+      $email_intro_ja = "<p>" . $date_str_ja . "（{$twdy_ja}）に" . $iaffja . "の " . $iln . " " . $ifn . " 氏に<br/>ご講演していただきます。 講演タイトルおよび概要を下記に記載いたしましたのでご確認ください。</p>";
+      $email_intro_en = "<p>We are pleased to announce that a colloquium will be given on " . $date_str_en . " by " . $ifnr . " " . $ilnr . " from " $iaffen . ".<br/>Please find the title and abstract of the talk below.</p>" . 
       $file_str = 'colloquium';
       $org_email_to = $host_emails[$host_en];
     }
@@ -172,13 +178,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 
 <hr>
 
-<p>宇宙部塵理論研究室の皆様</p>
+<p>宇宙観測研究室 / 宇宙物理理論研究室の皆様</p>
+<p>(See below for email in English)</p>
 
-<p>筑波大学，宇宙理論研究室の{$organizer}です。</p>
+<p>筑波大学，宇宙理論研究室の{$organizer_ja}です。</p>
 
-{$email_intro}
+{$email_intro_ja}
 
-<p>Zoom を用いたリモート開催となります。以下 Zoom の情報です。</p>
+<p>計算科学研究センター{$loc_ja}と Zoom のハイブリッド開催となります。</p>
+
+<p>以下 Zoom の情報です。</p>
 <dl>
 <dt>リンク： https://us02web.zoom.us/j/89630613401?pwd=NXRhU3ZCam9jVmhyY25CbU5ZUjJhdz09</dt>
 <dt>ミーティングID： 896 3061 3401</dt>
@@ -186,21 +195,65 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 </dl>
 
 <p>講演タイトルおよび概要は以下の通りです。</p>
-
 <hr>
 <dl>
 <dt>日時： " . $date_str_ja . "（{$twdy_ja}） $ittime ~ </dt>
+<dt>場所： " . $loc_ja . "</dt>
 <dt>講演者： " . $iln . " " . $ifn . " 氏（" . $iaffja . "） </dt>
 <dt>タイトル： " . $itt . "</dt>
 </dl>
 
+<br />
 <div style='display: flex; justify-content: center;'>
 <div>概要</div>
 </div>
 <br />
+<br />
 " . $ita . "
+<br />
 <hr>
+<br />
+<br />
+
+
+<p>To all members of the Observational and Theoretical Astrophysics Groups</p>
+
+{$email_intro_en}
+
+<p>The talk will be held in {$loc_en} of the Center for Computational Sciences and will also be streamed via Zoom.</p>
+
+<p>Please find the Zoom details below:</p>
+<dl>
+<dt>Link: https://us02web.zoom.us/j/89630613401?pwd=NXRhU3ZCam9jVmhyY25CbU5ZUjJhdz09</dt>
+<dt>Meeting ID: 896 3061 3401</dt>
+<dt>Passcode: 189822</dt>
+</dl>
+
+<p>The details of the talk are as follows:</p>
+<hr>
+<dl>
+<dt>Time: " . $date_str_en . " $ittime ~ </dt>
+<dt>Place: " . $loc_en . "</dt>
+<dt>Presenter: " . $ifnr . " " . $ilnr . " (" . $iaffen . ") </dt>
+<dt>Title: " . $itt . "</dt>
+</dl>
+
+<br />
+<div style='display: flex; justify-content: center;'>
+<div>Abstract</div>
+</div>
+<br />
+<br />
+" . $ita . "
+<br />
+<hr>
+<br />
+<br />
+
 ";
+
+
+
 
     $email_speaker = "
 <p>$iln 様</p>
