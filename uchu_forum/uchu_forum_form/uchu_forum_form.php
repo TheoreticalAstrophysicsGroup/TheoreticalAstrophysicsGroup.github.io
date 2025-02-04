@@ -156,7 +156,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
       $subject_str = "宇宙フォーラム (Uchu Forum)";
       $email_intro_ja = "<p>今月の宇宙フォーラムは，" . $iaffja . "の " . $iln . " " . $ifn . " 氏に<br/>ご講演していただきます。 講演タイトルおよび概要を下記に記載いたしましたのでご確認ください。</p>" . 
         "<p>宇宙フォーラム後には講演者と学生のみの議論の時間を<br/>設けて頂きました（開催予定時刻：17:15 ~ 17:45）。<br/>学生の方はそちらも奮ってご参加ください。</p>";
-      $email_intro_en = "<p>This month's Uchu Forum will be given by " . $ifnr . " " . $ilnr . " from " $iaffen . ".<br/>Please find the title and abstract of the talk below.</p>" . 
+      $email_intro_en = "<p>This month's Uchu Forum will be given by " . $ifnr . " " . $ilnr . " from " . $iaffen . ".<br/>Please find the title and abstract of the talk below.</p>" . 
         "<p>Following the talk, there will be a discussion session with the speaker exclusively for students (scheduled from 17:15 to 17:45). We encourage all students to actively participate in this discussion session.</p>";
       $file_str = 'uchu-forum';
       $org_email_to = $email_uchu_forum;
@@ -165,7 +165,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
       $organizer_en = $host_en_fn . " " . $host_en_sn;
       $subject_str = "コロキウム (Colloquium)";
       $email_intro_ja = "<p>" . $date_str_ja . "（{$twdy_ja}）に" . $iaffja . "の " . $iln . " " . $ifn . " 氏に<br/>ご講演していただきます。 講演タイトルおよび概要を下記に記載いたしましたのでご確認ください。</p>";
-      $email_intro_en = "<p>We are pleased to announce that a colloquium will be given on " . $date_str_en . " by " . $ifnr . " " . $ilnr . " from " $iaffen . ".<br/>Please find the title and abstract of the talk below.</p>" . 
+      $email_intro_en = "<p>We are pleased to announce that a colloquium will be given on " . $date_str_en . " by " . $ifnr . " " . $ilnr . " from " . $iaffen . ".<br/>Please find the title and abstract of the talk below.</p>" . 
       $file_str = 'colloquium';
       $org_email_to = $host_emails[$host_en];
     }
