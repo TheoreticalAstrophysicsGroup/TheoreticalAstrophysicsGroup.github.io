@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $test = false;
 
     # Location
-    $loc_en = "Seminar Room A and via Zoom";
+    $loc_en = "Seminar Room A";
     $loc_ja = "会議室A";
 
     $twdy_ja = "火";
@@ -154,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
       $organizer_ja = $organizer_uchu_forum_ja;
       $organizer_en = $organizer_uchu_forum_en;
       $subject_str = "宇宙フォーラム (Uchu Forum)";
-      $email_intro_ja = "<p>今月の宇宙フォーラムは，" . $iaffja . "の " . $iln . " " . $ifn . " 氏に<br/>ご講演していただきます。 講演タイトルおよび概要を下記に記載いたしましたのでご確認ください。</p>" . 
+      $email_intro_ja = "<p>今月の宇宙フォーラムは，" . $iaffja . "の " . $iln . " " . $ifn . " 氏に<br/>ご講演していただきます。 </p><p>講演タイトルおよび概要を下記に記載いたしましたのでご確認ください。</p>" . 
         "<p>宇宙フォーラム後には講演者と学生のみの議論の時間を<br/>設けて頂きました（開催予定時刻：17:15 ~ 17:45）。<br/>学生の方はそちらも奮ってご参加ください。</p>";
       $email_intro_en = "<p>This month's Uchu Forum will be given by " . $ifnr . " " . $ilnr . " from " . $iaffen . ".<br/>Please find the title and abstract of the talk below.</p>" . 
         "<p>Following the talk, there will be a discussion session with the speaker exclusively for students (scheduled from 17:15 to 17:45). We encourage all students to actively participate in this discussion session.</p>";
@@ -202,12 +202,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 <dt>講演者： " . $iln . " " . $ifn . " 氏（" . $iaffja . "） </dt>
 <dt>タイトル： " . $itt . "</dt>
 </dl>
-
-<br />
 <div style='display: flex; justify-content: center;'>
 <div>概要</div>
 </div>
-<br />
 <br />
 " . $ita . "
 <br />
@@ -216,7 +213,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 <br />
 
 
-<p>To all members of the Observational and Theoretical Astrophysics Groups</p>
+<p>To all members of the Observational and Theoretical Astrophysics Groups,</p>
 
 {$email_intro_en}
 
@@ -237,12 +234,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 <dt>Presenter: " . $ifnr . " " . $ilnr . " (" . $iaffen . ") </dt>
 <dt>Title: " . $itt . "</dt>
 </dl>
-
-<br />
 <div style='display: flex; justify-content: center;'>
 <div>Abstract</div>
 </div>
-<br />
 <br />
 " . $ita . "
 <br />
