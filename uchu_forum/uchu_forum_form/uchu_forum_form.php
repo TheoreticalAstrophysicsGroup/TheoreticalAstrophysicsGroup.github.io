@@ -19,6 +19,7 @@ function str_replace_last($needle, $replace, $haystack) {
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
+#if (1) {
 
     # __________________________________________________________________
     # Some settings
@@ -29,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $email_uchu_forum = "kaneda@ccs.tsukuba.ac.jp, s2430049@u.tsukuba.ac.jp";
     $email_sender = 'kaneda@ccs.tsukuba.ac.jp';
     $test = false;
+    $email_recipient_tester = 'ayw@ccs.tsukuba.ac.jp';
 
     # Location
     $loc_en = "Seminar Room A";
@@ -260,20 +262,19 @@ We have received the following information.</p>
 
 <hr>
 <dl>
-<dt>speaker:</dt> <dd>$iln $ifn | $ilnr $ifnr </dd>
-<dt>affiliation:</dt> <dd>$iaffja | $iaffen </dd>
-<dt>webpage:</dt> <dd>$ih </dd>
-<dt>date:</dt> <dd>$date_str （{$twdy_ja} | {$twdy_en}）</dd>
-<dt>time:</dt> <dd>$ittime </dd>
-<dt>place:</dt> <dd>$loc_ja | $loc_en </dd>
-<dt>host:</dt> <dd>$ish </dd>
-<dt>talk category:</dt> <dd>$ity </dd>
-<dt>title:</dt> <dd>$itt </dd>
-<dt>keywords:</dt> <dd>$itkw1, $itkw2, $itkw3 </dd>
-<dt>abstract:</dt> <dd>$ita </dd>
-<dt>remarks:</dt> <dd>$itr </dd>
+<dt>・speaker・・・</dt> <dd>$iln $ifn | $ilnr $ifnr </dd><br />
+<dt>・affiliation・・・</dt> <dd>$iaffja | $iaffen </dd><br />
+<dt>・webpage・・・</dt> <dd>$ih </dd><br />
+<dt>・date・・・</dt> <dd>$date_str （{$twdy_ja} | {$twdy_en}）</dd><br />
+<dt>・time・・・</dt> <dd>$ittime </dd><br />
+<dt>・place・・・</dt> <dd>$loc_ja | $loc_en </dd><br />
+<dt>・host・・・</dt> <dd>$ish </dd><br />
+<dt>・talk category・・・</dt> <dd>$ity </dd><br />
+<dt>・title・・・</dt> <dd>$itt </dd><br />
+<dt>・keywords・・・</dt> <dd>$itkw1, $itkw2, $itkw3 </dd><br />
+<dt>・abstract・・・</dt> <dd>$ita </dd><br />
+<dt>・remarks・・・</dt> <dd>$itr </dd>
 </dl>
-
 <hr>
 &nbsp;
 
@@ -355,7 +356,7 @@ $ita
     mb_language("neutral");  
     $formcontent = "$email_astro";
     if ($test) {
-      $recipient = "astro.ccs.tsukuba@gmail.com";
+      $recipient = $email_recipient_tester;
     } else {
       $recipient = $org_email_to;
     }
@@ -369,7 +370,7 @@ $ita
     # Email to speaker
     $formcontent = "$email_speaker";
     if ($test) {
-      $recipient = "astro.ccs.tsukuba@gmail.com";
+      $recipient = $email_recipient_tester;
     } else {
       $recipient = $ie;
     }
@@ -395,4 +396,5 @@ $ita
     # Not verified
 
     }
-} ?>
+} 
+?>
