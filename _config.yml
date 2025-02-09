@@ -1,12 +1,11 @@
-# Travis CI-github-CCS build and deployment
+# CI/CD through GitHub actions using `build_and_deploy_to_charon.yml`
 relative_source:  TheoreticalAstrophysicsGroup.github.io
 destination_loc: ../loc_version
-destination_xampp: /Users/ayw/.bitnami/stackman/machines/xampp/volumes/root/htdocs/TAG
 destination_gh: ../gh_version
 destination_ccs: ../ccs_version
 orgname: TheoreticalAstrophysicsGroup
 branch: source
-post_limit: 9
+post_limit: 9999
 
 # Site settings
 title: Theoretical Astrophysics Group
@@ -25,7 +24,7 @@ timezone: Asia/Tokyo
 # Build settings
 markdown: kramdown
 permalink: pretty
-destination: ../ccs_version
+#destination: ../ccs_version
 
 # Exclude
 # See https://jekyllrb.com/docs/troubleshooting/#configuration-problems
