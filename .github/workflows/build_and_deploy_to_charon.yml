@@ -1,4 +1,4 @@
-name: Build Jekyll
+name: Build and deploy TheoreticalAstrophysicsGroup site to charon
 
 on:
   push:
@@ -21,6 +21,7 @@ jobs:
       uses: Burnett01/rsync-deployments@7.0.2
       with:
         switches: -avizr
+        legacy_allow_rsa_hostkeys: "true"
         path: _site/
         remote_path: ${{ secrets.DEPLOY_PATH }}
         remote_host: ${{ secrets.DEPLOY_HOST }}
