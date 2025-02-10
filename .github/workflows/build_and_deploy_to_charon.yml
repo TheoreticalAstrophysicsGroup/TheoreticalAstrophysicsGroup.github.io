@@ -3,6 +3,8 @@ name: Build and deploy TheoreticalAstrophysicsGroup site to charon
 on:
   push:
     branches: [ source ]
+  pull_request:
+    branches: [ source ]
 
 jobs:
   build:
