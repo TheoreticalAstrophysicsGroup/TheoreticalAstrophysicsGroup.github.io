@@ -161,10 +161,10 @@ All work in progress is tracked on the Issues board. Please log any issues you e
 やること: `https://www2.ccs.tsukuba.ac.jp/Astro/uchu_forum/ja/`に宇宙フォーラムの情報を追加。
 
 手順: 
- - ローカルで以下のコマンドを入力することで、charonの`uchu_forum/uchu_forum_form/img`と`uchu_forum/uchu_forum_form/yaml/[ja,en]`から、
+ - ローカルで以下のコマンドを入力することで，charon の`events/speakers_form/img`と`events/speakers_form/yml/[ja,en]`から，
 hogehoge.[jpg, png, etc]と20xx-xx-xx-hoge.htmlを取り出す.
 ```bash
-mkdir -p __temp && scp -r charon:/home-WWW/Research/Astro/Astro_source/uchu_forum/uchu_forum_form/yml __temp/ && scp -r charon:/home-WWW/Research/Astro/Astro_source/uchu_forum/uchu_forum_form/img __temp/
+mkdir -p __temp && scp -r charon:/home-WWW/Research/Astro/Astro_source/events/speakers_form/yml __temp/ && scp -r charon:/home-WWW/Research/Astro/Astro_source/events/speakers_form/img __temp/
 ```
 
  - ローカル側でuchu_forum/_posts/[ja,en]に20xx-xx-xx-hoge.htmlを配置(enに配置するやつは英訳)

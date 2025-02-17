@@ -10414,7 +10414,7 @@ Dropzone._autoDiscoverFunction = function () {
 };
 
 
-Dropzone.options.uchuForumImg = {
+Dropzone.options.speakersImg = {
     //autoProcessQueue: false,
     //url: './../upload.php',
     maxFilesize: 30, // MB

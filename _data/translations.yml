@@ -109,9 +109,9 @@ information:
     text: Textbook, notes
 
 # Uchu-forum form
-uchu_forum_form:
+speakers_form:
   ja:
-    uchu_forum_form_header: 宇宙フォーラム情報収取
+    speakers_form_header: 宇宙フォーラム情報収取
     input_last_name: 姓 ＊
     input_first_name: 名 ＊
     input_last_name_romaji: 姓（半角ローマ字） ＊
@@ -165,7 +165,7 @@ uchu_forum_form:
     legend_about_speaker: 発表者について
     submit: 送信
   en:
-    uchu_forum_form_header: Uchu-forum information request
+    speakers_form_header: Uchu-forum information request
     input_last_name: Last name (Kanji, Kana) 
     input_first_name: First name (Kanji, Kana) 
     input_last_name_romaji: Last name (Alphabet) ＊

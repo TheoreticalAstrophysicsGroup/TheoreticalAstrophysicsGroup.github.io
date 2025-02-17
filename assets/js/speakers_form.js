@@ -4,7 +4,7 @@ $(document).ready(function () {
   var toggled = false;
 
   // Listen to submit event on the <form> itself.
-  $('#uchuForumForm').submit(function(e) {
+  $('#speakersForm').submit(function(e) {
 
     // Prevent form submission which refreshes page
     e.preventDefault();
@@ -13,7 +13,7 @@ $(document).ready(function () {
     var formData = $(this).serialize();
 
     // Make AJAX request
-    $.post("../uchu_forum_form.php", formData).complete(function() {
+    $.post("../speakers_form.php", formData).complete(function() {
       console.log("Success");
     });
 

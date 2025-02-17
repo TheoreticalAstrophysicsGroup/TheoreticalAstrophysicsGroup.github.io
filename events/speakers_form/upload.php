@@ -22,7 +22,7 @@
         $tempFile = $_FILES['file']['tmp_name'][$ifile];
         $fname = $_FILES['file']['name'][$ifile];
         $targetPath = dirname( __FILE__ ) . $ds. $target_dir . $ds;
-        $targetFile =  $targetPath . "uchu-forum-{$formattedDate}-{$fname}";
+        $targetFile =  $targetPath . "talk-{$formattedDate}-{$fname}";
         move_uploaded_file($tempFile, $targetFile);
       }
 

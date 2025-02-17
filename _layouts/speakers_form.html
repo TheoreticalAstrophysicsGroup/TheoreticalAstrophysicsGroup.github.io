@@ -4,9 +4,9 @@ layout: default
 
 {% include page_header.html title=page.title %}
 
-{% assign tau_l = site.data.translations.uchu_forum_form[page.lang] %}
+{% assign tau_l = site.data.translations.speakers_form[page.lang] %}
 {% assign ttg = site.data.translations.tags %}
-{% assign tau = site.data.translations.uchu_forum_form %}
+{% assign tau = site.data.translations.speakers_form %}
 
 <div class="container">
 
@@ -14,12 +14,12 @@ layout: default
 
   <h3 class="section-title"> {{ page.subtitle }} </h3>
 
-  <div class="uchu_forum_form">
+  <div class="speakers_form">
 
     {{ content }}
 
     <!-- We are using jquery/ajax so minimal info required in form tag -->
-    <form id="uchuForumForm" autocomplete="on">
+    <form id="speakersForm" autocomplete="on">
 
       <br />
 
@@ -200,7 +200,7 @@ layout: default
 
     </form>
 
-    <form name="uchu_forum_img" role="form" action="../upload.php" method="post" class="dropzone" id="uchuForumImg">
+    <form name="speakers_img" role="form" action="../upload.php" method="post" class="dropzone" id="speakersImg">
 
           <div class="form-group col-sm-12">
             <label for="InputTalkImg"> {{ tau_l.input_talk_img }} </label>
@@ -216,7 +216,7 @@ layout: default
 
       <div class="row">
         <div class="col-sm-12">
-          <button type="submit" id="uf_submit_btn" class="btn btn-primary pull-right" form="uchuForumForm">{{ tau_l.submit }}</button>
+          <button type="submit" id="sf_submit_btn" class="btn btn-primary pull-right" form="speakersForm">{{ tau_l.submit }}</button>
         </div>
       </div>
 

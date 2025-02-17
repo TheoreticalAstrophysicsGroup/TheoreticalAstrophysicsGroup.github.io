@@ -17,6 +17,14 @@ function str_replace_last($needle, $replace, $haystack) {
   return $newstring;
 }
 
+# Just for testing
+#$subject = "a subject";
+#$mailheader  = "MIME-Version: 1.0" . "\r\n";
+#$mailheader .= "Content-type: text/html; charset=UTF-8" . "\r\n";
+#$mailheader .= "From: ayw@ccs.tsukuba.ac.jp \r\n";
+#$mailheader .= "X-Mailer: PHP/" . phpversion();
+#mb_send_mail("ayw@ccs.tsukuba.ac.jp", $subject, $formcontent, $mailheader);
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
 #if (1) {
@@ -29,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $organizer_uchu_forum_en = "Yuko Kaneda";
     $email_uchu_forum = "kaneda@ccs.tsukuba.ac.jp, s2430049@u.tsukuba.ac.jp";
     $email_sender = 'kaneda@ccs.tsukuba.ac.jp';
-    $test = false;
+    $test = true;
     $email_recipient_tester = 'ayw@ccs.tsukuba.ac.jp';
 
     # Location
@@ -210,6 +218,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 <br />
 " . $ita . "
 <br />
+<br />
 <hr>
 <br />
 <br />
@@ -241,6 +250,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 </div>
 <br />
 " . $ita . "
+<br />
 <br />
 <hr>
 <br />
