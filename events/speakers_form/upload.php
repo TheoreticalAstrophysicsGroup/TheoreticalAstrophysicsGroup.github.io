@@ -24,11 +24,11 @@
         $tempFile = $_FILES['file']['tmp_name'][$ifile];
         $fname = $_FILES['file']['name'][$ifile];
 	if ($ifile == 0) {
-		$targetFile =  $targetPath . "talk-{$formattedDate}";
-	}
-	else {
-		$targetFile =  $targetPath . "talk-{$formattedDate}-{$ifile}";
-	}
+          $targetFile =  $targetPath . "talk-{$formattedDate}";
+        }
+        else {
+          $targetFile =  $targetPath . "talk-{$formattedDate}-{$ifile}";
+        }
         move_uploaded_file($tempFile, $targetFile);
       }
 
