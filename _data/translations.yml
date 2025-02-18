@@ -4,7 +4,7 @@ categories:
     ja:
       achievements: &achievements_short_ja 研究成果
       news: &news_short_ja ニュース
-      colloquia: &colloquia_short_ja セミナー
+      colloquia: &colloquia_short_ja コロキウム
       uchu_forum: &uchu_forum_short_ja 宇宙フォーラム
       conferences: &conferences_short_ja 研究会
       projects: &projects_short_ja プロジェクト
@@ -21,7 +21,7 @@ categories:
     ja:
       achievements: 研究成果・発表論文
       news: ニュース & 最新情報
-      colloquia: つくば宇宙理論セミナー
+      colloquia: つくば宇宙理論コロキウム
       uchu_forum: つくば宇宙フォーラム
       conferences: 研究会・ワークショップ
       projects: 研究プロジェクト
@@ -89,7 +89,7 @@ achievements:
 information:
   ja:
     activities: 活動・アクティビティ
-    colloquia: 開催中のセミナー
+    colloquia: 開催中のコロキウム
     other: その他
     name: 
     participants: 参加者
@@ -735,7 +735,7 @@ colloquia:
     host: 世話人
     access: アクセス
     about_speaker: 発表者について
-    about_header: セミナーについて
+    about_header: コロキウムについて
     pdf_download: 発表スライドPDFダウンロード
     pdf_ccswiki: 内部用ウィキ
     photos: アルバム
