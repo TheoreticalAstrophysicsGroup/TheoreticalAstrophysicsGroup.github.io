@@ -17,12 +17,18 @@
       }
       $formattedDate = $timestamp->format('Y-m-d');
 
+      $targetPath = dirname( __FILE__ ) . $ds . $target_dir . $ds;
+
       // Loop over multiple files uploaded together
       for($ifile = 0; $ifile < count($_FILES['file']['tmp_name']); $ifile++) {
         $tempFile = $_FILES['file']['tmp_name'][$ifile];
         $fname = $_FILES['file']['name'][$ifile];
-        $targetPath = dirname( __FILE__ ) . $ds. $target_dir . $ds;
-        $targetFile =  $targetPath . "talk-{$formattedDate}-{$fname}";
+	if ($ifile == 0) {
+		$targetFile =  $targetPath . "talk-{$formattedDate}";
+	}
+	else {
+		$targetFile =  $targetPath . "talk-{$formattedDate}-{$ifile}";
+	}
         move_uploaded_file($tempFile, $targetFile);
       }
 

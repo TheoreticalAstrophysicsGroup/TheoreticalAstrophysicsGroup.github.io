@@ -401,10 +401,49 @@ $ita
     fclose($fcon);
 
 
+    # Rename files uploaded by Dropbzone according to whether its a colloquium or an uchu_forum
+    # NOTE: If you change anything below, you may need to make the same change in upload.php.
+    $ds = DIRECTORY_SEPARATOR;
+
+    $target_dir = 'img';
+
+    // get third tuesday of this month
+    date_default_timezone_set('Asia/Tokyo');
+    $timestamp = new DateTime('third tuesday of this month');
+
+    // if date has passed
+    if ($timestamp < new DateTime()) {
+      $timestamp->modify('third tuesday of next month');
+    }
+    $formattedDate = $timestamp->format('Y-m-d');
+
+    // Loop over multiple files uploaded together
+    $targetPath = dirname( __FILE__ ) . $ds . $target_dir . $ds;
+    $dir = new DirectoryIterator($targetPath);
+    $ifile = 0;
+    foreach ($dir as $fileinfo) {
+       if (!$fileinfo->isDot() && strpos($fileinfo->getFilename(), $formattedDate)) {
+           $tempFile = $targetPath . $fileinfo->getFilename();
+	   if ($ifile == 0) {
+	       $targetFile = $targetPath . $file_str . "-{$formattedDate}";
+	   }
+	   else {
+	       $targetFile = $targetPath . $file_str . "-{$formattedDate}-{$ifile}";
+	   }
+           rename($tempFile, $targetFile);
+           $ifile++;
+       }
+    }
+
+
     } else {
 
-    # Not verified
+    # Not recaptcha verified
 
     }
+
+
+
+
 } 
 ?>
