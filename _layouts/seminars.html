@@ -2,14 +2,14 @@
 layout: default
 ---
 
-{% assign tsl = site.data.translations.seminars[page.lang] %}
+{% assign tcl = site.data.translations.colloquia[page.lang] %}
 {% assign tpl = site.data.translations.post_gen[page.lang] %}
-{% assign tcll = site.data.translations.categories.long[page.lang] %}
+{% assign tcatll = site.data.translations.categories.long[page.lang] %}
 {% assign la = site.data.links.assets %}
 {% assign lel = site.data.links.external[page.lang] %}
 {% assign li = site.data.links.internal %}
 
-{% include page_header.html title=tcll.seminars %}
+{% include page_header.html title=tcatll.colloquia %}
 
 <!-- AYW 2014-07-04 13:32 JST
   We wish to sort by date and group by tags-->
@@ -21,7 +21,7 @@ layout: default
       <div class="col-md-4 hidden-md hidden-lg">
         <aside class="sidebar">
 
-          {% include aside_about.html a=content t=tsl.about_header %}
+          {% include aside_about.html a=content t=tcl.about_header %}
           {% include aside_nav.html %}
 
         </aside> <!-- Sidebar -->
@@ -30,9 +30,9 @@ layout: default
       <div class="col-md-8" id="Grid">
 
         <!-- Get post number by comparing dates -->
-        {% assign all_posts = site.categories['seminars'] | where: 'lang', page.lang %}
+        {% assign all_posts = site.categories['colloquia'] | where: 'lang', page.lang %}
         {% assign all_posts_grouped = all_posts | group_by: 'date' %}
-        {% assign nsem = all_posts_grouped | size %}
+        {% assign ncoll = all_posts_grouped | size %}
 
         <!-- Academic year range -->
         <!-- Puts yearbegin and yearend, the begin and end years 
@@ -58,7 +58,7 @@ layout: default
               <!-- Initialise some counters -->
               {% assign nposts = 0 %}
               {% assign d_prev = 0 %}
-              {% assign npost = nsem | plus: 1 %}
+              {% assign npost = ncoll | plus: 1 %}
 
               <!-- Loop over all posts -->
               {% for post in all_posts %}
@@ -92,7 +92,7 @@ layout: default
                   <div class="panel-body">
 
                     {% assign posturl = post.url | prepend: site.baseurl %}
-                    <span class="badge pull-right">{{ tsl.count_pre }}{{ npost }}<sup>{{ lang_count }}</sup>{{ tsl.count_aft }}{% if post.part %}{{ open_surround }}{{ tsl.part }} {{ post.part }}{{ close_surround }}{% endif %}</span>
+                    <span class="badge pull-right">{{ tcl.count_pre }}{{ npost }}<sup>{{ lang_count }}</sup>{{ tcl.count_aft }}{% if post.part %}{{ open_surround }}{{ tcl.part }} {{ post.part }}{{ close_surround }}{% endif %}</span>
                     <h3 class="post-title"><a href="{{ posturl }}" class="transicion"> {{ post.title }}</a></h3>
                     <div class="row">
                       <div class="col-lg-6">
@@ -140,7 +140,7 @@ layout: default
               <!-- Initialise some counters -->
               {% assign nposts = 0 %}
               {% assign d_prev = 0 %}
-              {% assign npost = nsem | plus: 1 %}
+              {% assign npost = ncoll | plus: 1 %}
 
               <!-- Loop over all posts -->
               {% for post in all_posts %}
@@ -168,7 +168,7 @@ layout: default
               <a href="{{ posturl }}" class="list-group-item">
                 <div class="media">
                   <span class="pull-left">
-                    <span class="badge">{{ tsl.count_pre }}{{ npost }}<sup>{{ lang_count }}</sup>{{ tsl.count_aft }}{% if post.part %}{{ open_surround }}{{ tsl.part }} {{ post.part }}{{ close_surround }}{% endif %}</span><br /><br />
+                    <span class="badge">{{ tcl.count_pre }}{{ npost }}<sup>{{ lang_count }}</sup>{{ tcl.count_aft }}{% if post.part %}{{ open_surround }}{{ tcl.part }} {{ post.part }}{{ close_surround }}{% endif %}</span><br /><br />
                     {% if post.img_thumb %}<img src="{{ site.baseurl }}{{ la.img }}/{{ post.categories[0] }}/{{ post.img_thumb }}" class="pull-left media-object" alt="Image" width="150px" height="150px">{% endif %}</span>
 
                   <div class="media-body">
@@ -200,7 +200,7 @@ layout: default
               <!-- Initialise some counters -->
               {% assign nposts = 0 %}
               {% assign d_prev = 0 %}
-              {% assign npost = nsem | plus: 1 %}
+              {% assign npost = ncoll | plus: 1 %}
 
               <!-- Loop over all posts -->
               {% for post in all_posts %}
@@ -228,7 +228,7 @@ layout: default
                  <a href="{{ posturl }}" class="list-group-item">
                    <div class="media">
                      <div class="media-body">
-                       <h4 class="media-heading"><span class="badge pull-right">{{ tsl.count_pre }}{{ npost }}<sup>{{ lang_count }}</sup>{{ tsl.count_aft }}{% if post.part %}{{ open_surround }}{{ tsl.part }} {{ post.part }}{{ close_surround }}{% endif %}</span> {{ post.title }} </h4>
+                       <h4 class="media-heading"><span class="badge pull-right">{{ tcl.count_pre }}{{ npost }}<sup>{{ lang_count }}</sup>{{ tcl.count_aft }}{% if post.part %}{{ open_surround }}{{ tcl.part }} {{ post.part }}{{ close_surround }}{% endif %}</span> {{ post.title }} </h4>
                        <h5 class="media-heading">{{ post.speaker }}{{ open_surround }}{{ post.affil }}{{ close_surround }}</h5>
                        <i class="fa fa-calendar"></i> {% include date.html d=post.date l='t' %} &nbsp;
                        <i class="fa fa-clock-o"></i> {{ post.time | replace: ':',' : ' }} &nbsp; 
@@ -254,7 +254,7 @@ layout: default
                 <!-- Initialise some counters -->
                 {% assign nposts = 0 %}
                 {% assign d_prev = 0 %}
-                {% assign npost = nsem | plus: 1 %}
+                {% assign npost = ncoll | plus: 1 %}
 
                 <!-- Loop over all posts -->
                 {% for post in all_posts %}
@@ -306,7 +306,7 @@ layout: default
       <div class="col-md-4 hidden-xs hidden-sm">
         <aside class="sidebar">
 
-          {% include aside_about.html a=content t=tsl.about_header %}
+          {% include aside_about.html a=content t=tcl.about_header %}
           {% include aside_nav.html dup=true %}
 
         </aside> <!-- Sidebar -->

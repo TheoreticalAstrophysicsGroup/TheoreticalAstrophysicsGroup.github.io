@@ -61,9 +61,9 @@ defaults:
       lang: ja
   -
     scope:
-      path: seminars
+      path: colloquia
     values:
-      layout: single_seminar
+      layout: single_collquium
   -
     scope:
       path: news

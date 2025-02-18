@@ -5,7 +5,7 @@
 categories:
   achievements: &achievements /achievements 
   news:  &news /news
-  seminars: &seminars /seminars 
+  colloquia: &colloquia /colloquia 
   uchu_forum: &uchu_forum /uchu_forum 
   conferences: &conferences /conferences 
   featured: &featured /featured 
@@ -71,7 +71,7 @@ internal:
   contact: &contact /contact
   information: &information /information
   uchu_forum: *uchu_forum
-  seminars: *seminars
+  colloquia: *colloquia
   conferences: *conferences
   conferences_future_local: &conferences_fl /conferences/#future
   conferences_current_local: &conferences_cl /conferences/#current
@@ -122,7 +122,7 @@ nav:
     information: *information
   schedule:
     uchu_forum: *uchu_forum
-    seminars: *seminars
+    colloquia: *colloquia
     conferences: *conferences
     calendar: *calendar
     uot_calendar: external

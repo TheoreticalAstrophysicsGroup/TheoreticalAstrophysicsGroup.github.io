@@ -2,11 +2,11 @@
 layout: default
 ---
 
-{% assign tsl = site.data.translations.seminars[page.lang] %}
-{% assign tcll = site.data.translations.categories.long[page.lang] %}
+{% assign tcl = site.data.translations.colloquia[page.lang] %}
+{% assign tcatll = site.data.translations.categories.long[page.lang] %}
 {% assign la = site.data.links.assets %}
 
-{% include page_header.html title=tcll.seminars %}
+{% include page_header.html title=tcatll.colloquia %}
 
 <div class="container">
   <div class="row">
@@ -14,7 +14,7 @@ layout: default
       <section>
 
       <!-- Get post number by comparing dates -->
-      {% assign all_posts = site.categories['seminars'] | where: 'lang', page.lang | group_by: 'date' %}
+      {% assign all_posts = site.categories['colloquia'] | where: 'lang', page.lang | group_by: 'date' %}
       {% assign nposts = all_posts | size %}
       {% for p in all_posts reversed %}
         {% assign d = page.date | date: "%Y-%m-%d" %}
@@ -31,7 +31,7 @@ layout: default
       <!-- This creates an lang_count variable into the namespace -->
       {% include lang_count.html number=npost %}
 
-      <p class="lead">{{ tsl.count_pre }}{{ npost }}<sup>{{ lang_count }}</sup>{{ tsl.count_aft }}{% if page.part %}{{ open_surround }}{{ tsl.part }} {{ page.part }}{{ close_surround }}{% endif %}</p>
+      <p class="lead">{{ tcl.count_pre }}{{ npost }}<sup>{{ lang_count }}</sup>{{ tcl.count_aft }}{% if page.part %}{{ open_surround }}{{ tcl.part }} {{ page.part }}{{ close_surround }}{% endif %}</p>
 
       {% if page.img_thumb %}
       <!-- Only show an image here if it is a profile picture 
@@ -57,7 +57,7 @@ layout: default
 
         <br/>
 
-        <h5>{{ tsl.abstract }}</h5>
+        <h5>{{ tcl.abstract }}</h5>
         {{ page.content }}
 
         {% if page.img %}
@@ -66,7 +66,7 @@ layout: default
 
 
         {% if page.photos %}
-        <h3 id="photos"> {{ tsl.photos }} </h3>
+        <h3 id="photos"> {{ tcl.photos }} </h3>
         <div id="Grid" class="row">
           {% for photo in page.photos %}
           <div class="col-sm-6 col-lg-3 col-md-4">
@@ -77,7 +77,7 @@ layout: default
           {% endfor %}
         </div>
         {% if page.photos_zip %}
-        <p><a href="{{ site.baseurl }}{{ la.img }}/{{ page.categories[0] }}/{{ page.photos_zip }}" target="_blank">{{ tsl.photos_zip }}</a></p>
+        <p><a href="{{ site.baseurl }}{{ la.img }}/{{ page.categories[0] }}/{{ page.photos_zip }}" target="_blank">{{ tcl.photos_zip }}</a></p>
         {% endif %}
         {% endif %}
 
@@ -91,7 +91,7 @@ layout: default
         <!-- AYW 2014-06-22 13:26 JST Not yet programmed -->
         <!-- {% raw %} {% include aside_search.html %} {% endraw %} -->
 
-        {% include aside_seminar_info.html %}
+        {% include aside_colloquium_info.html %}
         {% include aside_nav_single.html %}
 
       </aside>

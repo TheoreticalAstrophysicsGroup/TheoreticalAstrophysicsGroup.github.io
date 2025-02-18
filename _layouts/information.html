@@ -39,9 +39,9 @@ layout: default
       </table>
       <br/>
 
-      <h3 class="post-title">{{ til.seminars }}</h3>
+      <h3 class="post-title">{{ til.colloquia }}</h3>
 
-      {% for m in page.seminars_message %}
+      {% for m in page.colloquia_message %}
       {% if forloop.index == 1 %}
       <p>{{ m }}</p>
       {% else %}
@@ -60,7 +60,7 @@ layout: default
           </tr>
         </thead>
         <tbody>
-          {% for s in page.seminars %}
+          {% for s in page.colloquia %}
           <tr>
             <td>{{ forloop.index }}</td>
             <td>{{ s.name }}</td>

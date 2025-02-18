@@ -32,7 +32,7 @@ layout: default
       <!-- Get post number by comparing dates -->
       {% assign all_posts = site.categories['uchu_forum'] | where: 'lang', page.lang %}
       {% assign all_posts_grouped = all_posts | group_by: 'date' %}
-      {% assign nsem = all_posts_grouped | size %}
+      {% assign nuchu = all_posts_grouped | size %}
 
       <!-- Academic year range -->
       <!-- Puts yearbegin and yearend, the begin and end years 
@@ -58,7 +58,7 @@ layout: default
         <!-- Initialise some counters -->
         {% assign nposts = 0 %}
         {% assign d_prev = 0 %}
-        {% assign npost = nsem | plus: 1 %}
+        {% assign npost = nuchu | plus: 1 %}
 
         <!-- Loop over all posts -->
         {% for post in all_posts %}
@@ -140,7 +140,7 @@ layout: default
         <!-- Initialise some counters -->
         {% assign nposts = 0 %}
         {% assign d_prev = 0 %}
-        {% assign npost = nsem | plus: 1 %}
+        {% assign npost = nuchu | plus: 1 %}
 
         <!-- Loop over all posts -->
         {% for post in all_posts %}
@@ -199,7 +199,7 @@ layout: default
         <!-- Initialise some counters -->
         {% assign nposts = 0 %}
         {% assign d_prev = 0 %}
-        {% assign npost = nsem | plus: 1 %}
+        {% assign npost = nuchu | plus: 1 %}
 
         <!-- Loop over all posts -->
         {% for post in all_posts %}
@@ -253,7 +253,7 @@ layout: default
           <!-- Initialise some counters -->
           {% assign nposts = 0 %}
           {% assign d_prev = 0 %}
-          {% assign npost = nsem | plus: 1 %}
+          {% assign npost = nuchu | plus: 1 %}
 
           <!-- Loop over all posts -->
           {% for post in all_posts %}

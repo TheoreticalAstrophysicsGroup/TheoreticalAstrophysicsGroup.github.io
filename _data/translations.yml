@@ -4,7 +4,7 @@ categories:
     ja:
       achievements: &achievements_short_ja 研究成果
       news: &news_short_ja ニュース
-      seminars: &seminars_short_ja セミナー
+      colloquia: &colloquia_short_ja セミナー
       uchu_forum: &uchu_forum_short_ja 宇宙フォーラム
       conferences: &conferences_short_ja 研究会
       projects: &projects_short_ja プロジェクト
@@ -12,7 +12,7 @@ categories:
     en:
       achievements: &achievements_short_en Achievements
       news: &news_short_en News
-      seminars: &seminars_short_en Seminars
+      colloquia: &colloquia_short_en Seminars
       uchu_forum: &uchu_forum_short_en Uchu Forum
       conferences: &conferences_short_en Conferences
       projects: &projects_short_en Projects
@@ -21,7 +21,7 @@ categories:
     ja:
       achievements: 研究成果・発表論文
       news: ニュース & 最新情報
-      seminars: つくば宇宙理論セミナー
+      colloquia: つくば宇宙理論セミナー
       uchu_forum: つくば宇宙フォーラム
       conferences: 研究会・ワークショップ
       projects: 研究プロジェクト
@@ -29,7 +29,7 @@ categories:
     en:
       achievements: Achievements & Publications
       news: News & Updates
-      seminars: Theoretical Astrophysics Seminars
+      colloquia: Theoretical Astrophysics Seminars
       uchu_forum: Tsukuba Uchu Forum
       conferences: Conferences & Workshops
       projects: Research Projects
@@ -89,7 +89,7 @@ achievements:
 information:
   ja:
     activities: 活動・アクティビティ
-    seminars: 開催中のセミナー
+    colloquia: 開催中のセミナー
     other: その他
     name: 
     participants: 参加者
@@ -99,7 +99,7 @@ information:
     text: 教科書・資料
   en:
     activities: Activities
-    seminars: Seminars
+    colloquia: Seminars
     other: Other meetings
     name: Name
     participants: Participants
@@ -725,7 +725,7 @@ uchu_forum: # Make these the same as categories naming below?
     photos: Photo Album
     photos_zip: Download all photos at high res (zip)
 
-seminars:
+colloquia:
   ja:
     count_pre: 第 
     count_aft: 回
@@ -973,7 +973,7 @@ header:
     alumni: &alumni_ja 出身者一覧
     schedule: スケジュール
     uchu_forum: *uchu_forum_short_ja
-    seminars: *seminars_short_ja
+    colloquia: *colloquia_short_ja
     conferences: *conferences_short_ja
     conferences_future_local: *conferences_fl_ja
     conferences_current_local: *conferences_cl_ja
@@ -1033,7 +1033,7 @@ header:
     alumni: &alumni_en Alumni
     schedule: Schedule
     uchu_forum: *uchu_forum_short_en
-    seminars: *seminars_short_en
+    colloquia: *colloquia_short_en
     conferences: *conferences_short_en
     conferences_past_local: *conferences_pl_en
     conferences_current_local: *conferences_cl_en
@@ -1087,7 +1087,7 @@ footer:
     news: *news_short_ja
     uchu_forum: *uchu_forum_short_ja
     projects: *projects_short_ja
-    seminars: *seminars_short_ja
+    colloquia: *colloquia_short_ja
     conferences_future_local: *conferences_short_ja
     information: *information_ja
     calendar: *calendar_ja
@@ -1108,7 +1108,7 @@ footer:
     news: *news_short_en
     uchu_forum: *uchu_forum_short_en
     projects: *projects_short_en
-    seminars: *seminars_short_en
+    colloquia: *colloquia_short_en
     conferences_future_local: *conferences_short_en
     information: *information_en
     calendar: *calendar_en
