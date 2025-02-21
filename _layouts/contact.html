@@ -2,7 +2,9 @@
 layout: default
 ---
 
-{% assign tcl = site.data.translations.contact[page.lang] %}
+{% assign tc_l = site.data.translations.contact[page.lang] %}
+{% assign tcf_l = site.data.translations.contact_form[page.lang] %}
+{% assign tc = site.data.translations.contact %}
 
 {% include page_header.html title=page.title %}
 
@@ -10,16 +12,131 @@ layout: default
   <div class="row">
     <div class="col-md-7">
 
-      <h3>{{ tcl.contact_form }}</h3>
+    <h3>{{ tcl.contact_form }}</h3>
 
-<!-- www.123formbuilder.com script begins here -->
-<script type="text/javascript" defer src="//www.123formbuilder.com/embed/3858389.js" data-role="form" data-default-width="650px"></script>
-<!-- www.123formbuilder.com script ends here -->
+  <div class="contact_form">
+
+    {{ content }}
+
+    <!-- We are using jquery/ajax so minimal info required in form tag -->
+    <form id="contactForm" autocomplete="on">
+
+      <br />
+
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <label for="InputLastName"> {{ tc_l.input_last_name }} </label>
+            <input type="text" class="form-control" name="InputLastName" id="InputLastName" placeholder="{{ tc_l.ph_last_name }}" 
+              autofocus {% if page.lang == "ja" %} required {% endif %}>
+              <!-- These Japanese pattern checks don't work. Neither do unicode points regex. -->
+              <!-- pattern="[\p{Han}\p{Hiragana}\p{Katakana}]+" -->
+          </div>
+
+          <div class="form-group col-sm-6">
+            <label for="InputFirstName"> {{ tc_l.input_first_name }} </label>
+            <input type="text" class="form-control" name="InputFirstName" id="InputFirstName"
+              placeholder="{{ tc_l.ph_first_name }}" 
+              {% if page.lang == "ja" %} required {% endif %}>
+              <!-- These Japanese pattern checks don't work. Neither do unicode points regex. -->
+              <!-- pattern="[\p{Han}\p{Hiragana}\p{Katakana}]+" -->
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <label for="InputEmail">{{ tc_l.input_email }}</label>
+            <input type="email" class="form-control" name="InputEmail" id="InputEmail"
+              placeholder="{{ tc_l.ph_email }}" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z.]{2,}$" required>
+          </div>
+
+          {% assign positions = 'professor associate_professor lecturer assistant_professor postdoc postdoc_student d5 d4 d3 d2 d1' | split: ' ' %}
+
+          <div class="form-group col-sm-6 col-md-4">
+            <label for="InputAddressee"> {{ tc_l.input_addressee }} </label>
+            <input list="addressee" class="form-control" name="InputAddressee" id="InputAddressee" required>
+            <datalist id="addressee">
+              {% for p in positions %}
+              {% assign pindex = forloop.index %}
+              {% assign mem_ja = site.members | where: 'lang', "ja" | where: 'position', p | sort: 'order' %}
+              {% assign mem_en = site.members | where: 'lang', "en" | where: 'position', p | sort: 'order' %}
+              {% assign adh_ja = tc['ja'].additional_addressees | where: 'position', p | sort: 'order' %}
+              {% assign adh_en = tc['en'].additional_addressees | where: 'position', p | sort: 'order' %}
+              {% assign addressees_ja = mem_ja | concat: adh_ja %}
+              {% assign addressees_en = mem_en | concat: adh_en %}
+              {% for h in addressees_ja %}
+              {% assign hindex = forloop.index | minus: 1 %}
+              {% assign h_en = addressees_en[hindex] %}
+              {% unless pindex == 1 and hindex == 0 %}
+              <option value="{{ h.name }} | {{ h_en.name }}">
+              {% endunless %}
+              {% endfor %}
+              {% endfor %}
+            </datalist>
+          </div>
+        </div>
 
 
-      <!-- Doesn't work (temporarily?)
-      <iframe src="http://www.qontacto.com/f/53bd591ea2f19c2ffd000013" data-aem="alexander.y.wagner@gmail.com" width="100%" height="461px" style="width:100%;height:461px;border:0;"></iframe>
-      -->
+
+      <br />
+
+
+        <div class="row">
+          <div class="form-group col-sm-12">
+            <label for="InputSubject">{{ tc_l.input_subject }}</label>
+            <input type="text" class="form-control" name="InputSubject" id="InputSubject"
+              placeholder="{{ tc_l.ph_subject }}" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group col-sm-12">
+            <label for="InputBody">{{ tc_l.input_body }}</label>
+            <textarea type="text" class="form-control" name="InputBody" id="InputBody"
+                      placeholder="{{ tc_l.ph_body }}" rows=15 required></textarea>
+          </div>
+        </div>
+
+
+      <br />
+
+      <div class="clearfix"></div>
+
+      <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+
+    </form>
+
+      <p class="grecaptcha-message">This site is protected by reCAPTCHA and the Google
+        <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+        <a href="https://policies.google.com/terms">Terms of Service</a> apply.</p>
+
+
+      <div class="row">
+        <div class="col-sm-12">
+          <button type="submit" id="sf_submit_btn" class="btn btn-primary pull-right" form="contactForm">{{ tc_l.submit }}</button>
+        </div>
+      </div>
+
+      <br />
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="panel panel-primary" id="form_success" style="display:none;">
+          <div class="panel-body">
+            {{ tc_l.form_success }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+
+
+
+
 
     </div>
     <div class="col-md-5">

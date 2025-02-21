@@ -108,10 +108,10 @@ information:
     about: About
     text: Textbook, notes
 
-# Uchu-forum form
+# Speakers form
 speakers_form:
   ja:
-    speakers_form_header: 宇宙フォーラム情報収取
+    speakers_form_header: 講演・講演者情報
     input_last_name: 姓 ＊
     input_first_name: 名 ＊
     input_last_name_romaji: 姓（半角ローマ字） ＊
@@ -165,7 +165,7 @@ speakers_form:
     legend_about_speaker: 発表者について
     submit: 送信
   en:
-    speakers_form_header: Uchu-forum information request
+    speakers_form_header: Information about the speaker and talk
     input_last_name: Last name (Kanji, Kana) 
     input_first_name: First name (Kanji, Kana) 
     input_last_name_romaji: Last name (Alphabet) ＊
@@ -218,6 +218,49 @@ speakers_form:
     legend_about_talk: About your talk
     legend_about_speaker: About yourself
     submit: Submit
+
+
+
+# Speakers form
+contact_form:
+  ja:
+    input_last_name: 姓 ＊
+    input_first_name: 名 ＊
+    input_email: メール（半角） ＊
+    input_addressee: 宛先 ＊
+    input_subject: 発表タイトル ＊
+    input_body: 発表概要 ＊
+    additional_contacts: 
+      - name: 小幡 真弓
+        email: obata@ccs.tsukuba.ac.jp
+        position: admin_assistant
+        order: 1
+    ph_last_name: 湯川
+    ph_first_name: 秀樹
+    ph_email: your@email.com
+    ph_subject: 要件
+    ph_body: メッセージ
+    form_success: メッセージありがとうございます。まもなくご連絡いたします。
+    submit: 送信
+  en:
+    input_last_name: Last name ＊
+    input_first_name: First name ＊
+    input_email: Email ＊
+    input_addressee: Addressee ＊
+    input_subject: Subject ＊
+    input_body: Message ＊
+    additional_contacts: 
+      - name: Mayumi Obata
+        position: admin_assistant
+        order: 1
+    ph_last_name: Einstein
+    ph_first_name: Albert
+    ph_email: your@email.com
+    ph_subject: What your message is about
+    ph_talk_abstract: Message
+    form_success: Thank you for contacting us! We will be in touch shortly.
+    submit: Submit
+
 
 
 # Members page translations
