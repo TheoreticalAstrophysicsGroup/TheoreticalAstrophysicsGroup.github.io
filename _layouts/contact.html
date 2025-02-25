@@ -2,9 +2,9 @@
 layout: default
 ---
 
+{% assign tml = site.data.translations.members[page.lang] %}
 {% assign tc_l = site.data.translations.contact[page.lang] %}
 {% assign tcf_l = site.data.translations.contact_form[page.lang] %}
-{% assign tc = site.data.translations.contact %}
 
 {% include page_header.html title=page.title %}
 
@@ -12,11 +12,9 @@ layout: default
   <div class="row">
     <div class="col-md-7">
 
-    <h3>{{ tcl.contact_form }}</h3>
+    <h3>{{ tc_l.contact_form }}</h3>
 
   <div class="contact_form">
-
-    {{ content }}
 
     <!-- We are using jquery/ajax so minimal info required in form tag -->
     <form id="contactForm" autocomplete="on">
@@ -25,17 +23,17 @@ layout: default
 
         <div class="row">
           <div class="form-group col-sm-6">
-            <label for="InputLastName"> {{ tc_l.input_last_name }} </label>
-            <input type="text" class="form-control" name="InputLastName" id="InputLastName" placeholder="{{ tc_l.ph_last_name }}" 
+            <label for="InputLastName"> {{ tcf_l.input_last_name }} </label>
+            <input type="text" class="form-control" name="InputLastName" id="InputLastName" placeholder="{{ tcf_l.ph_last_name }}" 
               autofocus {% if page.lang == "ja" %} required {% endif %}>
               <!-- These Japanese pattern checks don't work. Neither do unicode points regex. -->
               <!-- pattern="[\p{Han}\p{Hiragana}\p{Katakana}]+" -->
           </div>
 
           <div class="form-group col-sm-6">
-            <label for="InputFirstName"> {{ tc_l.input_first_name }} </label>
+            <label for="InputFirstName"> {{ tcf_l.input_first_name }} </label>
             <input type="text" class="form-control" name="InputFirstName" id="InputFirstName"
-              placeholder="{{ tc_l.ph_first_name }}" 
+              placeholder="{{ tcf_l.ph_first_name }}" 
               {% if page.lang == "ja" %} required {% endif %}>
               <!-- These Japanese pattern checks don't work. Neither do unicode points regex. -->
               <!-- pattern="[\p{Han}\p{Hiragana}\p{Katakana}]+" -->
@@ -44,55 +42,77 @@ layout: default
 
         <div class="row">
           <div class="form-group col-sm-6">
-            <label for="InputEmail">{{ tc_l.input_email }}</label>
-            <input type="email" class="form-control" name="InputEmail" id="InputEmail"
-              placeholder="{{ tc_l.ph_email }}" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z.]{2,}$" required>
+            <label for="InputLastNameRomaji"> {{ tcf_l.input_last_name_romaji }} </label>
+            <input type="text" class="form-control" name="InputLastNameRomaji" id="InputLastNameRomaji"
+              placeholder="{{ tcf_l.ph_last_name_romaji }}" 
+              pattern="[A-ZÀ-Ÿ][-'a-zà-ÿ]{1,}" required>
           </div>
 
+          <div class="form-group col-sm-6">
+            <label for="InputFirstNameRomaji"> {{ tcf_l.input_first_name_romaji }} </label>
+            <input type="text" class="form-control" name="InputFirstNameRomaji" id="InputFirstNameRomaji"
+              placeholder="{{ tcf_l.ph_first_name_romaji }}" 
+              pattern="[A-ZÀ-Ÿ][-'a-zà-ÿ]{1,}" required>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <label for="InputEmail">{{ tcf_l.input_email }}</label>
+            <input type="email" class="form-control" name="InputEmail" id="InputEmail"
+              placeholder="{{ tcf_l.ph_email }}" pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z.]{2,}$" required>
+          </div>
+
+
+
+	  {% assign names = "" %}
+	  {% assign emails = "" %}
           {% assign positions = 'professor associate_professor lecturer assistant_professor postdoc postdoc_student d5 d4 d3 d2 d1' | split: ' ' %}
 
-          <div class="form-group col-sm-6 col-md-4">
-            <label for="InputAddressee"> {{ tc_l.input_addressee }} </label>
-            <input list="addressee" class="form-control" name="InputAddressee" id="InputAddressee" required>
-            <datalist id="addressee">
+          <div class="form-group col-sm-6">
+            <label for="InputRecipient"> {{ tcf_l.input_recipient }} </label>
+            <input list="recipient" class="form-control" name="InputRecipient" id="InputRecipient" 
+             placeholder="{{ tcf_l.ph_recipient }}" required>
+            <datalist id="recipient">
               {% for p in positions %}
-              {% assign pindex = forloop.index %}
-              {% assign mem_ja = site.members | where: 'lang', "ja" | where: 'position', p | sort: 'order' %}
-              {% assign mem_en = site.members | where: 'lang', "en" | where: 'position', p | sort: 'order' %}
-              {% assign adh_ja = tc['ja'].additional_addressees | where: 'position', p | sort: 'order' %}
-              {% assign adh_en = tc['en'].additional_addressees | where: 'position', p | sort: 'order' %}
-              {% assign addressees_ja = mem_ja | concat: adh_ja %}
-              {% assign addressees_en = mem_en | concat: adh_en %}
-              {% for h in addressees_ja %}
-              {% assign hindex = forloop.index | minus: 1 %}
-              {% assign h_en = addressees_en[hindex] %}
-              {% unless pindex == 1 and hindex == 0 %}
-              <option value="{{ h.name }} | {{ h_en.name }}">
-              {% endunless %}
+              {% assign mem = site.members | where: 'lang', page.lang | where: 'position', p | sort: 'order' %}
+	      {% if tcf_l.additional_recipients %}
+                {% assign recipients = mem | concat: tcf_l.additional_recipients %}
+	      {% else %}
+                {% assign recipients = mem %}
+	      {% endif %}
+              {% for h in recipients %}
+	      {% assign names = names | append: h.name | append: '|' %}
+	      {% assign emails = emails | append: h.email | append: '|' %}
+	      <option value="{{ h.name }}">
               {% endfor %}
               {% endfor %}
             </datalist>
           </div>
         </div>
 
-
+	<!-- Send which language we're on, and names and  -->
+	<input type="hidden" name="InputLang" id="InputLang" value="{{ page.lang }}" >
+	<input type="hidden" name="InputNames" id="InputNames" value="{{ names }}" >
+	<input type="hidden" name="InputEmails" id="InputEmails" value="{{ emails }}" >
 
       <br />
 
 
         <div class="row">
           <div class="form-group col-sm-12">
-            <label for="InputSubject">{{ tc_l.input_subject }}</label>
+            <label for="InputSubject">{{ tcf_l.input_subject }}</label>
             <input type="text" class="form-control" name="InputSubject" id="InputSubject"
-              placeholder="{{ tc_l.ph_subject }}" required>
+              placeholder="{{ tcf_l.ph_subject }}" required>
           </div>
         </div>
 
         <div class="row">
           <div class="form-group col-sm-12">
-            <label for="InputBody">{{ tc_l.input_body }}</label>
+            <label for="InputBody">{{ tcf_l.input_body }}</label>
             <textarea type="text" class="form-control" name="InputBody" id="InputBody"
-                      placeholder="{{ tc_l.ph_body }}" rows=15 required></textarea>
+                      placeholder="{{ tcf_l.ph_body }}" rows=15 required></textarea>
           </div>
         </div>
 
@@ -112,7 +132,7 @@ layout: default
 
       <div class="row">
         <div class="col-sm-12">
-          <button type="submit" id="sf_submit_btn" class="btn btn-primary pull-right" form="contactForm">{{ tc_l.submit }}</button>
+          <button type="submit" id="sf_submit_btn" class="btn btn-primary pull-right" form="contactForm">{{ tcf_l.submit }}</button>
         </div>
       </div>
 
@@ -122,7 +142,7 @@ layout: default
       <div class="col-sm-12">
         <div class="panel panel-primary" id="form_success" style="display:none;">
           <div class="panel-body">
-            {{ tc_l.form_success }}
+            {{ tcf_l.form_success }}
           </div>
         </div>
       </div>

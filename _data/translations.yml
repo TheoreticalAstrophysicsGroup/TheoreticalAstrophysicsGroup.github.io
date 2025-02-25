@@ -221,43 +221,62 @@ speakers_form:
 
 
 
-# Speakers form
+# Contact page translations
+contact:
+  ja:
+    contact_form: コンタクト フォーム
+  en:
+    contact_form: Contact Form
+
+
+# contact form
 contact_form:
   ja:
     input_last_name: 姓 ＊
     input_first_name: 名 ＊
-    input_email: メール（半角） ＊
-    input_addressee: 宛先 ＊
-    input_subject: 発表タイトル ＊
-    input_body: 発表概要 ＊
-    additional_contacts: 
+    input_last_name_romaji: 姓（ローマ字） ＊
+    input_first_name_romaji: 名（ローマ字） ＊
+    input_email: メールアドレス（半角） ＊
+    input_recipient: 宛先 ＊
+    input_subject: 件名 ＊
+    input_body: メッセージの本文 ＊
+    additional_recipients: 
       - name: 小幡 真弓
         email: obata@ccs.tsukuba.ac.jp
         position: admin_assistant
         order: 1
     ph_last_name: 湯川
     ph_first_name: 秀樹
+    ph_last_name_romaji: Yukawa
+    ph_first_name_romaji: Hideki
+    ph_recipient: 選択してください
     ph_email: your@email.com
-    ph_subject: 要件
+    ph_subject: 件名
     ph_body: メッセージ
     form_success: メッセージありがとうございます。まもなくご連絡いたします。
     submit: 送信
   en:
-    input_last_name: Last name ＊
-    input_first_name: First name ＊
+    input_last_name: Last name (Kanji, Kana)
+    input_first_name: First name (Kanji, Kana)
+    input_last_name_romaji: Last name (Alphabet) ＊
+    input_first_name_romaji: First name (Alphabet) ＊
     input_email: Email ＊
-    input_addressee: Addressee ＊
+    input_recipient: Recipient ＊
     input_subject: Subject ＊
     input_body: Message ＊
-    additional_contacts: 
+    additional_recipients: 
       - name: Mayumi Obata
+        email: obata@ccs.tsukuba.ac.jp
         position: admin_assistant
         order: 1
-    ph_last_name: Einstein
-    ph_first_name: Albert
+    ph_last_name: アルバート
+    ph_first_name: アインシュタイン
+    ph_last_name_romaji: Einstein
+    ph_first_name_romaji: Albert
+    ph_recipient: Please choose a recipient
     ph_email: your@email.com
     ph_subject: What your message is about
-    ph_talk_abstract: Message
+    ph_body: Message
     form_success: Thank you for contacting us! We will be in touch shortly.
     submit: Submit
 
@@ -526,20 +545,6 @@ admission:
     contact: Contact
     access: Access
 
-# Contact page translations
-contact:
-  ja:
-    name: <i class="fa fa-user"></i> 氏名
-    email: <i class="fa fa-envelope"></i> メールアドレス
-    message: <i class="fa fa-edit"></i> メッセージ
-    send: 送信
-    contact_form: コンタクト フォーム
-  en:
-    name: <i class="fa fa-user"></i> Name
-    email: <i class="fa fa-envelope"></i> Email
-    message: <i class="fa fa-edit"></i> Message
-    send: Send Message
-    contact_form: Contact Form
 
 # Resources page translations
 resources:
