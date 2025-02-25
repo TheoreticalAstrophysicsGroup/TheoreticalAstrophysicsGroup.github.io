@@ -108,6 +108,8 @@ layout: default
               {% assign hindex = forloop.index | minus: 1 %}
               {% assign h_en = hosts_en[hindex] %}
               {% unless pindex == 1 and hindex == 0 %}
+	      {% assign names = names | append: h_en.name | append: '|' %}
+	      {% assign emails = emails | append: h.email | append: '|' %}
               <option value="{{ h.name }} | {{ h_en.name }}">
               {% endunless %}
               {% endfor %}
@@ -189,6 +191,11 @@ layout: default
           </div>
 
         </div>
+
+	<!-- Send which language we're on, and names and emails through hidden fields -->
+	<input type="hidden" name="InputLang" id="InputLang" value="{{ page.lang }}" >
+	<input type="hidden" name="InputNames" id="InputNames" value="{{ names }}" >
+	<input type="hidden" name="InputEmails" id="InputEmails" value="{{ emails }}" >
 
       </fieldset>
 

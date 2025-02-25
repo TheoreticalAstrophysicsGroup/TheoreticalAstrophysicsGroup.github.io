@@ -35,7 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     # Organizer, sender
     $organizer_uchu_forum_ja = "金田";
     $organizer_uchu_forum_en = "Yuko Kaneda";
-    $email_uchu_forum = "kaneda@ccs.tsukuba.ac.jp, s2430049@u.tsukuba.ac.jp";
+    $organizer_colloquium_ja = "芳岡";
+    $organizer_colloquium_en = "Shogo Yoshioka";
+    $email_uchu_forum = "kaneda@ccs.tsukuba.ac.jp, syoshioka@u.tsukuba.ac.jp";
+    $email_colloquium = "kaneda@ccs.tsukuba.ac.jp, syoshioka@u.tsukuba.ac.jp";
     $email_sender = 'kaneda@ccs.tsukuba.ac.jp';
     $test = false;
     $email_recipient_tester = 'ayw@ccs.tsukuba.ac.jp';
@@ -57,36 +60,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
       'コロキウム' => 'colloquia', 
       'Uchu Forum' => 'uchu_forum', 
       'Colloquium' => 'colloquia', 
-    );
-
-    # Host emails (needs to be regularly updated)
-    $host_emails = array(
-      'Masayuki Umemura' => 'umemura@ccs.tsukuba.ac.jp',
-      'Ken Ohsuga' => 'ohsuga@ccs.tsukuba.ac.jp',
-      'Masao Mori' => 'mmori@ccs.tsukuba.ac.jp',
-      'Hidenobu Yajima' => 'yajima@ccs.tsukuba.ac.jp',
-      'Kohji Yoshikawa' => 'kohji@ccs.tsukuba.ac.jp',
-      'Alexander Wagner' => 'ayw@ccs.tsukuba.ac.jp',
-      'Hajime Fukushima' => 'fukushima@ccs.tsukuba.ac.jp',
-      'Yuichi Takamizu' => 'takamizu@ccs.tsukuba.ac.jp',
-      'Makito Abe' => 'mabe@ccs.tsukuba.ac.jp',
-      'Yuta Asahina' => 'asahinyt@ccs.tsukuba.ac.jp',
-      'Takumi Ogawa' => 'takumi@ccs.tsukuba.ac.jp',
-      'Satoshi Kikuta' => 'kikutast@ccs.tsukuba.ac.jp',
-      'Takanobu Kirihara' => 'kirihara@ccs.tsukuba.ac.jp',
-      'Shinya Azami' => 'azami@ccs.tsukuba.ac.jp',
-      'Asuka Igarashi' => 'igarashi@ccs.tsukuba.ac.jp',
-      'Mayumi Obata' => 'obata	@ccs.tsukuba.ac.jp',
-      'Ayumu Watanabe' => 'ayumuw@ccs.tsukuba.ac.jp',
-      'Naoki Harada' => 'harada@ccs.tsukuba.ac.jp',
-      'Kenta Soga' => 'soga@ccs.tsukuba.ac.jp',
-      'Akihiro Inoue' => 'akihiro@ccs.tsukuba.ac.jp',
-      'Koki Otaki' => 'otaki@ccs.tsukuba.ac.jp',
-      'Mikiya Takahashi' => 'mikiya@ccs.tsukuba.ac.jp',
-      'Aoto Utsumi' => 'utsumi@ccs.tsukuba.ac.jp',
-      'Takuya Mushano' => 'mushano@ccs.tsukuba.ac.jp',
-      'Erika Ogata' => 'ogata@ccs.tsukuba.ac.jp',
-      'Yuka Kaneda' => 'kaneda@ccs.tsukuba.ac.jp',
     );
 
     # Build POST request
@@ -124,12 +97,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $itkw3 = $_POST['InputTalkKw3'];
     $itr = $_POST['InputTalkRemarks'];
 
+    # These are hidden form variables
+    $ilg = $_POST['InputLang'];
+    $ins = $_POST['InputNames'];
+    $ies = $_POST['InputEmails'];
+
     # TODO: Use DeepL to get English titles and abstracts, and other stuff, if missing.
 
     # Defaults for Japanese names when not given (e.g. in English form, they are optional)
     if (empty($iln)) $iln = $ilnr;
     if (empty($ifn)) $iln = $ifnr;
     if (empty($iaffja)) $iaffja = $iaffen;
+
+    # Host emails: create names-email array. Names will be Romaji (English) names only.
+    # We are currently not using this array, as the host is not organizing.
+    $names = explode("|", $ins);
+    $emails = explode("|", $ies);
+    $name_email_arr = array_combine($names, $emails);
 
     # Create filenames
     $fbase = 'yml/';
@@ -145,6 +129,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $host_ja_sn = $host_ja_bl[0];
     $host_ja_fn = $host_ja_bl[1];
     $host_ja_nsp = $host_ja_sn . $host_ja_fn;
+
+    # Host email.
+    # We are currently not using this, as the host is not organizing.
+    $host_email = $name_email_arr["{$host_en}"]
 
     # Titles sometimes contain colons which we cannot have.
     $itt = str_replace(":", "&#58;", $itt);
@@ -171,13 +159,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
       $file_str = 'uchu-forum';
       $org_email_to = $email_uchu_forum;
     } else {
-      $organizer_ja = $host_ja_sn;
-      $organizer_en = $host_en_fn . " " . $host_en_sn;
+      #$organizer_ja = $host_ja_sn;
+      #$organizer_en = $host_en_fn . " " . $host_en_sn;
+      $organizer_ja = $organizer_colloquium_ja;
+      $organizer_en = $organizer_colloquium_en;
       $subject_str = "コロキウム (Colloquium)";
       $email_intro_ja = "<p>" . $date_str_ja . "（{$twdy_ja}）に" . $iaffja . "の " . $iln . " " . $ifn . " 氏に<br/>ご講演していただきます。 講演タイトルおよび概要を下記に記載いたしましたのでご確認ください。</p>";
       $email_intro_en = "<p>We are pleased to announce that a colloquium will be given on " . $date_str_en . " by " . $ifnr . " " . $ilnr . " from " . $iaffen . ".<br/>Please find the title and abstract of the talk below.</p>" . 
       $file_str = 'colloquium';
-      $org_email_to = $host_emails[$host_en];
+      #$org_email_to = $email_colloquium;
+      $org_email_to = $email_colloquium . ', ' . $host_email;
     }
  
 
