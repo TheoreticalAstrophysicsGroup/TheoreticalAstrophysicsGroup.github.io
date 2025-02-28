@@ -12,7 +12,7 @@ categories:
     en:
       achievements: &achievements_short_en Achievements
       news: &news_short_en News
-      colloquia: &colloquia_short_en Seminars
+      colloquia: &colloquia_short_en Colloquia
       uchu_forum: &uchu_forum_short_en Uchu Forum
       conferences: &conferences_short_en Conferences
       projects: &projects_short_en Projects
@@ -29,7 +29,7 @@ categories:
     en:
       achievements: Achievements & Publications
       news: News & Updates
-      colloquia: Theoretical Astrophysics Seminars
+      colloquia: Theoretical Astrophysics Colloquia
       uchu_forum: Tsukuba Uchu Forum
       conferences: Conferences & Workshops
       projects: Research Projects
@@ -99,7 +99,7 @@ information:
     text: 教科書・資料
   en:
     activities: Activities
-    colloquia: Seminars
+    colloquia: Colloquia
     other: Other meetings
     name: Name
     participants: Participants
@@ -742,14 +742,14 @@ colloquia:
     photos_zip: 全写真ハイレズ (zip)
   en:
     count_pre: ""
-    count_aft: " Seminar"
+    count_aft: " Colloquium"
     part: Part
     abstract: Abstract
     info: Information
     host: Host
     access: Access
     about_speaker: About the Speaker
-    about_header: About the Seminars
+    about_header: About the Colloquia
     pdf_download: Download talk slides as PDF
     pdf_ccswiki: Internal Wiki
     photos: Photo Album
