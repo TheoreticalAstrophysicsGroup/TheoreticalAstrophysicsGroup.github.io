@@ -25,7 +25,7 @@ external:
     pas: http://www.px.tsukuba.ac.jp/~senkou/
     pas_physics: http://www.pas.tsukuba.ac.jp/faculty/physics.html
     pas_cirfse: http://www.pas.tsukuba.ac.jp/~CiRfSE/
-    wiki: http://www2.ccs.tsukuba.ac.jp/ccswiki/astro/
+    wiki: https://www2.ccs.tsukuba.ac.jp/ccswiki/astro/
     observers: http://www.px.tsukuba.ac.jp/~nakai/astroobs/index.html
     scheduler: https://r1.rwin.jp/CCSTsukuba/
     uot_calendar: http://www.tsukuba.ac.jp/campuslife/calendar/
@@ -43,7 +43,7 @@ external:
     pas: http://www.px.tsukuba.ac.jp/~senkou/en/
     pas_physics: http://www.pas.tsukuba.ac.jp/english/index.html
     pas_cirfse: http://www.pas.tsukuba.ac.jp/~CiRfSE/eng/index.html
-    wiki: http://www2.ccs.tsukuba.ac.jp/ccswiki/astro/
+    wiki: https://www2.ccs.tsukuba.ac.jp/ccswiki/astro/
     observers: http://www.px.tsukuba.ac.jp/~nakai/astroobs/index.html
     scheduler: https://r1.rwin.jp/CCSTsukuba/
     uot_calendar: https://www.tsukuba.ac.jp/english/campuslife/calendar.html
