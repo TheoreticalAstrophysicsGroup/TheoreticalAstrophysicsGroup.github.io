@@ -54,9 +54,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     # Translating inputted talk types to category names
     $ttype_ids = array(
       '宇宙フォーラム' => 'uchu_forum', 
-      'コロキウム' => 'colloquium', 
+      'コロキウム' => 'colloquia', 
       'Uchu Forum' => 'uchu_forum', 
-      'Colloquium' => 'colloquium', 
+      'Colloquium' => 'colloquia', 
     );
 
     # Host emails (needs to be regularly updated)

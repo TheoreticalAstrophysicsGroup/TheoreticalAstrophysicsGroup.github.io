@@ -63,7 +63,7 @@ defaults:
     scope:
       path: colloquia
     values:
-      layout: single_collquium
+      layout: single_colloquium
   -
     scope:
       path: news
