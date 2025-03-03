@@ -22,7 +22,7 @@ jobs:
     - name: Rsync deploy
       uses: Burnett01/rsync-deployments@7.0.2
       with:
-        switches: -pvizr
+        switches: -vizr
         legacy_allow_rsa_hostkeys: "true"
         path: _site/
         remote_path: ${{ secrets.DEPLOY_PATH }}
