@@ -97,8 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $uname = $email[0];
 
     # Create filenames
-    $fbase = '../../membersform_data/';  // For site on charon
-    // $fbase = '../../../membersform_data/';  // For my LAMPP setup
+    $fbase = '../../../membersform_data/';  // For site on charon
     $fname_tex = $fbase . strtolower($ilnr) . "_" . strtolower($ifnr) . '.tex';
     $fname_yml = $fbase . strtolower($ilnr) . "_" . strtolower($ifnr) . '.html';
 
