@@ -70,7 +70,7 @@ layout: default
 
 	  {% assign names = "" %}
 	  {% assign emails = "" %}
-          {% assign positions = 'professor associate_professor lecturer assistant_professor postdoc postdoc_student d5 d4 d3 d2 d1' | split: ' ' %}
+          {% assign positions = 'professor associate_professor lecturer assistant_professor' | split: ' ' %}
 
           <div class="form-group col-sm-6">
             <label for="InputRecipient"> {{ tcf_l.input_recipient }} </label>
@@ -79,7 +79,7 @@ layout: default
             <datalist id="recipient">
               {% for p in positions %}
               {% assign mem = site.members | where: 'lang', page.lang | where: 'position', p | sort: 'order' %}
-	      {% if tcf_l.additional_recipients %}
+	      {% if tcf_l.additional_recipients and forloop.last %}
                 {% assign recipients = mem | concat: tcf_l.additional_recipients %}
 	      {% else %}
                 {% assign recipients = mem %}

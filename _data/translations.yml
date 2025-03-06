@@ -150,10 +150,10 @@ speakers_form:
       - name: 本多 俊介
         position: assistant_professor
         order: 2
-    ph_last_name: 鈴木
-    ph_first_name: 一郎
-    ph_last_name_romaji: Suzuki
-    ph_first_name_romaji: Ichiro
+    ph_last_name: 湯浅
+    ph_first_name: 年子
+    ph_last_name_romaji: Yuasa
+    ph_first_name_romaji: Toshiko
     ph_affil_ja: ナルニア大学
     ph_affil_en: University of Narnia
     ph_homepage: https://www.your.homepage.jp
@@ -249,10 +249,10 @@ contact_form:
         email: obata@ccs.tsukuba.ac.jp
         position: admin_assistant
         order: 1
-    ph_last_name: 湯川
-    ph_first_name: 秀樹
-    ph_last_name_romaji: Yukawa
-    ph_first_name_romaji: Hideki
+    ph_last_name: 湯浅
+    ph_first_name: 年子
+    ph_last_name_romaji: Yuasa
+    ph_first_name_romaji: Toshiko
     ph_recipient: 選択してください
     ph_email: your@email.com
     ph_subject: 件名
@@ -273,8 +273,8 @@ contact_form:
         email: obata@ccs.tsukuba.ac.jp
         position: admin_assistant
         order: 1
-    ph_last_name: アルバート
-    ph_first_name: アインシュタイン
+    ph_last_name: アインシュタイン
+    ph_first_name: アルバート
     ph_last_name_romaji: Einstein
     ph_first_name_romaji: Albert
     ph_recipient: Please choose a recipient
@@ -350,10 +350,10 @@ members:
       - 事務補助
     input_research: 主な研究テーマ
     input_homepage: ホームページ（URL）
-    ph_last_name: 鈴木
-    ph_first_name: 一郎
-    ph_last_name_romaji: Suzuki
-    ph_first_name_romaji: Ichiro
+    ph_last_name: 湯浅
+    ph_first_name: 年子
+    ph_last_name_romaji: Yuasa
+    ph_first_name_romaji: Toshiko
     ph_email_1: uname@ccs.tsukuba.ac.jp
     ph_email_2: another@email.com
     ph_tel_1: 010-2345-6789

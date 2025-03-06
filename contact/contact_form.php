@@ -54,7 +54,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     
     # Recipient
     $recipient_name = trim($irp);
-    $recipient = $name_email_arr["{$recipient_name}"] . "@ccs.tsukuba.ac.jp";
+    $recipient = $name_email_arr["{$recipient_name}"];
+    if (!strpos($recipient, "@")) {
+      $recipient = $recipient . "@ccs.tsukuba.ac.jp";
+    }
 
     # Construct email lines and file lines
     $email_body = "
@@ -71,6 +74,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 
 ";
 
+    # Just kept for debugging
+    #error_log("Recipient for contact form message is: {$recipient} <{$recipient_name}>", 3, "/Applications/MAMP/logs/php_error.log");
    
     # Email
     mb_language("neutral");  
