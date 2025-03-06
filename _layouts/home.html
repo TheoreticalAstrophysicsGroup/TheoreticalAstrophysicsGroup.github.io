@@ -280,7 +280,7 @@ layout: default
       <div class="col-md-4 col-sm-6">
       </div>
       <div class="col-md-4 col-sm-6">
-        <a href="{{ li.achievements | prepend: site.baseurl | append page.lang }}" class="btn btn-primary btn-block pull-right">{{ thl.read_more }}</a>
+        <a href="{{ site.baseurl }}{{ li.achievements }}/{{ page.lang }}" class="btn btn-primary btn-block pull-right">{{ thl.read_more }}</a>
       </div>
     </div>
   </div>
