@@ -2,7 +2,7 @@
 layout: default
 ---
 
-{% assign tml = site.data.translations.members[page.lang] %}
+{% assign li = site.data.links.internal %}
 {% assign tc_l = site.data.translations.contact[page.lang] %}
 {% assign tcf_l = site.data.translations.contact_form[page.lang] %}
 
@@ -13,6 +13,8 @@ layout: default
     <div class="col-md-7">
 
     <h3>{{ tc_l.contact_form }}</h3>
+
+    <p>{{ tc_l.for_info }} <a href="{{ site.baseurl }}{{ li.members }}/{{ page.lang }}" target="_blank" >{{ tc_l.refer_to }}</a></p>
 
   <div class="contact_form">
 

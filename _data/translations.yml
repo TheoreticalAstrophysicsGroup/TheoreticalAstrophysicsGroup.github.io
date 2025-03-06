@@ -225,8 +225,12 @@ speakers_form:
 contact:
   ja:
     contact_form: コンタクト フォーム
+    for_info: 研究グループのメンバーについては，
+    refer_to: メンバーページをご参照ください。
   en:
     contact_form: Contact Form
+    for_info: For information about the members of our research group,
+    refer_to: please refer to the members page.
 
 
 # contact form
