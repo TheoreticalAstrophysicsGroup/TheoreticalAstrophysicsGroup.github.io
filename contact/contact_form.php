@@ -6,6 +6,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     # __________________________________________________________________
     # Some settings
 
+    # Mailagent sender
+    $email_mailagent = "contact_form@ccs.tsukuba.ac.jp"
+
     $test = false;
     $email_recipient_tester = 'ayw@ccs.tsukuba.ac.jp';
 
@@ -86,6 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $mailheader  = "MIME-Version: 1.0" . "\r\n";
     $mailheader .= "Content-type: text/html; charset=UTF-8" . "\r\n";
     $mailheader .= "From: $iem \r\n";
+    $mailheader .= "Sender: {$email_mailagent} \r\n";
     $mailheader .= "X-Mailer: PHP/" . phpversion();
     mb_send_mail($recipient, $subject, $email_body, $mailheader);
 

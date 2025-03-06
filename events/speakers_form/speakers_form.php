@@ -32,14 +32,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     # __________________________________________________________________
     # Some settings
 
-    # Organizer, sender
+    # Organizer(s) name and email, sender (to the speaker) for uchu forum
     $organizer_uchu_forum_ja = "金田";
     $organizer_uchu_forum_en = "Yuko Kaneda";
+    $email_uchu_forum = "kaneda@ccs.tsukuba.ac.jp, syoshioka@u.tsukuba.ac.jp";
+    $email_sender_uchu_forum = 'kaneda@ccs.tsukuba.ac.jp';
+
+    # Organizer(s) name and email, sender (to the speaker) for colloquia
     $organizer_colloquium_ja = "芳岡";
     $organizer_colloquium_en = "Shogo Yoshioka";
-    $email_uchu_forum = "kaneda@ccs.tsukuba.ac.jp, syoshioka@u.tsukuba.ac.jp";
     $email_colloquium = "kaneda@ccs.tsukuba.ac.jp, syoshioka@u.tsukuba.ac.jp";
-    $email_sender = 'kaneda@ccs.tsukuba.ac.jp';
+    $email_sender_colloquium = 'syoshioka@u.tsukuba.ac.jp';
+
+    # Mailagent sender
+    $email_mailagent = "speakers_form@ccs.tsukuba.ac.jp"
+
+    # Testing
     $test = false;
     $email_recipient_tester = 'ayw@ccs.tsukuba.ac.jp';
 
@@ -132,7 +140,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 
     # Host email.
     # We are currently not using this, as the host is not organizing.
+    $host_name = trim($host_en);
     $host_email = $name_email_arr["{$host_en}"]
+    if (!strpos($host_email, "@")) {
+      $host_email = $host_email . "@ccs.tsukuba.ac.jp";
+    }
 
     # Titles sometimes contain colons which we cannot have.
     $itt = str_replace(":", "&#58;", $itt);
@@ -147,7 +159,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $date_str_en = date("F j (D)",strtotime($date_str));
 
     # Uchu forum or colloquium-dependent strings
-  
     if ($ttype_ids[$ity] == "uchu_forum") {
       $organizer_ja = $organizer_uchu_forum_ja;
       $organizer_en = $organizer_uchu_forum_en;
@@ -158,6 +169,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
         "<p>Following the talk, there will be a discussion session with the speaker exclusively for students (scheduled from 17:15 to 17:45). We encourage all students to actively participate in this discussion session.</p>";
       $file_str = 'uchu-forum';
       $org_email_to = $email_uchu_forum;
+      $email_sender = $email_sender_uchu_forum;
     } else {
       #$organizer_ja = $host_ja_sn;
       #$organizer_en = $host_en_fn . " " . $host_en_sn;
@@ -168,7 +180,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
       $email_intro_en = "<p>We are pleased to announce that a colloquium will be given on " . $date_str_en . " by " . $ifnr . " " . $ilnr . " from " . $iaffen . ".<br/>Please find the title and abstract of the talk below.</p>" . 
       $file_str = 'colloquium';
       #$org_email_to = $email_colloquium;
-      $org_email_to = $email_colloquium . ', ' . $host_email;
+      #$org_email_to = $email_colloquium . ', ' . $host_email;
+      $org_email_to = $email_colloquium;
+      $email_sender = $email_sender_colloquium;
     }
  
 
@@ -364,7 +378,8 @@ $ita
     $subject = $subject_str . "：" . $date_str_ja . "（{$twdy_ja}） $ittime";
     $mailheader  = "MIME-Version: 1.0" . "\r\n";
     $mailheader .= "Content-type: text/html; charset=UTF-8" . "\r\n";
-    $mailheader .= "From: $email_sender \r\n";
+    $mailheader .= "From: {$email_mailagent} \r\n";
+    $mailheader .= "Sender: {$email_mailagent} \r\n";
     $mailheader .= "X-Mailer: PHP/" . phpversion();
     mb_send_mail($recipient, $subject, $formcontent, $mailheader);
 
@@ -378,7 +393,8 @@ $ita
     $subject = $subject_str . " " . $date_str_ja . "（{$twdy_ja} | {$twdy_en}） $ittime";
     $mailheader  = "MIME-Version: 1.0" . "\r\n";
     $mailheader .= "Content-type: text/html; charset=UTF-8" . "\r\n";
-    $mailheader .= "From: $email_sender \r\n";
+    $mailheader .= "From: {$email_sender} \r\n";
+    $mailheader .= "Sender: {$email_mailagent} \r\n";
     $mailheader .= "X-Mailer: PHP/" . phpversion();
     mb_send_mail($recipient, $subject, $formcontent, $mailheader);
 
