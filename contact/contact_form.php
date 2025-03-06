@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     # Some settings
 
     # Mailagent sender
-    $email_mailagent = "contact_form@ccs.tsukuba.ac.jp"
+    $email_mailagent = "contact_form@ccs.tsukuba.ac.jp";
 
     $test = false;
     $email_recipient_tester = 'ayw@ccs.tsukuba.ac.jp';

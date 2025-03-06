@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $email_sender_colloquium = 'syoshioka@u.tsukuba.ac.jp';
 
     # Mailagent sender
-    $email_mailagent = "speakers_form@ccs.tsukuba.ac.jp"
+    $email_mailagent = "speakers_form@ccs.tsukuba.ac.jp";
 
     # Testing
     $test = false;
@@ -141,10 +141,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     # Host email.
     # We are currently not using this, as the host is not organizing.
     $host_name = trim($host_en);
-    $host_email = $name_email_arr["{$host_en}"]
+    $host_email = $name_email_arr["{$host_en}"];
     if (!strpos($host_email, "@")) {
       $host_email = $host_email . "@ccs.tsukuba.ac.jp";
     }
+
+    # Just kept for debugging
+    #error_log("Recipient for contact form message is: {$recipient} <{$recipient_name}>", 3, "/Applications/MAMP/logs/php_error.log");
 
     # Titles sometimes contain colons which we cannot have.
     $itt = str_replace(":", "&#58;", $itt);
