@@ -107,7 +107,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 
     # These are hidden form variables
     $ilg = $_POST['InputLang'];
-    $ins = $_POST['InputNames'];
+    $insja = $_POST['InputNamesJa'];
+    $insen = $_POST['InputNamesEn'];
+    $inscl = $_POST['InputNamesCl'];
     $ies = $_POST['InputEmails'];
 
     # TODO: Use DeepL to get English titles and abstracts, and other stuff, if missing.
@@ -119,9 +121,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 
     # Host emails: create names-email array. Names will be Romaji (English) names only.
     # We are currently not using this array, as the host is not organizing.
-    $names = explode("|", $ins);
+    $names_ja = explode("|", $insja);
+    $names_en = explode("|", $insen);
+    $names_cl = explode("|", $inscl);
     $emails = explode("|", $ies);
-    $name_email_arr = array_combine($names, $emails);
+    $name_cl_email_arr = array_combine($names_cl, $emails);
+    $name_cl_name_ja_arr = array_combine($names_cl, $names_ja);
+    $name_cl_name_en_arr = array_combine($names_cl, $names_en);
+
+    # Get host email, and names in English and Japanese
+    $host_name_cl = trim($ish);
+    $host_email = $name_cl_email_arr["{$host_name_cl}"];
+    if (!strpos($host_email, "@")) {
+      $host_email = $host_email . "@ccs.tsukuba.ac.jp";
+    }
+    $host_name_ja = $name_cl_name_ja_arr["{$host_name_cl}"];
+    $host_name_en = $name_cl_name_en_arr["{$host_name_cl}"];
+
+    # More flexibility for Japanese host names
+    $host_name_ja_bl = explode(" ", $host_name_ja);
+    $host_name_ja_sn = $host_name_ja_bl[0];
+    $host_name_ja_fn = $host_name_ja_bl[1];
+    $host_name_ja_nsp = $host_name_ja_sn . $host_name_ja_fn;
+
 
     # Create filenames
     $fbase = 'yml/';
@@ -129,25 +151,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $fname_yml_ja = $fbase . 'ja/' . $date_str . '-' . strtolower($ilnr) . '.html';
     $fname_yml_en = $fbase . 'en/' . $date_str . '-' . strtolower($ilnr) . '.html';
     
-    # English and Japanese host names
-    $host_bl = explode(" | ", $ish);
-    $host_ja = $host_bl[0];
-    $host_en = $host_bl[1];
-    $host_ja_bl = explode(" ", $host_ja);
-    $host_ja_sn = $host_ja_bl[0];
-    $host_ja_fn = $host_ja_bl[1];
-    $host_ja_nsp = $host_ja_sn . $host_ja_fn;
-
-    # Host email.
-    # We are currently not using this, as the host is not organizing.
-    $host_name = trim($host_en);
-    $host_email = $name_email_arr["{$host_en}"];
-    if (!strpos($host_email, "@")) {
-      $host_email = $host_email . "@ccs.tsukuba.ac.jp";
-    }
-
-    # Just kept for debugging
-    #error_log("Recipient for contact form message is: {$recipient} <{$recipient_name}>", 3, "/Applications/MAMP/logs/php_error.log");
 
     # Titles sometimes contain colons which we cannot have.
     $itt = str_replace(":", "&#58;", $itt);
@@ -174,8 +177,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
       $org_email_to = $email_uchu_forum;
       $email_sender = $email_sender_uchu_forum;
     } else {
-      #$organizer_ja = $host_ja_sn;
-      #$organizer_en = $host_en_fn . " " . $host_en_sn;
+      #$organizer_ja = $host_name_ja_sn;
+      #$organizer_en = $host_name_en;
       $organizer_ja = $organizer_colloquium_ja;
       $organizer_en = $organizer_colloquium_en;
       $subject_str = "コロキウム (Colloquium)";
@@ -307,7 +310,7 @@ webpage: \"$ih\"
 date: $date_str
 time: \"$ittime\" # Must use quotes
 place: $loc_ja
-host: $host_ja_nsp
+host: $host_name_ja_nsp
 lang: ja
 tags: [$itkw1, $itkw2, $itkw3]
 #pdf: 
@@ -332,7 +335,7 @@ webpage: \"$ih\"
 date: $date_str
 time: \"$ittime\" # Must use quotes
 place: $loc_en
-host: $host_en
+host: $host_name_en
 lang: en
 tags: [$itkw1, $itkw2, $itkw3]
 #pdf: 

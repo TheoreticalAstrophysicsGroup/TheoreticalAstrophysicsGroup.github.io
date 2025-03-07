@@ -141,9 +141,6 @@ speakers_form:
       - name: 徂徠 和夫
         position: professor
         order: 2
-      - name: 柴田 和樹
-        position: d2
-        order:
       - name: 橋本 拓也
         position: assistant_professor
         order: 1
@@ -195,9 +192,6 @@ speakers_form:
       - name: Kazuo Sorai
         position: professor
         order: 2
-      - name: Kazuki Shibata
-        position: d2
-        order:
       - name: Takuya Hashimoto
         position: assistant_professor
         order: 1

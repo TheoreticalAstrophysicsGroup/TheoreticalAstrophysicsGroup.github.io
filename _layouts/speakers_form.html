@@ -92,27 +92,32 @@ layout: default
 
           {% assign positions = 'professor associate_professor lecturer assistant_professor postdoc postdoc_student d5 d4 d3 d2 d1' | split: ' ' %}
 
+	<!-- Note, we always need all languages, because the php script outputs yml files 
+  	     containing info in both languages -->
           <div class="form-group col-sm-6 col-md-4">
             <label for="InputSpeakerHost"> {{ tau_l.input_speaker_host }} </label>
             <input list="speaker_host" class="form-control" name="InputSpeakerHost" id="InputSpeakerHost" required>
             <datalist id="speaker_host">
               {% for p in positions %}
-              {% assign pindex = forloop.index %}
-              {% assign mem_ja = site.members | where: 'lang', "ja" | where: 'position', p | sort: 'order' %}
-              {% assign mem_en = site.members | where: 'lang', "en" | where: 'position', p | sort: 'order' %}
-              {% assign adh_ja = tau['ja'].additional_hosts | where: 'position', p | sort: 'order' %}
-              {% assign adh_en = tau['en'].additional_hosts | where: 'position', p | sort: 'order' %}
-              {% assign hosts_ja = mem_ja | concat: adh_ja %}
-              {% assign hosts_en = mem_en | concat: adh_en %}
-              {% for h in hosts_ja %}
-              {% assign hindex = forloop.index | minus: 1 %}
-              {% assign h_en = hosts_en[hindex] %}
-              {% unless pindex == 1 and hindex == 0 %}
-	      {% assign names = names | append: h_en.name | append: '|' %}
-	      {% assign emails = emails | append: h.email | append: '|' %}
-              <option value="{{ h.name }} | {{ h_en.name }}">
-              {% endunless %}
-              {% endfor %}
+                {% assign mem_ja = site.members | where: 'lang', "ja" | where: 'position', p | sort: 'order' %}
+                {% assign mem_en = site.members | where: 'lang', "en" | where: 'position', p | sort: 'order' %}
+                {% assign mem_cl = site.members | where: 'lang', page.lang | where: 'position', p | sort: 'order' %}
+                {% assign adh_ja = tau['ja'].additional_hosts | where: 'position', p | sort: 'order' %}
+                {% assign adh_en = tau['en'].additional_hosts | where: 'position', p | sort: 'order' %}
+                {% assign adh_cl = tau[page.lang].additional_hosts | where: 'position', p | sort: 'order' %}
+                {% assign hosts_ja = mem_ja | concat: adh_ja %}
+                {% assign hosts_en = mem_en | concat: adh_en %}
+                {% assign hosts_cl = mem_cl | concat: adh_cl %}
+                {% for h_cl in hosts_cl %}
+                  {% assign h_index = forloop.index | minus: 1 %}
+                  {% assign h_ja = hosts_ja[h_index] %}
+                  {% assign h_en = hosts_en[h_index] %}
+	          {% assign names_ja = names_ja | append: h_ja.name | append: '|' %}
+	          {% assign names_en = names_en | append: h_en.name | append: '|' %}
+	          {% assign names_cl = names_cl | append: h_cl.name | append: '|' %}
+	          {% assign emails = emails | append: h_cl.email | append: '|' %}
+	          <option value="{{ h_cl.name }}">
+                {% endfor %}
               {% endfor %}
             </datalist>
           </div>
@@ -193,8 +198,12 @@ layout: default
         </div>
 
 	<!-- Send which language we're on, and names and emails through hidden fields -->
+	<!-- We always need all languages, because the php script outputs yml files 
+  	     containing info in both languages -->
 	<input type="hidden" name="InputLang" id="InputLang" value="{{ page.lang }}" >
-	<input type="hidden" name="InputNames" id="InputNames" value="{{ names }}" >
+	<input type="hidden" name="InputNamesJa" id="InputNamesJa" value="{{ names_ja }}" >
+	<input type="hidden" name="InputNamesEn" id="InputNamesEn" value="{{ names_en }}" >
+	<input type="hidden" name="InputNamesCl" id="InputNamesCl" value="{{ names_cl }}" >
 	<input type="hidden" name="InputEmails" id="InputEmails" value="{{ emails }}" >
 
       </fieldset>
