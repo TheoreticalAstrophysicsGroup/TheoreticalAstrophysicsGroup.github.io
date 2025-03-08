@@ -1,5 +1,40 @@
 <?php
 
+# __________________________________________________________________
+# Some settings
+
+# Organizer(s) name and email, sender (to the speaker) for uchu forum
+$organizer_uchu_forum_ja = "金田";
+$organizer_uchu_forum_en = "Yuko Kaneda";
+$email_uchu_forum = "kaneda@ccs.tsukuba.ac.jp, syoshioka@u.tsukuba.ac.jp";
+$email_sender_uchu_forum = 'kaneda@ccs.tsukuba.ac.jp';
+
+# Organizer(s) name and email, sender (to the speaker) for colloquia
+$organizer_colloquium_ja = "芳岡";
+$organizer_colloquium_en = "Shogo Yoshioka";
+$email_colloquium = "syoshioka@u.tsukuba.ac.jp, kaneda@ccs.tsukuba.ac.jp";
+$email_sender_colloquium = 'syoshioka@u.tsukuba.ac.jp';
+
+# Mailagent sender
+$email_mailagent = "speakers_form@ccs.tsukuba.ac.jp";
+
+# Colloquium host also organizing
+$colloquium_host_org = false;
+
+# Testing
+$test = false;
+$email_recipient_tester = 'ayw@ccs.tsukuba.ac.jp';
+
+# Location
+$loc_en = "Seminar Room A";
+$loc_ja = "会議室A";
+
+$twdy_ja = "火";
+$twdy_en = "Tue";
+
+# __________________________________________________________________
+# Main bit
+
 
 function str_replace_first($needle, $replace, $haystack) {
   $pos = strpos($haystack, $needle, $replace);
@@ -17,50 +52,9 @@ function str_replace_last($needle, $replace, $haystack) {
   return $newstring;
 }
 
-# Just for testing
-#$subject = "a subject";
-#$mailheader  = "MIME-Version: 1.0" . "\r\n";
-#$mailheader .= "Content-type: text/html; charset=UTF-8" . "\r\n";
-#$mailheader .= "From: ayw@ccs.tsukuba.ac.jp \r\n";
-#$mailheader .= "X-Mailer: PHP/" . phpversion();
-#mb_send_mail("ayw@ccs.tsukuba.ac.jp", $subject, $formcontent, $mailheader);
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
-#if (1) {
-
-    # __________________________________________________________________
-    # Some settings
-
-    # Organizer(s) name and email, sender (to the speaker) for uchu forum
-    $organizer_uchu_forum_ja = "金田";
-    $organizer_uchu_forum_en = "Yuko Kaneda";
-    $email_uchu_forum = "kaneda@ccs.tsukuba.ac.jp, syoshioka@u.tsukuba.ac.jp";
-    $email_sender_uchu_forum = 'kaneda@ccs.tsukuba.ac.jp';
-
-    # Organizer(s) name and email, sender (to the speaker) for colloquia
-    $organizer_colloquium_ja = "芳岡";
-    $organizer_colloquium_en = "Shogo Yoshioka";
-    $email_colloquium = "kaneda@ccs.tsukuba.ac.jp, syoshioka@u.tsukuba.ac.jp";
-    $email_sender_colloquium = 'syoshioka@u.tsukuba.ac.jp';
-
-    # Mailagent sender
-    $email_mailagent = "speakers_form@ccs.tsukuba.ac.jp";
-
-    # Testing
-    $test = false;
-    $email_recipient_tester = 'ayw@ccs.tsukuba.ac.jp';
-
-    # Location
-    $loc_en = "Seminar Room A";
-    $loc_ja = "会議室A";
-
-    $twdy_ja = "火";
-    $twdy_en = "Tue";
-
-    # __________________________________________________________________
-    # Main bit
-
 
     # Translating inputted talk types to category names
     $ttype_ids = array(
@@ -144,13 +138,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $host_name_ja_fn = $host_name_ja_bl[1];
     $host_name_ja_nsp = $host_name_ja_sn . $host_name_ja_fn;
 
-
     # Create filenames
     $fbase = 'yml/';
     $date_str = str_replace("/", "-", $itdate);
     $fname_yml_ja = $fbase . 'ja/' . $date_str . '-' . strtolower($ilnr) . '.html';
     $fname_yml_en = $fbase . 'en/' . $date_str . '-' . strtolower($ilnr) . '.html';
-    
 
     # Titles sometimes contain colons which we cannot have.
     $itt = str_replace(":", "&#58;", $itt);
@@ -177,20 +169,56 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
       $org_email_to = $email_uchu_forum;
       $email_sender = $email_sender_uchu_forum;
     } else {
-      #$organizer_ja = $host_name_ja_sn;
-      #$organizer_en = $host_name_en;
-      $organizer_ja = $organizer_colloquium_ja;
-      $organizer_en = $organizer_colloquium_en;
+        if ($colloquium_host_org) {
+          $organizer_ja = $host_name_ja_sn;
+          $organizer_en = $host_name_en;
+	} else {
+          $organizer_ja = $organizer_colloquium_ja;
+          $organizer_en = $organizer_colloquium_en;
+	}
       $subject_str = "コロキウム (Colloquium)";
       $email_intro_ja = "<p>" . $date_str_ja . "（{$twdy_ja}）に" . $iaffja . "の " . $iln . " " . $ifn . " 氏に<br/>ご講演していただきます。 講演タイトルおよび概要を下記に記載いたしましたのでご確認ください。</p>";
       $email_intro_en = "<p>We are pleased to announce that a colloquium will be given on " . $date_str_en . " by " . $ifnr . " " . $ilnr . " from " . $iaffen . ".<br/>Please find the title and abstract of the talk below.</p>" . 
       $file_str = 'colloquium';
-      #$org_email_to = $email_colloquium;
-      #$org_email_to = $email_colloquium . ', ' . $host_email;
-      $org_email_to = $email_colloquium;
+      if ($colloquium_host_org) {
+        $org_email_to = $email_colloquium . ', ' . $host_email;
+      } else {
+        $org_email_to = $email_colloquium;
+      }
       $email_sender = $email_sender_colloquium;
     }
- 
+
+
+    # Rename files uploaded by Dropbzone according to whether its a colloquium or an uchu_forum
+    # NOTE: If you change anything below, you may need to make the same change in upload.php.
+    $ds = DIRECTORY_SEPARATOR;
+
+    $target_dir = 'img';
+   
+    $today = new DateTime();
+    $formattedDate = $today->format('Y-m-d');
+
+    // Loop over multiple files uploaded together
+    $targetPath = dirname( __FILE__ ) . $ds . $target_dir . $ds;
+    $dir = new DirectoryIterator($targetPath);
+    $ifile = 0;
+    foreach ($dir as $fileinfo) {
+       $tempFname = $fileinfo->getFilename();
+       if (!$fileinfo->isDot() && strpos($tempFname, $formattedDate) && str_starts_with($tempFname, "talk-")) {
+           $tempFile = $targetPath . $tempFname;
+	   #$ext = pathinfo($tempFile, PATHINFO_EXTENSION);
+	   $ext = $fileinfo->getExtension();
+	   if ($ifile == 0) {
+	       $targetFile = $targetPath . $file_str . "-{$date_str}" . ".{$ext}";
+	   }
+	   else {
+	       $targetFile = $targetPath . $file_str . "-{$date_str}-{$ifile}" . ".{$ext}";
+	   }
+           rename($tempFile, $targetFile);
+           $ifile++;
+       }
+    }
+
 
     # Construct email lines and file lines
     $email_astro = "
@@ -271,7 +299,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 
 
 
-
     $email_speaker = "
 <p>$iln 様</p>
 <p>講演についてのデータ入力ありがとうございました。
@@ -289,7 +316,7 @@ We have received the following information.</p>
 <dt>・date・・・</dt> <dd>$date_str （{$twdy_ja} | {$twdy_en}）</dd><br />
 <dt>・time・・・</dt> <dd>$ittime </dd><br />
 <dt>・place・・・</dt> <dd>$loc_ja | $loc_en </dd><br />
-<dt>・host・・・</dt> <dd>$ish </dd><br />
+<dt>・host・・・</dt> <dd>$host_name_ja | $host_name_en </dd><br />
 <dt>・talk category・・・</dt> <dd>$ity </dd><br />
 <dt>・title・・・</dt> <dd>$itt </dd><br />
 <dt>・keywords・・・</dt> <dd>$itkw1, $itkw2, $itkw3 </dd><br />
@@ -412,41 +439,6 @@ $ita
     $fcon = fopen($fname_yml_en, 'w');
     fwrite($fcon, $file_en);
     fclose($fcon);
-
-
-    # Rename files uploaded by Dropbzone according to whether its a colloquium or an uchu_forum
-    # NOTE: If you change anything below, you may need to make the same change in upload.php.
-    $ds = DIRECTORY_SEPARATOR;
-
-    $target_dir = 'img';
-
-    // get third tuesday of this month
-    date_default_timezone_set('Asia/Tokyo');
-    $timestamp = new DateTime('third tuesday of this month');
-
-    // if date has passed
-    if ($timestamp < new DateTime()) {
-      $timestamp->modify('third tuesday of next month');
-    }
-    $formattedDate = $timestamp->format('Y-m-d');
-
-    // Loop over multiple files uploaded together
-    $targetPath = dirname( __FILE__ ) . $ds . $target_dir . $ds;
-    $dir = new DirectoryIterator($targetPath);
-    $ifile = 0;
-    foreach ($dir as $fileinfo) {
-       if (!$fileinfo->isDot() && strpos($fileinfo->getFilename(), $formattedDate)) {
-           $tempFile = $targetPath . $fileinfo->getFilename();
-	   if ($ifile == 0) {
-	       $targetFile = $targetPath . $file_str . "-{$formattedDate}";
-	   }
-	   else {
-	       $targetFile = $targetPath . $file_str . "-{$formattedDate}-{$ifile}";
-	   }
-           rename($tempFile, $targetFile);
-           $ifile++;
-       }
-    }
 
 
     } else {
