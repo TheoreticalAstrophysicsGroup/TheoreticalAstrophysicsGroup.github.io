@@ -114,7 +114,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     if (empty($iaffja)) $iaffja = $iaffen;
 
     # Host emails: create names-email array. Names will be Romaji (English) names only.
-    # We are currently not using this array, as the host is not organizing.
     $names_ja = explode("|", $insja);
     $names_en = explode("|", $insen);
     $names_cl = explode("|", $inscl);
@@ -206,7 +205,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
        $tempFname = $fileinfo->getFilename();
        if (!$fileinfo->isDot() && strpos($tempFname, $formattedDate) && str_starts_with($tempFname, "talk-")) {
            $tempFile = $targetPath . $tempFname;
-	   #$ext = pathinfo($tempFile, PATHINFO_EXTENSION);
 	   $ext = $fileinfo->getExtension();
 	   if ($ifile == 0) {
 	       $targetFile = $targetPath . $file_str . "-{$date_str}" . ".{$ext}";
@@ -218,6 +216,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
            $ifile++;
        }
     }
+
+    # Get list of filenames from file written by upload.php
+    $img_names = "";
+    $iimg = 0;
+    $img_list_fp = fopen($target_dir . $ds . "images.txt", "r");
+
+    if ($img_list_fp) {
+        while (($buffer = fgets($img_list_fp)) !== false) {
+	    if ($iimg == 0) {
+                $img_names = $img_names . $buffer;
+	    } else {
+                $img_names = $img_names . ", " . $buffer;
+	    }
+	    $iimg++;
+        }
+        fclose($img_list_fp);
+    }
+    rename($target_dir . $ds . "images.txt", $target_dir . $ds . "images-bak.txt");
 
 
     # Construct email lines and file lines
@@ -321,7 +337,8 @@ We have received the following information.</p>
 <dt>・title・・・</dt> <dd>$itt </dd><br />
 <dt>・keywords・・・</dt> <dd>$itkw1, $itkw2, $itkw3 </dd><br />
 <dt>・abstract・・・</dt> <dd>$ita </dd><br />
-<dt>・remarks・・・</dt> <dd>$itr </dd>
+<dt>・remarks・・・</dt> <dd>$itr </dd><br />
+<dt>・images upladed・・・</dt> <dd>$img_names </dd>
 </dl>
 <hr>
 &nbsp;

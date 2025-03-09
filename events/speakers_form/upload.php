@@ -7,6 +7,8 @@
 
     if (!empty($_FILES)) {
 
+      $img_list_fp = fopen($img . $ds . "images.txt", "a");
+
       $today = new DateTime();
       $formattedDate = $today->format('Y-m-d');
 
@@ -21,6 +23,8 @@
 	#$file = new SplFileInfo($tempFile);
 	#$ext  = $file->getExtension();
 
+	fwrite($img_list_fp, $fname . "\n");
+
 	if ($ifile == 0) {
           $targetFile =  $targetPath . "talk-{$formattedDate}" . ".{$ext}";
         }
@@ -29,6 +33,8 @@
         }
         move_uploaded_file($tempFile, $targetFile);
       }
+
+      fclose($img_list_fp);
 
     }
 
