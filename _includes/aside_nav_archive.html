@@ -12,7 +12,7 @@
     {% assign scyr = site.time | date: "%Y" %}
     {% assign pageurlstr = page.url | split: '/' %}
     {% assign category = pageurlstr[1] %}
-    <li><a href="{{ site.baseurl }}/{{ category }}/index/{{ page.lang }}">{{ tpl.full_index }}</a></li>
+    <li><a href="{{ site.baseurl }}/{{ category }}/{{ page.lang }}">{{ tpl.full_index }}</a></li>
     {% for a_year in (1997..scyr) reversed %}
     {% assign sdate = a_year | append: '-' | append: '10' | append: '-' | append: '10' %}
     <li><a href="{{ site.baseurl }}/{{ category }}/{{ a_year }}/{{ page.lang }}">{% include date.html d=sdate l='a' %}</a></li>
