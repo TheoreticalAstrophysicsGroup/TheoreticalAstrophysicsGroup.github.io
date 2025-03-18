@@ -1,0 +1,16 @@
+
+{% assign lel = site.data.links.external[page.lang] %}
+{% assign tcl = site.data.translations.colloquia[page.lang] %}
+{% assign tctl = site.data.translations.contact[page.lang] %}
+
+<p>{{ tcl.about }}</p>
+
+<p>{{ tcl.contact_text }}</p>
+
+<ul class="fa-ul">
+  <li class"=fali"><i class="fa-li fa fa-envelope-o"></i><a href="mailto:{{ tcl.contact_email }}"> {{ tcl.contact_name }}</a></li>
+  <li class="fali"><i class="fa-li fa fa-calendar"></i> {{ tcl.when }}</li>
+  <li class="fali"><i class="fa-li fa fa-clock-o"></i> {{ tcl.time }}</li>
+  <li class="fali"><i class="fa-li fa fa-map-marker"></i> {{ tctl.university }}<a href="{{ lel.access }}" target="_blank">{{ tctl.center }}</a>{{ tcl.where }}</li>
+</ul>
+

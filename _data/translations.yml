@@ -221,10 +221,16 @@ contact:
     contact_form: コンタクト フォーム
     for_info: 研究グループのメンバーについては，
     refer_to: メンバーページをご参照ください。
+    university: 筑波大学
+    center: 計算雅楽研究センター
+    group: 宇宙物理理論研究室
   en:
     contact_form: Contact Form
     for_info: For information about the members of our research group,
     refer_to: please refer to the members page.
+    university: University of Tsukbua
+    center: Center for Computational Sciences
+    group: Theoretical Astrophysics Group
 
 
 # contact form
@@ -758,9 +764,10 @@ uchu_forum: # Make these the same as categories naming below?
     photos: アルバム
     photos_zip: 全写真ハイレズ (zip)
     about: つくば宇宙フォーラムは, つくば地域の宇宙関係の大学・研究機関が参加する, 研究学園都市ならではの合同セミナーです。 
+    info_text: いつもの時間帯と場所：
     when: 毎月第3火曜日
     time: "13:30 ~ 15:00"
-    where: ワークショップ室
+    where: ワークショップ室・セミナールーム
   en:
     count_pre: ""
     count_aft: " Uchu Forum"
@@ -776,9 +783,10 @@ uchu_forum: # Make these the same as categories naming below?
     photos: Photo Album
     photos_zip: Download all photos at high res (zip)
     about: The Tsukuba Uchu-Forum are a series of talks, which universities and research institutes in the Tsukuba area participate in. It is an event unique to the Kenkyugakuen-toshi.
+    info_text: "Usual place and time:"
     when: Every third Tuesday of the month 
     time: "13:30 ~ 15:00"
-    where: Workshop Room
+    where: Workshop Room or Seminar room
 
 colloquia:
   ja:
@@ -795,6 +803,13 @@ colloquia:
     pdf_ccswiki: 内部用ウィキ
     photos: アルバム
     photos_zip: 全写真ハイレズ (zip)
+    about: 筑波宇宙理論コロキウムは，我々のグループ以外の大学・研究機関に所属する研究者をお招きして不定期に行われるコロキウムです。
+    when: 水曜日（調整可）
+    time: "通常13:30 ~ （調整可）"
+    where: ワークショップ室・セミナールーム
+    contact_text: コロキウムで講演をご希望でしたら，担当者までご連絡ください：
+    contact_name: 森正夫
+    contact_email: mmori@ccs.tsukuba.ac.jp
   en:
     count_pre: ""
     count_aft: " Colloquium"
@@ -809,6 +824,13 @@ colloquia:
     pdf_ccswiki: Internal Wiki
     photos: Photo Album
     photos_zip: Download all photos at high res (zip)
+    about: The Tsukuba Theoretical Astrophysics Group Colloquia are colloquia that are given by invited or visiting speakers from outside our research group. 
+    when: Usually on Wednesdays, but flexible
+    where: Workshop Room or Seminar room
+    time: "Usually 13:30 ~, but flexible"
+    contact_text: "If you would like to give a talk, please contact:"
+    contact_name: Masao Mori
+    contact_email: mmori@ccs.tsukuba.ac.jp
 
 conferences:
   ja:

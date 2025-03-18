@@ -1,14 +1,15 @@
 
 {% assign lel = site.data.links.external[page.lang] %}
 {% assign tul = site.data.translations.uchu_forum[page.lang] %}
+{% assign tctl = site.data.translations.contact[page.lang] %}
 
 <p>{{ tul.about }}</p>
 
 <h5 class="post-title"> </h5>
-<h5>いつもの時間帯と場所：</h5>
+<h5>{{ tul.info_text }}</h5>
 <ul class="fa-ul">
   <li class="fali"><i class="fa-li fa fa-calendar"></i> {{ tul.when }}</li>
   <li class="fali"><i class="fa-li fa fa-clock-o"></i> {{ tul.time }}</li>
-  <li class="fali"><i class="fa-li fa fa-map-marker"></i> 筑波大学<a href="{{ lel.access }}" target="_blank">計算科学研究センター</a>{{ tul.where }}</li>
+  <li class="fali"><i class="fa-li fa fa-map-marker"></i> {{ tctl.university }}<a href="{{ lel.access }}" target="_blank">{{ tctl.center }}</a>{{ tul.where }}</li>
 </ul>
 
