@@ -6,14 +6,14 @@
 # Organizer(s) name and email, sender (to the speaker) for uchu forum
 $organizer_uchu_forum_ja = "金田";
 $organizer_uchu_forum_en = "Yuko Kaneda";
-$email_uchu_forum = "kaneda@ccs.tsukuba.ac.jp, syoshioka@u.tsukuba.ac.jp";
+$email_uchu_forum = "kaneda@ccs.tsukuba.ac.jp, syoshioka@ccs.tsukuba.ac.jp";
 $email_sender_uchu_forum = 'kaneda@ccs.tsukuba.ac.jp';
 
 # Organizer(s) name and email, sender (to the speaker) for colloquia
 $organizer_colloquium_ja = "芳岡";
 $organizer_colloquium_en = "Shogo Yoshioka";
 $email_colloquium = "syoshioka@u.tsukuba.ac.jp, kaneda@ccs.tsukuba.ac.jp";
-$email_sender_colloquium = 'syoshioka@u.tsukuba.ac.jp';
+$email_sender_colloquium = 'syoshioka@ccs.tsukuba.ac.jp';
 
 # Mailagent sender
 $email_mailagent = "speakers_form@ccs.tsukuba.ac.jp";
@@ -28,9 +28,6 @@ $email_recipient_tester = 'ayw@ccs.tsukuba.ac.jp';
 # Location
 $loc_en = "Seminar Room A";
 $loc_ja = "会議室A";
-
-$twdy_ja = "火";
-$twdy_en = "Tue";
 
 # __________________________________________________________________
 # Main bit
@@ -152,8 +149,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     #$pos = preg_match('/研究生/u', $iry) ? "研究生" : $pos;
 
     # Date string
+    $days = array('日', '月', '火', '水', '木', '金', '土');
     $date_str_ja = date("n月j日",strtotime($date_str));
-    $date_str_en = date("F j (D)",strtotime($date_str));
+    $date_str_en = date("F j",strtotime($date_str));
+    $twdy_en = date("D", strtotime($date_str));
+    $twdy_ja = $days[date("w", strtotime($date_str))];
 
     # Uchu forum or colloquium-dependent strings
     if ($ttype_ids[$ity] == "uchu_forum") {
@@ -177,7 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 	}
       $subject_str = "コロキウム (Colloquium)";
       $email_intro_ja = "<p>" . $date_str_ja . "（{$twdy_ja}）に" . $iaffja . "の " . $iln . " " . $ifn . " 氏に<br/>ご講演していただきます。 講演タイトルおよび概要を下記に記載いたしましたのでご確認ください。</p>";
-      $email_intro_en = "<p>We are pleased to announce that a colloquium will be given on " . $date_str_en . " by " . $ifnr . " " . $ilnr . " from " . $iaffen . ".<br/>Please find the title and abstract of the talk below.</p>" . 
+      $email_intro_en = "<p>We are pleased to announce that a colloquium will be given on " . $date_str_en . " ({$twdy_en}) " . " by " . $ifnr . " " . $ilnr . " from " . $iaffen . ".<br/>Please find the title and abstract of the talk below.</p>" . 
       $file_str = 'colloquium';
       if ($colloquium_host_org) {
         $org_email_to = $email_colloquium . ', ' . $host_email;
@@ -295,7 +295,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 <p>The details of the talk are as follows:</p>
 <hr>
 <dl>
-<dt>Time: " . $date_str_en . " $ittime ~ </dt>
+<dt>Time: " . $date_str_en . " ({$twdy_en})" . " $ittime ~ </dt>
 <dt>Place: " . $loc_en . "</dt>
 <dt>Presenter: " . $ifnr . " " . $ilnr . " (" . $iaffen . ") </dt>
 <dt>Title: " . $itt . "</dt>
@@ -440,7 +440,7 @@ $ita
     } else {
       $recipient = $ie;
     }
-    $subject = $subject_str . " " . $date_str_ja . "（{$twdy_ja} | {$twdy_en}） $ittime";
+    $subject = $subject_str . " " . $date_str . "（{$twdy_ja} | {$twdy_en}） $ittime";
     $mailheader  = "MIME-Version: 1.0" . "\r\n";
     $mailheader .= "Content-type: text/html; charset=UTF-8" . "\r\n";
     $mailheader .= "From: {$email_sender} \r\n";
@@ -463,9 +463,6 @@ $ita
     # Not recaptcha verified
 
     }
-
-
-
 
 } 
 ?>
