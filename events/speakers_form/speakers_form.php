@@ -12,7 +12,7 @@ $email_sender_uchu_forum = 'kaneda@ccs.tsukuba.ac.jp';
 # Organizer(s) name and email, sender (to the speaker) for colloquia
 $organizer_colloquium_ja = "芳岡";
 $organizer_colloquium_en = "Shogo Yoshioka";
-$email_colloquium = "syoshioka@u.tsukuba.ac.jp, kaneda@ccs.tsukuba.ac.jp";
+$email_colloquium = "syoshioka@ccs.tsukuba.ac.jp, kaneda@ccs.tsukuba.ac.jp";
 $email_sender_colloquium = 'syoshioka@ccs.tsukuba.ac.jp';
 
 # Mailagent sender
