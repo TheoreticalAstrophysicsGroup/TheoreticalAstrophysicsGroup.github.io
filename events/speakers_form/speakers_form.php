@@ -4,16 +4,16 @@
 # Some settings
 
 # Organizer(s) name and email, sender (to the speaker) for uchu forum
-$organizer_uchu_forum_ja = "金田";
-$organizer_uchu_forum_en = "Yuko Kaneda";
-$email_uchu_forum = "kaneda@ccs.tsukuba.ac.jp, syoshioka@ccs.tsukuba.ac.jp";
-$email_sender_uchu_forum = 'kaneda@ccs.tsukuba.ac.jp';
+$organizer_uchu_forum_ja = "郭";
+$organizer_uchu_forum_en = "Tao Guo";
+$email_uchu_forum = "guotao823@ccs.tsukuba.ac.jp, misamisa@ccs.tsukuba.ac.jp, kuroday@ccs.tsukuba.ac.jp";
+$email_sender_uchu_forum = "guotao823@ccs.tsukuba.ac.jp";
 
 # Organizer(s) name and email, sender (to the speaker) for colloquia
-$organizer_colloquium_ja = "芳岡";
-$organizer_colloquium_en = "Shogo Yoshioka";
-$email_colloquium = "syoshioka@ccs.tsukuba.ac.jp, kaneda@ccs.tsukuba.ac.jp";
-$email_sender_colloquium = 'syoshioka@ccs.tsukuba.ac.jp';
+$organizer_colloquium_ja = "郭";
+$organizer_colloquium_en = "Tao Guo";
+$email_colloquium = "guotao823@ccs.tsukuba.ac.jp, misamisa@ccs.tsukuba.ac.jp, kuroday@ccs.tsukuba.ac.jp";
+$email_sender_colloquium = "guotao823@ccs.tsukuba.ac.jp";
 
 # Mailagent sender
 $email_mailagent = "speakers_form@ccs.tsukuba.ac.jp";
