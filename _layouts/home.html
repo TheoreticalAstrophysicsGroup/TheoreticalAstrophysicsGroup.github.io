@@ -132,7 +132,7 @@ layout: default
     <div class="row">
       <div class="col-md-7">
         <section class="home-post">
-          {% assign last_post = site.posts | where: 'lang', page.lang | first %}
+          {% assign last_post = site.posts | where: 'lang', page.lang | where_exp: "page", "page.categories[0] != 'featured'" | first %}
           {% assign last_post_url = last_post.url | prepend: site.baseurl %}
           {% if last_post.img %}
           <!-- Sometimes image file entries are lists, e.g., projects -->
