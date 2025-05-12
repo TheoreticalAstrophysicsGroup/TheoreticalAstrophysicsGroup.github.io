@@ -19,9 +19,6 @@ on:
     # The week of the meeting in April
     - cron: '0 1 22-28 4 *'
 
-    # Set the date manually if necessary
-    #- cron: '0 1 25 4 *'
-  
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -38,12 +35,12 @@ jobs:
           echo "month=$(date +'%m')" >> $GITHUB_ENV
           echo "day=$(date +'%d')" >> $GITHUB_ENV
           echo "dow=$(date +'%u')" >> $GITHUB_ENV
-          echo "day_kaigi=$(($(date +'%d') + 3))" >> $GITHUB_ENV
+          echo "day_kaigi=$(($(date +'%d') + 1))" >> $GITHUB_ENV
 
       - name: Send mail
 
         # This condition makes sure its a Monday
-        if: ${{ env.dow == 5 }}
+        if: ${{ env.dow == 1 }}
 
         uses: dawidd6/action-send-mail@v3
         with:
@@ -69,7 +66,7 @@ jobs:
             宇宙物理理論研究室の教員および研究員のみなさま   
             （それ以外の方は無視してください）
             
-            来週の月曜日に行われる研究員会議で報告事項のある方は
+            明日行われる研究員会議で報告事項のある方は
             Overleaf で前日の深夜までにお願いします。
             
             今年度最初の研究員会議で報告される項目の
