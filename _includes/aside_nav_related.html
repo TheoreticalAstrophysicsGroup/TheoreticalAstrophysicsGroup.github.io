@@ -18,9 +18,12 @@
           {% assign imdir = la.img %}
         {% endif %} -->
 
-        {% assign imdir = post.categories[0] %}
+        {% assign imdir = "" %}
+	{% unless post.categories[0] contains "featured" %}
+          {% assign imdir = post.categories[0] | append: "/" %}
+	{% endunless %}
         <li class="media">
-          <a class="pull-left" href="{{ posturl }}"><img class="media-object" src="{{ site.baseurl }}{{ la.img }}/{{ imdir }}/{% if post.img_thumb %}{{ post.img_thumb }}{% else %}no_img-thumb.png{% endif %}" width="80" height="80" alt="image"></a>
+          <a class="pull-left" href="{{ posturl }}"><img class="media-object" src="{{ site.baseurl }}{{ la.img }}/{{ imdir }}{% if post.img_thumb %}{{ post.img_thumb }}{% else %}no_img-thumb.png{% endif %}" width="80" height="80" alt="image"></a>
         <div class="media-body">
           <p class="media-heading"><a href="{{ posturl }} ">{{ post.title | truncatewords: 12 }}</a></p>
           <small>{% include date.html d=post.date l='s' %}</small>
