@@ -6,13 +6,13 @@
 # Organizer(s) name and email, sender (to the speaker) for uchu forum
 $organizer_uchu_forum_ja = "郭";
 $organizer_uchu_forum_en = "Tao Guo";
-$email_uchu_forum = "guotao823@ccs.tsukuba.ac.jp, misamisa@ccs.tsukuba.ac.jp, kuroday@ccs.tsukuba.ac.jp, s2430049@u.tsukuba.ac.jp";
+$email_uchu_forum = "guotao823@ccs.tsukuba.ac.jp, misamisa@ccs.tsukuba.ac.jp, kuroday@ccs.tsukuba.ac.jp, s2430049@u.tsukuba.ac.jp, akifumi21@ccs.tsukuba.ac.jp";
 $email_sender_uchu_forum = "guotao823@ccs.tsukuba.ac.jp";
 
 # Organizer(s) name and email, sender (to the speaker) for colloquia
 $organizer_colloquium_ja = "郭";
 $organizer_colloquium_en = "Tao Guo";
-$email_colloquium = "guotao823@ccs.tsukuba.ac.jp, misamisa@ccs.tsukuba.ac.jp, kuroday@ccs.tsukuba.ac.jp";
+$email_colloquium = "guotao823@ccs.tsukuba.ac.jp, misamisa@ccs.tsukuba.ac.jp, kuroday@ccs.tsukuba.ac.jp, akifumi21@ccs.tsukuba.ac.jp";
 $email_sender_colloquium = "guotao823@ccs.tsukuba.ac.jp";
 
 # Mailagent sender
