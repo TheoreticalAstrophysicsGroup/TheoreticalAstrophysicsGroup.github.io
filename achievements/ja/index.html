@@ -31,7 +31,7 @@ annual_reports:
 <p>以下のリンクから年次報告書（pdf）をダウンロードできます。これには，出版物や講演の一覧，および研究プロジェクトや社会貢献・国際貢献の説明が含まれています。</p>
 <ul>
 {% for ar in page.annual_reports %}
-<li><a href="{{ site.baseurl }}{{ la.doc_achievements }}/{{ ar }}" target="_blank">{{ ar | replace_first: "-", " ~ " | remove: "-annual-report.pdf" }} <i class="fa fa-file-pdf-o"></i></a></li>
+<li><a href="{{ site.baseurl }}{{ la.doc_annual_reports }}/{{ ar }}" target="_blank">{{ ar | replace_first: "-", " ~ " | remove: "-annual-report.pdf" }} <i class="fa fa-file-pdf-o"></i></a></li>
 {% endfor %}
 </ul>
 
