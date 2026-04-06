@@ -13,14 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1.217.0
-      with:
-        ruby-version: '3.2.2'
-    - name: Install dependencies
-      run: bundle install
-    - name: Build
-      run: bundle exec jekyll build --future
     - name: Rsync deploy
       uses: Burnett01/rsync-deployments@7.0.2
       with:
@@ -33,3 +25,11 @@ jobs:
         remote_user: ${{ secrets.DEPLOY_USER }}
         remote_key: ${{ secrets.DEPLOY_KEY }}
         remote_key_pass: ${{ secrets.REMOTE_PRIVATE_KEY_PASS }}
+#    - name: Set up Ruby
+#      uses: ruby/setup-ruby@v1.217.0
+#      with:
+#        ruby-version: '3.2.2'
+#    - name: Install dependencies
+#      run: bundle install
+#    - name: Build
+#      run: bundle exec jekyll build --future
