@@ -13,17 +13,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Rsync deploy
-      uses: Burnett01/rsync-deployments@7.0.2
+    - name: rsync deployments
+      uses: burnett01/rsync-deployments@v8
       with:
         switches: -vizr
         legacy_allow_rsa_hostkeys: "true"
         path: _site/
-        remote_path: ${{ secrets.DEPLOY_PATH }}
-        remote_host: ${{ secrets.DEPLOY_HOST }}
-        remote_port: ${{ secrets.DEPLOY_PORT }}
-        remote_user: ${{ secrets.DEPLOY_USER }}
-        remote_key: ${{ secrets.DEPLOY_KEY }}
+        remote_path: ${{ secrets.REMOTE_PATH }} # ex: /var/www/html/
+        remote_host: ${{ secrets.REMOTE_HOST }} # ex: example.com
+        remote_port: ${{ secrets.REMOTE_PORT }} # ex: 22
+        remote_user: ${{ secrets.REMOTE_USER }} # ex: ubuntu
+        remote_key: ${{ secrets.REMOTE_PRIVATE_KEY }}
         remote_key_pass: ${{ secrets.REMOTE_PRIVATE_KEY_PASS }}
 #    - name: Set up Ruby
 #      uses: ruby/setup-ruby@v1.217.0
