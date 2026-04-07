@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $uname = $email[0];
 
     # Create filenames
-    $fbase = '../../../membersform_data/';  // For site on charon
+    $fbase = 'data/';  // For site on charon
     $fname_tex = $fbase . strtolower($ilnr) . "_" . strtolower($ifnr) . '.tex';
     $fname_yml = $fbase . strtolower($ilnr) . "_" . strtolower($ifnr) . '.html';
 
@@ -143,22 +143,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     $latexlines = str_replace("、", "，", $latexlines);
     $yamllines = str_replace("、", "，", $yamllines);
 
-    # Email 
+    # Email private data
     mb_language("neutral");
-    $formcontent = "$latexlines\n\n$yamllines";
-    $recipient = 'astro.ccs.tsukuba@gmail.com';
-    $subject = "TAG member $iln $ifn ($ilnr $ifnr) info";
+    $formcontent = "$latexlines";
+    $recipient = 'ayw@ccs.tsukuba.ac.jp';
+    $subject = "TAG member $iln $ifn ($ilnr $ifnr) private info for register";
     $mailheader = "From: $ie1 \n";
     mb_send_mail($recipient, $subject, $formcontent, $mailheader);
 
-    # Encrypt the private data with OpenSSL
-    $ssl_password = 
-    $latexlines_encrypted = encrypt($latexlines, $ssl_password);
+    # Email webpage data
+    mb_language("neutral");
+    $formcontent = "$yamllines";
+    $recipient = 'ayw@ccs.tsukuba.ac.jp';
+    $subject = "TAG member $iln $ifn ($ilnr $ifnr) public info for webpage";
+    $mailheader = "From: $ie1 \n";
+    mb_send_mail($recipient, $subject, $formcontent, $mailheader);
 
-    # Write files
-    $fcon = fopen($fname_tex . ".enc", 'w');
-    fwrite($fcon, $latexlines_encrypted);
-    fclose($fcon);
+
+    # Encrypt the private data with OpenSSL (deprecated)
+    #$ssl_password = 
+    #$latexlines_encrypted = encrypt($latexlines, $ssl_password);
+
+    # Write files with private data (deprecated)
+    #$fcon = fopen($fname_tex . ".enc", 'w');
+    #fwrite($fcon, $latexlines_encrypted);
+    #fclose($fcon);
+
+    # Write webpage data to file
     $fcon = fopen($fname_yml, 'w');
     fwrite($fcon, $yamllines);
     fclose($fcon);
