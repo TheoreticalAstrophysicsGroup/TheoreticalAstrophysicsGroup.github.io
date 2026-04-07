@@ -146,7 +146,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
     # Email private data
     mb_language("neutral");
     $formcontent = "$latexlines";
-    $recipient = 'ayw@ccs.tsukuba.ac.jp';
+    $recipient = 'fukushima@ccs.tsukuba.ac.jp';
     $subject = "TAG member $iln $ifn ($ilnr $ifnr) private info for register";
     $mailheader = "From: $ie1 \n";
     mb_send_mail($recipient, $subject, $formcontent, $mailheader);
