@@ -4,16 +4,16 @@
 # Some settings
 
 # Organizer(s) name and email, sender (to the speaker) for uchu forum
-$organizer_uchu_forum_ja = "郭";
-$organizer_uchu_forum_en = "Tao Guo";
-$email_uchu_forum = "guotao823@ccs.tsukuba.ac.jp, misamisa@ccs.tsukuba.ac.jp, kuroday@ccs.tsukuba.ac.jp, s2430049@u.tsukuba.ac.jp, akifumi21@ccs.tsukuba.ac.jp";
-$email_sender_uchu_forum = "guotao823@ccs.tsukuba.ac.jp";
+$organizer_uchu_forum_ja = "伊藤 茉那";
+$organizer_uchu_forum_en = "Mana Ito";
+$email_uchu_forum = "manaito@ccs.tsukuba.ac.jp, ishida@ccs.tsukuba.ac.jp, misamisa@ccs.tsukuba.ac.jp, kuroday@ccs.tsukuba.ac.jp, s2430049@u.tsukuba.ac.jp, akifumi21@ccs.tsukuba.ac.jp";
+$email_sender_uchu_forum = "manaito@ccs.tsukuba.ac.jp";
 
 # Organizer(s) name and email, sender (to the speaker) for colloquia
-$organizer_colloquium_ja = "郭";
-$organizer_colloquium_en = "Tao Guo";
-$email_colloquium = "guotao823@ccs.tsukuba.ac.jp, misamisa@ccs.tsukuba.ac.jp, kuroday@ccs.tsukuba.ac.jp, akifumi21@ccs.tsukuba.ac.jp";
-$email_sender_colloquium = "guotao823@ccs.tsukuba.ac.jp";
+$organizer_colloquium_ja = "伊藤 茉那";
+$organizer_colloquium_en = "Mana Ito";
+$email_colloquium = "manaito@ccs.tsukuba.ac.jp, ishida@ccs.tsukuba.ac.jp, misamisa@ccs.tsukuba.ac.jp, kuroday@ccs.tsukuba.ac.jp, akifumi21@ccs.tsukuba.ac.jp";
+$email_sender_colloquium = "manaito@ccs.tsukuba.ac.jp";
 
 # Mailagent sender
 $email_mailagent = "speakers_form@ccs.tsukuba.ac.jp";
@@ -23,7 +23,7 @@ $colloquium_host_org = false;
 
 # Testing
 $test = false;
-$email_recipient_tester = 'ayw@ccs.tsukuba.ac.jp';
+$email_recipient_tester = 'fukushima@ccs.tsukuba.ac.jp';
 
 # Location
 $loc_en = "Seminar Room A";
