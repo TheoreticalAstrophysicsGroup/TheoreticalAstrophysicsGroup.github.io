@@ -9,8 +9,8 @@ post_limit: 9999
 
 # Site settings
 title: Theoretical Astrophysics Group
-email: astro.ccs.tsukuba@gmail.com
-webmaster: Alex Wagner
+email: fukushima@ccs.tsukuba.ac.jp
+webmaster: Hajime Fukushima
 description: "Theoretical Astrophysics Group, Center for Computational Sciences, University of Tsukuba. We research in Numerical Astrophysics, High-performance Computing, Radiation Hydrodynamics, Galaxy Evolution, Cosmology, First Stars, and much much more."
 
 # No need for user/organization github pages, and localhost,
