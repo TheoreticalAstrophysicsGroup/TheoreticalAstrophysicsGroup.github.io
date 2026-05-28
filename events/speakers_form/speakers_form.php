@@ -6,7 +6,7 @@
 # Organizer(s) name and email, sender (to the speaker) for uchu forum
 $organizer_uchu_forum_ja = "伊藤 茉那";
 $organizer_uchu_forum_en = "Mana Ito";
-$email_uchu_forum = "manaito@ccs.tsukuba.ac.jp, ishida@ccs.tsukuba.ac.jp, akifumi21@ccs.tsukuba.ac.jp, fukushima@ccs.tsukuba.ac.jp";
+$email_uchu_forum = "manaito@ccs.tsukuba.ac.jp, ishida@ccs.tsukuba.ac.jp, akifumi21@ccs.tsukuba.ac.jp, fukushima@ccs.tsukuba.ac.jp, s2630058@u.tsukuba.ac.jp";
 $email_sender_uchu_forum = "manaito@ccs.tsukuba.ac.jp";
 
 # Organizer(s) name and email, sender (to the speaker) for colloquia
